@@ -1,0 +1,13 @@
+{
+  "author": "Walkingice Chu",
+  "name": "appy_cec",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "",
+  "repository" : {
+  },
+  "dependencies": {
+    "cheerio": "*",
+    "node-getopt": "*"
+  }
+}
