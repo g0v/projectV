@@ -1,0 +1,125 @@
+{
+    "data": [
+        [
+            "苗栗縣第02選區獅潭鄉百壽村第0378投開票所",
+            "楊長鎮",
+            "1",
+            "46",
+            " 24.08%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0218"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉百壽村第0378投開票所",
+            "徐耀昌",
+            "2",
+            "145",
+            " 75.91%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0218"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉永興村第0379投開票所",
+            "楊長鎮",
+            "1",
+            "156",
+            " 37.14%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0219"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉永興村第0379投開票所",
+            "徐耀昌",
+            "2",
+            "264",
+            " 62.85%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0219"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉新店村第0380投開票所",
+            "楊長鎮",
+            "1",
+            "242",
+            " 37.00%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0220"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉新店村第0380投開票所",
+            "徐耀昌",
+            "2",
+            "412",
+            " 62.99%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0220"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉和興村第0381投開票所",
+            "楊長鎮",
+            "1",
+            "145",
+            " 36.61%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0221"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉和興村第0381投開票所",
+            "徐耀昌",
+            "2",
+            "251",
+            " 63.38%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0221"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉豐林村第0382投開票所",
+            "楊長鎮",
+            "1",
+            "71",
+            " 16.39%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0222"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉豐林村第0382投開票所",
+            "徐耀昌",
+            "2",
+            "362",
+            " 83.60%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0222"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉新豐村第0383投開票所",
+            "楊長鎮",
+            "1",
+            "75",
+            " 29.64%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0223"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉新豐村第0383投開票所",
+            "徐耀昌",
+            "2",
+            "178",
+            " 70.35%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0223"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉竹木村第0384投開票所",
+            "楊長鎮",
+            "1",
+            "144",
+            " 27.42%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0224"
+        ],
+        [
+            "苗栗縣第02選區獅潭鄉竹木村第0384投開票所",
+            "徐耀昌",
+            "2",
+            "381",
+            " 72.57%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_06-cityCode_004-areaCode_02-deptCode_014-liCode_0224"
+        ]
+    ],
+    "head": "第 08 屆 立法委員選舉（區域）&nbsp;候選人得票數",
+    "date": "投票日期：中華民國101年01月14日",
+    "title": [
+        "地區",
+        "姓名",
+        "號次",
+        "得票數",
+        "得票率"
+    ]
+}

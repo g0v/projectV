@@ -1,0 +1,109 @@
+{
+    "data": [
+        [
+            "新北市第11選區烏來區忠治里第2104投開票所",
+            "高建智",
+            "1",
+            "251",
+            " 43.12%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0884"
+        ],
+        [
+            "新北市第11選區烏來區忠治里第2104投開票所",
+            "羅明才",
+            "2",
+            "331",
+            " 56.87%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0884"
+        ],
+        [
+            "新北市第11選區烏來區烏來里第2105投開票所",
+            "高建智",
+            "1",
+            "273",
+            " 41.87%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0885"
+        ],
+        [
+            "新北市第11選區烏來區烏來里第2105投開票所",
+            "羅明才",
+            "2",
+            "379",
+            " 58.12%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0885"
+        ],
+        [
+            "新北市第11選區烏來區烏來里第2106投開票所",
+            "高建智",
+            "1",
+            "99",
+            " 44.79%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0885"
+        ],
+        [
+            "新北市第11選區烏來區烏來里第2106投開票所",
+            "羅明才",
+            "2",
+            "122",
+            " 55.20%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0885"
+        ],
+        [
+            "新北市第11選區烏來區孝義里第2107投開票所",
+            "高建智",
+            "1",
+            "68",
+            " 47.22%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0886"
+        ],
+        [
+            "新北市第11選區烏來區孝義里第2107投開票所",
+            "羅明才",
+            "2",
+            "76",
+            " 52.77%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0886"
+        ],
+        [
+            "新北市第11選區烏來區信賢里第2108投開票所",
+            "高建智",
+            "1",
+            "113",
+            " 54.85%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0887"
+        ],
+        [
+            "新北市第11選區烏來區信賢里第2108投開票所",
+            "羅明才",
+            "2",
+            "93",
+            " 45.14%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0887"
+        ],
+        [
+            "新北市第11選區烏來區福山里第2109投開票所",
+            "高建智",
+            "1",
+            "42",
+            " 56.75%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0888"
+        ],
+        [
+            "新北市第11選區烏來區福山里第2109投開票所",
+            "羅明才",
+            "2",
+            "32",
+            " 43.24%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_02-cityCode_000-areaCode_11-deptCode_022-liCode_0888"
+        ]
+    ],
+    "head": "第 08 屆 立法委員選舉（區域）&nbsp;候選人得票數",
+    "date": "投票日期：中華民國101年01月14日",
+    "title": [
+        "地區",
+        "姓名",
+        "號次",
+        "得票數",
+        "得票率"
+    ]
+}

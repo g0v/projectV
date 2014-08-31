@@ -1,0 +1,637 @@
+{
+    "data": [
+        [
+            "臺南市第01選區將軍區長榮里第0232投開票所",
+            "葉宜津",
+            "1",
+            "494",
+            " 65.69%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0155"
+        ],
+        [
+            "臺南市第01選區將軍區長榮里第0232投開票所",
+            "李宗智",
+            "2",
+            "50",
+            "  6.64%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0155"
+        ],
+        [
+            "臺南市第01選區將軍區長榮里第0232投開票所",
+            "歐崇敬",
+            "3",
+            "208",
+            " 27.65%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0155"
+        ],
+        [
+            "臺南市第01選區將軍區西華里第0233投開票所",
+            "葉宜津",
+            "1",
+            "632",
+            " 64.62%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0156"
+        ],
+        [
+            "臺南市第01選區將軍區西華里第0233投開票所",
+            "李宗智",
+            "2",
+            "77",
+            "  7.87%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0156"
+        ],
+        [
+            "臺南市第01選區將軍區西華里第0233投開票所",
+            "歐崇敬",
+            "3",
+            "269",
+            " 27.50%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0156"
+        ],
+        [
+            "臺南市第01選區將軍區西和里第0234投開票所",
+            "葉宜津",
+            "1",
+            "454",
+            " 67.66%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0157"
+        ],
+        [
+            "臺南市第01選區將軍區西和里第0234投開票所",
+            "李宗智",
+            "2",
+            "79",
+            " 11.77%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0157"
+        ],
+        [
+            "臺南市第01選區將軍區西和里第0234投開票所",
+            "歐崇敬",
+            "3",
+            "138",
+            " 20.56%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0157"
+        ],
+        [
+            "臺南市第01選區將軍區忠興里第0235投開票所",
+            "葉宜津",
+            "1",
+            "245",
+            " 64.13%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0158"
+        ],
+        [
+            "臺南市第01選區將軍區忠興里第0235投開票所",
+            "李宗智",
+            "2",
+            "42",
+            " 10.99%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0158"
+        ],
+        [
+            "臺南市第01選區將軍區忠興里第0235投開票所",
+            "歐崇敬",
+            "3",
+            "95",
+            " 24.86%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0158"
+        ],
+        [
+            "臺南市第01選區將軍區忠興里第0236投開票所",
+            "葉宜津",
+            "1",
+            "458",
+            " 65.99%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0158"
+        ],
+        [
+            "臺南市第01選區將軍區忠興里第0236投開票所",
+            "李宗智",
+            "2",
+            "57",
+            "  8.21%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0158"
+        ],
+        [
+            "臺南市第01選區將軍區忠興里第0236投開票所",
+            "歐崇敬",
+            "3",
+            "179",
+            " 25.79%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0158"
+        ],
+        [
+            "臺南市第01選區將軍區嘉昌里第0237投開票所",
+            "葉宜津",
+            "1",
+            "296",
+            " 74.93%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0159"
+        ],
+        [
+            "臺南市第01選區將軍區嘉昌里第0237投開票所",
+            "李宗智",
+            "2",
+            "39",
+            "  9.87%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0159"
+        ],
+        [
+            "臺南市第01選區將軍區嘉昌里第0237投開票所",
+            "歐崇敬",
+            "3",
+            "60",
+            " 15.18%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0159"
+        ],
+        [
+            "臺南市第01選區將軍區嘉昌里第0238投開票所",
+            "葉宜津",
+            "1",
+            "172",
+            " 75.10%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0159"
+        ],
+        [
+            "臺南市第01選區將軍區嘉昌里第0238投開票所",
+            "李宗智",
+            "2",
+            "20",
+            "  8.73%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0159"
+        ],
+        [
+            "臺南市第01選區將軍區嘉昌里第0238投開票所",
+            "歐崇敬",
+            "3",
+            "37",
+            " 16.15%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0159"
+        ],
+        [
+            "臺南市第01選區將軍區保源里第0239投開票所",
+            "葉宜津",
+            "1",
+            "276",
+            " 66.02%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0160"
+        ],
+        [
+            "臺南市第01選區將軍區保源里第0239投開票所",
+            "李宗智",
+            "2",
+            "45",
+            " 10.76%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0160"
+        ],
+        [
+            "臺南市第01選區將軍區保源里第0239投開票所",
+            "歐崇敬",
+            "3",
+            "97",
+            " 23.20%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0160"
+        ],
+        [
+            "臺南市第01選區將軍區保源里第0240投開票所",
+            "葉宜津",
+            "1",
+            "234",
+            " 79.32%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0160"
+        ],
+        [
+            "臺南市第01選區將軍區保源里第0240投開票所",
+            "李宗智",
+            "2",
+            "17",
+            "  5.76%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0160"
+        ],
+        [
+            "臺南市第01選區將軍區保源里第0240投開票所",
+            "歐崇敬",
+            "3",
+            "44",
+            " 14.91%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0160"
+        ],
+        [
+            "臺南市第01選區將軍區苓和里第0241投開票所",
+            "葉宜津",
+            "1",
+            "290",
+            " 68.88%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0161"
+        ],
+        [
+            "臺南市第01選區將軍區苓和里第0241投開票所",
+            "李宗智",
+            "2",
+            "49",
+            " 11.63%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0161"
+        ],
+        [
+            "臺南市第01選區將軍區苓和里第0241投開票所",
+            "歐崇敬",
+            "3",
+            "82",
+            " 19.47%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0161"
+        ],
+        [
+            "臺南市第01選區將軍區苓和里第0242投開票所",
+            "葉宜津",
+            "1",
+            "201",
+            " 69.07%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0161"
+        ],
+        [
+            "臺南市第01選區將軍區苓和里第0242投開票所",
+            "李宗智",
+            "2",
+            "23",
+            "  7.90%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0161"
+        ],
+        [
+            "臺南市第01選區將軍區苓和里第0242投開票所",
+            "歐崇敬",
+            "3",
+            "67",
+            " 23.02%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0161"
+        ],
+        [
+            "臺南市第01選區將軍區仁和里第0243投開票所",
+            "葉宜津",
+            "1",
+            "374",
+            " 77.91%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0162"
+        ],
+        [
+            "臺南市第01選區將軍區仁和里第0243投開票所",
+            "李宗智",
+            "2",
+            "29",
+            "  6.04%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0162"
+        ],
+        [
+            "臺南市第01選區將軍區仁和里第0243投開票所",
+            "歐崇敬",
+            "3",
+            "77",
+            " 16.04%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0162"
+        ],
+        [
+            "臺南市第01選區將軍區北埔里第0244投開票所",
+            "葉宜津",
+            "1",
+            "339",
+            " 77.39%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0163"
+        ],
+        [
+            "臺南市第01選區將軍區北埔里第0244投開票所",
+            "李宗智",
+            "2",
+            "31",
+            "  7.07%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0163"
+        ],
+        [
+            "臺南市第01選區將軍區北埔里第0244投開票所",
+            "歐崇敬",
+            "3",
+            "68",
+            " 15.52%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0163"
+        ],
+        [
+            "臺南市第01選區將軍區將富里第0245投開票所",
+            "葉宜津",
+            "1",
+            "311",
+            " 71.00%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0164"
+        ],
+        [
+            "臺南市第01選區將軍區將富里第0245投開票所",
+            "李宗智",
+            "2",
+            "51",
+            " 11.64%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0164"
+        ],
+        [
+            "臺南市第01選區將軍區將富里第0245投開票所",
+            "歐崇敬",
+            "3",
+            "76",
+            " 17.35%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0164"
+        ],
+        [
+            "臺南市第01選區將軍區將貴里第0246投開票所",
+            "葉宜津",
+            "1",
+            "243",
+            " 56.38%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0165"
+        ],
+        [
+            "臺南市第01選區將軍區將貴里第0246投開票所",
+            "李宗智",
+            "2",
+            "119",
+            " 27.61%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0165"
+        ],
+        [
+            "臺南市第01選區將軍區將貴里第0246投開票所",
+            "歐崇敬",
+            "3",
+            "69",
+            " 16.00%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0165"
+        ],
+        [
+            "臺南市第01選區將軍區三吉里第0247投開票所",
+            "葉宜津",
+            "1",
+            "184",
+            " 63.01%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0166"
+        ],
+        [
+            "臺南市第01選區將軍區三吉里第0247投開票所",
+            "李宗智",
+            "2",
+            "35",
+            " 11.98%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0166"
+        ],
+        [
+            "臺南市第01選區將軍區三吉里第0247投開票所",
+            "歐崇敬",
+            "3",
+            "73",
+            " 25.00%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0166"
+        ],
+        [
+            "臺南市第01選區將軍區玉山里第0248投開票所",
+            "葉宜津",
+            "1",
+            "472",
+            " 81.23%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0167"
+        ],
+        [
+            "臺南市第01選區將軍區玉山里第0248投開票所",
+            "李宗智",
+            "2",
+            "27",
+            "  4.64%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0167"
+        ],
+        [
+            "臺南市第01選區將軍區玉山里第0248投開票所",
+            "歐崇敬",
+            "3",
+            "82",
+            " 14.11%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0167"
+        ],
+        [
+            "臺南市第01選區將軍區廣山里第0249投開票所",
+            "葉宜津",
+            "1",
+            "281",
+            " 62.16%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0168"
+        ],
+        [
+            "臺南市第01選區將軍區廣山里第0249投開票所",
+            "李宗智",
+            "2",
+            "41",
+            "  9.07%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0168"
+        ],
+        [
+            "臺南市第01選區將軍區廣山里第0249投開票所",
+            "歐崇敬",
+            "3",
+            "130",
+            " 28.76%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0168"
+        ],
+        [
+            "臺南市第01選區將軍區長沙里第0250投開票所",
+            "葉宜津",
+            "1",
+            "410",
+            " 76.77%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0169"
+        ],
+        [
+            "臺南市第01選區將軍區長沙里第0250投開票所",
+            "李宗智",
+            "2",
+            "60",
+            " 11.23%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0169"
+        ],
+        [
+            "臺南市第01選區將軍區長沙里第0250投開票所",
+            "歐崇敬",
+            "3",
+            "64",
+            " 11.98%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0169"
+        ],
+        [
+            "臺南市第01選區將軍區長沙里第0251投開票所",
+            "葉宜津",
+            "1",
+            "262",
+            " 68.05%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0169"
+        ],
+        [
+            "臺南市第01選區將軍區長沙里第0251投開票所",
+            "李宗智",
+            "2",
+            "51",
+            " 13.24%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0169"
+        ],
+        [
+            "臺南市第01選區將軍區長沙里第0251投開票所",
+            "歐崇敬",
+            "3",
+            "72",
+            " 18.70%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0169"
+        ],
+        [
+            "臺南市第01選區將軍區平沙里第0252投開票所",
+            "葉宜津",
+            "1",
+            "605",
+            " 78.77%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0170"
+        ],
+        [
+            "臺南市第01選區將軍區平沙里第0252投開票所",
+            "李宗智",
+            "2",
+            "70",
+            "  9.11%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0170"
+        ],
+        [
+            "臺南市第01選區將軍區平沙里第0252投開票所",
+            "歐崇敬",
+            "3",
+            "93",
+            " 12.10%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0170"
+        ],
+        [
+            "臺南市第01選區將軍區鯤鯓里第0253投開票所",
+            "葉宜津",
+            "1",
+            "385",
+            " 69.24%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0171"
+        ],
+        [
+            "臺南市第01選區將軍區鯤鯓里第0253投開票所",
+            "李宗智",
+            "2",
+            "49",
+            "  8.81%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0171"
+        ],
+        [
+            "臺南市第01選區將軍區鯤鯓里第0253投開票所",
+            "歐崇敬",
+            "3",
+            "122",
+            " 21.94%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0171"
+        ],
+        [
+            "臺南市第01選區將軍區鯤鯓里第0254投開票所",
+            "葉宜津",
+            "1",
+            "557",
+            " 72.62%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0171"
+        ],
+        [
+            "臺南市第01選區將軍區鯤鯓里第0254投開票所",
+            "李宗智",
+            "2",
+            "74",
+            "  9.64%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0171"
+        ],
+        [
+            "臺南市第01選區將軍區鯤鯓里第0254投開票所",
+            "歐崇敬",
+            "3",
+            "136",
+            " 17.73%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0171"
+        ],
+        [
+            "臺南市第01選區將軍區鯤溟里第0255投開票所",
+            "葉宜津",
+            "1",
+            "477",
+            " 73.38%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0172"
+        ],
+        [
+            "臺南市第01選區將軍區鯤溟里第0255投開票所",
+            "李宗智",
+            "2",
+            "48",
+            "  7.38%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0172"
+        ],
+        [
+            "臺南市第01選區將軍區鯤溟里第0255投開票所",
+            "歐崇敬",
+            "3",
+            "125",
+            " 19.23%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_009-liCode_0172"
+        ],
+        [
+            "高雄市第01選區茂林區茂林里第0127投開票所",
+            "邱議瑩",
+            "1",
+            "20",
+            " 47.61%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_009-liCode_0096"
+        ],
+        [
+            "高雄市第01選區茂林區茂林里第0127投開票所",
+            "鍾紹和",
+            "2",
+            "22",
+            " 52.38%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_009-liCode_0096"
+        ],
+        [
+            "高雄市第01選區茂林區萬山里第0128投開票所",
+            "邱議瑩",
+            "1",
+            "3",
+            " 42.85%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_009-liCode_0097"
+        ],
+        [
+            "高雄市第01選區茂林區萬山里第0128投開票所",
+            "鍾紹和",
+            "2",
+            "4",
+            " 57.14%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_009-liCode_0097"
+        ],
+        [
+            "高雄市第01選區茂林區多納里第0129投開票所",
+            "邱議瑩",
+            "1",
+            "4",
+            " 57.14%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_009-liCode_0098"
+        ],
+        [
+            "高雄市第01選區茂林區多納里第0129投開票所",
+            "鍾紹和",
+            "2",
+            "3",
+            " 42.85%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_009-liCode_0098"
+        ]
+    ],
+    "head": "第 08 屆 立法委員選舉（區域）&nbsp;候選人得票數",
+    "date": "投票日期：中華民國101年01月14日",
+    "title": [
+        "地區",
+        "姓名",
+        "號次",
+        "得票數",
+        "得票率"
+    ]
+}

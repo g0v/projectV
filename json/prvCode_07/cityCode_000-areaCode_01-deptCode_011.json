@@ -1,0 +1,661 @@
+{
+    "data": [
+        [
+            "臺南市第01選區六甲區六甲里第0275投開票所",
+            "葉宜津",
+            "1",
+            "344",
+            " 59.93%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0188"
+        ],
+        [
+            "臺南市第01選區六甲區六甲里第0275投開票所",
+            "李宗智",
+            "2",
+            "49",
+            "  8.53%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0188"
+        ],
+        [
+            "臺南市第01選區六甲區六甲里第0275投開票所",
+            "歐崇敬",
+            "3",
+            "181",
+            " 31.53%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0188"
+        ],
+        [
+            "臺南市第01選區六甲區六甲里第0276投開票所",
+            "葉宜津",
+            "1",
+            "335",
+            " 62.85%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0188"
+        ],
+        [
+            "臺南市第01選區六甲區六甲里第0276投開票所",
+            "李宗智",
+            "2",
+            "37",
+            "  6.94%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0188"
+        ],
+        [
+            "臺南市第01選區六甲區六甲里第0276投開票所",
+            "歐崇敬",
+            "3",
+            "161",
+            " 30.20%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0188"
+        ],
+        [
+            "臺南市第01選區六甲區六甲里第0277投開票所",
+            "葉宜津",
+            "1",
+            "611",
+            " 65.55%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0188"
+        ],
+        [
+            "臺南市第01選區六甲區六甲里第0277投開票所",
+            "李宗智",
+            "2",
+            "79",
+            "  8.47%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0188"
+        ],
+        [
+            "臺南市第01選區六甲區六甲里第0277投開票所",
+            "歐崇敬",
+            "3",
+            "242",
+            " 25.96%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0188"
+        ],
+        [
+            "臺南市第01選區六甲區甲東里第0278投開票所",
+            "葉宜津",
+            "1",
+            "662",
+            " 66.86%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺南市第01選區六甲區甲東里第0278投開票所",
+            "李宗智",
+            "2",
+            "72",
+            "  7.27%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺南市第01選區六甲區甲東里第0278投開票所",
+            "歐崇敬",
+            "3",
+            "256",
+            " 25.85%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺南市第01選區六甲區甲東里第0279投開票所",
+            "葉宜津",
+            "1",
+            "551",
+            " 68.70%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺南市第01選區六甲區甲東里第0279投開票所",
+            "李宗智",
+            "2",
+            "69",
+            "  8.60%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺南市第01選區六甲區甲東里第0279投開票所",
+            "歐崇敬",
+            "3",
+            "182",
+            " 22.69%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺南市第01選區六甲區甲南里第0280投開票所",
+            "葉宜津",
+            "1",
+            "641",
+            " 65.60%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0190"
+        ],
+        [
+            "臺南市第01選區六甲區甲南里第0280投開票所",
+            "李宗智",
+            "2",
+            "66",
+            "  6.75%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0190"
+        ],
+        [
+            "臺南市第01選區六甲區甲南里第0280投開票所",
+            "歐崇敬",
+            "3",
+            "270",
+            " 27.63%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0190"
+        ],
+        [
+            "臺南市第01選區六甲區龍湖里第0281投開票所",
+            "葉宜津",
+            "1",
+            "517",
+            " 69.95%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0191"
+        ],
+        [
+            "臺南市第01選區六甲區龍湖里第0281投開票所",
+            "李宗智",
+            "2",
+            "50",
+            "  6.76%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0191"
+        ],
+        [
+            "臺南市第01選區六甲區龍湖里第0281投開票所",
+            "歐崇敬",
+            "3",
+            "172",
+            " 23.27%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0191"
+        ],
+        [
+            "臺南市第01選區六甲區七甲里第0282投開票所",
+            "葉宜津",
+            "1",
+            "525",
+            " 77.77%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0192"
+        ],
+        [
+            "臺南市第01選區六甲區七甲里第0282投開票所",
+            "李宗智",
+            "2",
+            "47",
+            "  6.96%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0192"
+        ],
+        [
+            "臺南市第01選區六甲區七甲里第0282投開票所",
+            "歐崇敬",
+            "3",
+            "103",
+            " 15.25%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0192"
+        ],
+        [
+            "臺南市第01選區六甲區二甲里第0283投開票所",
+            "葉宜津",
+            "1",
+            "480",
+            " 70.58%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0193"
+        ],
+        [
+            "臺南市第01選區六甲區二甲里第0283投開票所",
+            "李宗智",
+            "2",
+            "35",
+            "  5.14%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0193"
+        ],
+        [
+            "臺南市第01選區六甲區二甲里第0283投開票所",
+            "歐崇敬",
+            "3",
+            "165",
+            " 24.26%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0193"
+        ],
+        [
+            "臺南市第01選區六甲區二甲里第0284投開票所",
+            "葉宜津",
+            "1",
+            "490",
+            " 64.38%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0193"
+        ],
+        [
+            "臺南市第01選區六甲區二甲里第0284投開票所",
+            "李宗智",
+            "2",
+            "59",
+            "  7.75%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0193"
+        ],
+        [
+            "臺南市第01選區六甲區二甲里第0284投開票所",
+            "歐崇敬",
+            "3",
+            "212",
+            " 27.85%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0193"
+        ],
+        [
+            "臺南市第01選區六甲區二甲里第0285投開票所",
+            "葉宜津",
+            "1",
+            "498",
+            " 68.12%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0193"
+        ],
+        [
+            "臺南市第01選區六甲區二甲里第0285投開票所",
+            "李宗智",
+            "2",
+            "38",
+            "  5.19%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0193"
+        ],
+        [
+            "臺南市第01選區六甲區二甲里第0285投開票所",
+            "歐崇敬",
+            "3",
+            "195",
+            " 26.67%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0193"
+        ],
+        [
+            "臺南市第01選區六甲區水林里第0286投開票所",
+            "葉宜津",
+            "1",
+            "542",
+            " 69.13%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0194"
+        ],
+        [
+            "臺南市第01選區六甲區水林里第0286投開票所",
+            "李宗智",
+            "2",
+            "61",
+            "  7.78%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0194"
+        ],
+        [
+            "臺南市第01選區六甲區水林里第0286投開票所",
+            "歐崇敬",
+            "3",
+            "181",
+            " 23.08%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0194"
+        ],
+        [
+            "臺南市第01選區六甲區水林里第0287投開票所",
+            "葉宜津",
+            "1",
+            "476",
+            " 68.09%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0194"
+        ],
+        [
+            "臺南市第01選區六甲區水林里第0287投開票所",
+            "李宗智",
+            "2",
+            "64",
+            "  9.15%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0194"
+        ],
+        [
+            "臺南市第01選區六甲區水林里第0287投開票所",
+            "歐崇敬",
+            "3",
+            "159",
+            " 22.74%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0194"
+        ],
+        [
+            "臺南市第01選區六甲區中社里第0288投開票所",
+            "葉宜津",
+            "1",
+            "404",
+            " 72.53%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0195"
+        ],
+        [
+            "臺南市第01選區六甲區中社里第0288投開票所",
+            "李宗智",
+            "2",
+            "53",
+            "  9.51%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0195"
+        ],
+        [
+            "臺南市第01選區六甲區中社里第0288投開票所",
+            "歐崇敬",
+            "3",
+            "100",
+            " 17.95%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0195"
+        ],
+        [
+            "臺南市第01選區六甲區中社里第0289投開票所",
+            "葉宜津",
+            "1",
+            "380",
+            " 60.70%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0195"
+        ],
+        [
+            "臺南市第01選區六甲區中社里第0289投開票所",
+            "李宗智",
+            "2",
+            "58",
+            "  9.26%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0195"
+        ],
+        [
+            "臺南市第01選區六甲區中社里第0289投開票所",
+            "歐崇敬",
+            "3",
+            "188",
+            " 30.03%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0195"
+        ],
+        [
+            "臺南市第01選區六甲區龜港里第0290投開票所",
+            "葉宜津",
+            "1",
+            "475",
+            " 60.74%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0196"
+        ],
+        [
+            "臺南市第01選區六甲區龜港里第0290投開票所",
+            "李宗智",
+            "2",
+            "105",
+            " 13.42%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0196"
+        ],
+        [
+            "臺南市第01選區六甲區龜港里第0290投開票所",
+            "歐崇敬",
+            "3",
+            "202",
+            " 25.83%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0196"
+        ],
+        [
+            "臺南市第01選區六甲區菁埔里第0291投開票所",
+            "葉宜津",
+            "1",
+            "294",
+            " 66.51%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0197"
+        ],
+        [
+            "臺南市第01選區六甲區菁埔里第0291投開票所",
+            "李宗智",
+            "2",
+            "33",
+            "  7.46%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0197"
+        ],
+        [
+            "臺南市第01選區六甲區菁埔里第0291投開票所",
+            "歐崇敬",
+            "3",
+            "115",
+            " 26.01%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0197"
+        ],
+        [
+            "臺南市第01選區六甲區王爺里第0292投開票所",
+            "葉宜津",
+            "1",
+            "326",
+            " 63.67%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0198"
+        ],
+        [
+            "臺南市第01選區六甲區王爺里第0292投開票所",
+            "李宗智",
+            "2",
+            "65",
+            " 12.69%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0198"
+        ],
+        [
+            "臺南市第01選區六甲區王爺里第0292投開票所",
+            "歐崇敬",
+            "3",
+            "121",
+            " 23.63%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0198"
+        ],
+        [
+            "臺南市第01選區六甲區大丘里第0293投開票所",
+            "葉宜津",
+            "1",
+            "251",
+            " 63.54%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0199"
+        ],
+        [
+            "臺南市第01選區六甲區大丘里第0293投開票所",
+            "李宗智",
+            "2",
+            "68",
+            " 17.21%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0199"
+        ],
+        [
+            "臺南市第01選區六甲區大丘里第0293投開票所",
+            "歐崇敬",
+            "3",
+            "76",
+            " 19.24%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_04-cityCode_000-areaCode_01-deptCode_011-liCode_0199"
+        ],
+        [
+            "高雄市第01選區田寮區鹿埔里第0151投開票所",
+            "邱議瑩",
+            "1",
+            "114",
+            " 43.51%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0111"
+        ],
+        [
+            "高雄市第01選區田寮區鹿埔里第0151投開票所",
+            "鍾紹和",
+            "2",
+            "148",
+            " 56.48%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0111"
+        ],
+        [
+            "高雄市第01選區田寮區南安里第0152投開票所",
+            "邱議瑩",
+            "1",
+            "312",
+            " 58.53%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0112"
+        ],
+        [
+            "高雄市第01選區田寮區南安里第0152投開票所",
+            "鍾紹和",
+            "2",
+            "221",
+            " 41.46%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0112"
+        ],
+        [
+            "高雄市第01選區田寮區南安里第0153投開票所",
+            "邱議瑩",
+            "1",
+            "220",
+            " 60.94%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0112"
+        ],
+        [
+            "高雄市第01選區田寮區南安里第0153投開票所",
+            "鍾紹和",
+            "2",
+            "141",
+            " 39.05%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0112"
+        ],
+        [
+            "高雄市第01選區田寮區大同里第0154投開票所",
+            "邱議瑩",
+            "1",
+            "217",
+            " 72.81%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0113"
+        ],
+        [
+            "高雄市第01選區田寮區大同里第0154投開票所",
+            "鍾紹和",
+            "2",
+            "81",
+            " 27.18%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0113"
+        ],
+        [
+            "高雄市第01選區田寮區田寮里第0155投開票所",
+            "邱議瑩",
+            "1",
+            "154",
+            " 54.80%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0114"
+        ],
+        [
+            "高雄市第01選區田寮區田寮里第0155投開票所",
+            "鍾紹和",
+            "2",
+            "127",
+            " 45.19%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0114"
+        ],
+        [
+            "高雄市第01選區田寮區七星里第0156投開票所",
+            "邱議瑩",
+            "1",
+            "355",
+            " 68.79%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0115"
+        ],
+        [
+            "高雄市第01選區田寮區七星里第0156投開票所",
+            "鍾紹和",
+            "2",
+            "161",
+            " 31.20%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0115"
+        ],
+        [
+            "高雄市第01選區田寮區崇德里第0157投開票所",
+            "邱議瑩",
+            "1",
+            "397",
+            " 53.28%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0116"
+        ],
+        [
+            "高雄市第01選區田寮區崇德里第0157投開票所",
+            "鍾紹和",
+            "2",
+            "348",
+            " 46.71%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0116"
+        ],
+        [
+            "高雄市第01選區田寮區西德里第0158投開票所",
+            "邱議瑩",
+            "1",
+            "313",
+            " 51.22%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0117"
+        ],
+        [
+            "高雄市第01選區田寮區西德里第0158投開票所",
+            "鍾紹和",
+            "2",
+            "298",
+            " 48.77%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0117"
+        ],
+        [
+            "高雄市第01選區田寮區三和里第0159投開票所",
+            "邱議瑩",
+            "1",
+            "124",
+            " 43.50%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0118"
+        ],
+        [
+            "高雄市第01選區田寮區三和里第0159投開票所",
+            "鍾紹和",
+            "2",
+            "161",
+            " 56.49%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0118"
+        ],
+        [
+            "高雄市第01選區田寮區古亭里第0160投開票所",
+            "邱議瑩",
+            "1",
+            "216",
+            " 52.81%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0119"
+        ],
+        [
+            "高雄市第01選區田寮區古亭里第0160投開票所",
+            "鍾紹和",
+            "2",
+            "193",
+            " 47.18%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0119"
+        ],
+        [
+            "高雄市第01選區田寮區新興里第0161投開票所",
+            "邱議瑩",
+            "1",
+            "369",
+            " 71.23%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0120"
+        ],
+        [
+            "高雄市第01選區田寮區新興里第0161投開票所",
+            "鍾紹和",
+            "2",
+            "149",
+            " 28.76%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0120"
+        ],
+        [
+            "高雄市第01選區田寮區新興里第0162投開票所",
+            "邱議瑩",
+            "1",
+            "329",
+            " 64.38%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0120"
+        ],
+        [
+            "高雄市第01選區田寮區新興里第0162投開票所",
+            "鍾紹和",
+            "2",
+            "182",
+            " 35.61%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_05-cityCode_000-areaCode_01-deptCode_011-liCode_0120"
+        ]
+    ],
+    "head": "第 08 屆 立法委員選舉（區域）&nbsp;候選人得票數",
+    "date": "投票日期：中華民國101年01月14日",
+    "title": [
+        "地區",
+        "姓名",
+        "號次",
+        "得票數",
+        "得票率"
+    ]
+}

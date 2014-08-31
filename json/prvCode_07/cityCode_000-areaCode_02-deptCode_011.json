@@ -1,0 +1,141 @@
+{
+    "data": [
+        [
+            "臺中市第02選區大里區東湖里第0371投開票所",
+            "李順涼",
+            "1",
+            "469",
+            " 43.70%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0371投開票所",
+            "顏清標",
+            "2",
+            "604",
+            " 56.29%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0372投開票所",
+            "李順涼",
+            "1",
+            "486",
+            " 45.46%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0372投開票所",
+            "顏清標",
+            "2",
+            "583",
+            " 54.53%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0373投開票所",
+            "李順涼",
+            "1",
+            "368",
+            " 44.49%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0373投開票所",
+            "顏清標",
+            "2",
+            "459",
+            " 55.50%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0374投開票所",
+            "李順涼",
+            "1",
+            "460",
+            " 45.58%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0374投開票所",
+            "顏清標",
+            "2",
+            "549",
+            " 54.41%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0375投開票所",
+            "李順涼",
+            "1",
+            "367",
+            " 43.43%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0375投開票所",
+            "顏清標",
+            "2",
+            "478",
+            " 56.56%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0376投開票所",
+            "李順涼",
+            "1",
+            "501",
+            " 48.21%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區東湖里第0376投開票所",
+            "顏清標",
+            "2",
+            "538",
+            " 51.78%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0189"
+        ],
+        [
+            "臺中市第02選區大里區西湖里第0377投開票所",
+            "李順涼",
+            "1",
+            "500",
+            " 52.46%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0190"
+        ],
+        [
+            "臺中市第02選區大里區西湖里第0377投開票所",
+            "顏清標",
+            "2",
+            "453",
+            " 47.53%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0190"
+        ],
+        [
+            "臺中市第02選區大里區西湖里第0378投開票所",
+            "李順涼",
+            "1",
+            "403",
+            " 43.37%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0190"
+        ],
+        [
+            "臺中市第02選區大里區西湖里第0378投開票所",
+            "顏清標",
+            "2",
+            "526",
+            " 56.62%",
+            "voteCode_20120101T1A2-qryType_ctks-prvCode_03-cityCode_000-areaCode_02-deptCode_011-liCode_0190"
+        ]
+    ],
+    "head": "第 08 屆 立法委員選舉（區域）&nbsp;候選人得票數",
+    "date": "投票日期：中華民國101年01月14日",
+    "title": [
+        "地區",
+        "姓名",
+        "號次",
+        "得票數",
+        "得票率"
+    ]
+}
