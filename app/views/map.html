@@ -1,6 +1,6 @@
 
 <leaflet markers="markers" center="taiwan" defaults="defaults" geojson="geojson"></leaflet>
-<div class="back-button" ng-show="selectedDistrictName">
+<div class="back-button" ng-show="null">
   <button type="button" class="btn btn-primary" ng-click="back()">
     <i class="fa fa-chevron-left"></i> Back
   </button>
@@ -33,10 +33,10 @@
   </div>
 </div>
 
-<div class="panel panel-default area-info" ng-show="markerclick">
+<div class="panel panel-default area-info" ng-show="markerNs.click">
   <div class="panel-heading">
     <h3 class="panel-title">
-		 投開票所資訊
+		 {{ markerNs.loc || '投開票所資訊' }}
     </h3>
   </div>
   <div class="panel-body">
@@ -45,7 +45,7 @@
         <label class="col-sm-4 control-label">當選立委</label>
         <div class="col-sm-8">
           <p class="form-control-static">
-           	None 
+             {{ markerNs.winner.name }} ( {{ markerNs.winner.party }} )
           </p>
         </div>
       </div>
@@ -53,7 +53,7 @@
         <label class="col-sm-4 control-label">得票情況</label>
         <div class="col-sm-8">
           <p class="form-control-static">
-           	None 
+             {{ markerNs.winner.count }} 票 ( {{ markerNs.winner.ratio }} )
           </p>
         </div>
       </div>

@@ -56,7 +56,6 @@ angular.module('mlymapApp')
             });
             stotal += val1['選舉人數'];
          });
- 
          var index = scount.indexOf(Math.max.apply(this, scount));
          winner.name = overview['候選人'][index][1];
          winner.party = overview['候選人'][index][2];
