@@ -20,10 +20,11 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/:county', {
         templateUrl: 'views/map.html',
         controller: 'MapCtrl'
       }).otherwise({
-        redirectTo: '/'
+        redirectTo: '/TPE-4'
       });
   });
+

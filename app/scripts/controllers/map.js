@@ -1,10 +1,13 @@
 'use strict';
 
+var DEFAULT_COUNTY = 'TPE-4';
+
 var MAP_DEFAULT_VIEW = {
-  lat: 25.0666313,
-  lng: 121.5943403,
-  zoom: 13
+  'TPE-4':{lat: 25.0666313, lng: 121.5943403, zoom: 13},
+  'TPQ-1':{lat: 25.1752044, lng: 121.4813232, zoom: 12},
+  'TPQ-6':{lat: 25.0260396, lng: 121.4654445, zoom: 14},
 };
+
 
 /**
  * @ngdoc function
@@ -15,17 +18,15 @@ var MAP_DEFAULT_VIEW = {
  */
 angular.module('mlymapApp')
   .controller('MapCtrl',
-  ['$scope', '$http', '$q', '$filter', 'leafletData', 'voteInfoService',
-  function ($scope, $http, $q, $filter, leafletData, voteInfoService) {
+  ['$scope', '$routeParams','$http', '$q', '$filter', 'leafletData', 'voteInfoService',
+  function ($scope, $routeParams, $http, $q, $filter, leafletData, voteInfoService) {
+    var county = $routeParams.county;
+    console.log('county',county);
+    if(!(county in MAP_DEFAULT_VIEW)){
+      county = DEFAULT_COUNTY;
+    }
     function getColor(feature) {
       var area = [];
-     // if (!$scope.selectedDistrictName) {
-	  //   console.log('feature',feature);
-     //   area.push(feature.properties.county + '-' +
-     //     feature.properties.number);
-     // } else {
-     //   area.push($scope.selectedDistrictName)
-     // }
 
       if (feature.properties.TOWNNAME) {
         area.push(feature.properties.TOWNNAME);
@@ -35,7 +36,7 @@ angular.module('mlymapApp')
       }
 		
 		//console.log('area1',area);
-      var winner = voteInfoService.getWinner(area);
+      var winner = voteInfoService.getWinner(area,county);
       var defaultColor = '#dd1c77';
 		if (winner != undefined){
         if (winner.party === '中國國民黨') {
@@ -138,20 +139,9 @@ angular.module('mlymapApp')
       layer.bringToFront();
     }
 
-    //function areaClick(ev, featureSelected, leafletEvent) {
-	 //  //console.log('scope',$scope.voteInfos);
-    //  if ($scope.selectedDistrictName) {
-    //    return;
-    //  }
-    //  var props = leafletEvent.target.feature.properties;
-    //  var name = props.county + '-' + props.number;
-    //  $scope.selectedDistrictName = name;
-    //  leafletData.getMap().then(function(map) {
-    //    map.fitBounds(leafletEvent.target.getBounds());
-    //    $scope.geojson = null;
-    //    zoomToVillage($scope.voteInfos[name], name);
-    //  });
-    //}
+    function areaClick(ev, featureSelected, leafletEvent) {
+	    console.log('scope',leafletEvent);
+    }
 
     function getWinnerByProperty(property) {
       var path = [];
@@ -168,7 +158,7 @@ angular.module('mlymapApp')
       //}
 
 		//console.log('path',path);
-      return voteInfoService.getWinner(path);
+      return voteInfoService.getWinner(path,county);
     }
 
     $scope.getWinnerName = function (property, showParty) {
@@ -201,19 +191,19 @@ angular.module('mlymapApp')
     $scope.back = function() {
       //delete $scope.selectedDistrictName;
       //delete $scope.geojson;
-      applyGeojson($scope.districts);
-      $scope.taiwan = MAP_DEFAULT_VIEW;
+      //applyGeojson($scope.districts);
+      //$scope.taiwan = MAP_DEFAULT_VIEW[county];
     };
 
     $scope.leafletData = leafletData;
-    $scope.taiwan = MAP_DEFAULT_VIEW;
+    $scope.taiwan = MAP_DEFAULT_VIEW[county];
     $scope.defaults = {
       zoomControlPosition: 'bottomright'
     };
 
 
 	
-    voteInfoService.getAllVoteInfo().then(
+    voteInfoService.getAllVoteInfo(county).then(
       function(res) {},
       function (error) {},
       function (voteInfo) {
@@ -223,7 +213,6 @@ angular.module('mlymapApp')
           $scope.voteInfos = {};
         }
         $scope.voteInfos[voteInfo.id] = voteInfo.content;
-		  
         var jsonPath = 'json/twVote1982/' + voteInfo.id + '.json';
 		  console.log('get3',jsonPath);
         $http.get(jsonPath).then(function(res) {
@@ -233,53 +222,55 @@ angular.module('mlymapApp')
            $scope.districts.features.push(res.data.features[0]);
           }
 			 // applyGeojson(res.data);
-			   var name = 'TPE-4';
+			   var name = voteInfo.id;
 				//console.log('scope',$scope.voteInfos);
 				//console.log($scope.voteInfo);
 				drawDistrict($scope.voteInfos[name], name);
-
         });
+        drawVoteStation();
       });
+      
 
-		var myicon = {
-					iconUrl: 'images/liberty.png',
-					iconAnchor:   [17, 97]
-                }
-		
-		var myicon_select = {
-					iconUrl: 'images/liberty_selected.png',
-					iconAnchor:   [17, 97]
-                }
+      function drawVoteStation(){
+         var myicon = {
+                  iconUrl: 'images/liberty.png',
+                  iconAnchor:   [17, 97]
+                   };
+         
+         var myicon_select = {
+                  iconUrl: 'images/liberty_selected.png',
+                  iconAnchor:   [17, 97]
+                   };
+         angular.extend($scope, {
+             markers: {
+                 m1: {
+                     lat: 25.0666313,
+                     lng: 121.5943403,
+                     icon: myicon,
+                 },
 
-		angular.extend($scope, {
-			 markers: {
-				  m1: {
-					   lat: 25.0666313,
-					   lng: 121.5943403,
-						icon: myicon,
-				  },
+                 m2: {
+                     lat: 25.0686313,
+                     lng: 121.5843403,
+                     icon: myicon,
+                 },
+             },
+         });
 
-				  m2: {
-					   lat: 25.0686313,
-					   lng: 121.5843403,
-						icon: myicon,
-				  },
-			 }
-		});
-		
+         $scope.markerclick = false;
+         $scope.$on('leafletDirectiveMarker.mouseover', function(e, args) {
+            $scope.markerclick = true;
+            $scope.markers[args["markerName"]].icon = myicon_select;
+            //console.log("Leaflet Click",args);
+         });
+         $scope.$on('leafletDirectiveMarker.mouseout', function(e, args) {
+            $scope.markerclick = false;
+            $scope.markers[args["markerName"]].icon = myicon;
+         });
+      }
 
-
-	 $scope.markerclick = false;
-    $scope.$on("leafletDirectiveMap.geojsonMouseover", areaMouseover);
-	 $scope.$on('leafletDirectiveMarker.mouseover', function(e, args) {
-		 $scope.markerclick = true;
-		 $scope.markers[args["markerName"]].icon = myicon_select;
-	 	 //console.log("Leaflet Click",args);
-	 });
-	 $scope.$on('leafletDirectiveMarker.mouseout', function(e, args) {
-		 $scope.markerclick = false;
-		 $scope.markers[args["markerName"]].icon = myicon;
-	 });
+      $scope.$on("leafletDirectiveMap.geojsonMouseover", areaMouseover);
+      $scope.$on("leafletDirectiveMap.geojsonClick", areaClick);
 
 	
 	
