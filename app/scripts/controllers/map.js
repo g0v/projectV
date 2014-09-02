@@ -254,7 +254,6 @@ angular.module('mlymapApp')
       
 
     function drawVoteStation(markerArray){
-        
        var myicon = {
                 iconUrl: 'images/liberty.png',
                 iconAnchor:   [17, 97]
@@ -284,9 +283,9 @@ angular.module('mlymapApp')
          var area = thisMarker.myloc.split('-');
          if(!$scope.markerNs.click){
            $scope.markerNs.click = true;
-           $http.get('json/mly/8/' + county + '.json').then(function(res) {
-             var votestats = res.data["投票狀況"][area[0]][area[1]];
-             var candidates = res.data["候選人"];
+           //$http.get('json/mly/8/' + county + '.json').then(function(res) {
+             var votestats = voteInfoService.voteInfos[county]["投票狀況"][area[0]][area[1]];
+             var candidates = voteInfoService.voteInfos[county]["候選人"];
              angular.forEach(votestats,function(votestat){
                if (votestat["投票所別"] == thisName){
                  //var voteinfo = votestat["投票所別"];
@@ -300,7 +299,7 @@ angular.module('mlymapApp')
                  };
                }
              });
-           });
+           //});
          }
          $scope.markerNs.click = true;
          thisMarker.icon = myiconSelect;
