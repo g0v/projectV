@@ -11,12 +11,12 @@ var MAP_DEFAULT_VIEW = {
 
 /**
  * @ngdoc function
- * @name mlymapApp.controller:MapCtrl
+ * @name projectVApp.controller:MapCtrl
  * @description
  * # MapCtrl
- * Controller of the mlymapApp
+ * Controller of the projectVApp
  */
-angular.module('mlymapApp')
+angular.module('projectVApp')
   .controller('MapCtrl',
   ['$scope', '$routeParams','$http', '$q', '$filter', 'leafletData', 'voteInfoService',
   function ($scope, $routeParams, $http, $q, $filter, leafletData, voteInfoService) {
