@@ -59,4 +59,4 @@ upstream  git@github.com:g0v/projectV.git (push)
 git remote add upstream git@github.com:g0v/projectV.git
 ```
 
-接下來只要執行 `./deploy.sh` 即可部署到 github，就可以到 http://g0v.github.io/projectV/ 看看部署結果囉，通常數分鐘後會生效。
+這樣就設定好了，當你要 deploy 時，請務必先用 `grunt build` 先生成最新並且最佳化過後的源碼到 `dist` 目錄，接下來只要執行 `./deploy.sh` 即可部署到 github，就可以到 http://g0v.github.io/projectV/ 看看部署結果囉，通常數分鐘後會生效。
