@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name mlymapApp.voteInfoService
+ * @name projectVApp.voteInfoService
  * @description
  * # voteInfoService
- * Service in the mlymapApp.
+ * Service in the projectVApp.
  */
-angular.module('mlymapApp')
+angular.module('projectVApp')
   .service('voteInfoService', function voteInfoService($q, $http) {
     
     //var county = 'TPE-4';
