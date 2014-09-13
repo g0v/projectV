@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name mlymapApp
+ * @name projectVApp
  * @description
- * # mlymapApp
+ * # projectVApp
  *
  * Main module of the application.
  */
 angular
-  .module('mlymapApp', [
+  .module('projectVApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -20,11 +20,19 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/:county', {
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .when('/join', {
+        templateUrl: 'views/join.html',
+        controller: 'JoinCtrl'
+      })
+      .when('/map/:county', {
         templateUrl: 'views/map.html',
         controller: 'MapCtrl'
-      }).otherwise({
-        redirectTo: '/TPE-4'
+      })
+      .otherwise({
+        redirectTo: '/'
       });
   });
-
