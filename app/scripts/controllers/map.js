@@ -21,7 +21,7 @@ angular.module('mlymapApp')
   ['$scope', '$routeParams','$http', '$q', '$filter', 'leafletData', 'voteInfoService',
   function ($scope, $routeParams, $http, $q, $filter, leafletData, voteInfoService) {
     var county = $routeParams.county;
-    console.log('county',county);
+    //console.log('county',county);
     if(!(county in MAP_DEFAULT_VIEW)){
       county = DEFAULT_COUNTY;
     }
