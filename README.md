@@ -35,3 +35,28 @@ npm i generator-angular -g
 ```shell
 yo angular:controller <controller-name>
 ```
+
+# Deploy
+
+如果你有 g0v/projectV 的權限，你可以用 deploy.sh 部署最新的源碼，不過首先要先把 git 設置正確，請先用下面的指令看一下 git remote 的設定
+
+```shell
+git remote -v
+```
+
+結果應該看起來像這樣：
+
+```shell
+origin  git@github.com:yurenju/projectV.git (fetch)
+origin  git@github.com:yurenju/projectV.git (push)
+upstream  git@github.com:g0v/projectV.git (fetch)
+upstream  git@github.com:g0v/projectV.git (push)
+```
+
+如果沒有 upstream 這個位置，請用以下指令加入：
+
+```shell
+git remote add upstream git@github.com:g0v/projectV.git
+```
+
+接下來只要執行 `./deploy.sh` 即可部署到 github，就可以到 http://g0v.github.io/projectV/ 看看部署結果囉，通常數分鐘後會生效。
