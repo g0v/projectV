@@ -34,8 +34,8 @@ describe('Controller: PagesCtrl', function () {
     expect(scope.getActive('news')).toEqual('');
   });
 
-  it('shoud have 6 pages', function() {
-    expect(scope.pages.length).toBe(6);
+  it('shoud have 7 pages', function() {
+    expect(scope.pages.length).toBe(7);
   });
 
   it('shoud return #/<PAGE_ID> if page.href is not defined', function() {
