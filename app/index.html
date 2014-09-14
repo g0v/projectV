@@ -27,10 +27,10 @@
       <div class="header" ng-controller="PagesCtrl">
         <ul class="nav nav-pills pull-right">
           <li ng-repeat="page in pages" ng-class="getActive('{{page.id}}')">
-            <a ng-href="{{getHref(page)}}">{{page.name}}</a>
+            <a ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}">{{page.name}}</a>
           </li>
         </ul>
-        <h3><a href="/">ProjectV</a></h3>
+        <h3><a href="#/">ProjectV</a></h3>
       </div>
 
       <div ng-view=""></div>
@@ -91,7 +91,6 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/join.js"></script>
         <script src="scripts/controllers/missions.js"></script>
         <script src="scripts/controllers/pages.js"></script>

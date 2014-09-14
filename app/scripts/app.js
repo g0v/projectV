@@ -24,6 +24,15 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/news', {
+        templateUrl: 'views/news.html'
+      })
+      .when('/plan', {
+        templateUrl: 'views/plan.html'
+      })
+      .when('/demo', {
+        templateUrl: 'views/demo.html'
+      })
       .when('/join', {
         templateUrl: 'views/join.html',
         controller: 'JoinCtrl'
