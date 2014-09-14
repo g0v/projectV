@@ -10,6 +10,7 @@
 angular.module('projectVApp')
   .controller('PagesCtrl', function ($scope, $location) {
     $scope.pages = [
+      { id: '', name: '首頁', href: '#/'},
       { id: 'news', name: '戰略消息'},
       { id: 'plan', name: '罷免日計劃'},
       { id: 'demo', name: '自由罷免示範區'},
