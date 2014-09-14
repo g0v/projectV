@@ -6,3 +6,9 @@ before_script:
   - 'bower install'
   - 'gem install sass --version "=3.2.12"'
   - 'gem install compass --version "=0.12.2"'
+
+env:
+  - TASK=test
+  - TASK=jshint
+
+script: grunt $TASK

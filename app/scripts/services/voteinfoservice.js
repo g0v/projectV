@@ -9,7 +9,7 @@
  */
 angular.module('projectVApp')
   .service('voteInfoService', function voteInfoService($q, $http) {
-    
+
     //var county = 'TPE-4';
     var voteInfos = {};
     this.voteInfos = voteInfos;
@@ -17,7 +17,6 @@ angular.module('projectVApp')
 
     this.getAllVoteInfo = function(county) {
       var deferred = $q.defer();
-      var count = 0;
       function postProcess(county) {
         deferred.notify({
           'id': county,
@@ -39,9 +38,9 @@ angular.module('projectVApp')
     this.getWinner = function(area,county) {
       var winner = {};
       var statistic = this.voteInfos[county];
-      var scount = []; 
-      var stotal = 0; 
-      if (statistic != undefined){
+      var scount = [];
+      var stotal = 0;
+      if (statistic !== undefined) {
          var overview = statistic;
          statistic = statistic['投票狀況'];
          angular.forEach(area, function(part) {
@@ -49,7 +48,7 @@ angular.module('projectVApp')
          });
          for(var i=0; i< overview['候選人'].length;i++){
             scount.push(0);
-         }         
+         }
          angular.forEach(statistic, function(val1){
             angular.forEach(val1['得票數'], function(val2,idx2){
               scount[idx2] += val2;
