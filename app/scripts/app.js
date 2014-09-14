@@ -37,6 +37,10 @@ angular
         templateUrl: 'views/join.html',
         controller: 'JoinCtrl'
       })
+      .when('/mission/:county', {
+        templateUrl: 'views/mission.html',
+        controller: 'MissionCtrl'
+      })
       .when('/map/:county', {
         templateUrl: 'views/map.html',
         controller: 'MapCtrl'
