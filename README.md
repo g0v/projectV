@@ -1,3 +1,7 @@
+# 簡介 [![Build Status](https://travis-ci.org/g0v/projectV.svg?branch=master)](https://travis-ci.org/g0v/projectV)
+
+Project V 是一個將割闌尾遊戲化的專案，目前成果可以到 http://g0v.github.io/projectV/ 觀看。
+
 # 前置環境
 
 Project V 目前用 grunt/bower 管理，請先確定你有 node.js 0.10 以上的版本並且安裝好 npm，接下來用以下指令安裝 grunt 與 bower:
