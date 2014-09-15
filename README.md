@@ -17,6 +17,13 @@ npm i bower -g
 npm i
 ```
 
+而且也需要 compass 跟 sass，請輸入以下指令（如果出現權限問題，請在指令最前面加上 `sudo`)
+
+```shell
+gem install sass
+gem install compass
+```
+
 # 開發
 
 進入專案目錄，用以下指令即可執行本地 http server 開發
