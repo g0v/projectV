@@ -11,10 +11,11 @@ npm i grunt-cli -g
 npm i bower -g
 ```
 
-接下來進入專案目錄，並且用以下指令安裝相依元件：
+接下來進入專案目錄，並且用以下指令安裝 npm 以及 bower 相依元件（如果出現權限問題，請在指令最前面加上 `sudo`）：
 
 ```bash
 npm i
+bower i
 ```
 
 而且也需要 compass 跟 sass，請輸入以下指令（如果出現權限問題，請在指令最前面加上 `sudo`)
