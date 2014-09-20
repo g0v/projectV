@@ -20,9 +20,11 @@ var MAP_DEFAULT_VIEW = {
  */
 angular.module('projectVApp')
   .controller('MapCtrl',
-  ['$scope', '$routeParams','$http', '$q', '$filter', 'leafletData', 'voteInfoService',
-  function ($scope, $routeParams, $http, $q, $filter, leafletData, voteInfoService) {
+  ['$scope', '$routeParams','$http', '$q', '$filter', '$modal', 'leafletData', 'voteInfoService',
+  function ($scope, $routeParams, $http, $q, $filter, $modal, leafletData, voteInfoService ) {
     var county = $routeParams.county;
+    $scope.showVoteStation = null;
+    var voteStatData = null;
     //console.log('county',county);
     if(!(county in MAP_DEFAULT_VIEW)) {
       county = DEFAULT_COUNTY;
@@ -36,42 +38,12 @@ angular.module('projectVApp')
       if (feature.properties.VILLAGENAM) {
         area.push(feature.properties.VILLAGENAM);
       }
-
-    //console.log('area1',area);
-      var winner = voteInfoService.getWinner(area,county);
-      var defaultColor = '#dd1c77';
-    if (winner !== undefined) {
-        if (winner.party === '中國國民黨') {
-          if (winner.ratio > 40) {
-            return '#045a8d';
-          }
-        else if(winner.ratio > 35)  {
-            return '#2b8cbe';
-          }
-      else {
-            return '#74a9cf';
-          }
-        } else if(winner.party === '民主進步黨') {
-          if (winner.ratio > 40) {
-            return '#006d2c';
-          }
-       else if (winner.ratio > 35) {
-            return '#2ca25f';
-          }
-       else {
-            return '#66c2a4';
-          }
-        } else {
+      var defaultColor = '#aaaaaa';
           return defaultColor;
-        }
-    } else {
-        return defaultColor;
-    }
-
     }
 
     function animate() {
-      //setTimeout(function() {
+      setTimeout(function() {
         $('.county').each(function(i, el) {
           if (el.classList) {
             el.classList.remove('transparent');
@@ -81,7 +53,7 @@ angular.module('projectVApp')
               el.getAttribute('class').replace('transparent', ''));
           }
         });
-      //}, 100);
+      }, 100);
     }
 
     function style(feature) {
@@ -112,15 +84,12 @@ angular.module('projectVApp')
     }
 
     function drawDistrict(voteInfo, name) {
-      var voteStatData = null;
     //console.log('voteInfo',voteInfo['投票狀況']);
       var query0 = 'json/votestat/8/' + county + '.json';
-      var markerArray = [];
       $http.get(query0).then(function(res0) {
         voteStatData = res0.data;
         angular.forEach(voteInfo['投票狀況'], function(town, townName) {
           angular.forEach(town, function(village, villageName) {
-         //console.log('get1', villageName);
             var query = 'json/twVillage1982/' + name + '/' + voteInfo['選區'][0] +
               '/' + townName + '/' + villageName + '.json';
             $http.get(query).then(function(res) {
@@ -129,23 +98,8 @@ angular.module('projectVApp')
             function() {
 
             });
-            angular.forEach(village,function(votestat) {
-              var vsid = votestat['投票所別'];
-              if((voteStatData[townName] !== undefined) &&
-                (voteStatData[townName][villageName] !== undefined) &&
-                (voteStatData[townName][villageName][vsid] !== undefined)) {
-                  var vsobj = voteStatData[townName][villageName][vsid];
-                  markerArray.push({
-                    'townName':townName,
-                    'villageName':villageName,
-                    'vsid':vsid,
-                    'vsobj':vsobj,
-                  });
-               }
-            });
           });
         });
-        drawVoteStation(markerArray);
       },
       function(err) {
         console.log('err',err);
@@ -165,55 +119,48 @@ angular.module('projectVApp')
     }
 
     function areaClick(ev, featureSelected, leafletEvent) {
-      console.log('scope',leafletEvent);
+
+
+      var townName = leafletEvent.target.feature.properties.TOWNNAME;
+      var villageName = leafletEvent.target.feature.properties.VILLAGENAM;
+
+      $scope.showVoteStation = {};
+      $scope.showVoteStation.villageName = villageName;
+      $scope.showVoteStation.vsArray = [];
+      //console.log('scope',leafletEvent.target.feature.properties);
+      //console.log(voteStatData);
+      $scope.markers = {};
+      var markerArray = [];
+      angular.forEach(voteStatData[townName],function(votestat) {
+        console.log(votestat);
+        console.log(villageName);
+        console.log(townName);
+        var vsIndex = votestat.neighborhood.indexOf(villageName);
+        if(vsIndex != -1){
+          $scope.showVoteStation.vsArray.push({
+            'name':votestat.name,
+          });
+          markerArray.push({
+            'townName': townName,
+            'villageName': villageName,
+            'vsid': markerArray.length,
+            'vsobj': {
+              lat: votestat.location.lat,
+              lng: votestat.location.lng,
+            },
+          });
+        }
+      });
+      drawVoteStation(markerArray);
     }
-
-    function getWinnerByProperty(property) {
-      var path = [];
-      if (!property) {
-        return '--';
-      }
-
-      //if ($scope.selectedDistrictName) {
-    //console.log('property',property);
-        path.push(property.TOWNNAME,
-          property.VILLAGENAM);
-      //} else {
-      //  path.push(property.county + '-' + property.number);
-      //}
-
-    //console.log('path',path);
-      return voteInfoService.getWinner(path,county);
-    }
-
-    $scope.getWinnerName = function (property, showParty) {
-     //console.log('property',property);
-      var winner = getWinnerByProperty(property);
-      if (typeof winner === 'string') {
-        return winner;
-      }
-
-      var res = winner.name;
-      if (showParty) {
-        res += '（' + winner.party + '）';
-      }
-      return res;
-    };
-
-    $scope.getWinnerRatio = function (property) {
-      var winner = getWinnerByProperty(property);
-      if (typeof winner === 'string') {
-        return winner;
-      }
-      return $filter('number')(winner.count) + ' 票（' +
-        $filter('number')(winner.ratio, 2) +  '%）';
-    };
 
     $scope.debug = function() {
       // debugger;
     };
 
     $scope.back = function() {
+      $scope.showVoteStation = null;
+      $scope.markers = {};
       //delete $scope.selectedDistrictName;
       //delete $scope.geojson;
       //applyGeojson($scope.districts);
@@ -226,13 +173,10 @@ angular.module('projectVApp')
       zoomControlPosition: 'bottomright'
     };
 
-
-
     voteInfoService.getAllVoteInfo(county).then(
       function() {},
       function() {},
       function(voteInfo) {
-
       //console.log('onload');
        if (!$scope.voteInfos) {
           $scope.voteInfos = {};
@@ -246,10 +190,7 @@ angular.module('projectVApp')
           } else {
            $scope.districts.features.push(res.data.features[0]);
           }
-       // applyGeojson(res.data);
          var name = voteInfo.id;
-        //console.log('scope',$scope.voteInfos);
-        //console.log($scope.voteInfo);
         drawDistrict($scope.voteInfos[name], name);
         });
       });
@@ -282,32 +223,7 @@ angular.module('projectVApp')
        $scope.$on('leafletDirectiveMarker.mouseover', function(e, args) {
          var thisName = args.markerName;
          var thisMarker = $scope.markers[thisName];
-         var area = thisMarker.myloc.split('-');
-         if(!$scope.markerNs.click) {
-           $scope.markerNs.click = true;
-           //$http.get('json/mly/8/' + county + '.json').then(function(res) {
-             var votestats = voteInfoService.voteInfos[county]['投票狀況'][area[0]][area[1]];
-             var candidates = voteInfoService.voteInfos[county]['候選人'];
-             angular.forEach(votestats,function(votestat) {
-               if (votestat['投票所別'] === thisName) {
-                 //var voteinfo = votestat["投票所別"];
-                 var votecount = votestat['得票數'];
-                 var index = votecount.indexOf(Math.max.apply(this, votecount));
-                 $scope.markerNs.winner = {
-                   name : candidates[index][1],
-                   party : candidates[index][2],
-                   ratio : (votestat['得票率'][index] * 100).toFixed(2).toString()+'%',
-                   count : votestat['得票數'][index],
-                 };
-               }
-             });
-           //});
-         }
-         $scope.markerNs.click = true;
          thisMarker.icon = myiconSelect;
-         var markerloc = thisMarker.myloc.replace('-','') + '第' +
-          args.markerName + '投票所';
-         $scope.markerNs.loc = markerloc;
          //console.log("Leaflet Click",args);
        });
        $scope.$on('leafletDirectiveMarker.mouseout', function(e, args) {
@@ -315,11 +231,47 @@ angular.module('projectVApp')
           $scope.markers[args.markerName].icon = myicon;
        });
     }
-
     $scope.$on('leafletDirectiveMap.geojsonMouseover', areaMouseover);
     $scope.$on('leafletDirectiveMap.geojsonClick', areaClick);
 
+    
+    $scope.registerDialog = function(type) {
+      var modalInstance = $modal.open({
+        templateUrl:'views/register.html',
+        controller: 'registerDialogController',
+        size: 'md',
+        resolve: {
+          type: function() {
+            return type;//deleteBtn.closest('header').find('h2').html();
+          }   
+        }   
+      }); 
+      modalInstance.result.then(function(result){
+        console.log('send');
+        //$http.post('/account/edit_user', { _id: chid, permission:perm }).success( function(err){ 
+        //  if (err) {
+        //    console.log(err);
+        //  }        
+        //  else {
+        //    $route.reload();
+        //  }   
+        //});  
+      }); 
+    };  
+}]);
+
+var registerDialogController = function($scope, $modalInstance, type){
+   // Define scope variales here, or ng-model in dialog won't work
+   $scope.title = 'title';
+   $scope.type = type;
+
+   $scope.send = function () {
+      $modalInstance.close(true);
+   };
+
+   $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+   };
+};
 
 
-
-  }]);

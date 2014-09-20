@@ -1,0 +1,51 @@
+<div>
+  <div class="modal-header">
+    <h3 class="modal-title">一起來佔領！</h3>
+  </div>
+
+  <div class="modal-body">
+    <p>
+      勇敢的勇士呀！<br/>
+      感激你勇敢的站出來，為台灣的民主貢獻一份心力！<br/>
+      我們需要你的協助一同把這個可惡的大魔王給幹掉！<br/>
+    </p>
+    <p>
+      勇者呀！該如何稱呼您呢？<br/>
+      <strong>請填入暱稱或名字（會在營地顯示出來唷！）</strong><br/>
+      <input type="text"></input>
+    </p> 
+    <p>
+      勇者呀！該如何聯繫你呀？<br/>
+      <strong>請填入手機（重大訊息及相關訊息會在重要時刻與你聯繫！）</strong><br/>
+      <input type="text"></input>
+    </p> 
+    <p>
+      勇者呀！該如何寄資訊給你呀？<br/>
+      <strong>請填入E-Mail</strong><br/>
+      <input type="text"></input>
+    </p> 
+    <p ng-show="type == 'volunteer'">
+      想要在哪裡紮營？<br/>
+      <strong>想認養哪個投開票所</strong><br/>
+      <input type="text"></input>
+    </p> 
+    <p ng-show="type == 'supplement'">
+      想要捐贈什麼物資裝備？<br/>
+      <strong>想要幫忙提供什麼物資？</strong><br/>
+      <input type="checkbox" name="c1" value="c1">椅子#1<br>
+      <input type="checkbox" name="c2" value="c2">椅子#2<br>
+      <input type="checkbox" name="c3" value="c3">桌子<br>
+      <input type="checkbox" name="c4" value="c4">大傘<br>
+      <input type="checkbox" name="c5" value="c5">筆（若干<br>
+      <input type="checkbox" name="c6" value="c6">連署板<br>
+      <input type="checkbox" name="c7" value="c7">其他<br>
+      <input type="text"></input>
+    </p> 
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="send()">Send</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</div>
+

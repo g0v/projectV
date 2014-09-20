@@ -1,62 +1,99 @@
+<div class="row">
+  <div class="col-md-9" style="padding:0px;">
+    <leaflet markers="markers" center="taiwan" defaults="defaults" geojson="geojson"
+      style="height:600px;"></leaflet>
+    <div class="back-button" style="position:absolute;left:10px;top:10px;" ng-show="showVoteStation != null">
+      <button type="button" class="btn btn-primary" ng-click="back()">
+        <i class="fa fa-chevron-left"></i> Back
+      </button>
+    </div>
+  </div>
+  <div class="col-md-3" style="padding:0px;">
+    <div class="panel panel-default area-info" style="height:600px;width:100%;" ng-show="showVoteStation == null" >
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          魔王領土兵屯列表 
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p> 種子收洋動案友有的作的我形：人辦開變說然……如孩可地，</p>
+        <div class="row">
+          <div class="col-md-8 col-lg-9">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            碧山里    
+          </div>
+        </div>
 
-<leaflet markers="markers" center="taiwan" defaults="defaults" geojson="geojson"></leaflet>
-<div class="back-button" ng-show="null">
-  <button type="button" class="btn btn-primary" ng-click="back()">
-    <i class="fa fa-chevron-left"></i> Back
-  </button>
-</div>
-<div class="panel panel-default area-info" ng-show="geojson.selected">
-  <div class="panel-heading">
-    <h3 class="panel-title">
-      {{ geojson.selected.properties.name || '立委選區資訊' }}
-    </h3>
-  </div>
-  <div class="panel-body">
-    <form class="form-horizontal" role="form">
-      <div class="form-group">
-        <label class="col-sm-4 control-label">當選立委</label>
-        <div class="col-sm-8">
-          <p class="form-control-static">
-            {{ getWinnerName(geojson.selected.properties, true) }}
-          </p>
+        <div class="row">
+          <div class="col-md-8 col-lg-9">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            湖元里    
+          </div>
         </div>
+
       </div>
-      <div class="form-group">
-        <label class="col-sm-4 control-label">得票情況</label>
-        <div class="col-sm-8">
-          <p class="form-control-static">
-            {{ getWinnerRatio(geojson.selected.properties, true) }}
-          </p>
+    </div>
+
+    <div class="panel panel-default area-info" style="height:600px;width:100%;" ng-show="showVoteStation != null" >
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          {{showVoteStation.villageName}} 兵屯（開票所）詳細概況
+        </h3>
+      </div>
+      <div class="panel-body">
+        <ul class="nav nav-stacked" ng-repeat="votestat in showVoteStation.vsArray" >
+          <li>{{votestat.name}}</li>
+        </ul>
+        <div>
+          <div style="padding:10px;height:50%;border-bottom:1px dashed grey;">
+            <h5>HP（志工數）</h5> 
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              </div>
+            </div>
+            <div id="hp_people" style="margin:5px">
+              <img class="img-circle" style="padding:2px" src="http://fakeimg.pl/40/?text=Avatar">
+              <img class="img-circle" style="padding:2px" src="http://fakeimg.pl/40/?text=Avatar">
+            </div>
+            <button type="button" class="btn btn-primary" ng-click="registerDialog('volunteer')">
+              參戰！  
+            </button>
+          </div>
+
+          <div style="padding:10px;">
+            <h5>SP（物資數）</h5> 
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              </div>
+            </div>
+            <div id="sp_people" style="margin:5px">
+              <img class="img-circle" style="padding:2px" src="http://fakeimg.pl/40/?text=Avatar">
+              <img class="img-circle" style="padding:2px" src="http://fakeimg.pl/40/?text=Avatar">
+            </div>
+            <button type="button" class="btn btn-primary" ng-click="registerDialog('supplement')">
+              物資參戰！  
+            </button>
+          </div>
         </div>
+
       </div>
-    </form>
+    </div>
+
   </div>
+
 </div>
 
-<div class="panel panel-default area-info" ng-show="markerNs.click">
-  <div class="panel-heading">
-    <h3 class="panel-title">
-		 {{ markerNs.loc || '投開票所資訊' }}
-    </h3>
-  </div>
-  <div class="panel-body">
-    <form class="form-horizontal" role="form">
-      <div class="form-group">
-        <label class="col-sm-4 control-label">當選立委</label>
-        <div class="col-sm-8">
-          <p class="form-control-static">
-             {{ markerNs.winner.name }} ( {{ markerNs.winner.party }} )
-          </p>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-4 control-label">得票情況</label>
-        <div class="col-sm-8">
-          <p class="form-control-static">
-             {{ markerNs.winner.count }} 票 ( {{ markerNs.winner.ratio }} )
-          </p>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
+
+
+
+
