@@ -4,17 +4,27 @@ Project V 是一個將割闌尾遊戲化的專案，目前成果可以到 http:/
 
 # 前置環境
 
-Project V 目前用 grunt/bower 管理，請先確定你有 node.js 0.10 以上的版本並且安裝好 npm，接下來用以下指令安裝 grunt 與 bower:
+Project V 目前用 grunt/bower 管理，並且使用 sass 與 compass 管理樣式，在這邊建議使用 [nvm](https://github.com/creationix/nvm) 以及 [rvm](http://rvm.io/) 分別管理 Node.js 與 Ruby 的版本。
+
+請先確定你有 node.js 0.10 以上的版本並且安裝好 npm，接下來用以下指令安裝 grunt 與 bower:
 
 ```bash
 npm i grunt-cli -g
 npm i bower -g
 ```
 
-接下來進入專案目錄，並且用以下指令安裝相依元件：
+接下來進入專案目錄，並且用以下指令安裝 npm 以及 bower 相依元件（如果出現權限問題，請在指令最前面加上 `sudo`）：
 
 ```bash
 npm i
+bower i
+```
+
+而且也需要 compass 跟 sass，請輸入以下指令（如果出現權限問題，請在指令最前面加上 `sudo`)
+
+```shell
+gem install sass
+gem install compass
 ```
 
 # 開發
