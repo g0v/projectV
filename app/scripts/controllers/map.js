@@ -132,9 +132,9 @@ angular.module('projectVApp')
       $scope.markers = {};
       var markerArray = [];
       angular.forEach(voteStatData[townName],function(votestat) {
-        console.log(votestat);
-        console.log(villageName);
-        console.log(townName);
+        //console.log(votestat);
+        //console.log(villageName);
+        //console.log(townName);
         var vsIndex = votestat.neighborhood.indexOf(villageName);
         if(vsIndex != -1){
           $scope.showVoteStation.vsArray.push({
@@ -183,7 +183,7 @@ angular.module('projectVApp')
         }
         $scope.voteInfos[voteInfo.id] = voteInfo.content;
         var jsonPath = 'json/twVote1982/' + voteInfo.id + '.json';
-        console.log('get3',jsonPath);
+        //console.log('get3',jsonPath);
         $http.get(jsonPath).then(function(res) {
           if (!$scope.districts) {
             $scope.districts = res.data;
@@ -193,8 +193,16 @@ angular.module('projectVApp')
          var name = voteInfo.id;
         drawDistrict($scope.voteInfos[name], name);
         });
-      });
+    });
 
+    voteInfoService.getAllVillageSum(county).then(
+      function() {}, 
+      function() {}, 
+      function(villageSum){ 
+        $scope.villageSum = villageSum['content'];
+        //console.log(villageSum);
+    }); 
+    
 
     function drawVoteStation(markerArray) {
        var myicon = {
