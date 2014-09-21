@@ -23,7 +23,14 @@ angular.module('projectVApp')
   ['$scope', '$routeParams','$http', '$q', '$filter', '$modal', 'leafletData', 'voteInfoService',
   function ($scope, $routeParams, $http, $q, $filter, $modal, leafletData, voteInfoService ) {
     var county = $routeParams.county;
-    $scope.showVoteStation = null;
+    $scope.showVS = null;
+    $scope.currentVsTab = '';
+    $scope.vsInfo = {
+      volunteer:0,
+      vlist:[],
+      supplement:0,
+      slist:[],
+    };
     var voteStatData = null;
     //console.log('county',county);
     if(!(county in MAP_DEFAULT_VIEW)) {
@@ -119,27 +126,25 @@ angular.module('projectVApp')
     }
 
     function areaClick(ev, featureSelected, leafletEvent) {
-
-
       var townName = leafletEvent.target.feature.properties.TOWNNAME;
       var villageName = leafletEvent.target.feature.properties.VILLAGENAM;
-
-      $scope.showVoteStation = {};
-      $scope.showVoteStation.villageName = villageName;
-      $scope.showVoteStation.vsArray = [];
-      //console.log('scope',leafletEvent.target.feature.properties);
-      //console.log(voteStatData);
+      $scope.showVS = {};
+      $scope.showVS.townName = townName;
+      $scope.showVS.villageName = villageName;
+      $scope.showVS.vsArray = [];
       $scope.markers = {};
       var markerArray = [];
+      var currentVsId = 0;
       angular.forEach(voteStatData[townName],function(votestat) {
-        //console.log(votestat);
-        //console.log(villageName);
-        //console.log(townName);
         var vsIndex = votestat.neighborhood.indexOf(villageName);
         if(vsIndex != -1){
-          $scope.showVoteStation.vsArray.push({
+          $scope.showVS.vsArray.push({
             'name':votestat.name,
+            'id':votestat.id,
           });
+          if(markerArray.length ==0){
+            currentVsId = votestat.id;
+          }
           markerArray.push({
             'townName': townName,
             'villageName': villageName,
@@ -152,14 +157,46 @@ angular.module('projectVApp')
         }
       });
       drawVoteStation(markerArray);
+      $scope.setVotestatTab(currentVsId);
     }
+    $scope.isCurrentVsTab = function(vsId){
+      if($scope.currentVsTab == vsId){
+        return "bg-primary";
+      }
+      else{
+        return "";
+      }
+    }
+    $scope.setVotestatTab = function(vsId){
+      $scope.currentVsTab = vsId;
+      var query0 = 'json/votestatInfo/' + county + '.json';
+      $http.get(query0).then(function(res0) {
+        $scope.vsInfo = res0.data[vsId];
+        
+        //angular.forEach(voteInfo['投票狀況'], function(town, townName) {
+        //  angular.forEach(town, function(village, villageName) {
+        //    var query = 'json/twVillage1982/' + name + '/' + voteInfo['選區'][0] +
+        //      '/' + townName + '/' + villageName + '.json';
+        //    $http.get(query).then(function(res) {
+        //      applyGeojson(res.data);
+        //    },
+        //    function() {
+
+        //    });
+        //  });
+        //});
+      },
+      function(err) {
+        console.log('err',err);
+      });
+    };
 
     $scope.debug = function() {
       // debugger;
     };
 
     $scope.back = function() {
-      $scope.showVoteStation = null;
+      $scope.showVS = null;
       $scope.markers = {};
       //delete $scope.selectedDistrictName;
       //delete $scope.geojson;
@@ -169,6 +206,7 @@ angular.module('projectVApp')
 
     $scope.leafletData = leafletData;
     $scope.taiwan = MAP_DEFAULT_VIEW[county];
+
     $scope.defaults = {
       zoomControlPosition: 'bottomright'
     };
@@ -266,6 +304,7 @@ angular.module('projectVApp')
         //});  
       }); 
     };  
+
 }]);
 
 var registerDialogController = function($scope, $modalInstance, type){
