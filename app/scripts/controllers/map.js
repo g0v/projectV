@@ -26,7 +26,7 @@ angular.module('projectVApp')
     var county = $routeParams.county;
     var voteStatData = null;
     $scope.myscope.showVS = null;
-    $scope.myscope.currentVsTab = ''; //local
+    $scope.myscope.currentVsTab = {}; //local
     $scope.myscope.currentTownTab = ''; //local
     $scope.myscope.vsInfo = {
       volunteer:0,
@@ -215,7 +215,7 @@ angular.module('projectVApp')
     };
 
     $scope.myscope.isCurrentVsTab = function(vsId){
-      if($scope.myscope.currentVsTab == vsId){
+      if($scope.myscope.currentVsTab.vsId == vsId){
         return "bg-primary";
       }
       else{
@@ -224,21 +224,17 @@ angular.module('projectVApp')
     };
 
     $scope.myscope.setVotestatTab = function(vsId){
-      $scope.myscope.currentVsTab = vsId;
+      $scope.myscope.currentVsTab.vsId = vsId;
+      $scope.myscope.currentVsTab.vsName = (function(){ 
+        for( var i =0; i < $scope.myscope.showVS.vsArray.length; i++){
+          var vsobj = $scope.myscope.showVS.vsArray[i];
+          if(vsobj.id == vsId){
+            return vsobj.name;
+          }};
+      })();
       var query0 = 'json/votestatInfo/' + county + '.json';
       $http.get(query0).then(function(res0) {
         $scope.myscope.vsInfo = res0.data[vsId];
-        //angular.forEach(voteInfo['投票狀況'], function(town, townName) {
-        //  angular.forEach(town, function(village, villageName) {
-        //    var query = 'json/twVillage1982/' + name + '/' + voteInfo['選區'][0] +
-        //      '/' + townName + '/' + villageName + '.json';
-        //    $http.get(query).then(function(res) {
-        //      applyGeojson(res.data);
-        //    },
-        //    function() {
-        //    });
-        //  });
-        //});
       },
       function(err) {
         console.log('err',err);
@@ -338,13 +334,17 @@ angular.module('projectVApp')
         controller: 'registerDialogController',
         size: 'md',
         resolve: {
-          type: function() {
-            return type;//deleteBtn.closest('header').find('h2').html();
+          data: function() {
+            return {
+              type: type,
+              vsId: $scope.myscope.currentVsTab.vsId,
+              vsName: $scope.myscope.currentVsTab.vsName, 
+            };
           }   
         }   
       }); 
       modalInstance.result.then(function(result){
-        console.log('send');
+        console.log('send',result);
         //$http.post('/account/edit_user', { _id: chid, permission:perm }).success( function(err){ 
         //  if (err) {
         //    console.log(err);
@@ -356,20 +356,92 @@ angular.module('projectVApp')
       }); 
     };  
 
+}])
+
+.controller('registerDialogController',
+  ['$scope', '$modalInstance','data', function($scope, $modalInstance, data) {
+  $scope.title = 'title';
+  $scope.type = data.type;
+  console.log(data);
+  $scope.content = {
+    type: data.type,
+    votestat: data.vsName, 
+    vsid: data.vsId,
+    name: '',
+    phone: '',
+    email: '',
+    supplement: {},
+  };
+
+  var verifySupplement = function(){
+    var supplement = $scope.content.supplement;
+    var selectItems = [ 'chair', 'chair2', 'desk', 'umbrella', 'pens', 'board'];
+    var pass = false;
+    for(var i in selectItems){
+      if(supplement[selectItems[i]]){
+        pass = true;
+        break;
+      }
+    }
+    if(supplement["others_select"] && supplement["others"] && supplement["others"].length > 0 ){
+      pass = true;
+    }
+    return pass;
+  };
+
+  $scope.send = function () {
+    console.log('scope.content',$scope.content);
+    var errors = []; 
+    if($scope.content.register.$valid){
+      if($scope.content.type == 'supplement' && !verifySupplement() ){
+        errors.push('error');
+      }
+    }
+    else{
+      errors.push('error');
+    }
+    if(errors.length == 0){
+      $modalInstance.close($scope.content);
+    }
+    else{
+      console.log('errors',errors);
+
+    }
+  };
+
+  $scope.cancel = function () {
+     $modalInstance.dismiss('cancel');
+  };
+
 }]);
+//.directive("supplementVerify", function() {
+//  return {
+//    require: "ngModel",
+//    scope: { supplementVerify: '=' },
+//    link: function(scope, element, attrs, ctrl) {
+//      scope.$watch(function() {
+//          return scope.supplementVerify;
+//      }, function(data) {
+//        console.log(data[1]);
+//        ctrl.$parsers.unshift(function(viewValue) {
+//          if (data[0] != 'supplement' ) {
+//            ctrl.$setValidity("supplementVerify", true);
+//            return undefined;
+//          }
+//          else if(!$.isEmptyObject(data[1])){
+//            ctrl.$setValidity("supplementVerify", true);
+//            console.log('valid');
+//            return data[1];
+//          }
+//          else{
+//            ctrl.$setValidity("supplementVerify", false);
+//            return undefined;
+//          }
+//        });                                                                                            
+//      });
+//    }
+//  };
+//});
 
-var registerDialogController = function($scope, $modalInstance, type){
-   // Define scope variales here, or ng-model in dialog won't work
-   $scope.title = 'title';
-   $scope.type = type;
-
-   $scope.send = function () {
-      $modalInstance.close(true);
-   };
-
-   $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
-   };
-};
 
 
