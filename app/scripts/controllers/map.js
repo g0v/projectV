@@ -362,7 +362,8 @@ angular.module('projectVApp')
   ['$scope', '$modalInstance','data', function($scope, $modalInstance, data) {
   $scope.title = 'title';
   $scope.type = data.type;
-  console.log(data);
+  $scope.errors = '';
+  //console.log(data);
   $scope.content = {
     type: data.type,
     votestat: data.vsName, 
@@ -373,39 +374,60 @@ angular.module('projectVApp')
     supplement: {},
   };
 
+  var selectItems = { 
+    'chair1':'椅子#1', 
+    'chair2':'椅子#2', 
+    'desk':'桌子', 
+    'umbrella':'大傘', 
+    'pens':'筆（若干）', 
+    'board':'連署板',
+  };
+
+  var textItem = {
+    'name':'名字',
+    'phone':'手機',
+    'email':'E-Mail',
+  };
+
   var verifySupplement = function(){
     var supplement = $scope.content.supplement;
-    var selectItems = [ 'chair', 'chair2', 'desk', 'umbrella', 'pens', 'board'];
-    var pass = false;
-    for(var i in selectItems){
-      if(supplement[selectItems[i]]){
-        pass = true;
-        break;
+    for(var item in selectItems){
+      if(supplement[item]){
+        return true;
       }
     }
     if(supplement["others_select"] && supplement["others"] && supplement["others"].length > 0 ){
-      pass = true;
+      return true;
     }
-    return pass;
+    return false;
   };
 
   $scope.send = function () {
-    console.log('scope.content',$scope.content);
+    //console.log('scope.content',$scope.content);
     var errors = []; 
-    if($scope.content.register.$valid){
-      if($scope.content.type == 'supplement' && !verifySupplement() ){
-        errors.push('error');
+
+    if($scope.content.register.$invalid){
+      var register = $scope.content.register;
+      for(var item in textItem){
+        if(register[item].$error.required){
+          errors.push('請填寫您的'+textItem[item]);
+          //$scope.content.register 
+        }
+        if(register[item].$error.email){
+          errors.push('您的'+textItem[item]+'格式不符');
+          //$scope.content.register 
+        }
       }
     }
-    else{
-      errors.push('error');
+    if($scope.content.type == 'supplement' && !verifySupplement() ){
+      errors.push('請勾選您要提供的物資');
     }
     if(errors.length == 0){
       $modalInstance.close($scope.content);
     }
     else{
       console.log('errors',errors);
-
+      $scope.errors = errors.join('，');
     }
   };
 

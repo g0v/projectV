@@ -15,17 +15,14 @@
           魔王領土兵屯列表 
         </h3>
       </div>
-      <div class="panel-body" style="overflow:scroll;height:560px;">
+      <div class="panel-body" >
         <p> 種子收洋動案友有的作的我形：人辦開變說然……如孩可地，</p>
-
         <hr/>
-
         <ul class="nav nav-stacked" ng-repeat="(townKey,townVal) in myscope.villageSum" >
           <li ng-click='myscope.setTownTab(townKey)' style="cursor:pointer;" ng-class="myscope.isCurrentTownTab(townKey)">{{townKey}}</li>
         </ul>
-
-        <hr/>
-
+      </div>
+      <div class="panel-body" style="overflow:scroll;height:400px;border-top:1px solid #ccc;">
         <div ng-repeat="(townKey,townVal) in myscope.villageSum" ng-show="myscope.currentTownTab == townKey">
           <div ng-repeat="(villKey,villVal) in townVal">
             <div class="row">
@@ -60,10 +57,12 @@
         </div>
 
         <hr/>
+
         <ul class="nav nav-stacked" ng-repeat="votestat in myscope.showVS.vsArray" >
           <li ng-click='myscope.setVotestatTab(votestat.id)' style="cursor:pointer;" ng-class="myscope.isCurrentVsTab(votestat.id)">{{votestat.name}}</li>
         </ul>
         <hr/>
+
         <div>
           <div style="padding:10px;">
             <h5>HP（志工數）</h5> 

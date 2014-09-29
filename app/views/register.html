@@ -17,36 +17,43 @@
     <p>
       勇者呀！該如何稱呼您呢？<br/>
       <strong>請填入暱稱或名字（會在營地顯示出來唷！）</strong><br/>
-      <input type="text" required data-ng-model="content.name"></input>
+      <input type="text" name="name" required data-ng-model="content.name"></input>
     </p> 
     <p>
       勇者呀！該如何聯繫你呀？<br/>
       <strong>請填入手機（重大訊息及相關訊息會在重要時刻與你聯繫！）</strong><br/>
-      <input type="text" required data-ng-model="content.phone"></input>
+      <input type="text" name="phone" required data-ng-model="content.phone"></input>
     </p> 
     <p>
       勇者呀！該如何寄資訊給你呀？<br/>
       <strong>請填入E-Mail</strong><br/>
-      <input type="email" required data-ng-model="content.email"></input>
+      <input type="email" name="email" required data-ng-model="content.email"></input>
     </p> 
     <p ng-show="type == 'supplement'">
       想要捐贈什麼物資裝備？<br/>
       <strong>想要幫忙提供什麼物資？</strong><br/>
-      <input type="checkbox" name="c1" value="c1" data-ng-model="content.supplement.chair1">椅子#1<br>
-      <input type="checkbox" name="c2" value="c2" data-ng-model="content.supplement.chair2">椅子#2<br>
-      <input type="checkbox" name="c3" value="c3" data-ng-model="content.supplement.desk">桌子<br>
-      <input type="checkbox" name="c4" value="c4" data-ng-model="content.supplement.umbrella">大傘<br>
-      <input type="checkbox" name="c5" value="c5" data-ng-model="content.supplement.pens">筆（若干）<br>
-      <input type="checkbox" name="c6" value="c6" data-ng-model="content.supplement.board">連署板<br>
-      <input type="checkbox" name="c7" value="c7" data-ng-model="content.supplement.others_select">其他<br>
-      <input type="text" data-ng-model="content.supplement.others" 
+      <input type="checkbox" name="supplement.chair1"  data-ng-model="content.supplement.chair1">椅子#1<br>
+      <input type="checkbox" name="supplement.chair2"  data-ng-model="content.supplement.chair2">椅子#2<br>
+      <input type="checkbox" name="supplement.desk"  data-ng-model="content.supplement.desk">桌子<br>
+      <input type="checkbox" name="supplement.umbrella"  data-ng-model="content.supplement.umbrella">大傘<br>
+      <input type="checkbox" name="supplement.pens"  data-ng-model="content.supplement.pens">筆（若干）<br>
+      <input type="checkbox" name="supplement.board"  data-ng-model="content.supplement.board">連署板<br>
+      <input type="checkbox" name="supplement.others_select"  data-ng-model="content.supplement.others_select">其他<br>
+      <input type="text" name="supplement.others_select_text" data-ng-model="content.supplement.others" 
         data-ng-show="content.supplement.others_select"></input>
     </p> 
   </div>
 
   <div class="modal-footer">
-    <button class="btn btn-primary" data-ng-click="send()">Send</button>
-    <button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+    <div class="row">
+      <div class="col-xs-8">
+        <p class="bg-danger text-danger" style="text-align:left">{{errors}}</p>
+      </div>
+      <div class="col-xs-4">
+        <button class="btn btn-primary" data-ng-click="send()">Send</button>
+        <button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+      </div>
+    </div>
   </div>
   </form>
 </div>
