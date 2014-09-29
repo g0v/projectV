@@ -25,14 +25,15 @@ angular.module('projectVApp')
           'content': voteInfos[county]
         });
       }
-      if (voteInfos[county]) {
+      //if (voteInfos[county]) {
+      //  postProcess(county);
+      //  return deferred.promise;
+      //} else {
+      $http.get('json/mly/8/' + county + '.json').then(function(res) {
+        voteInfos[county] = res.data;
         postProcess(county);
-      } else {
-        $http.get('json/mly/8/' + county + '.json').then(function(res) {
-          voteInfos[county] = res.data;
-          postProcess(county);
-        });
-      }
+      });
+      //}
       return deferred.promise;
     };
 
@@ -44,14 +45,14 @@ angular.module('projectVApp')
           'content': villageSum,
         });
       }
-      if (villageSum) {
+      //if (villageSum) {
+      //  postProcess(county);
+      //} else {
+      $http.get('json/villageSum/' + county + '.json').then(function(res) {
+        villageSum = res.data;
         postProcess(county);
-      } else {
-        $http.get('json/villageSum/' + county + '.json').then(function(res) {
-          villageSum = res.data;
-          postProcess(county);
-        });
-      }
+      });
+      //}
       return deferred.promise;
     };
 
