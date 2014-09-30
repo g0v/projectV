@@ -43,7 +43,7 @@ angular.module('projectVApp')
     };
 
     var myiconArray = (function genIcon(){
-      var iconSize = [40, 45];
+      var iconSize = [45, 50];
       var iconAnchor = [iconSize[0]/2, iconSize[1]];
       var icon_count = ['1','2','3'];
       var icon_type = ['x','c','d'];
@@ -58,7 +58,7 @@ angular.module('projectVApp')
           };
         }); 
       });
-      console.log('icon_result_temp',icon_result_temp);
+      //console.log('icon_result_temp',icon_result_temp);
       return icon_result_temp;
     })();
 
@@ -106,76 +106,44 @@ angular.module('projectVApp')
           localGeojson.addData(json);
         });
       }
-      //animate();
     }
 
-    function drawCounty(county){
-        var jsonPath = 'json/twVote1982/' + county + '.json';
-        $http.get(jsonPath).then(function(res) {
-          if (!$scope.districts) {
-            $scope.districts = res.data;
-          } else {
-           $scope.districts.features.push(res.data.features[0]);
-          }
-          var name = county;
-          drawDistrict($scope.voteInfos[name], name);
-        });
-    }
 
-    function drawDistrict(voteInfo, name) {
-    //console.log('voteInfo',voteInfo['投票狀況']);
-      var query0 = 'json/votestat/8/' + county + '.json';
-      $http.get(query0).then(function(res0) {
-        voteStatData = res0.data;
-        angular.forEach(voteInfo['投票狀況'], function(town, townName) {
-          angular.forEach(town, function(village, villageName) {
-            var query = 'json/twVillage1982/' + name + '/' + voteInfo['選區'][0] +
-              '/' + townName + '/' + villageName + '.json';
-            $http.get(query).then(function(res) {
-              applyGeojson(res.data);
-            },
-            function() {
-
-            });
-          });
-        });
-      },
-      function(err) {
-        console.log('err',err);
-      });
-    }
-
-    function style() {
+    function style(feature) {
       return {
         opacity: 1,
         weight: 2,
-        color: 'white',
-        dashArray: '3',
+        color: 'black',
+        dashArray: '5',
         fillOpacity: 0.7,
-        fillColor: "#aaaaaa",//getColor(feature),
+        fillColor: feature.properties.mycolor,
         className: 'county transparent'
       };
     }
 
     var mouse_over_style = {
         weight: 5,
-        color: '#666',
-        dashArray: '',
+        color: 'white',
     };
 
     var mouse_leave_style = {
         weight: 2,
-        color: 'white',
-        dashArray: '3',
+        color: 'black',
     };
 
-    var mouse_click_style = {
-        fillColor: "#aaaa00",//getColor(feature),
-    };
+    function gen_area_color(color){
+        return { fillColor: color };//getColor(feature),
+    }
 
-    var mouse_unclick_style = {
-        fillColor: "#aaaaaa",//getColor(feature),
-    };
+    function set_unclick_style(layer){
+       var mycolor = layer.feature.properties.mycolor;
+       return gen_area_color(mycolor);
+    }
+    
+    function set_click_style(){
+       return gen_area_color("#ffff00");
+    }
+
     
     // Mouse over function, called from the Leaflet Map Events
     function areaMouseover(ev, leafletEvent) {
@@ -201,19 +169,12 @@ angular.module('projectVApp')
 
     function areaClickSub(townName,villageName,layer){
       if(lastClickLayer){
-        lastClickLayer.setStyle(mouse_unclick_style);
+        lastClickLayer.setStyle(set_unclick_style(lastClickLayer));
       }
-      layer.setStyle(mouse_click_style);
+      layer.setStyle(set_click_style());
       layer.bringToFront();
       lastClickLayer = layer; 
     }
-
-    //$scope.myscope.setCurrentAreaClick = function(townName,villageName){
-    //  $scope.leafletData.getGeoJSON().then(function(localGeojson) {
-    //    console.log(localGeojson);
-    //  });
-    //} 
-
 
     $scope.myscope.setCurrentAreaClick = function(townName, villageName){
       $scope.leafletData.getGeoJSON().then(function(localGeojson) {
@@ -331,35 +292,11 @@ angular.module('projectVApp')
     $scope.myscope.back = function() {
       $scope.myscope.showVS = null;
       $scope.markers = {};
-
       if(lastClickLayer){
-        lastClickLayer.setStyle(mouse_unclick_style);
+        lastClickLayer.setStyle(set_unclick_style(lastClickLayer));
         lastClickLayer = null;
       }
-      //delete $scope.selectedDistrictName;
-      //delete $scope.geojson;
-      //applyGeojson($scope.districts);
-      //$scope.taiwan = MAP_DEFAULT_VIEW[county];
     };
-
-
-    voteInfoService.getAllVoteInfo(county).then(
-      function() {},
-      function() {},
-      function(voteInfo) {
-        $scope.voteInfos[voteInfo.id] = voteInfo.content;
-        drawCounty(voteInfo.id);
-    });
-
-    voteInfoService.getAllVillageSum(county).then(
-      function() {}, 
-      function() {}, 
-      function(villageSum){ 
-        $scope.myscope.villageSum = villageSum['content'];
-        $scope.myscope.currentTownTab = Object.keys(villageSum['content'])[0];
-        //console.log(villageSum);
-    }); 
-    
 
     function drawVoteStation(markerArray) {
       var mymarkers = {};
@@ -402,6 +339,7 @@ angular.module('projectVApp')
         thisMarker.icon = thisMarker.myicons['d'];
         //console.log("Leaflet Click",args);
       });
+
       $scope.$on('leafletDirectiveMarker.mouseout', function(e, args) {
          //$scope.markerNs.click = false;
         var thisName = args.markerName;
@@ -413,6 +351,7 @@ angular.module('projectVApp')
           thisMarker.icon = thisMarker.myicons['c'];
         }
       });
+
     }
 
     $scope.$on('leafletDirectiveMap.geojsonMouseover', areaMouseover);
@@ -438,6 +377,46 @@ angular.module('projectVApp')
         console.log('send',result);
       }); 
     };  
+
+    voteInfoService.getStaticVillageData(county).then(
+      function(){},
+      function() {}, 
+      function(data){ 
+        //console.log(data.villageArea , data.villageSum)
+        var mycolor = (function(){
+          if( data.villageSum == 1){
+            return '#00ff00';
+          }
+          else if(data.villageSum > 0.75){
+            return '#22ee22';
+          }
+          else if(data.villageSum > 0.5){
+            return '#55dd55';
+          }
+          else if(data.villageSum > 0.25){
+            return '#88cc88';
+          }
+          else{
+            return '#aaaaaa';
+          }
+        })();
+        data.villageArea.features[0].properties.mycolor = mycolor;
+        applyGeojson(data.villageArea);
+        console.log(data.villageArea);
+      }
+    );
+
+    voteInfoService.getAllVotestatData(county).then(
+      function(data) {
+        voteStatData = data;
+    });
+
+    voteInfoService.getAllVillageSum(county).then(
+      function(villageSum){ 
+        $scope.myscope.villageSum = villageSum;
+        $scope.myscope.currentTownTab = Object.keys(villageSum)[0];
+    }); 
+
 
 }])
 
@@ -519,31 +498,3 @@ angular.module('projectVApp')
   };
 
 }]);
-//.directive("supplementVerify", function() {
-//  return {
-//    require: "ngModel",
-//    scope: { supplementVerify: '=' },
-//    link: function(scope, element, attrs, ctrl) {
-//      scope.$watch(function() {
-//          return scope.supplementVerify;
-//      }, function(data) {
-//        console.log(data[1]);
-//        ctrl.$parsers.unshift(function(viewValue) {
-//          if (data[0] != 'supplement' ) {
-//            ctrl.$setValidity("supplementVerify", true);
-//            return undefined;
-//          }
-//          else if(!$.isEmptyObject(data[1])){
-//            ctrl.$setValidity("supplementVerify", true);
-//            console.log('valid');
-//            return data[1];
-//          }
-//          else{
-//            ctrl.$setValidity("supplementVerify", false);
-//            return undefined;
-//          }
-//        });                                                                                            
-//      });
-//    }
-//  };
-//});
