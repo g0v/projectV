@@ -26,8 +26,9 @@
     <div class="container">
       <div class="header" ng-controller="PagesCtrl">
         <ul class="nav nav-pills pull-right">
-          <li ng-repeat="page in pages" ng-class="getActive('{{page.id}}')">
-            <a ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}">{{page.name}}</a>
+          <li ng-repeat="page in pages" ng-class="getActive('{{page.id}}')" >
+            <!--<a ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}">{{page.name}}</a>-->
+            <a ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}"><img src="{{page.img}}"/></a>
           </li>
         </ul>
         <h3><a href="#/">ProjectV</a></h3>
