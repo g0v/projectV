@@ -12,7 +12,7 @@
     "angular-animate": "~1.2.0",
     "angular-touch": "~1.2.0",
     "angular-route": "~1.2.0",
-    "angular-bootstrap": "~1.2.0",
+    "angular-bootstrap": "~0.11.0",
     "components-font-awesome": "~4.2.0",
     "leaflet-dist": "~0.7.2",
     "angular-leaflet-directive": "~0.7.8"
