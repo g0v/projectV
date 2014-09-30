@@ -34,7 +34,7 @@
                 </div>
               </div>
               <div class="col-md-5 col-lg-4">
-                <a href="javascript:void(0);" ng-click="myscope.areaSelect(townKey,villKey)"> {{villKey}}</a>
+                <a href="javascript:void(0);" ng-click="myscope.setCurrentAreaClick(townKey,villKey)"> {{villKey}}</a>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
         <hr/>
 
         <ul class="nav nav-stacked" ng-repeat="votestat in myscope.showVS.vsArray" >
-          <li ng-click='myscope.setVotestatTab(votestat.id)' style="cursor:pointer;" ng-class="myscope.isCurrentVsTab(votestat.id)">{{votestat.name}}</li>
+          <li ng-click='myscope.setCurrentMarkerClick(votestat.id)' style="cursor:pointer;" ng-class="myscope.isCurrentVsTab(votestat.id)">{{votestat.name}}</li>
         </ul>
         <hr/>
 
@@ -67,12 +67,12 @@
           <div style="padding:10px;">
             <h5>HP（志工數）</h5> 
             <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo.volunteer * 100}}" 
-                aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo.volunteer * 100}}%;">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo[myscope.currentVsTab.vsId].volunteer * 100}}" 
+                aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo[myscope.currentVsTab.vsId].volunteer * 100}}%;">
               </div>
             </div>
             <div id="hp_people" style="margin:5px" >
-              <img class="img-circle" style="padding:2px" ng-repeat="name in myscope.vsInfo.vlist track by $index" 
+              <img class="img-circle" style="padding:2px" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist track by $index" 
                 src="http://fakeimg.pl/40/?text={{name}}">
             </div>
             <button type="button" class="btn btn-primary" ng-click="myscope.registerDialog('volunteer')">
@@ -83,12 +83,12 @@
           <div style="padding:10px;">
             <h5>SP（物資數）</h5> 
             <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo.supplement*100}}" 
-                aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo.supplement*100}}%;">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}" 
+                aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}%;">
               </div>
             </div>
             <div id="hp_people" style="margin:5px" >
-              <img class="img-circle" style="padding:2px" ng-repeat="name in myscope.vsInfo.slist track by $index" 
+              <img class="img-circle" style="padding:2px" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist track by $index" 
                 src="http://fakeimg.pl/40/?text={{name}}">
             </div>
             <button type="button" class="btn btn-primary" ng-click="myscope.registerDialog('supplement')">
