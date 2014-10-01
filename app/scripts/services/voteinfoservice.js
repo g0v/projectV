@@ -21,6 +21,8 @@ angular.module('projectVApp')
 
     var villageAreaAry = {}; 
 
+    var countyBoundAry = {};
+
     //this.getAllVoteInfo = function(county) {
     //  var deferred = $q.defer();
     //  function postProcess(county) {
@@ -37,7 +39,27 @@ angular.module('projectVApp')
     //  return deferred.promise;
     //};
 
-    
+    //this.getCountyBound = function(county) {
+    //  var deferred = $q.defer();
+    //  
+    //  function postProcess(county) {
+    //    deferred.resolve(countyBoundAry[county]);
+    //  }
+
+    //  if(countyBoundAry[county]){
+    //    postProcess(county);
+    //  }
+    //  else{
+    //    var query = 'json/twVote1982/' + county + '.json';
+    //    $http.get(query).then(function(res) {
+    //      countyBoundAry[county] = res.data;
+    //      postProcess(county);
+    //    });
+    //  }
+    //  return deferred.promise;
+    //};
+
+
 
     this.getAllVotestatData = function(county) {
       var deferred = $q.defer();
@@ -89,13 +111,11 @@ angular.module('projectVApp')
       }
 
       if (countyVillageAry[county] && villageSumAry[county]) {
-        console.log('vs2',villageSumAry[county]);
         postProcess(countyVillageAry[county], villageSumAry[county]);
       } 
 
       else {
         this.getAllVillageSum(county).then( function(villageSum){ 
-          console.log('vs3',villageSum);
           if (countyVillageAry[county]){
             postProcess(countyVillageAry[county], villageSum);
           }
@@ -119,7 +139,7 @@ angular.module('projectVApp')
         var villSum = countVillData.villageSum;
         villageAreaAry[county] = villageAreaAry[county] ? villageAreaAry[county] : {};
         var villageArea = villageAreaAry[county];
-        console.log('villSum',villSum);
+        //console.log('villSum',villSum);
 
         function postProcess(vakey, townName, villageName){
           var mvillsum = 0;
@@ -137,7 +157,7 @@ angular.module('projectVApp')
               postProcess(vakey, townName, villageName);
             }
 
-            console.log(townName,villageName);        
+            //console.log(townName,villageName);        
             var query = 'json/twVillage1982/' + county + '/' + townName + '/' + villageName + '.json';
 
             $http.get(query).success(function(data) {

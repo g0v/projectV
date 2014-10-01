@@ -11,6 +11,13 @@ var MAP_DEFAULT_VIEW = {
 };
 
 
+var MAP_DEFAULT_BOUND = {
+  'TPE-4':[{lat: 25.1151655, lng:121.6659156}, {lat: 25.0122295, lng:121.5521896}],
+  'TPQ-1':[{lat: 25.3011330, lng:121.6195265}, {lat: 25.0287778, lng:121.2826487}],
+  'TPQ-6':[{lat: 25.0398178, lng:121.4895901}, {lat: 25.0034634, lng:121.4451953}],
+};
+
+
 /**
  * @ngdoc function
  * @name projectVApp.controller:MapCtrl
@@ -66,33 +73,6 @@ angular.module('projectVApp')
       county = DEFAULT_COUNTY;
     }
 
-    function getColor(feature) {
-      var area = [];
-
-      if (feature.properties.TOWNNAME) {
-        area.push(feature.properties.TOWNNAME);
-      }
-      if (feature.properties.VILLAGENAM) {
-        area.push(feature.properties.VILLAGENAM);
-      }
-      var defaultColor = '#aaaaaa';
-          return defaultColor;
-    }
-
-    function animate() {
-      setTimeout(function() {
-        $('.county').each(function(i, el) {
-          if (el.classList) {
-            el.classList.remove('transparent');
-          } else if (el.getAttribute && el.getAttribute('class')) {
-            // workaround for IE 10
-            el.setAttribute('class',
-              el.getAttribute('class').replace('transparent', ''));
-          }
-        });
-      }, 100);
-    }
-
 
     function applyGeojson(json) {
       if (!$scope.geojson) {
@@ -108,7 +88,6 @@ angular.module('projectVApp')
       }
     }
 
-
     function style(feature) {
       return {
         opacity: 1,
@@ -120,6 +99,10 @@ angular.module('projectVApp')
         className: 'county transparent'
       };
     }
+
+
+
+
 
     var mouse_over_style = {
         weight: 5,
@@ -168,23 +151,28 @@ angular.module('projectVApp')
     }
 
     function areaClickSub(townName,villageName,layer){
+
       if(lastClickLayer){
         lastClickLayer.setStyle(set_unclick_style(lastClickLayer));
       }
       layer.setStyle(set_click_style());
       layer.bringToFront();
+      //console.log('layer',layer);//TODO
       lastClickLayer = layer; 
+      $scope.leafletData.getMap().then(function(map){
+        console.log(layer.getBounds());
+        map.fitBounds(layer.getBounds());
+      });
+      //var max_of_array = Math.max.apply(Math, array);
+      //setMapScale(layer);
     }
-
+    
     $scope.myscope.setCurrentAreaClick = function(townName, villageName){
       $scope.leafletData.getGeoJSON().then(function(localGeojson) {
-        //console.log(localGeojson);
         var geoLayers = localGeojson.getLayers(); 
         angular.forEach(geoLayers,function(layer) {
           var lTownName = layer.feature.properties.TOWNNAME;
           var lVillageName = layer.feature.properties.VILLAGENAM;
-          //console.log('layer',lTownName,lVillageName);
-          //console.log('target',townName,villageName);
           if(townName == lTownName  && villageName == lVillageName){
             areaClickSub(townName,villageName,layer);
           }
@@ -296,6 +284,9 @@ angular.module('projectVApp')
         lastClickLayer.setStyle(set_unclick_style(lastClickLayer));
         lastClickLayer = null;
       }
+      $scope.leafletData.getMap().then(function(map){
+        map.fitBounds(MAP_DEFAULT_BOUND[county]);
+      });
     };
 
     function drawVoteStation(markerArray) {
@@ -337,7 +328,6 @@ angular.module('projectVApp')
       $scope.$on('leafletDirectiveMarker.mouseover', function(e, args) {
         var thisMarker = $scope.markers[args.markerName];
         thisMarker.icon = thisMarker.myicons['d'];
-        //console.log("Leaflet Click",args);
       });
 
       $scope.$on('leafletDirectiveMarker.mouseout', function(e, args) {
@@ -402,7 +392,6 @@ angular.module('projectVApp')
         })();
         data.villageArea.features[0].properties.mycolor = mycolor;
         applyGeojson(data.villageArea);
-        console.log(data.villageArea);
       }
     );
 
@@ -416,6 +405,41 @@ angular.module('projectVApp')
         $scope.myscope.villageSum = villageSum;
         $scope.myscope.currentTownTab = Object.keys(villageSum)[0];
     }); 
+
+
+
+    $scope.leafletData.getMap().then(function(map){
+      map.fitBounds(MAP_DEFAULT_BOUND[county]);
+    });
+    //function applyBoundGeojson(json) {
+    //  if (!$scope.geojson) {
+    //    $scope.geojson = {
+    //      data: json,
+    //      style: style,
+    //      resetStyleOnMouseout: false 
+    //    };
+    //  } else {
+    //    $scope.leafletData.getGeoJSON().then(function(localGeojson) {
+    //      localGeojson.addData(json);
+    //    });
+    //  }
+    //}
+
+    //function boundstyle(feature) {
+    //  return {
+    //    opacity: 1,
+    //    weight: 4,
+    //    color: 'black',
+    //    dashArray: '0',
+    //    className: 'county none'
+    //  };
+    //}
+
+
+    //voteInfoService.getCountyBound(county).then(
+    //  function(data) {
+    //    applyBoundGeojson(data);
+    //});
 
 
 }])
