@@ -1,0 +1,58 @@
+.container{
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-bar{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+li.nav{
+    list-style-type: none;
+    float: left;
+}
+
+.nav-major{
+    width: 50%;
+}
+
+.nav-title{
+    padding-top: 25px;
+    padding-bottom: 39px;
+    width: auto;
+}
+
+img{
+    width: 100%;
+}
+
+#nav1{
+    width: 35.454545454545%;
+}
+
+#nav2{
+    width: 11.477272727273%;
+}
+
+#nav3{
+    width: 13.295454545455%;
+}
+
+#nav4{
+    width: 14.431818181818%;
+}
+
+#nav5{
+    width: 19.772727272727%;
+}
+
+#nav6{
+    width: 5.568181818182%;
+}
+
+.nav > lia{
+    padding: 0;
+}
