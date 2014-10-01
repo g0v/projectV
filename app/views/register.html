@@ -48,7 +48,7 @@
         <strong>請填入E-Mail</strong><br/>
         <input type="email" name="email" required data-ng-model="content.email"></input>
       </p> 
-      <p ng-show="type == 'supplement'">
+      <p ng-show="myscope.type == 'supplement'">
         想要捐贈什麼物資裝備？<br/>
         <strong>想要幫忙提供什麼物資？</strong><br/>
         <input type="checkbox" name="supplement.chair1"  data-ng-model="content.supplement.chair1">椅子#1<br>
@@ -61,13 +61,16 @@
         <input type="text" name="supplement.others_select_text" data-ng-model="content.supplement.others" 
           data-ng-show="content.supplement.others_select"></input>
       </p> 
+      <p>
+        <input type="checkbox" data-ng-model="myscope.fbshare">分享到facebook<br>
+      </p>
     </div>
   </div>
 
   <div class="modal-footer">
     <div class="row">
       <div class="col-xs-8">
-        <p class="bg-danger text-danger" style="text-align:left">{{errors}}</p>
+        <p class="bg-danger text-danger" style="text-align:left">{{myscope.errors}}</p>
       </div>
       <div class="col-xs-4">
         <button class="btn btn-primary" data-ng-click="send()"  data-ng-show="logged">Send</button>

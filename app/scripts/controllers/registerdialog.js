@@ -58,7 +58,7 @@ angular.module('projectVApp')
         $scope.me();
       }
     
-    });
+    }, {scope: 'publish_stream,publish_actions'});
    };
    
    /**
@@ -87,6 +87,7 @@ angular.module('projectVApp')
       $scope.$apply(function() {
         $scope.user   = {};
         $scope.logged = false;  
+        $scope.myscope.errors = '';
         userIsConnected = false;
       });
     });
@@ -142,8 +143,10 @@ angular.module('projectVApp')
       }
     },true);
 
-  $scope.type = data.type;
-  $scope.errors = '';
+  $scope.myscope = {};
+  $scope.myscope.fbshare = true;
+  $scope.myscope.type = data.type;
+  $scope.myscope.errors = '';
   $scope.content = {
     type: data.type,
     votestat: data.vsName, 
@@ -200,16 +203,32 @@ angular.module('projectVApp')
       errors.push('請勾選您要提供的物資');
     }
     if(errors.length == 0){
+      console.log($scope.myscope.fbshare);
+      if($scope.myscope.fbshare == true){
+        postToFb();
+      }
       $modalInstance.close($scope.content);
     }
     else{
       console.log('errors',errors);
-      $scope.errors = errors.join('，');
+      $scope.myscope.errors = errors.join('，');
     }
   };
 
   $scope.cancel = function () {
      $modalInstance.dismiss('cancel');
   };
+  
+  function postToFb(){
+    var message = '割闌尾V計劃網站測試中\n http://g0v.github.io/projectV/#/';
+    Facebook.api('/me/feed', 'post', { message: message }, function(response) {
+      if (!response || response.error) {
+        console.log('error', response.error);
+        //alert('Error occured');
+      } else {
+        console.log('Post ID: ' + response.id);
+      }
+    });
+  }
 
 }]);
