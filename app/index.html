@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/nav.css">
         <link rel="stylesheet" href="styles/footer.css">
+        <link rel="stylesheet" href="styles/homepage.css">
         <!-- endbuild -->
     </head>
     <body ng-app="projectVApp">
@@ -32,6 +33,11 @@
                         <a ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}"><img src="{{page.img}}" alt="{{page.name}}"/></a>
                     </li>
                 </ul>
+            </div>
+
+            <div class="homepage-counter-row">
+                <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-12.svg" alt="" class="homepage-counter-graph"/>
+                <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-13.svg" alt="" class="homepage-counter-text"/>
             </div>
 
             <div ng-view="">

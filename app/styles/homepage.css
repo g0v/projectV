@@ -1,0 +1,17 @@
+.homepage-counter-row {
+    width: 94%;
+    float: left;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+
+.homepage-counter-graph {
+    width: 30%;
+    float: left;
+}
+
+.homepage-counter-text {
+    width: 70%;
+    float: left;
+}
