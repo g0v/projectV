@@ -1,6 +1,7 @@
 .homepage-counter-row {
     width: 94%;
     float: left;
+    padding-top: 1em;
     margin-left: 3%;
     margin-right: 3%;
 }
@@ -14,4 +15,16 @@
 .homepage-counter-text {
     width: 70%;
     float: left;
+}
+
+.mission-row {
+    float: left;
+    width: 96%;
+    padding-top: 3em;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.mission-major {
+    width: 100%;
 }
