@@ -35,10 +35,26 @@
                 </ul>
             </div>
 
-            <div class="homepage-counter-row">
+            <div id="homepage-counter-row">
                 <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-12.svg" alt="" class="homepage-counter-graph"/>
                 <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-13.svg" alt="" class="homepage-counter-text"/>
+                <h3 id="counter-introduction-title">什麼是罷免日計劃?</h3>
+                <p id="counter-introduction-content">明天將割闌尾計畫將於早上10:30於士林地檢署聲援去年罷免吳育昇的三位領 銜人,馮光遠先生作為憲法133實踐聯盟」的發起人之一,也聲援並支持他們 ,並表示:「這件事情的荒謬在於,此三人不過就是法律上的代表人,提議書 是否有效,他們並不具檢驗的資格和義務,士林地檢署以「偽造文書」罪將三</p>
             </div>
+
+            <script>
+                window.onresize = function(){
+                    layout_all();
+                }
+                function layout_all() {
+                    document.getElementById('counter-introduction-title').style.fontSize = parseInt(window.innerWidth / 44) + "px";
+                    document.getElementById('counter-introduction-content').style.fontSize = parseInt(window.innerWidth / 80) + "px";
+                    document.getElementById('counter-introduction-title').style.top = "-" + parseInt(window.innerWidth / 6) + "px";
+                    document.getElementById('counter-introduction-content').style.top = "-" + parseInt(window.innerWidth / 6) + "px";
+                };
+                layout_all();
+            </script>
+
 
             <div class="mission-row">
                 <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-mission.svg" alt="" class="mission-major"/>

@@ -1,9 +1,10 @@
-.homepage-counter-row {
+#homepage-counter-row {
     width: 94%;
     float: left;
     padding-top: 1em;
     margin-left: 3%;
     margin-right: 3%;
+    /*background-color: red;*/
 }
 
 
@@ -15,6 +16,22 @@
 .homepage-counter-text {
     width: 70%;
     float: left;
+}
+
+#counter-introduction-title {
+    padding-left: 33%;
+    padding-right: 10%;
+    position: relative;
+    /*top: -300px;*/
+}
+
+#counter-introduction-content {
+    padding-left: 33%;
+    padding-right: 10%;
+    position: relative;
+    /*top: -300px;*/
+    padding-top: 0.25em;
+
 }
 
 .mission-row {
