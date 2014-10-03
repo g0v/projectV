@@ -22,14 +22,12 @@
     padding-left: 33%;
     padding-right: 10%;
     position: relative;
-    /*top: -300px;*/
 }
 
 #counter-introduction-content {
     padding-left: 33%;
     padding-right: 10%;
     position: relative;
-    /*top: -300px;*/
     padding-top: 0.25em;
 
 }
@@ -42,6 +40,29 @@
     margin-right: 2%;
 }
 
-.mission-major {
+#mission-major {
+    position: relative;
     width: 100%;
+}
+
+.mission-button {
+    width: 13.33333333%;
+    /*padding-left: 5%;*/
+    /*padding-right: 5%;*/
+}
+
+#mission-button-tsa {
+    position: relative;
+    margin-left: 15%;
+    margin-right: 14.8%;
+}
+
+#mission-button-wu {
+    position: relative;
+    margin-right: 14.8%;
+}
+
+#mission-button-lin {
+    position: relative;
+    margin-right: 13%;
 }
