@@ -204,7 +204,6 @@ angular.module('projectVApp')
             if(markerArray.length ==0){
               currentVsId = votestat.id;
             }
-        
             markerArray.push({
               'vsid':votestat.id,
               'townName': townName,
@@ -220,7 +219,6 @@ angular.module('projectVApp')
         });
         drawVoteStation(markerArray);
         $scope.myscope.setCurrentMarkerClick(currentVsId);
-
       },
       function(err) {
         console.log('err',err);
@@ -405,6 +403,15 @@ angular.module('projectVApp')
         $scope.myscope.villageSum = villageSum;
         $scope.myscope.currentTownTab = Object.keys(villageSum)[0];
     }); 
+
+    voteInfoService.getCitizenData(county).then(
+      function(citizenData){
+       // console.log('citizenData',citizenData);
+       // for (var i = 0; i < citizenData.length; i++) { 
+       //   var object = citizenData[i];
+       //   console.log(i,object);
+       // }
+    });
 
 
 

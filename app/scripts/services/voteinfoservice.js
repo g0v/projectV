@@ -1,5 +1,7 @@
 'use strict';
 
+var VOL_COUNT = 5
+
 /**
  * @ngdoc service
  * @name projectVApp.voteInfoService
@@ -9,8 +11,16 @@
  */
 angular.module('projectVApp')
   .service('voteInfoService', function voteInfoService($q, $http) {
+   
+    Parse.initialize(
+      "QDCw1Ntq4E9PmPpcuwKbO2H0B1H0y77Vj1ScO9Zx",
+      "6jaJvf46pYub6Ej9IjhhIXNtZjTqRY0P4IqAJFhH"
+    );
 
+    var citizenParse = Parse.Object.extend("citizen");
     //var county = 'TPE-4';
+
+    var citizenDataAry = {};
     var voteDataAry = {};
 
     var villageSumAry = {};
@@ -23,43 +33,7 @@ angular.module('projectVApp')
 
     var countyBoundAry = {};
 
-    //this.getAllVoteInfo = function(county) {
-    //  var deferred = $q.defer();
-    //  function postProcess(county) {
-    //    deferred.notify({
-    //      'id': county,
-    //      'content': voteInfos[county]
-    //    });
-    //  }
-    //  $http.get('json/mly/8/' + county + '.json').then(function(res) {
-    //    voteInfos[county] = res.data;
-    //    postProcess(county);
-    //  });
-    //     
-    //  return deferred.promise;
-    //};
-
-    //this.getCountyBound = function(county) {
-    //  var deferred = $q.defer();
-    //  
-    //  function postProcess(county) {
-    //    deferred.resolve(countyBoundAry[county]);
-    //  }
-
-    //  if(countyBoundAry[county]){
-    //    postProcess(county);
-    //  }
-    //  else{
-    //    var query = 'json/twVote1982/' + county + '.json';
-    //    $http.get(query).then(function(res) {
-    //      countyBoundAry[county] = res.data;
-    //      postProcess(county);
-    //    });
-    //  }
-    //  return deferred.promise;
-    //};
-
-
+    var my_this = this;
 
     this.getAllVotestatData = function(county) {
       var deferred = $q.defer();
@@ -81,8 +55,32 @@ angular.module('projectVApp')
       return deferred.promise;
     };
 
+    this.getCitizenData = function(county) {
+      var deferred = $q.defer();
+      
+      function postProcess(county) {
+        deferred.resolve(citizenDataAry[county]);
+      }
 
-    this.getAllVillageSum = function(county){
+      if(citizenDataAry[county]){
+        postProcess(county);
+      }
+
+      else{
+        var query = new Parse.Query(citizenParse);
+        query.limit(1000);
+        query.find({
+          success: function(results) {
+            citizenDataAry[county] = results;
+            postProcess(county);
+          }
+        });
+      }
+      return deferred.promise;
+    };
+
+
+    this.getAllVillageSum = function(county){ //TODO
       var deferred = $q.defer();
       function postProcess(county) {
         deferred.resolve(villageSumAry[county]);
@@ -91,10 +89,46 @@ angular.module('projectVApp')
         postProcess(county);
       }
       else{
-        $http.get('json/villageSum/' + county + '.json').then(function(res) {
-          villageSumAry[county] = res.data;
-          postProcess(county);
-        });
+          $q.all([ my_this.getAllVotestatData(county),my_this.getCitizenData(county) , $http.get('json/villageVotestat/' + county + '.json')])
+          .then(function(data){
+            var voteStatData = data[0];
+            var citizenData = data[1];
+            var villageVotestat = data[2].data;
+            var voteStatSum = {};
+            var voteStatWeight = {};
+            for (var i = 0; i < citizenData.length; i++) { 
+              var object = citizenData[i];
+              var vsid = object.get('poll');
+              voteStatSum[vsid] = voteStatSum[vsid] ? voteStatSum[vsid]+1 : 1;
+            }
+
+            for(var ct in voteStatData){
+              for(var i=0 ; i< voteStatData[ct].length; i++){
+                voteStatWeight[voteStatData[ct][i].id] = voteStatData[ct][i].power;
+              }
+            } 
+
+            for(var id in voteStatSum){
+              voteStatSum[id] = (voteStatSum[id] > voteStatWeight[id]*VOL_COUNT) ? 1 : voteStatSum[id] / (voteStatWeight[id]*VOL_COUNT);
+            }
+
+            var villageSum = {}; 
+            for(var townName in  villageVotestat){
+              villageSum[townName] = {};
+              for(var villageName in villageVotestat[townName]){
+                var voteStatAry = villageVotestat[townName][villageName];
+                var sum = 0;
+                for(var i=0; i< voteStatAry.length; i++){
+                  if(voteStatSum[voteStatAry[i]]){
+                    sum += voteStatSum[voteStatAry[i]];
+                  }
+                }
+                villageSum[townName][villageName] = sum/voteStatAry.length;
+              }
+            }
+            villageSumAry[county] = villageSum;
+            postProcess(county);
+          }); 
       }
       return deferred.promise;
     };

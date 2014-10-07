@@ -9,9 +9,24 @@
  */
 angular.module('projectVApp')
 .controller('registerDialogController',
-  ['$scope', '$timeout', '$modalInstance', 'Facebook', 'data', function($scope, $timeout, $modalInstance, Facebook, data) {
+  //['$scope', '$timeout', '$modalInstance', 'Facebook', 'data', function($scope, $timeout, $modalInstance, Facebook, data) {
+  ['$scope', '$timeout', '$modalInstance', '$firebase', '$firebaseSimpleLogin', 'Facebook', 'data', 
+  function($scope, $timeout, $modalInstance, $firebase, $firebaseSimpleLogin, Facebook, data) {
+    
+  $scope.myscope = {};
 
+  var ref = new Firebase("https://torid-fire-6233.firebaseio.com/participants");
 
+  $scope.auth =  $firebaseSimpleLogin(ref,
+    function(error, user) { 
+      console.log('error',error);
+      console.log('user',user);
+  });
+  var sync = $firebase(ref);
+
+  $scope.myfirebase = null; 
+
+    
   /********************************facebook*****************************/
       
   // Define user empty data :/
@@ -39,10 +54,10 @@ angular.module('projectVApp')
   
   
   /**
-   * IntentLogin
+   * intentLogin
    */
 
-  $scope.IntentLogin = function() {
+  $scope.intentLogin = function() {
     if(!userIsConnected) {
       $scope.login();
     }
@@ -53,10 +68,10 @@ angular.module('projectVApp')
    */
    $scope.login = function() {
      Facebook.login(function(response) {
-      if (response.status == 'connected') {
-        $scope.logged = true;
-        $scope.me();
-      }
+      fbStatusUpdate(response);
+      //if (response.status == 'connected') {
+      //  fbSetLogin();
+      //}
     
     }, {scope: 'publish_stream,publish_actions'});
    };
@@ -72,7 +87,7 @@ angular.module('projectVApp')
          */
         $scope.$apply(function() {
           $scope.user = response;
-          console.log('scope.user',$scope.user);
+          //console.log('scope.user',$scope.user);
         });
         
       });
@@ -99,9 +114,13 @@ angular.module('projectVApp')
 
   function fbStatusUpdate(data){
     if (data.status == 'connected') {
+      console.log('response',data);
       $scope.$apply(function() {
         $scope.logged = true;  
-        $scope.me()
+        $scope.me();
+        //console.log('access_token',data.authResponse.accessToken);
+        //$scope.auth.$login('facebook', {access_token: data.authResponse.accessToken});
+        $scope.auth.$login('facebook');
       });
     } else {
       $scope.$apply(function() {
@@ -127,36 +146,44 @@ angular.module('projectVApp')
 
 
   /**
-   * IntentLogin
+   * intentLogin
    */
   /********************************form*****************************/
 
-  $scope.$watch(
-    'user',
-    function(fbuser) {
-      if(Object.getOwnPropertyNames(fbuser).length > 0 ){ 
-        console.log('fbuser',fbuser);
-        console.log('fbuser id',fbuser.id);
-        console.log('fbuser name',fbuser.name);
-        $scope.content.fbid = fbuser.id; 
-        $scope.content.name = fbuser.name; 
-      }
-    },true);
 
-  $scope.myscope = {};
   $scope.myscope.fbshare = true;
   $scope.myscope.type = data.type;
   $scope.myscope.errors = '';
+  $scope.myscope.newuser = true;
   $scope.content = {
     type: data.type,
     votestat: data.vsName, 
     vsid: data.vsId,
-    fbid: '',
+    userid: '',
     name: '',
-    phone: '',
-    email: '',
+    phone: '0953679220',
+    email: 'mark23456@hotmail.com',
     supplement: {},
   };
+
+
+  $scope.$watch(
+    'user',
+    function(fbuser) {
+      if(fbuser){ 
+        console.log('fbuser',fbuser);
+        $scope.myfirebase = sync.$asArray();
+        $scope.content.userid = fbuser.id; 
+        $scope.content.name = fbuser.name; 
+      }
+    },true);
+
+  $scope.$watch(
+    'myfirebase',
+    function(myfirebase) {
+        console.log('myfirebase',myfirebase);
+        $scope.myfirebase = sync.$asArray();
+    },true);
 
   var selectItems = { 
     'chair1':'椅子#1', 
@@ -203,10 +230,11 @@ angular.module('projectVApp')
       errors.push('請勾選您要提供的物資');
     }
     if(errors.length == 0){
-      console.log($scope.myscope.fbshare);
+      console.log('fbshare',$scope.myscope.fbshare);
       if($scope.myscope.fbshare == true){
         postToFb();
       }
+      saveToFirebase();
       $modalInstance.close($scope.content);
     }
     else{
@@ -218,6 +246,32 @@ angular.module('projectVApp')
   $scope.cancel = function () {
      $modalInstance.dismiss('cancel');
   };
+
+  function saveToFirebase(){
+    console.log('content',$scope.content);
+    console.log('user',$scope.auth);
+    //$scope.myfirebase.participants[$scope.auth.user.uid] = {
+    //  type: $scope.content.type,
+    //  votestat: $scope.content.votestat, 
+    //  vsid: $scope.content.vsid,
+    //  name: $scope.content.name,
+    //  phone: $scope.content.phone,
+    //  email: $scope.content.email,
+    //  supplement: $scope.content.supplement,
+    //};
+
+    var temp_obj = {
+      userid: $scope.auth.user.uid,
+      type: $scope.content.type,
+      votestat: $scope.content.votestat, 
+      vsid: $scope.content.vsid,
+      name: $scope.content.name,
+      phone: $scope.content.phone,
+      email: $scope.content.email,
+      supplement: $scope.content.supplement,
+    };
+    $scope.myfirebase.$add(temp_obj);
+  }
   
   function postToFb(){
     var message = '割闌尾V計劃網站測試中\n http://g0v.github.io/projectV/#/';

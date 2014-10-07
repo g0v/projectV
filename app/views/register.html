@@ -5,7 +5,6 @@
   <form action="" name="content.register">
   <div class="modal-body">
 
-
     <p>
       勇敢的勇士呀！<br/>
       感激你勇敢的站出來，為台灣的民主貢獻一份心力！<br/>
@@ -18,13 +17,17 @@
       <div class="alert alert-info" data-ng-show="logged">Hello, {{user.name}}</div>
     </div>-->
 
-    <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
+ <!--   <button type="button" class="btn btn-primary btn-large" data-ng-show="!auth.user" 
+      data-ng-click="auth.$login('facebook', {scope: 'publish_stream,publish_actions'})">Login with Facebook</button>--!>
+
+    <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" 
+      data-ng-click="intentLogin()">Login with Facebook</button>
     <div data-ng-show="logged">
       
       <div class="row">
         <div class="col-xs-2">
-          <img src="http://graph.facebook.com/{{content.fbid}}/picture?type=square"/ style="margin-bottom:10px;"> <br/>
-          <button type="button" class="btn btn-primary btn-large" data-ng-show="logged" data-ng-disabled="!facebookReady" data-ng-click="logout()">Logout</button>
+          <img src="http://graph.facebook.com/{{content.userid}}/picture?type=square"/ style="margin-bottom:10px;"> <br/>
+          <button type="button" class="btn btn-primary btn-large" data-ng-show="logged" data-ng-click="logout()">Logout</button>
         </div> 
         <div class="col-xs-10">
           <p>

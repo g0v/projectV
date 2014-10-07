@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'leaflet-directive',
     'ui.bootstrap',
-    'facebook'
+    'facebook',
+    'firebase',
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -54,8 +55,9 @@ angular
   .config([
     'FacebookProvider',
     function(FacebookProvider) {
-     //var myAppId = '276159409125032';
-     var myAppId = '696953930392705';
+     var myAppId = '276159409125032';
+     //var myAppId = '295218290681475';
+     //var myAppId = '696953930392705';
      
      // You can set appId with setApp method
      // FacebookProvider.setAppId('myAppId');
@@ -66,4 +68,4 @@ angular
       */
      FacebookProvider.init(myAppId);
     }
-  ])
+  ]);
