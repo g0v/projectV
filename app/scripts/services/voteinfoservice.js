@@ -20,18 +20,21 @@ angular.module('projectVApp')
     var citizenParse = Parse.Object.extend("citizen");
     //var county = 'TPE-4';
 
-    var citizenDataAry = {};
+    var citizenDataAry = {}; //dynamic
+
+    var villageSumAry = {}; //dynamic
+
+    var voteStatInfoAry = {}; //dynamic
+
+    var countyVillageAry = {}; //dynamic
+
     var voteDataAry = {};
 
-    var villageSumAry = {};
-    //this.villageSum = villageSum;
-
-    var countyVillageAry = {}; 
-    //var villSum = null;
 
     var villageAreaAry = {}; 
 
     var countyBoundAry = {};
+  
 
     var my_this = this;
 
@@ -55,7 +58,7 @@ angular.module('projectVApp')
       return deferred.promise;
     };
 
-    this.getCitizenData = function(county) {
+    this.getCitizenData = function(county) { //dynamic
       var deferred = $q.defer();
       
       function postProcess(county) {
@@ -80,7 +83,7 @@ angular.module('projectVApp')
     };
 
 
-    this.getAllVillageSum = function(county){ //TODO
+    this.getAllVillageSum = function(county){  //dynamic
       var deferred = $q.defer();
       function postProcess(county) {
         deferred.resolve(villageSumAry[county]);
@@ -89,7 +92,7 @@ angular.module('projectVApp')
         postProcess(county);
       }
       else{
-          $q.all([ my_this.getAllVotestatData(county),my_this.getCitizenData(county) , $http.get('json/villageVotestat/' + county + '.json')])
+          $q.all([ my_this.getAllVotestatData(county), my_this.getCitizenData(county) , $http.get('json/villageVotestat/' + county + '.json')])
           .then(function(data){
             var voteStatData = data[0];
             var citizenData = data[1];
@@ -133,8 +136,55 @@ angular.module('projectVApp')
       return deferred.promise;
     };
 
+    this.getAllVoteStatInfo = function(county){ //dynamic
+      var deferred = $q.defer();
+      function postProcess(county) {
+        deferred.resolve(voteStatInfoAry[county]);
+      }
+      if(voteStatInfoAry[county]){
+        postProcess(county);
+      }
+      else{
+        $q.all([my_this.getCitizenData(county), my_this.getAllVotestatData(county)]).then(
+          function(data){
+            var citizenData = data[0];
+            var votestatData = data[1];
+            var voteStatInfo = {};
+            for(var townName in votestatData){
+              for(var i=0; i<votestatData[townName].length; i++){
+                var voteStat = votestatData[townName][i];
+                voteStatInfo[voteStat.id] = {
+                  slist: [], 
+                  vlist: [],
+                  supplement: 0, 
+                  volunteer: 0,
+                  vweight:voteStat.power
+                };
+              } 
+            }
+            //console.log('voteStatInfo',voteStatInfo);
+            for(var i=0; i<citizenData.length; i++){
+              var object = citizenData[i];
+              var vsid = object.get('poll');
+              //console.log('vsid',vsid);
+              if(object.get('volunteer')){
+                voteStatInfo[vsid].vlist.push(object.get('name'));
+              }
+            }
+            for(var id in voteStatInfo){
+              var factor = voteStatInfo[id].vweight*VOL_COUNT;
+              voteStatInfo[id].volunteer = voteStatInfo[id].vlist.length > factor ? 1 : voteStatInfo[id].vlist.length/factor;
+              voteStatInfo[id].supplement = voteStatInfo[id].slist.length > factor ? 1 : voteStatInfo[id].slist.length/factor;
+            }
+            voteStatInfoAry[county] = voteStatInfo;
+            postProcess(county);
+        });
+      }
+      return deferred.promise;
+    };
+    
 
-    this.getCountyVillage = function(county) {
+    this.getCountyVillage = function(county) { //dynamic
       var deferred = $q.defer();
 
       function postProcess(countyVillage, villageSum) {
@@ -205,6 +255,22 @@ angular.module('projectVApp')
         });
       });
       return deferred.promise;
+    };
+    
+    this.saveCitizen = function(data, cb){
+      var czparse = new citizenParse();
+      czparse
+        .save(data)
+        .then(function(object) {
+          cb()
+        });
+    };
+
+    this.resetDynamics = function(county){
+      delete citizenDataAry[county];
+      delete villageSumAry[county];
+      delete voteStatInfoAry[county];
+      delete countyVillageAry[county];
     };
 
   });

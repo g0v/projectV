@@ -16,7 +16,11 @@
     "components-font-awesome": "~4.2.0",
     "leaflet-dist": "~0.7.2",
     "angular-leaflet-directive": "~0.7.8",
-    "angular-facebook":"~0.2.3"
+    "angular-facebook":"~0.2.3",
+    "firebase": "~1.0.24",
+    "firebase-simple-login": "~1.6.4",
+    "angularfire": "~0.8.2"
+
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

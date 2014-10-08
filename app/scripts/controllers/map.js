@@ -27,8 +27,8 @@ var MAP_DEFAULT_BOUND = {
  */
 angular.module('projectVApp')
   .controller('MapCtrl',
-  ['$scope', '$routeParams','$http', '$q', '$filter', '$modal', 'leafletData', 'voteInfoService',
-  function ($scope, $routeParams, $http, $q, $filter, $modal, leafletData, voteInfoService ) {
+  ['$scope', '$route', '$routeParams','$http', '$q', '$filter', '$modal', 'leafletData', 'voteInfoService',
+  function ($scope, $route, $routeParams, $http, $q, $filter, $modal, leafletData, voteInfoService ) {
     $scope.myscope = {};
     $scope.voteInfos = {};
     var county = $routeParams.county;
@@ -73,7 +73,6 @@ angular.module('projectVApp')
       county = DEFAULT_COUNTY;
     }
 
-
     function applyGeojson(json) {
       if (!$scope.geojson) {
         $scope.geojson = {
@@ -99,9 +98,6 @@ angular.module('projectVApp')
         className: 'county transparent'
       };
     }
-
-
-
 
 
     var mouse_over_style = {
@@ -151,7 +147,6 @@ angular.module('projectVApp')
     }
 
     function areaClickSub(townName,villageName,layer){
-
       if(lastClickLayer){
         lastClickLayer.setStyle(set_unclick_style(lastClickLayer));
       }
@@ -160,7 +155,7 @@ angular.module('projectVApp')
       //console.log('layer',layer);//TODO
       lastClickLayer = layer; 
       $scope.leafletData.getMap().then(function(map){
-        console.log(layer.getBounds());
+        //console.log(layer.getBounds());
         map.fitBounds(layer.getBounds());
       });
       //var max_of_array = Math.max.apply(Math, array);
@@ -190,9 +185,9 @@ angular.module('projectVApp')
       var markerArray = [];
       var currentVsId = 0;
 
-      var query0 = 'json/votestatInfo/' + county + '.json';
-      $http.get(query0).then(function(res0) {
-        $scope.myscope.vsInfo = res0.data;
+      //var query0 = 'json/votestatInfo/' + county + '.json';
+      //$http.get(query0).then(function(res0) {
+        //$scope.myscope.vsInfo = res0.data;
 
         angular.forEach(voteStatData[townName],function(votestat) {
           var vsIndex = votestat.neighborhood.indexOf(villageName);
@@ -219,15 +214,14 @@ angular.module('projectVApp')
         });
         drawVoteStation(markerArray);
         $scope.myscope.setCurrentMarkerClick(currentVsId);
-      },
-      function(err) {
-        console.log('err',err);
-      });
+      //},
+      //function(err) {
+      //  console.log('err',err);
+      //});
     }
   
 
     $scope.myscope.setCurrentMarkerClick = function(markerName){
-      
       var thisMarker = $scope.markers[markerName];
       setVotestatTab(markerName);
       if(lastClickMarker){
@@ -354,6 +348,7 @@ angular.module('projectVApp')
         resolve: {
           data: function() {
             return {
+              county: county,
               type: type,
               vsId: $scope.myscope.currentVsTab.vsId,
               vsName: $scope.myscope.currentVsTab.vsName, 
@@ -363,8 +358,10 @@ angular.module('projectVApp')
       }); 
       modalInstance.result.then(function(result){
         console.log('send',result);
+        reloadData();
       }); 
     };  
+
 
     voteInfoService.getStaticVillageData(county).then(
       function(){},
@@ -384,6 +381,9 @@ angular.module('projectVApp')
           else if(data.villageSum > 0.25){
             return '#88cc88';
           }
+          else if(data.villageSum > 0){
+            return '#99bb99';
+          }
           else{
             return '#aaaaaa';
           }
@@ -392,6 +392,13 @@ angular.module('projectVApp')
         applyGeojson(data.villageArea);
       }
     );
+
+
+    voteInfoService.getAllVoteStatInfo(county).then(
+      function(data) {
+        //console.log('voteStatInfo',data);
+        $scope.myscope.vsInfo = data;
+    });
 
     voteInfoService.getAllVotestatData(county).then(
       function(data) {
@@ -404,16 +411,14 @@ angular.module('projectVApp')
         $scope.myscope.currentTownTab = Object.keys(villageSum)[0];
     }); 
 
-    voteInfoService.getCitizenData(county).then(
-      function(citizenData){
-       // console.log('citizenData',citizenData);
-       // for (var i = 0; i < citizenData.length; i++) { 
-       //   var object = citizenData[i];
-       //   console.log(i,object);
-       // }
-    });
+    //$q.all([voteInfoService.getCitizenData(county), 
+    //  function(citizenData){
 
-
+    //});
+    function reloadData(){
+      voteInfoService.resetDynamics(county);
+      $route.reload();
+    };
 
     $scope.leafletData.getMap().then(function(map){
       map.fitBounds(MAP_DEFAULT_BOUND[county]);

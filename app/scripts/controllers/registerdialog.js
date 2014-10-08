@@ -10,21 +10,21 @@
 angular.module('projectVApp')
 .controller('registerDialogController',
   //['$scope', '$timeout', '$modalInstance', 'Facebook', 'data', function($scope, $timeout, $modalInstance, Facebook, data) {
-  ['$scope', '$timeout', '$modalInstance', '$firebase', '$firebaseSimpleLogin', 'Facebook', 'data', 
-  function($scope, $timeout, $modalInstance, $firebase, $firebaseSimpleLogin, Facebook, data) {
+  ['$scope', '$timeout', '$modalInstance', 'Facebook', 'voteInfoService', 'data', 
+  function($scope, $timeout, $modalInstance, Facebook, voteInfoService, data) {
     
   $scope.myscope = {};
 
-  var ref = new Firebase("https://torid-fire-6233.firebaseio.com/participants");
+  //var ref = new Firebase("https://torid-fire-6233.firebaseio.com/participants");
 
-  $scope.auth =  $firebaseSimpleLogin(ref,
-    function(error, user) { 
-      console.log('error',error);
-      console.log('user',user);
-  });
-  var sync = $firebase(ref);
+  //$scope.auth =  $firebaseSimpleLogin(ref,
+  //  function(error, user) { 
+  //    console.log('error',error);
+  //    console.log('user',user);
+  //});
+  //var sync = $firebase(ref);
 
-  $scope.myfirebase = null; 
+  //$scope.myfirebase = null; 
 
     
   /********************************facebook*****************************/
@@ -112,15 +112,15 @@ angular.module('projectVApp')
    * Taking approach of Events :D
    */
 
-  function fbStatusUpdate(data){
-    if (data.status == 'connected') {
-      console.log('response',data);
+  function fbStatusUpdate(fbdata){
+    if (fbdata.status == 'connected') {
+      //console.log('response',fbdata);
       $scope.$apply(function() {
         $scope.logged = true;  
         $scope.me();
-        //console.log('access_token',data.authResponse.accessToken);
-        //$scope.auth.$login('facebook', {access_token: data.authResponse.accessToken});
-        $scope.auth.$login('facebook');
+        //console.log('access_token',fbdata.authResponse.accessToken);
+        //$scope.auth.$login('facebook', {access_token: fbdata.authResponse.accessToken});
+        //$scope.auth.$login('facebook');
       });
     } else {
       $scope.$apply(function() {
@@ -130,14 +130,14 @@ angular.module('projectVApp')
     }
   }
 
-  $scope.$on('Facebook:statusChange', function(ev, data) {
+  $scope.$on('Facebook:statusChange', function(ev, fbdata) {
     //console.log('Status: ', data);
-    fbStatusUpdate(data);
+    fbStatusUpdate(fbdata);
   });
 
 
   Facebook.getLoginStatus(function(response) {
-    console.log('fbGetLoginStatus');
+    //console.log('fbGetLoginStatus');
     fbStatusUpdate(response);
     if (response.status == 'connected') {
       userIsConnected = true;
@@ -171,19 +171,19 @@ angular.module('projectVApp')
     'user',
     function(fbuser) {
       if(fbuser){ 
-        console.log('fbuser',fbuser);
-        $scope.myfirebase = sync.$asArray();
+        //console.log('fbuser',fbuser);
+        //$scope.myfirebase = sync.$asArray();
         $scope.content.userid = fbuser.id; 
         $scope.content.name = fbuser.name; 
       }
     },true);
 
-  $scope.$watch(
-    'myfirebase',
-    function(myfirebase) {
-        console.log('myfirebase',myfirebase);
-        $scope.myfirebase = sync.$asArray();
-    },true);
+  //$scope.$watch(
+  //  'myfirebase',
+  //  function(myfirebase) {
+  //      console.log('myfirebase',myfirebase);
+  //      //$scope.myfirebase = sync.$asArray();
+  //  },true);
 
   var selectItems = { 
     'chair1':'椅子#1', 
@@ -230,15 +230,14 @@ angular.module('projectVApp')
       errors.push('請勾選您要提供的物資');
     }
     if(errors.length == 0){
-      console.log('fbshare',$scope.myscope.fbshare);
+      //console.log('fbshare',$scope.myscope.fbshare);
       if($scope.myscope.fbshare == true){
         postToFb();
       }
-      saveToFirebase();
-      $modalInstance.close($scope.content);
+      saveToParseCom();
     }
     else{
-      console.log('errors',errors);
+      //console.log('errors',errors);
       $scope.myscope.errors = errors.join('，');
     }
   };
@@ -247,9 +246,9 @@ angular.module('projectVApp')
      $modalInstance.dismiss('cancel');
   };
 
-  function saveToFirebase(){
-    console.log('content',$scope.content);
-    console.log('user',$scope.auth);
+  function saveToParseCom(){
+    //console.log('content',$scope.content);
+    //console.log('user',$scope.auth);
     //$scope.myfirebase.participants[$scope.auth.user.uid] = {
     //  type: $scope.content.type,
     //  votestat: $scope.content.votestat, 
@@ -261,16 +260,19 @@ angular.module('projectVApp')
     //};
 
     var temp_obj = {
-      userid: $scope.auth.user.uid,
-      type: $scope.content.type,
-      votestat: $scope.content.votestat, 
-      vsid: $scope.content.vsid,
+      fid: $scope.content.userid,
+      volunteer: $scope.content.type == 'volunteer',
+      poll: data.vsId,
       name: $scope.content.name,
-      phone: $scope.content.phone,
+      mobile: $scope.content.phone,
       email: $scope.content.email,
-      supplement: $scope.content.supplement,
+      county: data.county,
+      resource: [],//$scope.content.supplement,
     };
-    $scope.myfirebase.$add(temp_obj);
+    voteInfoService.saveCitizen(temp_obj,function(){
+      $modalInstance.close($scope.content);
+    });
+    //$scope.myfirebase.$add(temp_obj);
   }
   
   function postToFb(){
