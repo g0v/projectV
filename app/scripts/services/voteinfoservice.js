@@ -267,10 +267,18 @@ angular.module('projectVApp')
     };
 
     this.resetDynamics = function(county){
-      delete citizenDataAry[county];
-      delete villageSumAry[county];
-      delete voteStatInfoAry[county];
-      delete countyVillageAry[county];
+      if(citizenDataAry[county]){
+        delete citizenDataAry[county];
+      }
+      if(villageSumAry[county]){
+        delete villageSumAry[county];
+      }
+      if(voteStatInfoAry[county]){
+        delete voteStatInfoAry[county];
+      }
+      if(countyVillageAry[county]){
+        delete countyVillageAry[county];
+      }
     };
 
   });

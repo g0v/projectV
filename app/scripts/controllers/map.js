@@ -214,10 +214,6 @@ angular.module('projectVApp')
         });
         drawVoteStation(markerArray);
         $scope.myscope.setCurrentMarkerClick(currentVsId);
-      //},
-      //function(err) {
-      //  console.log('err',err);
-      //});
     }
   
 
@@ -362,63 +358,83 @@ angular.module('projectVApp')
       }); 
     };  
 
-
-    voteInfoService.getStaticVillageData(county).then(
-      function(){},
-      function() {}, 
-      function(data){ 
-        //console.log(data.villageArea , data.villageSum)
-        var mycolor = (function(){
-          if( data.villageSum == 1){
-            return '#00ff00';
-          }
-          else if(data.villageSum > 0.75){
-            return '#22ee22';
-          }
-          else if(data.villageSum > 0.5){
-            return '#55dd55';
-          }
-          else if(data.villageSum > 0.25){
-            return '#88cc88';
-          }
-          else if(data.villageSum > 0){
-            return '#99bb99';
-          }
-          else{
-            return '#aaaaaa';
-          }
-        })();
-        data.villageArea.features[0].properties.mycolor = mycolor;
-        applyGeojson(data.villageArea);
-      }
-    );
+    reloadData(true);
 
 
-    voteInfoService.getAllVoteStatInfo(county).then(
-      function(data) {
-        //console.log('voteStatInfo',data);
-        $scope.myscope.vsInfo = data;
-    });
+    //voteInfoService.getAllVoteStatInfo(county).then(
+    //  function(data) {
+    //    //console.log('voteStatInfo',data);
+    //    $scope.myscope.vsInfo = data;
+    //});
 
-    voteInfoService.getAllVotestatData(county).then(
-      function(data) {
-        voteStatData = data;
-    });
+    //voteInfoService.getAllVotestatData(county).then(
+    //  function(data) {
+    //    voteStatData = data;
+    //});
 
-    voteInfoService.getAllVillageSum(county).then(
-      function(villageSum){ 
-        $scope.myscope.villageSum = villageSum;
-        $scope.myscope.currentTownTab = Object.keys(villageSum)[0];
-    }); 
+    //voteInfoService.getAllVillageSum(county).then(
+    //  function(villageSum){ 
+    //    $scope.myscope.villageSum = villageSum;
+    //    $scope.myscope.currentTownTab = Object.keys(villageSum)[0];
+    //}); 
 
     //$q.all([voteInfoService.getCitizenData(county), 
     //  function(citizenData){
 
     //});
-    function reloadData(){
+    function reloadData(firsttime){
       voteInfoService.resetDynamics(county);
-      $route.reload();
+
+      voteInfoService.getAllVoteStatInfo(county).then(
+        function(data) {
+          //console.log('voteStatInfo',data);
+          $scope.myscope.vsInfo = data;
+      });
+
+      voteInfoService.getAllVotestatData(county).then(
+        function(data) {
+          voteStatData = data;
+      });
+
+      voteInfoService.getAllVillageSum(county).then(
+        function(villageSum){ 
+          $scope.myscope.villageSum = villageSum;
+          if(firsttime){
+            $scope.myscope.currentTownTab = Object.keys(villageSum)[0];
+          }
+      }); 
+      if(firsttime){
+        voteInfoService.getStaticVillageData(county).then(
+          function(){},
+          function() {}, 
+          function(data){ 
+            //console.log(data.villageArea , data.villageSum)
+            var mycolor = (function(){
+              if( data.villageSum == 1){
+                return '#00ff00';
+              }
+              else if(data.villageSum > 0.75){
+                return '#22ee22';
+              }
+              else if(data.villageSum > 0.5){
+                return '#55dd55';
+              }
+              else if(data.villageSum > 0.25){
+                return '#88cc88';
+              }
+              else if(data.villageSum > 0){
+                return '#99bb99';
+              }
+              else{
+                return '#aaaaaa';
+              }
+            })();
+            data.villageArea.features[0].properties.mycolor = mycolor;
+            applyGeojson(data.villageArea);
+          });
+      }
     };
+    
 
     $scope.leafletData.getMap().then(function(map){
       map.fitBounds(MAP_DEFAULT_BOUND[county]);
