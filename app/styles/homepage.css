@@ -46,23 +46,21 @@
 }
 
 .mission-button {
-    width: 13.33333333%;
-    /*padding-left: 5%;*/
-    /*padding-right: 5%;*/
+    width: 12%;
 }
 
 #mission-button-tsa {
     position: relative;
-    margin-left: 15%;
-    margin-right: 14.8%;
+    margin-left: 16%;
+    margin-right: 16%;
 }
 
 #mission-button-wu {
     position: relative;
-    margin-right: 14.8%;
+    margin-right: 16%;
 }
 
 #mission-button-lin {
     position: relative;
-    margin-right: 13%;
+    margin-right: 10%;
 }
