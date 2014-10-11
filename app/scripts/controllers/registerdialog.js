@@ -178,12 +178,6 @@ angular.module('projectVApp')
       }
     },true);
 
-  //$scope.$watch(
-  //  'myfirebase',
-  //  function(myfirebase) {
-  //      console.log('myfirebase',myfirebase);
-  //      //$scope.myfirebase = sync.$asArray();
-  //  },true);
 
   var selectItems = { 
     'chair1':'椅子#1', 

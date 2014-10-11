@@ -154,7 +154,7 @@ angular.module('projectVApp')
               for(var i=0; i<votestatData[townName].length; i++){
                 var voteStat = votestatData[townName][i];
                 voteStatInfo[voteStat.id] = {
-                  slist: [], 
+                  slist: ['','','','',''], 
                   vlist: [],
                   supplement: 0, 
                   volunteer: 0,

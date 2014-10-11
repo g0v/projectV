@@ -32,9 +32,10 @@ angular.module('projectVApp')
     $scope.myscope = {};
     $scope.voteInfos = {};
     var county = $routeParams.county;
-    var voteStatData = null;
     var lastClickLayer = null; 
     var lastClickMarker = null;
+    var currentClickMarkerIndex = 0;
+    $scope.myscope.voteStatData = null;
     $scope.myscope.showVS = null;
     $scope.myscope.currentVsTab = {}; //local
     $scope.myscope.currentTownTab = ''; //local
@@ -86,6 +87,29 @@ angular.module('projectVApp')
         });
       }
     }
+
+
+    var mycolor = function(villsum){
+      if( villsum == 1){
+        return '#00ff00';
+      }
+      else if(villsum > 0.75){
+        return '#22ee22';
+      }
+      else if(villsum > 0.5){
+        return '#55dd55';
+      }
+      else if(villsum > 0.25){
+        return '#88cc88';
+      }
+      else if(villsum > 0){
+        return '#99bb99';
+      }
+      else{
+        return '#aaaaaa';
+      }
+    };
+
 
     function style(feature) {
       return {
@@ -143,7 +167,7 @@ angular.module('projectVApp')
       var villageName = leafletEvent.target.feature.properties.VILLAGENAM;
       var layer = leafletEvent.target;
       areaClickSub(townName,villageName,layer);
-      showCurrentVillageVotestat(townName,villageName);
+      showCurrentVillageVotestat(townName,villageName,0);
     }
 
     function areaClickSub(townName,villageName,layer){
@@ -173,10 +197,10 @@ angular.module('projectVApp')
           }
         });
       });
-      showCurrentVillageVotestat(townName,villageName)
+      showCurrentVillageVotestat(townName,villageName,0)
     };
 
-    function showCurrentVillageVotestat(townName, villageName){
+    function showCurrentVillageVotestat(townName, villageName, currentPos){
       $scope.myscope.showVS = {};
       $scope.myscope.showVS.townName = townName;
       $scope.myscope.showVS.villageName = villageName;
@@ -188,15 +212,14 @@ angular.module('projectVApp')
       //var query0 = 'json/votestatInfo/' + county + '.json';
       //$http.get(query0).then(function(res0) {
         //$scope.myscope.vsInfo = res0.data;
-
-        angular.forEach(voteStatData[townName],function(votestat) {
+        angular.forEach($scope.myscope.voteStatData[townName],function(votestat) {
           var vsIndex = votestat.neighborhood.indexOf(villageName);
           if(vsIndex != -1){
             $scope.myscope.showVS.vsArray.push({
               'name':votestat.name,
               'id':votestat.id,
             });
-            if(markerArray.length ==0){
+            if(markerArray.length ==currentPos){
               currentVsId = votestat.id;
             }
             markerArray.push({
@@ -219,6 +242,7 @@ angular.module('projectVApp')
 
     $scope.myscope.setCurrentMarkerClick = function(markerName){
       var thisMarker = $scope.markers[markerName];
+      currentClickMarkerIndex = thisMarker.mypos;
       setVotestatTab(markerName);
       if(lastClickMarker){
          lastClickMarker.icon = lastClickMarker.myicons['x']
@@ -267,6 +291,7 @@ angular.module('projectVApp')
 
     $scope.myscope.back = function() {
       $scope.myscope.showVS = null;
+      currentClickMarkerIndex = 0;
       $scope.markers = {};
       if(lastClickLayer){
         lastClickLayer.setStyle(set_unclick_style(lastClickLayer));
@@ -278,6 +303,7 @@ angular.module('projectVApp')
     };
 
     function drawVoteStation(markerArray) {
+      console.log('drawVoteStation');
       var mymarkers = {};
       lastClickMarker = null;
       angular.forEach(markerArray, function(marker) {
@@ -299,6 +325,7 @@ angular.module('projectVApp')
           icon: myiconArray[mycount]['x'],
           myicons: myiconArray[mycount],    
           mycount: mycount,
+          mypos: marker.vspos,
           myloc: marker.townName + '-' + marker.villageName,
           myid: marker.vsid
         };
@@ -306,8 +333,6 @@ angular.module('projectVApp')
       angular.extend($scope, {
         markers: mymarkers,
       });
-      //$scope.markerNs = {};
-      //$scope.markerNs.click = false;
 
       $scope.$on('leafletDirectiveMarker.click', function(e, args) {
         $scope.myscope.setCurrentMarkerClick(args.markerName);
@@ -354,90 +379,74 @@ angular.module('projectVApp')
       }); 
       modalInstance.result.then(function(result){
         console.log('send',result);
-        reloadData();
+        loadData(false);
       }); 
     };  
 
-    reloadData(true);
 
 
-    //voteInfoService.getAllVoteStatInfo(county).then(
-    //  function(data) {
-    //    //console.log('voteStatInfo',data);
-    //    $scope.myscope.vsInfo = data;
-    //});
-
-    //voteInfoService.getAllVotestatData(county).then(
-    //  function(data) {
-    //    voteStatData = data;
-    //});
-
-    //voteInfoService.getAllVillageSum(county).then(
-    //  function(villageSum){ 
-    //    $scope.myscope.villageSum = villageSum;
-    //    $scope.myscope.currentTownTab = Object.keys(villageSum)[0];
-    //}); 
-
-    //$q.all([voteInfoService.getCitizenData(county), 
-    //  function(citizenData){
-
-    //});
-    function reloadData(firsttime){
+    function loadData(firsttime){
       voteInfoService.resetDynamics(county);
 
-      voteInfoService.getAllVoteStatInfo(county).then(
-        function(data) {
-          //console.log('voteStatInfo',data);
-          $scope.myscope.vsInfo = data;
-      });
-
-      voteInfoService.getAllVotestatData(county).then(
-        function(data) {
-          voteStatData = data;
-      });
-
-      voteInfoService.getAllVillageSum(county).then(
-        function(villageSum){ 
-          $scope.myscope.villageSum = villageSum;
-          if(firsttime){
-            $scope.myscope.currentTownTab = Object.keys(villageSum)[0];
-          }
-      }); 
       if(firsttime){
         voteInfoService.getStaticVillageData(county).then(
           function(){},
           function() {}, 
           function(data){ 
-            //console.log(data.villageArea , data.villageSum)
-            var mycolor = (function(){
-              if( data.villageSum == 1){
-                return '#00ff00';
-              }
-              else if(data.villageSum > 0.75){
-                return '#22ee22';
-              }
-              else if(data.villageSum > 0.5){
-                return '#55dd55';
-              }
-              else if(data.villageSum > 0.25){
-                return '#88cc88';
-              }
-              else if(data.villageSum > 0){
-                return '#99bb99';
-              }
-              else{
-                return '#aaaaaa';
-              }
-            })();
-            data.villageArea.features[0].properties.mycolor = mycolor;
+            data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
             applyGeojson(data.villageArea);
           });
       }
+
+      $q.all([voteInfoService.getAllVoteStatInfo(county), 
+        voteInfoService.getAllVotestatData(county), 
+        voteInfoService.getAllVillageSum(county)]).then(function(data){
+
+          $scope.myscope.vsInfo = data[0];
+          $scope.myscope.voteStatData = data[1];
+          $scope.myscope.villageSum = data[2];
+
+          if(firsttime){
+            $scope.myscope.currentTownTab = Object.keys($scope.myscope.villageSum)[0];
+          }
+          else{
+            if($scope.myscope.showVS){
+              console.log('voteStatData Change 2');
+              showCurrentVillageVotestat(  
+                $scope.myscope.showVS.townName, 
+                $scope.myscope.showVS.villageName, 
+                currentClickMarkerIndex
+              ); 
+            }
+
+            $scope.leafletData.getGeoJSON().then(function(localGeojson) {
+              var geoLayers = localGeojson.getLayers(); 
+              angular.forEach(geoLayers,function(layer) {
+                console.log('setArea');
+
+                var lTownName = layer.feature.properties.TOWNNAME;
+                var lVillageName = layer.feature.properties.VILLAGENAM;
+                layer.feature.properties.mycolor = mycolor($scope.myscope.villageSum[lTownName][lVillageName]);
+                layer.setStyle(set_unclick_style(layer));
+                if(lastClickLayer){
+                  lastClickLayer.setStyle(set_click_style());
+                }
+              });
+            });
+          }
+      });
     };
     
+
+    $scope.myscope.reload = function(){
+      loadData(false);
+    };
 
     $scope.leafletData.getMap().then(function(map){
       map.fitBounds(MAP_DEFAULT_BOUND[county]);
     });
+    
+    
+    loadData(true);
 }]);
 
