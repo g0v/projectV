@@ -35,19 +35,6 @@
                 </ul>
             </div>
 
-            <div id="homepage-counter-row">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-12.svg" alt="" class="homepage-counter-graph"/>
-                <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-13.svg" alt="" class="homepage-counter-text"/>
-                <h3 id="counter-introduction-title">什麼是罷免日計劃?</h3>
-                <p id="counter-introduction-content">明天將割闌尾計畫將於早上10:30於士林地檢署聲援去年罷免吳育昇的三位領 銜人,馮光遠先生作為憲法133實踐聯盟」的發起人之一,也聲援並支持他們 ,並表示:「這件事情的荒謬在於,此三人不過就是法律上的代表人,提議書 是否有效,他們並不具檢驗的資格和義務,士林地檢署以「偽造文書」罪將三</p>
-            </div>
-
-            <div class="mission-row">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-mission.svg" alt="" id="mission-major"/>
-                <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/appy_v_web＿img-16.svg" alt="" class="mission-button" id="mission-button-tsa"/>
-                <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/appy_v_web＿img-16.svg" alt="" class="mission-button" id="mission-button-wu"/>
-                <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/appy_v_web＿img-16.svg" alt="" class="mission-button" id="mission-button-lin"/>
-            </div>
 
             <script>
                 window.onresize = function(){
@@ -83,7 +70,6 @@
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
             ga('create', 'UA-XXXXX-X');
             ga('send', 'pageview');
         </script>
@@ -122,8 +108,14 @@
         <script src="bower_components/leaflet/dist/leaflet.js"></script>
         <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
         <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+        <script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
+        <script src="bower_components/firebase/firebase.js"></script>
+        <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+        <script src="bower_components/mockfirebase/dist/mockfirebase.js"></script>
+        <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
+
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -134,7 +126,10 @@
         <script src="scripts/controllers/map.js"></script>
         <script src="scripts/services/voteinfoservice.js"></script>
         <script src="scripts/controllers/mission.js"></script>
+        <script src="scripts/controllers/registerdialog.js"></script>
         <!-- endbuild -->
+
+        <script src="//www.parsecdn.com/js/parse-1.3.0.min.js"></script>
 </body>
 </html>
 
