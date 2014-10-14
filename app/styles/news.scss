@@ -1,3 +1,43 @@
+$news-header-height: 4.5em;
+$main-color: #B6203F;
+
 .news-left-column {
     width: 30%;
+}
+
+.news-header {
+  height: $news-header-height;
+}
+
+.news-header-text {
+  color: $main-color;
+  font-size: 3.5rem;
+  border-top: 2px $main-color solid;
+  border-bottom: 2px $main-color solid;
+}
+
+.news-flag {
+  height: $news-header-height;
+}
+
+.news-title {
+  font-size: 2rem;
+}
+
+.news-type {
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  background: $main-color;
+  transform: skew(20deg);
+  -webkit-transform: skew(20deg);
+}
+
+.news-type-text {
+  color: white;
+  display: inline-block;
+  transform: skew(-20deg);
+  -webkit-transform: skew(-20deg);
 }
