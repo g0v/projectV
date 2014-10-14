@@ -28,7 +28,8 @@ angular
         controller: 'MainCtrl'
       })
       .when('/news', {
-        templateUrl: 'views/news.html'
+        templateUrl: 'views/news.html',
+        controller: 'NewsCtrl'
       })
       .when('/plan', {
         templateUrl: 'views/plan.html'
@@ -58,10 +59,10 @@ angular
      //var myAppId = '276159409125032';
      //var myAppId = '295218290681475';
      var myAppId = '696953930392705';
-     
+
      // You can set appId with setApp method
      // FacebookProvider.setAppId('myAppId');
-     
+
      /**
       * After setting appId you need to initialize the module.
       * You can pass the appId on the init method as a shortcut too.

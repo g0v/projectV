@@ -1,27 +1,23 @@
-<link rel="stylesheet" href="styles/news.css">
-
-<div class="news-left-column">
-    <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-12.svg" alt="" class="news-counter-graph"/>
+<div class="row">
+  <div class="col-md-3">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-12.svg" alt="" class="news-counter-graph" />
+  </div>
+  <div class="col-md-9">
+    <div class="row news-header">
+      <div class="col-md-1 news-header">
+        <img src="images/news-header-flag.png" />
+      </div>
+      <div class="col-md-11 news-header">
+        <div class="news-header-text text-center">戰略消息</div>
+      </div>
+    </div>
+    <div class="row" ng-repeat="feed in feeds">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-11">
+        <h2 class="news-title"><span class="news-type"><span class="news-type-text">{{feed.categories[0]}}</span></span>{{feed.title}}</h2>
+        <p>{{feed.contentSnippet}}</p>
+      </div>
+    </div>
+  </div>
 </div>
-
-<!--<script>-->
-    <!--window.onresize = function(){-->
-        <!--layout_news();-->
-    <!--}-->
-    <!--function layout_news() {-->
-        <!--document.getElementById('counter-introduction-title').style.fontSize = parseInt(window.innerWidth / 44) + "px";-->
-        <!--document.getElementById('counter-introduction-content').style.fontSize = parseInt(window.innerWidth / 80) + "px";-->
-        <!--document.getElementById('counter-introduction-title').style.top = "-" + parseInt(window.innerWidth / 6) + "px";-->
-        <!--document.getElementById('counter-introduction-content').style.top = "-" + parseInt(window.innerWidth / 6) + "px";-->
-        <!--document.getElementById('mission-major').style.top = "-" + parseInt(window.innerWidth / 10) + "px";-->
-        <!--document.getElementById('mission-button-tsa').style.top = "-" + parseInt(window.innerWidth / 6.5) + "px";-->
-        <!--document.getElementById('mission-button-wu').style.top = "-" + parseInt(window.innerWidth / 6.5) + "px";-->
-        <!--document.getElementById('mission-button-lin').style.top = "-" + parseInt(window.innerWidth / 6.5) + "px";-->
-    <!--};-->
-    <!--layout_news();-->
-<!--</script>-->
-
-<p>This is the news view.</p>
-<!--[if lt IE 7]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
