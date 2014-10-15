@@ -9,7 +9,7 @@
  */
 angular.module('projectVApp')
   .controller('NewsCtrl', function ($scope, FeedService) {
-    FeedService.parseFeed('http://yurenju.tumblr.com/rss').then(function(res) {
+    FeedService.parseFeed('http://appytw.tumblr.com/rss').then(function(res) {
       $scope.feeds=res.data.responseData.feed.entries;
     });
   });
