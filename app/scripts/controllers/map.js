@@ -93,19 +93,13 @@ angular.module('projectVApp')
 
     var mycolor = function(villsum){
       if( villsum == 1){
-        return '#00ff00';
-      }
-      else if(villsum > 0.75){
-        return '#22ee22';
+        return '#990000';
       }
       else if(villsum > 0.5){
-        return '#55dd55';
-      }
-      else if(villsum > 0.25){
-        return '#88cc88';
+        return '#993333';
       }
       else if(villsum > 0){
-        return '#99bb99';
+        return '#aa6666';
       }
       else{
         return '#aaaaaa';
@@ -140,27 +134,53 @@ angular.module('projectVApp')
         return { fillColor: color };//getColor(feature),
     }
 
-    function set_unclick_style(layer){
-       var mycolor = layer.feature.properties.mycolor;
-       return gen_area_color(mycolor);
+    function set_area_color(layer){
+      var mycolor = layer.feature.properties.mycolor;
+       return {
+         fillColor: mycolor,
+       };
+    }
+
+    function set_unclick_style(){
+        return {
+          weight: 2,
+          color: 'black',
+          dashArray: '5',
+        };
     }
     
     function set_click_style(){
-       return gen_area_color("#ffff00");
+       //return gen_area_color("#ffff00");
+        return {
+          weight: 5,
+          color: 'yellow',
+          dashArray: '0',
+        };
     }
 
     
     // Mouse over function, called from the Leaflet Map Events
     function areaMouseover(ev, leafletEvent) {
       var layer = leafletEvent.target;
-      layer.setStyle(mouse_over_style);
-      layer.bringToFront();
+      if(layer != lastClickLayer){
+        layer.setStyle(mouse_over_style);
+        layer.bringToFront();
+        if(lastClickLayer){
+          lastClickLayer.bringToFront();
+        }
+      }
+      //layer.setStyle(mouse_over_style);
     }
 
     function areaMouseout(ev, leafletEvent) {
       var layer = leafletEvent.target;
-      layer.setStyle(mouse_leave_style);
-      layer.bringToFront();
+      if(layer != lastClickLayer){
+        layer.setStyle(mouse_leave_style);
+        layer.bringToFront();
+        if(lastClickLayer){
+          lastClickLayer.bringToFront();
+        }
+      }
     }
 
 
@@ -174,7 +194,7 @@ angular.module('projectVApp')
 
     function areaClickSub(townName,villageName,layer){
       if(lastClickLayer){
-        lastClickLayer.setStyle(set_unclick_style(lastClickLayer));
+        lastClickLayer.setStyle(set_unclick_style());
       }
       layer.setStyle(set_click_style());
       layer.bringToFront();
@@ -296,7 +316,7 @@ angular.module('projectVApp')
       currentClickMarkerIndex = 0;
       $scope.markers = {};
       if(lastClickLayer){
-        lastClickLayer.setStyle(set_unclick_style(lastClickLayer));
+        lastClickLayer.setStyle(set_unclick_style());
         lastClickLayer = null;
       }
       $scope.leafletData.getMap().then(function(map){
@@ -337,15 +357,19 @@ angular.module('projectVApp')
       });
 
       $scope.$on('leafletDirectiveMarker.click', function(e, args) {
+        console.log('marker mouse click');
         $scope.myscope.setCurrentMarkerClick(args.markerName);
       });
 
       $scope.$on('leafletDirectiveMarker.mouseover', function(e, args) {
+        console.log('marker mouse over');
         var thisMarker = $scope.markers[args.markerName];
+        console.log('thisMarker',thisMarker);
         thisMarker.icon = thisMarker.myicons['d'];
       });
 
       $scope.$on('leafletDirectiveMarker.mouseout', function(e, args) {
+        console.log('marker mouse out');
          //$scope.markerNs.click = false;
         var thisName = args.markerName;
         var thisMarker = $scope.markers[args.markerName];
@@ -396,12 +420,8 @@ angular.module('projectVApp')
             console.log('mapLoadingComplete');
             $( "#myLoading" ).fadeOut( "slow", function() {
               // Animation complete.
+              $("#myLoading").remove();
             });
-
-            //setTimeout(function(){
-            //  $scope.myscope.mapLoadingComplete = true;
-            //  $scope.myscope.mapLoadingStatus = data.loadingStatus * 100;
-            //},100);
           },
           function() {}, 
           function(data){ 
@@ -435,12 +455,12 @@ angular.module('projectVApp')
             $scope.leafletData.getGeoJSON().then(function(localGeojson) {
               var geoLayers = localGeojson.getLayers(); 
               angular.forEach(geoLayers,function(layer) {
-                console.log('setArea');
+                //console.log('setArea');
 
                 var lTownName = layer.feature.properties.TOWNNAME;
                 var lVillageName = layer.feature.properties.VILLAGENAM;
                 layer.feature.properties.mycolor = mycolor($scope.myscope.villageSum[lTownName][lVillageName]);
-                layer.setStyle(set_unclick_style(layer));
+                layer.setStyle(set_area_color(layer));
                 if(lastClickLayer){
                   lastClickLayer.setStyle(set_click_style());
                 }

@@ -1,6 +1,8 @@
 'use strict';
 
-var VOL_COUNT = 5
+var VOL_COUNT = 5;
+
+var MAP_BUFFER_TIME = 100;
 
 /**
  * @ngdoc service
@@ -230,7 +232,7 @@ angular.module('projectVApp')
 
         function postProcess(vakey, townName, villageName, success){
           countTemp += 1;
-          //setTimeout(function(){ 
+          setTimeout(function(){ 
             count +=1 ;
             if(success){
               var mvillsum = 0;
@@ -243,7 +245,7 @@ angular.module('projectVApp')
               deferred.resolve( { complete:true , loadingStatus:count/countAll});
               console.log("complete");
             }
-          //},100*countTemp);
+          },MAP_BUFFER_TIME*countTemp);
         } 
 
         angular.forEach(countVill, function(villages, townName) {
@@ -256,14 +258,16 @@ angular.module('projectVApp')
             }
 
             //console.log(townName,villageName);        
-            var query = 'json/twVillage1982/' + county + '/' + townName + '/' + villageName + '.json';
+            else{
+              var query = 'json/twVillage1982/' + county + '/' + townName + '/' + villageName + '.json';
 
-            $http.get(query).success(function(data) {
-              villageArea[vakey] = data;
-              postProcess(vakey, townName, villageName, true);
-            }).error( function(err) {
-              postProcess(vakey, townName, villageName, false);
-            });
+              $http.get(query).success(function(data) {
+                villageArea[vakey] = data;
+                postProcess(vakey, townName, villageName, true);
+              }).error( function(err) {
+                postProcess(vakey, townName, villageName, false);
+              });
+            }
 
           });
         });
