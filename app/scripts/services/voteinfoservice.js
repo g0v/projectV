@@ -217,6 +217,9 @@ angular.module('projectVApp')
 
     this.getStaticVillageData = function(county){
       var deferred = $q.defer();
+      var countAll = 0;
+      var countTemp = 0;
+      var count = 0;
 
       this.getCountyVillage(county).then(function(countVillData) {
         var countVill = countVillData.countyVillage; 
@@ -225,20 +228,31 @@ angular.module('projectVApp')
         var villageArea = villageAreaAry[county];
         //console.log('villSum',villSum);
 
-        function postProcess(vakey, townName, villageName){
-          var mvillsum = 0;
-          if(villSum[townName] && villSum[townName][villageName]){
-            mvillsum = villSum[townName][villageName];
-          }
-          deferred.notify({villageArea: villageArea[vakey], villageSum:mvillsum, townName:townName, villageName:villageName});
+        function postProcess(vakey, townName, villageName, success){
+          countTemp += 1;
+          //setTimeout(function(){ 
+            count +=1 ;
+            if(success){
+              var mvillsum = 0;
+              if(villSum[townName] && villSum[townName][villageName]){
+                mvillsum = villSum[townName][villageName];
+              }
+              deferred.notify({villageArea: villageArea[vakey], villageSum:mvillsum, townName:townName, villageName:villageName,loadingStatus:count/countAll});
+            }
+            if(count == countAll){
+              deferred.resolve( { complete:true , loadingStatus:count/countAll});
+              console.log("complete");
+            }
+          //},100*countTemp);
         } 
 
         angular.forEach(countVill, function(villages, townName) {
           angular.forEach(villages, function(villageName) {
+            countAll += 1;
             var vakey = county+'_'+townName+'_'+villageName;
 
             if(villageArea[vakey]){
-              postProcess(vakey, townName, villageName);
+              postProcess(vakey, townName, villageName, true);
             }
 
             //console.log(townName,villageName);        
@@ -246,9 +260,9 @@ angular.module('projectVApp')
 
             $http.get(query).success(function(data) {
               villageArea[vakey] = data;
-              postProcess(vakey, townName, villageName);
+              postProcess(vakey, townName, villageName, true);
             }).error( function(err) {
-              console.log(err);
+              postProcess(vakey, townName, villageName, false);
             });
 
           });

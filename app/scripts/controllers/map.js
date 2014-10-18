@@ -30,7 +30,9 @@ angular.module('projectVApp')
   ['$scope', '$route', '$routeParams','$http', '$q', '$filter', '$modal', 'leafletData', 'voteInfoService',
   function ($scope, $route, $routeParams, $http, $q, $filter, $modal, leafletData, voteInfoService ) {
     $scope.myscope = {};
-    $scope.voteInfos = {};
+    //$scope.voteInfos = {};
+    //$scope.myscope.mapLoadingComplete = false;
+    $scope.myscope.mapLoadingStatus = false;
     var county = $routeParams.county;
     var lastClickLayer = null; 
     var lastClickMarker = null;
@@ -390,9 +392,20 @@ angular.module('projectVApp')
 
       if(firsttime){
         voteInfoService.getStaticVillageData(county).then(
-          function(){},
+          function(data){
+            console.log('mapLoadingComplete');
+            $( "#myLoading" ).fadeOut( "slow", function() {
+              // Animation complete.
+            });
+
+            //setTimeout(function(){
+            //  $scope.myscope.mapLoadingComplete = true;
+            //  $scope.myscope.mapLoadingStatus = data.loadingStatus * 100;
+            //},100);
+          },
           function() {}, 
           function(data){ 
+            $scope.myscope.mapLoadingStatus = data.loadingStatus;
             data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
             applyGeojson(data.villageArea);
           });
