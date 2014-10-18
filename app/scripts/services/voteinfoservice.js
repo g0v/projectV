@@ -2,7 +2,7 @@
 
 var VOL_COUNT = 5;
 
-var MAP_BUFFER_TIME = 100;
+var MAP_BUFFER_TIME = 10;
 
 /**
  * @ngdoc service
@@ -156,7 +156,7 @@ angular.module('projectVApp')
               for(var i=0; i<votestatData[townName].length; i++){
                 var voteStat = votestatData[townName][i];
                 voteStatInfo[voteStat.id] = {
-                  slist: ['','','','',''], 
+                  slist: [['',''], ['',''], ['',''], ['',''],  ['','']], 
                   vlist: [],
                   supplement: 0, 
                   volunteer: 0,
@@ -170,7 +170,7 @@ angular.module('projectVApp')
               var vsid = object.get('poll');
               //console.log('vsid',vsid);
               if(object.get('volunteer')){
-                voteStatInfo[vsid].vlist.push(object.get('name'));
+                voteStatInfo[vsid].vlist.push([object.get('fid'),object.get('name')]);
               }
             }
             for(var id in voteStatInfo){

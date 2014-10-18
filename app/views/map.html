@@ -4,46 +4,127 @@
 </button>
 -->
 <style>
-.map_border {
+.map_border , .map_border_noleft{
   border: 5px solid #C2003F; 
 }
 
-.map_border_right {
-  border: 5px solid #C2003F; 
+.map_border_noleft {
   border-left: 0px; 
 }
+.map_border_top{
+  border-top: 5px solid #C2003F; 
+}
+
+.map_hr{
+  border: 5px solid #C2003F; 
+  border-top: 0px; 
+  width:100%;
+}
+
+.map_panel_heading{
+  /*background: #C2003F;
+  color: #ffffff;  */
+}
+
+.map_panel_heading h3{
+  background-image: url('images/map_panel_header.png');
+  background-size: 100% 100%;
+  padding:5px;
+  width:90%;
+  color: #ffffff;
+}
+
+.map_vs_image{
+  height:100px;
+  width:88px;
+  position:absolute;
+  top:230px;
+  left:50%;
+  margin-left:-44px;
+  z-index:10;
+}
+.map_v_image{
+  position:absolute;
+  top:160px;
+  left:50%;
+  margin-left:-32px;
+  z-index:10;
+}
+
+.mymap .progress{
+  border: 3px solid #C2003F; 
+  background:none;
+}
+
+.mymap a{
+  color:#C2003F;
+}
+.mymap .bg-primary{
+  background:#C2003F;
+}
+.mymap .btn-primary{
+  background:#C2003F;
+  border-color:#C2003F;
+}
+
+.progress-bar{
+  background-color:#C2003F;
+}
+
+.map_fb_image{
+  margin:2px;width:40px;
+  border:3px solid  #C2003F;
+}
+
+.map_button{
+  background:none;
+  border:0px;
+  background-image: url('images/map_button.svg');
+  background-size: 100% 100%;
+  font-size:120%;
+  color:#C2003F;
+  padding:10px;
+  padding-left:40px;
+  padding-right:40px;
+}
+
 
 </style>
-<div class="row" style="margin-bottom:10px;">
-  <div class="col-md-9 map_border" style="padding:0px;height:900px;">
+<div class="row mymap" style="margin-bottom:10px;">
+  <div class="col-md-9 map_border" style="padding:0px;height:800px;">
     <leaflet markers="markers" defaults="defaults" geojson="geojson" style="height:100%;"></leaflet>
-    <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " id="myLoading">
+    <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
       <div style="position:relative; color:#ffffff; top:60%;text-align:center;">
         <h1>{{myscope.mapLoadingStatus |  percentage:0 }}</h1>
       </div>
+      <div id="mySpinner" >
+      </div>
     </div>
   </div>
-  <div class="col-md-3 map_border_right" style="padding:0px;height:900px;">
-    <div class="panel panel-default area-info" style="height:100%;width:100%;padding:0px;margin:0px;" ng-show="myscope.showVS == null" >
-      <div class="panel-heading" style="height:40px;">
-        <h3 class="panel-title">
-          魔王領土兵屯列表 
+  <div class="col-md-3 map_border_noleft" style="padding:0px;height:800px;" >
+  <!--  <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
+    </div>-->
+    <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS == null && myscope.mapLoadingStatus == 1" >
+      <div class="map_panel_heading" style="height:60px;">
+        <h3>
+          魔王領土兵屯列表
         </h3>
+        <img class="map_v_image" src="images/map_panel_v.svg" />
       </div>
-      <div class="panel-body" >
-        <p> 種子收洋動案友有的作的我形：人辦開變說然……如孩可地，</p>
-        <hr/>
+      <div class="panel-body map_border_top" style="overflow-x:hidden; overflow-y:scroll; position:relative;height:120px;">
         <ul class="nav nav-stacked" ng-repeat="(townKey,townVal) in myscope.villageSum" >
           <li ng-click='myscope.setTownTab(townKey)' style="cursor:pointer;" ng-class="myscope.isCurrentTownTab(townKey)">{{townKey}}</li>
         </ul>
       </div>
-      <div class="panel-body" style="overflow:scroll;height:700px;border-top:1px solid #ccc;">
+      <div class="panel-body map_border_top" style="overflow-x:hidden; overflow-y:scroll; height:580px;">
+        <div style="height:50px">
+        </div>
         <div ng-repeat="(townKey,townVal) in myscope.villageSum" ng-show="myscope.currentTownTab == townKey">
           <div ng-repeat="(villKey,villVal) in townVal">
             <div class="row">
               <div class="col-md-7 col-lg-8">
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="{{villVal*100}}" 
+                <div class="progress ">
+                  <div class="progress-bar " role="progressbar" aria-valuenow="{{villVal*100}}" 
                     aria-valuemin="0" aria-valuemax="100" style="width: {{villVal*100}}%;">
                   </div>
                 </div>
@@ -60,26 +141,33 @@
 
 
 
-    <div class="panel panel-default area-info" style="height:900px;width:100%;" ng-show="myscope.showVS != null" >
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          {{myscope.showVS.townName}} {{myscope.showVS.villageName}} 兵屯詳細概況
+    <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS != null && myscope.mapLoadingStatus == 1" >
+      <div class="map_panel_heading" style="height:60px;">
+        <h3>
+          兵屯詳細概況
         </h3>
+        <img class="map_vs_image" src="images/map_panel_vs_1.svg" ng-show=" myscope.getVoteStatImg() == 1"/>
+        <img class="map_vs_image" src="images/map_panel_vs_2.svg" ng-show=" myscope.getVoteStatImg() == 2"/>
+        <img class="map_vs_image" src="images/map_panel_vs_3.svg" ng-show=" myscope.getVoteStatImg() == 3"/>
       </div>
-      <div class="panel-body" style="overflow:scroll;height:860px;">
+      <div class="panel-body map_border_top" style="overflow-x:hidden; overflow-y:scroll; height:200px;">
         <div class="back-button" style="" ng-show="myscope.showVS != null">
           <button type="button" class="btn btn-primary" ng-click="myscope.back()">
             <i class="fa fa-chevron-left"></i> Back
           </button>
+          {{myscope.showVS.townName}} {{myscope.showVS.villageName}} 
         </div>
 
-        <hr/>
+        <div style="height:30px;"></div>
 
         <ul class="nav nav-stacked" ng-repeat="votestat in myscope.showVS.vsArray" >
           <li ng-click='myscope.setCurrentMarkerClick(votestat.id)' style="cursor:pointer;" ng-class="myscope.isCurrentVsTab(votestat.id)">{{votestat.name}}</li>
         </ul>
-        <hr/>
+      </div>
 
+      <div class="panel-body map_border_top" style="overflow-x:hidden; overflow-y:scroll; height:500px;">
+        <div style="height:30px">
+        </div>
         <div>
           <div style="padding:10px;">
             <h5>HP（志工數）</h5> 
@@ -89,11 +177,11 @@
               </div>
             </div>
             <div id="hp_people" style="margin:5px" >
-              <img class="img-circle" style="padding:2px" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist track by $index" 
-                src="http://fakeimg.pl/40/?text={{name}}">
+              <img class="img-circle map_fb_image" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist track by $index" 
+                src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
             </div>
-            <button type="button" class="btn btn-primary" ng-click="myscope.registerDialog('volunteer')">
-              參戰！  
+            <button type="button" class="map_button" ng-click="myscope.registerDialog('volunteer')">
+              志工參戰 
             </button>
           </div>
           <hr/>
@@ -105,11 +193,11 @@
               </div>
             </div>
             <div id="hp_people" style="margin:5px" >
-              <img class="img-circle" style="padding:2px" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist track by $index" 
-                src="http://fakeimg.pl/40/?text={{name}}">
+              <img class="img-circle map_fb_image"  ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist track by $index" 
+                src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
             </div>
-            <button type="button" class="btn btn-primary" ng-click="myscope.registerDialog('supplement')">
-              物資參戰！  
+            <button type="button" class="map_button" ng-click="myscope.registerDialog('supplement')">
+              物資參戰  
             </button>
           </div>
         </div>
@@ -121,24 +209,24 @@
 
 </div>
 <script>
-//var opts = {
-//  lines: 13, // The number of lines to draw
-//  length: 21, // The length of each line
-//  width: 10, // The line thickness
-//  radius: 30, // The radius of the inner circle
-//  corners: 1, // Corner roundness (0..1)
-//  rotate: 0, // The rotation offset
-//  direction: 1, // 1: clockwise, -1: counterclockwise
-//  color: '#ffffff', // #rgb or #rrggbb or array of colors
-//  speed: 1, // Rounds per second
-//  trail: 60, // Afterglow percentage
-//  shadow: true, // Whether to render a shadow
-//  hwaccel: false, // Whether to use hardware acceleration
-//  className: 'spinner', // The CSS class to assign to the spinner
-//  zIndex: 2e9, // The z-index (defaults to 2000000000)
-//  top: '50%', // Top position relative to parent
-//  left: '50%' // Left position relative to parent
-//};
-//var target = document.getElementById('mySpinner');
-//var spinner = new Spinner(opts).spin(target);
+var opts = {
+  lines: 13, // The number of lines to draw
+  length: 21, // The length of each line
+  width: 10, // The line thickness
+  radius: 30, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#ffffff', // #rgb or #rrggbb or array of colors
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: true, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: '50%', // Top position relative to parent
+  left: '50%' // Left position relative to parent
+};
+var target = document.getElementById('mySpinner');
+var spinner = new Spinner(opts).spin(target);
 </script>

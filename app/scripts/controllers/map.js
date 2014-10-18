@@ -106,6 +106,24 @@ angular.module('projectVApp')
       }
     };
 
+    var mycount = function(vscount){
+      if( vscount > 0.66){
+        return 3;
+      }
+      else if(vscount > 0.33){
+        return 2;
+      }
+      else{
+        return 1;
+      }
+    };
+  
+    $scope.myscope.getVoteStatImg = function(vscount){
+      return mycount(($scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].volunteer+
+        $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].supplement)*0.5);
+    }
+
+
 
     function style(feature) {
       return {
@@ -249,7 +267,7 @@ angular.module('projectVApp')
               'townName': townName,
               'villageName': villageName,
               'vspos': markerArray.length,
-              'vscount': ($scope.myscope.vsInfo[votestat.id].volunteer+$scope.myscope.vsInfo[votestat.id].supplement)*0.5,
+              'vscount': mycount(($scope.myscope.vsInfo[votestat.id].volunteer+$scope.myscope.vsInfo[votestat.id].supplement)*0.5),
               'vsobj': {
                 lat: votestat.location.lat,
                 lng: votestat.location.lng,
@@ -329,24 +347,13 @@ angular.module('projectVApp')
       var mymarkers = {};
       lastClickMarker = null;
       angular.forEach(markerArray, function(marker) {
-        var mycount = (function(){
-          if( marker.vscount > 0.66){
-            return 3;
-          }
-          else if(marker.vscount > 0.33){
-            return 2;
-          }
-          else{
-            return 1;
-          }
-        })();
-  
+        var mcount = marker.vscount;  
         mymarkers[marker.vsid] = {
           lat: marker.vsobj.lat,
           lng: marker.vsobj.lng,
-          icon: myiconArray[mycount]['x'],
-          myicons: myiconArray[mycount],    
-          mycount: mycount,
+          icon: myiconArray[mcount]['x'],
+          myicons: myiconArray[mcount],    
+          mycount: mcount,
           mypos: marker.vspos,
           myloc: marker.townName + '-' + marker.villageName,
           myid: marker.vsid
@@ -418,9 +425,9 @@ angular.module('projectVApp')
         voteInfoService.getStaticVillageData(county).then(
           function(data){
             console.log('mapLoadingComplete');
-            $( "#myLoading" ).fadeOut( "slow", function() {
+            $( ".myLoading" ).fadeOut( "slow", function() {
               // Animation complete.
-              $("#myLoading").remove();
+              $(".myLoading").remove();
             });
           },
           function() {}, 
