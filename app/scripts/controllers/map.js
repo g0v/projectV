@@ -80,13 +80,20 @@ angular.module('projectVApp')
 
     function applyGeojson(json) {
       if (!$scope.geojson) {
+        console.log('scope geojson create');
         $scope.geojson = {
           data: json,
           style: style,
           resetStyleOnMouseout: false 
         };
       } else {
+        console.log('scope geojson add');
         $scope.leafletData.getGeoJSON().then(function(localGeojson) {
+          console.log('scope geojson add json',
+            json.features[0].properties.TOWNNAME, 
+            json.features[0].properties.VILLAGENAM, 
+            json
+          );
           localGeojson.addData(json);
         });
       }
@@ -436,12 +443,23 @@ angular.module('projectVApp')
               // Animation complete.
               $(".myLoading").remove();
             });
+          
+            console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
           },
           function() {}, 
           function(data){ 
+
             $scope.myscope.mapLoadingStatus = data.loadingStatus;
-            data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
-            applyGeojson(data.villageArea);
+            if(!jQuery.isEmptyObject(data.villageArea) ){
+              data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
+              applyGeojson(data.villageArea);
+              console.log('areaDraw',data.villageArea,
+                data.villageArea.features[0].properties.TOWNNAME,
+                data.villageArea.features[0].properties.VILLAGENAM
+              );
+            }
+            console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
+
           });
       }
 

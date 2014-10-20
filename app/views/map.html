@@ -159,9 +159,9 @@
     </div>
   </div>
   <div class="col-md-3 map_border_noleft" style="padding:0px;height:800px;" >
-  <!--  <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
-    </div>-->
-    <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS == null && myscope.mapLoadingStatus == 1" >
+    <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
+    </div>
+    <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS == null && myscope.mapLoadingStatus >= 1" >
       <div class="map_panel_heading" style="height:60px;">
         <h3>
           魔王領土兵屯列表
@@ -199,7 +199,7 @@
 
 
 
-    <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS != null && myscope.mapLoadingStatus == 1" >
+    <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS != null && myscope.mapLoadingStatus >= 1" >
       <div class="map_panel_heading" style="height:60px;">
         <h3>
           兵屯詳細概況
