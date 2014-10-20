@@ -180,12 +180,12 @@ angular.module('projectVApp')
 
 
   var selectItems = { 
-    'chair1':'椅子#1', 
-    'chair2':'椅子#2', 
+    'chair':'椅子', 
     'desk':'桌子', 
     'umbrella':'大傘', 
-    'pens':'筆（若干）', 
+    'pen':'筆', 
     'board':'連署板',
+    'water':'水',
   };
 
   var textItem = {

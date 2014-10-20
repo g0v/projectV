@@ -1,7 +1,5 @@
 'use strict';
 
-var VOL_COUNT = 5;
-
 var MAP_BUFFER_TIME = 10;
 
 /**
@@ -32,13 +30,22 @@ angular.module('projectVApp')
 
     var voteDataAry = {};
 
-
     var villageAreaAry = {}; 
 
     var countyBoundAry = {};
-  
 
     var my_this = this;
+
+    this.supplementItem = { 
+      'pen':     [5,'筆'], 
+      'board':   [5,'連署板'],
+      'water':   [5,'水'],
+      'chair':   [2,'椅子'], 
+      'desk':    [1,'桌子'], 
+      'umbrella':[1,'五百萬傘'], 
+    };
+    
+    this.volCount = 5;
 
     this.getAllVotestatData = function(county) {
       var deferred = $q.defer();
@@ -114,7 +121,7 @@ angular.module('projectVApp')
             } 
 
             for(var id in voteStatSum){
-              voteStatSum[id] = (voteStatSum[id] > voteStatWeight[id]*VOL_COUNT) ? 1 : voteStatSum[id] / (voteStatWeight[id]*VOL_COUNT);
+              voteStatSum[id] = (voteStatSum[id] > voteStatWeight[id]*my_this.volCount) ? 1 : voteStatSum[id] / (voteStatWeight[id]*my_this.volCount);
             }
 
             var villageSum = {}; 
@@ -156,10 +163,15 @@ angular.module('projectVApp')
               for(var i=0; i<votestatData[townName].length; i++){
                 var voteStat = votestatData[townName][i];
                 voteStatInfo[voteStat.id] = {
-                  slist: [['',''], ['',''], ['',''], ['',''],  ['','']], 
                   vlist: [],
-                  supplement: 0, 
+                  //vlistTotal: 0,
                   volunteer: 0,
+                  slist: [], 
+                  sItemCount: {},
+                  //sItemTotal: {}, 
+                  sItemSum: 0,
+                  sTotalSum: 0,
+                  supplement: 0, 
                   vweight:voteStat.power
                 };
               } 
@@ -172,12 +184,47 @@ angular.module('projectVApp')
               if(object.get('volunteer')){
                 voteStatInfo[vsid].vlist.push([object.get('fid'),object.get('name')]);
               }
+              var hasitem = false;
+              var resource = object.get('resource');
+              for(var item in my_this.supplementItem){
+                if(!voteStatInfo[vsid].sItemCount[item]){
+                  voteStatInfo[vsid].sItemCount[item] = 0;
+                }
+                if(resource[item] && parseInt(resource[item]) > 0 ){
+                  voteStatInfo[vsid].sItemCount[item] += parseInt(resource[item]);
+                  hasitem = true;
+                }
+              }
+              if(hasitem){
+                voteStatInfo[vsid].slist.push([object.get('fid'),object.get('name')]);
+              }
             }
             for(var id in voteStatInfo){
-              var factor = voteStatInfo[id].vweight*VOL_COUNT;
+              var factor = voteStatInfo[id].vweight*my_this.volCount;
+
+              //voteStatInfo[id].vlistTotal = factor;
               voteStatInfo[id].volunteer = voteStatInfo[id].vlist.length > factor ? 1 : voteStatInfo[id].vlist.length/factor;
-              voteStatInfo[id].supplement = voteStatInfo[id].slist.length > factor ? 1 : voteStatInfo[id].slist.length/factor;
+
+              var totalSum = 0;
+              var itemSum = 0;
+              for(var item in my_this.supplementItem){
+                var itemTotal =  my_this.supplementItem[item][0] * voteStatInfo[id].vweight
+                totalSum += itemTotal;
+                if(!voteStatInfo[id].sItemCount[item]){
+                  voteStatInfo[id].sItemCount[item] = 0;
+                }
+                itemSum += ( voteStatInfo[id].sItemCount[item] >= itemTotal ? itemTotal : voteStatInfo[id].sItemCount[item] );
+              }
+              //console.log('sitem total',voteStatInfo[id].sItemTotal);
+              //if(itemSum >0){
+              //  console.log('sitem itemSum > 0',itemSum);
+              //}
+              //console.log('sitem count',voteStatInfo[id].sItemCount);
+              voteStatInfo[id].sItemSum = itemSum;
+              voteStatInfo[id].sTotalSum = totalSum;
+              voteStatInfo[id].supplement = itemSum > totalSum ? 1 : itemSum/totalSum;
             }
+
             voteStatInfoAry[county] = voteStatInfo;
             postProcess(county);
         });

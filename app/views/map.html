@@ -16,7 +16,7 @@
 }
 
 .map_hr{
-  border: 5px solid #C2003F; 
+  border: 3px solid #C2003F; 
   border-top: 0px; 
   width:100%;
 }
@@ -67,8 +67,18 @@
   border-color:#C2003F;
 }
 
-.progress-bar{
+.mymap .progress-bar, .mymap .progress-bar[aria-valuenow="0"]{
+  color:#ffffff;
+  text-shadow: -1px 0 #C2003F, 0 1px #C2003F, 1px 0 #C2003F, 0 -1px #C2003F;
+}
+
+.mymap .progress-bar{
   background-color:#C2003F;
+}
+
+.mymap .progress-bar[aria-valuenow="0"]{
+  background-color:#ffffff;
+  text-align:left;
 }
 
 .map_fb_image{
@@ -86,6 +96,53 @@
   padding:10px;
   padding-left:40px;
   padding-right:40px;
+}
+
+
+
+.imgWrap {
+  position: relative;
+  display:inline-block;
+}
+
+
+.imgDescription {
+  padding:5px;
+  width:80px;
+  position: absolute;
+  top: -80px;
+  height:70px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  color:#C2003F;
+  border: 3px solid #C2003F;
+  opacity: 0;
+}
+.imgArrow {
+  position: absolute;
+  top: -10px;
+  left:10px;
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #C2003F;
+  opacity: 0;
+}
+
+.imgDescription, .imgArrow{
+  visibility: hidden;
+}
+
+.imgWrap:hover .imgDescription , .imgWrap:hover .imgArrow{
+  visibility: visible;
+  opacity: 1;
+}
+.imgWrap img{
+  margin:2px;
+  cursor:pointer;
 }
 
 
@@ -126,6 +183,7 @@
                 <div class="progress ">
                   <div class="progress-bar " role="progressbar" aria-valuenow="{{villVal*100}}" 
                     aria-valuemin="0" aria-valuemax="100" style="width: {{villVal*100}}%;">
+                    {{villVal |  percentage:0}}
                   </div>
                 </div>
               </div>
@@ -153,7 +211,7 @@
       <div class="panel-body map_border_top" style="overflow-x:hidden; overflow-y:scroll; height:200px;">
         <div class="back-button" style="" ng-show="myscope.showVS != null">
           <button type="button" class="btn btn-primary" ng-click="myscope.back()">
-            <i class="fa fa-chevron-left"></i> Back
+            Back
           </button>
           {{myscope.showVS.townName}} {{myscope.showVS.villageName}} 
         </div>
@@ -170,35 +228,76 @@
         </div>
         <div>
           <div style="padding:10px;">
-            <h5>HP（志工數）</h5> 
+            <h5>志工數：{{myscope.vsInfo[myscope.currentVsTab.vsId].vlist.length}} /
+              {{myscope.volCount * myscope.vsInfo[myscope.currentVsTab.vsId].vweight}}
+            </h5> 
             <div class="progress">
               <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo[myscope.currentVsTab.vsId].volunteer * 100}}" 
                 aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo[myscope.currentVsTab.vsId].volunteer * 100}}%;">
               </div>
             </div>
-            <div id="hp_people" style="margin:5px" >
-              <img class="img-circle map_fb_image" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist track by $index" 
-                src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
-            </div>
+
             <button type="button" class="map_button" ng-click="myscope.registerDialog('volunteer')">
               志工參戰 
             </button>
+
+            <div id="hp_people" style="margin:5px" >
+              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist track by $index">
+                <div class="imgArrow"></div>
+                <div class="imgDescription" style="overflow:hidden;">
+                  {{name[1]}}
+                </div>
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
+              </div>
+            </div>
           </div>
-          <hr/>
-          <div style="padding:10px;">
-            <h5>SP（物資數）</h5> 
+          
+          <hr class="map_hr">     
+      
+          <div style="padding:10px;padding-top:0px;">
+            <h5>物資數：{{myscope.vsInfo[myscope.currentVsTab.vsId].sItemSum}} / 
+              {{myscope.vsInfo[myscope.currentVsTab.vsId].sTotalSum}}
+            </h5> 
             <div class="progress">
               <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}" 
                 aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}%;">
               </div>
             </div>
-            <div id="hp_people" style="margin:5px" >
-              <img class="img-circle map_fb_image"  ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist track by $index" 
-                src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
+
+
+            <div id="supply" style="margin:5px" >
+              <!--<span style="margin:2px" ng-repeat="(item,tcount) in myscope.vsInfo[myscope.currentVsTab.vsId].sItemTotal">
+                <img src="images/supply_{{ myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount[item] >= tcount && 'r'  || 'g' }}_{{item}}.svg" style="width:40px;">
+              </span>-->
+
+              <div class="imgWrap" ng-repeat="(item,count) in myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount">
+                <div class="imgArrow"></div>
+                <div class="imgDescription">
+                  <p> {{myscope.supplementItem[item][1]}} </p>
+                  <p>{{myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount[item]}} / 
+                    {{myscope.supplementItem[item][0] * myscope.vsInfo[myscope.currentVsTab.vsId].vweight}}
+                  </p>
+                </div>
+                <img src="images/supply_{{ count >= myscope.supplementItem[item][0] * myscope.vsInfo[myscope.currentVsTab.vsId].vweight
+                   && 'r'  || 'g' }}_{{item}}.svg" style="width:40px;">
+              </div>
+
             </div>
+
             <button type="button" class="map_button" ng-click="myscope.registerDialog('supplement')">
               物資參戰  
             </button>
+
+            <div id="sp_people" style="margin:5px" >
+              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist track by $index">
+                <div class="imgArrow"></div>
+                <div class="imgDescription" style="overflow:hidden;">
+                  {{name[1]}}
+                </div>
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
+              </div>
+
+            </div>
           </div>
         </div>
 

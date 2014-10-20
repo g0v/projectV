@@ -42,6 +42,8 @@ angular.module('projectVApp')
     $scope.myscope.currentVsTab = {}; //local
     $scope.myscope.currentTownTab = ''; //local
     $scope.myscope.vsInfo = {};
+    $scope.myscope.supplementItem = voteInfoService.supplementItem;
+    $scope.myscope.volCount = voteInfoService.volCount;
 
     $scope.leafletData = leafletData;
     $scope.taiwan = MAP_DEFAULT_VIEW[county];
@@ -92,7 +94,7 @@ angular.module('projectVApp')
 
 
     var mycolor = function(villsum){
-      if( villsum == 1){
+      if( villsum >= 1){
         return '#990000';
       }
       else if(villsum > 0.5){
@@ -119,8 +121,13 @@ angular.module('projectVApp')
     };
   
     $scope.myscope.getVoteStatImg = function(vscount){
-      return mycount(($scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].volunteer+
-        $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].supplement)*0.5);
+      if( $scope.myscope.showVS){
+        return mycount(($scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].volunteer+
+          $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].supplement)*0.5);
+      }
+      else{
+        return 1;
+      }
     }
 
 
