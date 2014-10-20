@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="704.667px" height="171.999px" viewBox="0 0 704.667 171.999" enable-background="new 0 0 704.667 171.999"
+	 xml:space="preserve">
+<polygon fill="none" stroke="#B81C3D" stroke-width="4" stroke-miterlimit="10" points="348.649,169.59 249.726,70.666 
+	447.573,70.666 "/>
+<polygon fill="#B81C3D" points="348.833,151.525 265.975,68.666 431.691,68.666 "/>
+<polygon fill="#98272D" points="0.332,86.666 142.333,86.666 142.333,72.666 112.573,72.666 124.289,47.666 21.853,47.666 
+	27.338,67.166 "/>
+<polygon fill="#FBB03B" points="112.573,72.666 142.333,86.679 142.333,72.666 "/>
+<polygon fill="#B81C3D" points="592.366,72.666 111.333,72.666 132.009,32.666 573.378,32.666 "/>
+<polygon fill="#98272D" points="704.607,86.666 562.333,86.666 562.333,72.666 592.366,72.666 580.65,47.666 683.087,47.666 
+	677.602,67.166 "/>
+<polygon fill="#FBB03B" points="592.366,72.666 562.333,86.679 562.333,72.666 "/>
+<g>
+	<circle fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="258.192" cy="51.404" r="8.737"/>
+	<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="258.333" y1="51.666" x2="167.333" y2="51.666"/>
+</g>
+<g>
+	<circle fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="441.07" cy="51.404" r="8.737"/>
+	<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="441.333" y1="51.666" x2="532.333" y2="51.666"/>
+</g>
+<g>
+	<circle fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" cx="346.996" cy="59.331" r="49.663"/>
+	<g>
+		<polygon fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" points="366.445,26.192 380.44,40.188 
+			316.884,103.745 301.396,105.236 302.888,89.75 		"/>
+		
+			<line fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="301.396" y1="105.236" x2="373.443" y2="33.189"/>
+		
+			<rect x="358.567" y="26.442" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 620.792 317.9234)" fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" width="35.342" height="7.907"/>
+		
+			<rect x="381.226" y="3.538" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 652.0978 305.6664)" fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" width="16.258" height="28.483"/>
+		
+			<line fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="384.961" y1="33.564" x2="387.814" y2="7.198"/>
+		
+			<line fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="373.536" y1="22.1" x2="405.056" y2="13.385"/>
+	</g>
+	<circle fill="#B81C3D" cx="346.333" cy="59.668" r="34"/>
+	<text transform="matrix(1 0 0 1 326.9639 55.6367)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'LiGothicMed'" font-size="18.2017" letter-spacing="1">即時</tspan><tspan x="0" y="21.842" fill="#FFFFFF" font-family="'LiGothicMed'" font-size="18.2017" letter-spacing="1">戰況</tspan></text>
+	<circle fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" cx="303.166" cy="36.229" r="5.833"/>
+	<circle fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" cx="380.166" cy="96.229" r="5.833"/>
+</g>
+</svg>

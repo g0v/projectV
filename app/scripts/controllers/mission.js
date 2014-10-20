@@ -8,10 +8,13 @@
  * Controller of the projectVApp
  */
 angular.module('projectVApp')
-  .controller('MissionCtrl', function ($scope) {
+  .controller('MissionCtrl', 
+
+  ['$scope', '$route', '$routeParams','voteInfoService',
+  function ($scope, $route, $routeParams, voteInfoService ) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+  }]);
