@@ -48,8 +48,11 @@
   top:-45px;
   margin-left:-150px;
   z-index:10;
-
 }
+
+.mymap strong{
+ color: #C2003F;
+} 
 
 </style>
 <div style="height:50px"></div>
@@ -86,17 +89,17 @@
 </div>
 
 <div class="text-center" style="width:100%;">
-<img src="images/mission_middle_header.svg" style="width:80%;margin-bottom:-5px;"></img>
+<img src="images/mission_middle_header.svg" style="width:80%;margin-bottom:-5px;max-width:1000px;min-width:800px;"></img>
 </div>
 
 <div class="row mymap">
 
   <div class="col-md-3 text-center" style="border-bottom:5px solid #C2003F; height:300px;" >
-    <img class="img-circle" src="images/BOSS_TPE-4.svg">
-    <p>祭止兀</p>
+    <img class="img-circle" src="images/head-tsai.png" style="border:5px solid #C2003F;width:150px;">
+    <h3>祭止兀</h3>
   </div>
   <div class="col-md-3" style="border-right:5px solid #C2003F;border-bottom:5px solid #C2003F;height:300px;">
-    <p>HP</p>
+    <p><strong>HP</strong></p>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
         60%
@@ -105,31 +108,33 @@
   </div>
 
   <div class="col-md-3" style="border-bottom:5px solid #C2003F; height:300px;">
-    <p>HP (志工數)</p>
+    <p><strong>志工數：{{miscope.vCount}} / {{miscope.vTotal}} </strong></p>
     <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-        60%
+      <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.vCount/miscope.vTotal}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.vCount/miscope.vTotal|  percentage:0}};">
+        {{miscope.vCount/miscope.vTotal |  percentage:0}}
       </div>
     </div>
-    <p>SP (物資數)</p>
+    <p><strong>物資數：{{miscope.sCount}} / {{miscope.sTotal}} </strong></p>
     <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-        60%
+      <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.sCount/miscope.sTotal}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.sCount/miscope.sTotal|  percentage:0}};">
+        {{miscope.sCount/miscope.sTotal |  percentage:0}}
       </div>
     </div>
   </div>
   <div class="col-md-3 text-center" style="border-bottom:5px solid #C2003F; height:300px;">
     <img class="img-circle" src="http://fakeimg.pl/150/?text=Citizen%20V" style="border:5px solid #C2003F;">
-    <p>公民V</p>
+    <h3>公民V</h3>
   </div>
 </div>
 
 <div style="height:50px"></div>
 
 <div class="text-center" style="width:100%;">
-<img src="images/mission_map_title.svg" style="width:80%;"></img>
+<img src="images/mission_map_title.svg" style="width:80%;max-width:1000px;min-width:800px;"></img>
 </div>
 
-<div style="height:50px"></div>
+<div class="text-center" style="min-height:50px;padding:50px;">
+參戰說明文字參戰說明文字參戰說明文字參戰說明文字參戰說明文字參戰說明文字
+</div>
 
 <div ng-controller="MapCtrl" ng-include="'views/map.html'"></div>
