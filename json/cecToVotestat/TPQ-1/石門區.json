@@ -1,0 +1,152 @@
+[
+  {
+    "id": "tpq0001",
+    "place_name": "德茂社區活動中心",
+    "address": "下員坑33之6號地下1樓",
+    "village": "德茂里",
+    "remark": "全里",
+    "seq": 1,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 25.2757003,
+      "lng": 121.5182458
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0002",
+    "place_name": "富基市民活動中心",
+    "address": "楓林37之6號",
+    "village": "富基里",
+    "remark": "全里",
+    "seq": 2,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 25.2818568,
+      "lng": 121.5405195
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0003",
+    "place_name": "老梅市民活動中心",
+    "address": "老梅路43號3樓",
+    "village": "老梅里",
+    "remark": "1-8",
+    "seq": 3,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 25.2892201,
+      "lng": 121.5463682
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0004",
+    "place_name": "老人休閒活動中心",
+    "address": "公地44號",
+    "village": "老梅里",
+    "remark": "9-19",
+    "seq": 4,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 25.2686409,
+      "lng": 121.57125
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0005",
+    "place_name": "山溪市民活動中心",
+    "address": "老崩山6之5號",
+    "village": "山溪里",
+    "remark": "全里",
+    "seq": 5,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 25.2764917,
+      "lng": 121.5566551
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0006",
+    "place_name": "石門國中",
+    "address": "中央路1之9號",
+    "village": "石門里",
+    "remark": "全里",
+    "seq": 6,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 24.9628619,
+      "lng": 121.4257994
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0007",
+    "place_name": "尖鹿市民活動中心",
+    "address": "中央路9之3號",
+    "village": "尖鹿里",
+    "remark": "全里",
+    "seq": 7,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 24.9627153,
+      "lng": 121.4255421
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0008",
+    "place_name": "妙濟寺",
+    "address": "內阿里磅1號",
+    "village": "乾華里",
+    "remark": "全里",
+    "seq": 8,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 25.2722641,
+      "lng": 121.5578751
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0009",
+    "place_name": "茂林市民活動中心",
+    "address": "茂林社區1之1號",
+    "village": "茂林里",
+    "remark": "全里",
+    "seq": 9,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 25.2686409,
+      "lng": 121.57125
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0010",
+    "place_name": "草里市民活動中心",
+    "address": "阿里荖33之1號3樓",
+    "village": "草里里",
+    "remark": "全里",
+    "seq": 10,
+    "county": "TPQ",
+    "town": "石門區",
+    "location": {
+      "lat": 25.2792123,
+      "lng": 121.6058416
+    },
+    "power": 1
+  }
+]

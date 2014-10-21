@@ -1,0 +1,994 @@
+[
+  {
+    "id": "tpe0303",
+    "place_name": "西湖國小",
+    "address": "環山路1段25號",
+    "village": "西湖里1-8",
+    "indigenous_village": "",
+    "phone": "2797-1267",
+    "seq": 303,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0838299,
+      "lng": 121.5656995
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0305",
+    "place_name": "西湖國中",
+    "address": "環山路1段27號",
+    "village": "西湖里17-25",
+    "indigenous_village": "",
+    "phone": "2799-1817轉318",
+    "seq": 305,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0850272,
+      "lng": 121.5656955
+    },
+    "power": 4
+  },
+  {
+    "id": "tpe0307",
+    "place_name": "文湖國小",
+    "address": "文湖街15號",
+    "village": "西康里1-4、27",
+    "indigenous_village": "",
+    "phone": "2658-3515轉1071",
+    "seq": 307,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.085771,
+      "lng": 121.5601224
+    },
+    "power": 3
+  },
+  {
+    "id": "tpe0312",
+    "place_name": "德明財經科技大學第二閱覽室(1)",
+    "address": "環山路1段56號",
+    "village": "西安里1-9",
+    "indigenous_village": "",
+    "phone": "2658-5801",
+    "seq": 312,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0865321,
+      "lng": 121.5655065
+    },
+    "power": 4
+  },
+  {
+    "id": "tpe0316",
+    "place_name": "港墘區民活動中心",
+    "address": "內湖路1段552號",
+    "village": "港墘里1-4、13-14、19、22",
+    "indigenous_village": "",
+    "phone": "0972-295503",
+    "seq": 316,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0792002,
+      "lng": 121.5773728
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0317",
+    "place_name": "內湖高工c105教室",
+    "address": "內湖路1段520號",
+    "village": "港墘里5-11",
+    "indigenous_village": "港墘里全里",
+    "phone": "2657-4874轉122",
+    "seq": 317,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0796796,
+      "lng": 121.5755051
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0319",
+    "place_name": "麗山國中",
+    "address": "內湖路1段629巷42號",
+    "village": "港都里1-4、14",
+    "indigenous_village": "",
+    "phone": "2799-2681轉405",
+    "seq": 319,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0816165,
+      "lng": 121.5756876
+    },
+    "power": 5
+  },
+  {
+    "id": "tpe0322",
+    "place_name": "內湖國小",
+    "address": "內湖路2段41號",
+    "village": "港富里1-6",
+    "indigenous_village": "",
+    "phone": "2799-4249轉313",
+    "seq": 322,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0791258,
+      "lng": 121.5802392
+    },
+    "power": 5
+  },
+  {
+    "id": "tpe0327",
+    "place_name": "港華區民活動中心",
+    "address": "環山路2段68巷14號1樓",
+    "village": "港華里9、17、19-22",
+    "indigenous_village": "",
+    "phone": "0988-179936",
+    "seq": 327,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0867308,
+      "lng": 121.5750587
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0330",
+    "place_name": "麗山國小",
+    "address": "港華街100號",
+    "village": "港華里11-14、24",
+    "indigenous_village": "港華里全里",
+    "phone": "2657-4158轉511",
+    "seq": 330,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0836791,
+      "lng": 121.5724649
+    },
+    "power": 5
+  },
+  {
+    "id": "tpe0332",
+    "place_name": "碧湖國小",
+    "address": "金龍路100號",
+    "village": "內湖里1-6、14",
+    "indigenous_village": "",
+    "phone": "2790-7161",
+    "seq": 332,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0853115,
+      "lng": 121.5911103
+    },
+    "power": 3
+  },
+  {
+    "id": "tpe0335",
+    "place_name": "濱湖皇家大廈管理委員會交誼廳",
+    "address": "內湖路2段103巷70號",
+    "village": "湖濱里1-6",
+    "indigenous_village": "",
+    "phone": "2799-7207轉叫",
+    "seq": 335,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.082956,
+      "lng": 121.58072
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0336",
+    "place_name": "湖濱區民活動中心",
+    "address": "內湖路2段344號",
+    "village": "湖濱里9、21-26",
+    "indigenous_village": "湖濱里全里",
+    "phone": "2790-6289轉叫",
+    "seq": 336,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0818286,
+      "lng": 121.59002
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0337",
+    "place_name": "內湖區公民會館",
+    "address": "內湖路2段342號",
+    "village": "湖濱里27-34",
+    "indigenous_village": "",
+    "phone": "2790-6289轉叫",
+    "seq": 337,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0818415,
+      "lng": 121.5898246
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0338",
+    "place_name": "貿七國民住宅管理委員會辦公室",
+    "address": "內湖路2段179巷46弄29號",
+    "village": "湖濱里10-14",
+    "indigenous_village": "",
+    "phone": "2793-1737轉叫",
+    "seq": 338,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0832742,
+      "lng": 121.5852965
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0339",
+    "place_name": "碧湖區民活動中心",
+    "address": "內湖路2段179巷81弄16號",
+    "village": "湖濱里7-8、15-20",
+    "indigenous_village": "",
+    "phone": "2790-0293轉叫",
+    "seq": 339,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0855142,
+      "lng": 121.582411
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0340",
+    "place_name": "康寧國小",
+    "address": "星雲街121號",
+    "village": "紫星里9、13-17、36-39",
+    "indigenous_village": "",
+    "phone": "2790-1237轉140",
+    "seq": 340,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.080037,
+      "lng": 121.5950035
+    },
+    "power": 5
+  },
+  {
+    "id": "tpe0342",
+    "place_name": "紫星區民活動中心",
+    "address": "康寧路1段20號",
+    "village": "紫星里4-5、8、10-11、23-27",
+    "indigenous_village": "",
+    "phone": "8791-1313轉叫",
+    "seq": 342,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0804895,
+      "lng": 121.5915206
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0343",
+    "place_name": "方濟中學9年崇班",
+    "address": "成功路3段61號",
+    "village": "紫星里12、28-35",
+    "indigenous_village": "紫星里全里",
+    "phone": "2791-0278轉5",
+    "seq": 343,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0773094,
+      "lng": 121.5905296
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0344",
+    "place_name": "大湖國小",
+    "address": "大湖山莊街170號",
+    "village": "大湖里1-6、24-25",
+    "indigenous_village": "大湖里全里",
+    "phone": "2791-5870",
+    "seq": 344,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0881206,
+      "lng": 121.6004795
+    },
+    "power": 6
+  },
+  {
+    "id": "tpe0347",
+    "place_name": "金龍區民活動中心",
+    "address": "金龍路136-1號2樓",
+    "village": "金龍里1-7",
+    "indigenous_village": "",
+    "phone": "0972-295501",
+    "seq": 347,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0857648,
+      "lng": 121.590059
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0348",
+    "place_name": "台北市金龍發展中心",
+    "address": "金龍路136-1號1樓",
+    "village": "金龍里8-13、22-23",
+    "indigenous_village": "",
+    "phone": "2793-3059",
+    "seq": 348,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0857648,
+      "lng": 121.590059
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0349",
+    "place_name": "基督教浸信會榮恩堂",
+    "address": "內湖路3段139號",
+    "village": "金龍里14-21",
+    "indigenous_village": "金龍里全里",
+    "phone": "2790-1197",
+    "seq": 349,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0868736,
+      "lng": 121.5897062
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0350",
+    "place_name": "民宅地下室",
+    "address": "內湖路3段187巷17號地下室",
+    "village": "金瑞里1-6",
+    "indigenous_village": "",
+    "phone": "2790-9128",
+    "seq": 350,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.079573,
+      "lng": 121.5916974
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0351",
+    "place_name": "金瑞里辦公處",
+    "address": "金龍路234號1樓",
+    "village": "金瑞里7-9、23-24",
+    "indigenous_village": "",
+    "phone": "2791-0152",
+    "seq": 351,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0884501,
+      "lng": 121.5864773
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0352",
+    "place_name": "民宅地下室",
+    "address": "內湖路3段294號地下室",
+    "village": "金瑞里10-15、21",
+    "indigenous_village": "",
+    "phone": "2790-3815",
+    "seq": 352,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0897003,
+      "lng": 121.5833717
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0354",
+    "place_name": "碧興宮遮雨棚下方",
+    "address": "碧山路28號對面",
+    "village": "碧山里1-3",
+    "indigenous_village": "",
+    "phone": "2791-9636",
+    "seq": 354,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.098766,
+      "lng": 121.588611
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0355",
+    "place_name": "金龍福德廟旁里民休息室",
+    "address": "內湖路3段60巷15號對面",
+    "village": "碧山里7、20-22",
+    "indigenous_village": "",
+    "phone": "2790-9391",
+    "seq": 355,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0705859,
+      "lng": 121.6097805
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0356",
+    "place_name": "碧山區民活動中心",
+    "address": "內湖路3段60巷8號地下1樓",
+    "village": "碧山里4-6、8-9、18",
+    "indigenous_village": "",
+    "phone": "0988-179-939",
+    "seq": 356,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0897003,
+      "lng": 121.5833717
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0358",
+    "place_name": "碧山市場內辦公室",
+    "address": "內湖路3段60巷8弄12-1號",
+    "village": "碧山里10-13",
+    "indigenous_village": "碧山里全里",
+    "phone": "0936-035222",
+    "seq": 358,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0876122,
+      "lng": 121.5916304
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0360",
+    "place_name": "金城春曉社區健身房",
+    "address": "康寧路1段267號",
+    "village": "紫雲里8-14",
+    "indigenous_village": "",
+    "phone": "2794-6526",
+    "seq": 360,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0787631,
+      "lng": 121.5981733
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0364",
+    "place_name": "清白區民活動中心",
+    "address": "星雲街161巷3號",
+    "village": "清白里11-12、14-18、20",
+    "indigenous_village": "清白里全里",
+    "phone": "2792-5828轉227",
+    "seq": 364,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0811491,
+      "lng": 121.596101
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0366",
+    "place_name": "明湖國中",
+    "address": "康寧路3段60號",
+    "village": "葫洲里1-5",
+    "indigenous_village": "",
+    "phone": "26320616",
+    "seq": 366,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0706203,
+      "lng": 121.6107507
+    },
+    "power": 6
+  },
+  {
+    "id": "tpe0370",
+    "place_name": "內湖國中",
+    "address": "陽光街1號",
+    "village": "紫陽里1、11-14",
+    "indigenous_village": "紫陽里全里",
+    "phone": "2790-0843",
+    "seq": 370,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.077035,
+      "lng": 121.5886895
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0372",
+    "place_name": "內湖高中221教室",
+    "address": "文德路218號",
+    "village": "紫陽里3-7、19",
+    "indigenous_village": "",
+    "phone": "2797-7035",
+    "seq": 372,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0783889,
+      "lng": 121.5865659
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0374",
+    "place_name": "陽光區民活動中心",
+    "address": "文德路66巷38弄14號",
+    "village": "瑞陽里4、7-8、12、15-17、22",
+    "indigenous_village": "",
+    "phone": "0972-295525",
+    "seq": 374,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0755458,
+      "lng": 121.5813029
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0375",
+    "place_name": "基督教貴格會內湖教會",
+    "address": "文德路66巷49弄5號",
+    "village": "瑞陽里13-14、18-19、24、26-28",
+    "indigenous_village": "",
+    "phone": "27976651",
+    "seq": 375,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0772459,
+      "lng": 121.5820736
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0376",
+    "place_name": "瑞陽里民活動場所",
+    "address": "文德路66巷69弄10號",
+    "village": "瑞陽里2-3、6、9-10",
+    "indigenous_village": "瑞陽里全里",
+    "phone": "27991392",
+    "seq": 376,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0767729,
+      "lng": 121.5824703
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0377",
+    "place_name": "海軍湖光新城自治委員會",
+    "address": "文德路66巷14弄2號",
+    "village": "瑞陽里1、5、11、20-21、23、25",
+    "indigenous_village": "",
+    "phone": "27974709",
+    "seq": 377,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0772645,
+      "lng": 121.5815226
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0378",
+    "place_name": "臺北市立內湖幼兒園茉莉班教室",
+    "address": "陽光街265巷9號",
+    "village": "瑞光里1-7",
+    "indigenous_village": "",
+    "phone": "2797-3504",
+    "seq": 378,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0736526,
+      "lng": 121.5806934
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0380",
+    "place_name": "瑞光社區管理委員會",
+    "address": "文德路22巷71號",
+    "village": "瑞光里14-20",
+    "indigenous_village": "",
+    "phone": "2658-6181",
+    "seq": 380,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0749117,
+      "lng": 121.5807065
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0381",
+    "place_name": "東湖國小",
+    "address": "東湖路115號",
+    "village": "五分里4-8、30",
+    "indigenous_village": "五分里全里",
+    "phone": "2633-9984",
+    "seq": 381,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0684581,
+      "lng": 121.6158978
+    },
+    "power": 11
+  },
+  {
+    "id": "tpe0384",
+    "place_name": "南湖國小",
+    "address": "康寧路3段200號",
+    "village": "五分里1-2、18、26-29",
+    "indigenous_village": "",
+    "phone": "2632-1296",
+    "seq": 384,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0690737,
+      "lng": 121.6120356
+    },
+    "power": 4
+  },
+  {
+    "id": "tpe0391",
+    "place_name": "東湖國中",
+    "address": "康樂街131號",
+    "village": "樂康里1-5",
+    "indigenous_village": "樂康里全里",
+    "phone": "2633-0373轉655",
+    "seq": 391,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0721658,
+      "lng": 121.6194887
+    },
+    "power": 5
+  },
+  {
+    "id": "tpe0396",
+    "place_name": "七星生態花園專業教室二",
+    "address": "康樂街191巷臨16號",
+    "village": "內溝里1、6、8、17",
+    "indigenous_village": "",
+    "phone": "2631-4601",
+    "seq": 396,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0749081,
+      "lng": 121.6206104
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0398",
+    "place_name": "內溝溪生態展示館",
+    "address": "康樂街236-3號",
+    "village": "內溝里2-5、7、9-10",
+    "indigenous_village": "",
+    "phone": "2634-7851",
+    "seq": 398,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0872578,
+      "lng": 121.622851
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0399",
+    "place_name": "週美里里民活動廣場",
+    "address": "潭美街100號",
+    "village": "週美里1-4",
+    "indigenous_village": "",
+    "phone": "2792-7531",
+    "seq": 399,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0907063,
+      "lng": 121.5609885
+    },
+    "power": 3
+  },
+  {
+    "id": "tpe0402",
+    "place_name": "美善公園",
+    "address": "行善路59巷20弄2號",
+    "village": "週美里17-30",
+    "indigenous_village": "",
+    "phone": "2792-7531",
+    "seq": 402,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0574012,
+      "lng": 121.5786635
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0403",
+    "place_name": "福音貴格教會",
+    "address": "新明路452號",
+    "village": "行善里1-6",
+    "indigenous_village": "",
+    "phone": "8792-7633",
+    "seq": 403,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.053842,
+      "lng": 121.578994
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0404",
+    "place_name": "新明公園",
+    "address": "新明路428巷19號對面",
+    "village": "行善里7-13",
+    "indigenous_village": "",
+    "phone": "0988-955208",
+    "seq": 404,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0543329,
+      "lng": 121.578691
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0405",
+    "place_name": "妙善托兒所",
+    "address": "行善路25巷13號1樓",
+    "village": "行善里14-17",
+    "indigenous_village": "",
+    "phone": "0928-125710",
+    "seq": 405,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.056124,
+      "lng": 121.576167
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0406",
+    "place_name": "行善區民活動中心",
+    "address": "行善路25巷13號2樓",
+    "village": "行善里18-22",
+    "indigenous_village": "行善里全里",
+    "phone": "0935-178239",
+    "seq": 406,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.056124,
+      "lng": 121.576167
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0407",
+    "place_name": "潭美國小",
+    "address": "新明路22號",
+    "village": "石潭里1-12",
+    "indigenous_village": "石潭里全里",
+    "phone": "2791-7334",
+    "seq": 407,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0603451,
+      "lng": 121.5905901
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0409",
+    "place_name": "新湖國小",
+    "address": "民權東路6段138號",
+    "village": "湖興里1-7",
+    "indigenous_village": "",
+    "phone": "2796-3721",
+    "seq": 409,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.068804,
+      "lng": 121.5887456
+    },
+    "power": 8
+  },
+  {
+    "id": "tpe0413",
+    "place_name": "三民國中",
+    "address": "民權東路6段45號",
+    "village": "湖元里1-7",
+    "indigenous_village": "湖元里全里",
+    "phone": "2792-4772",
+    "seq": 413,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.069154,
+      "lng": 121.5864073
+    },
+    "power": 3
+  },
+  {
+    "id": "tpe0423",
+    "place_name": "安泰里土地公廟",
+    "address": "安泰街54巷6號",
+    "village": "安泰里1-4",
+    "indigenous_village": "",
+    "phone": "0926-029279",
+    "seq": 423,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0732938,
+      "lng": 121.6192672
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0424",
+    "place_name": "綠之湖社區管理委員會",
+    "address": "安泰街87-93號等",
+    "village": "安泰里5-9",
+    "indigenous_village": "安泰里全里",
+    "phone": "2631-9765",
+    "seq": 424,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0745512,
+      "lng": 121.6168522
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0425",
+    "place_name": "雙壐名宅大廈1樓中庭",
+    "address": "安泰街125巷6-8號等",
+    "village": "安泰里10-15",
+    "indigenous_village": "",
+    "phone": "2634-1827",
+    "seq": 425,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0732938,
+      "lng": 121.6192672
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0426",
+    "place_name": "麗湖國小",
+    "address": "金湖路363巷8號",
+    "village": "金湖里4-8",
+    "indigenous_village": "",
+    "phone": "2634-3888",
+    "seq": 426,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.072992,
+      "lng": 121.601146
+    },
+    "power": 5
+  },
+  {
+    "id": "tpe0431",
+    "place_name": "康寧醫護暨管理專科學校(1樓藝文中心",
+    "address": "康寧路3段75巷137號",
+    "village": "康寧里1-5",
+    "indigenous_village": "",
+    "phone": "2632-1181轉422",
+    "seq": 431,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0751696,
+      "lng": 121.609939
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0432",
+    "place_name": "明湖國小",
+    "address": "康寧路3段105號",
+    "village": "康寧里6-10",
+    "indigenous_village": "",
+    "phone": "2632-3477",
+    "seq": 432,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0711096,
+      "lng": 121.6106806
+    },
+    "power": 7
+  },
+  {
+    "id": "tpe0439",
+    "place_name": "內湖垃圾焚化廠能源利用中心",
+    "address": "安康路290號(葫蘆洲運動公園內旁建物)",
+    "village": "蘆洲里1-5",
+    "indigenous_village": "蘆洲里全里",
+    "phone": "2796-1833轉352",
+    "seq": 439,
+    "county": "TPE",
+    "town": "內湖區",
+    "location": {
+      "lat": 25.0643023,
+      "lng": 121.6069346
+    },
+    "power": 1
+  }
+]
