@@ -7,6 +7,15 @@
  * # MissionCtrl
  * Controller of the projectVApp
  */
+
+
+var BOSS_DESCRIPTION = {
+  'TPE-4':{name:'祭止兀',img:'images/head-tsai.png'},
+  'TPQ-6':{name:'林鴻池',img:'images/head-lin.png'},
+  'TPQ-1':{name:'WEGO昇',img:'images/head-wu.png'},
+};
+
+
 angular.module('projectVApp')
   .controller('MissionCtrl', 
 
@@ -21,11 +30,15 @@ angular.module('projectVApp')
       'AngularJS',
       'Karma'
     ];
+
+
+    $scope.miscope.county = county;
     
     $scope.miscope.vCount = 0;
     $scope.miscope.vTotal = 0;
     $scope.miscope.sCount = 0;
     $scope.miscope.sTotal = 0;
+    $scope.miscope.boss = BOSS_DESCRIPTION[county];
     
     voteInfoService.getAllVoteStatInfo(county).then(function(data){
       console.log('--data--',data);

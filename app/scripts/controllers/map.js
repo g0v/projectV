@@ -4,17 +4,24 @@
 
 var DEFAULT_COUNTY = 'TPE-4';
 
-var MAP_DEFAULT_VIEW = {
-  'TPE-4':{lat: 25.0666313, lng: 121.5943403, zoom: 13},
-  'TPQ-1':{lat: 25.1752044, lng: 121.4813232, zoom: 12},
-  'TPQ-6':{lat: 25.0260396, lng: 121.4654445, zoom: 14},
-};
+//var MAP_DEFAULT_VIEW = {
+//  'TPE-4':{lat: 25.0666313, lng: 121.5943403, zoom: 13},
+//  'TPQ-1':{lat: 25.1752044, lng: 121.4813232, zoom: 12},
+//  'TPQ-6':{lat: 25.0260396, lng: 121.4654445, zoom: 14},
+//};
 
 
 var MAP_DEFAULT_BOUND = {
   'TPE-4':[{lat: 25.1151655, lng:121.6659156}, {lat: 25.0122295, lng:121.5521896}],
   'TPQ-1':[{lat: 25.3011330, lng:121.6195265}, {lat: 25.0287778, lng:121.2826487}],
   'TPQ-6':[{lat: 25.0398178, lng:121.4895901}, {lat: 25.0034634, lng:121.4451953}],
+};
+
+
+var MAP_MIN_ZOOM = {
+  'TPE-4':13,
+  'TPQ-1':11,
+  'TPQ-6':14,
 };
 
 
@@ -46,16 +53,21 @@ angular.module('projectVApp')
     $scope.myscope.volCount = voteInfoService.volCount;
 
     $scope.leafletData = leafletData;
-    $scope.taiwan = MAP_DEFAULT_VIEW[county];
+    //$scope.taiwan = MAP_DEFAULT_VIEW[county];
 
     $scope.defaults = {
       zoomControlPosition: 'bottomright',
-      minZoom: 11,
-      //maxZoom: 10,
+      minZoom: MAP_MIN_ZOOM[county],
     };
+    $scope.maxbounds = {
+      northEast: MAP_DEFAULT_BOUND[county][0],
+      southWest: MAP_DEFAULT_BOUND[county][1],
+    }; 
+    console.log('maxbounds',$scope.maxbounds);
+
 
     var myiconArray = (function genIcon(){
-      var iconSize = [45, 50];
+      var iconSize = [90, 150];
       var iconAnchor = [iconSize[0]/2, iconSize[1]];
       var icon_count = ['1','2','3'];
       var icon_type = ['x','c','d'];
@@ -65,7 +77,7 @@ angular.module('projectVApp')
         angular.forEach(icon_type, function(type){
           icon_result_temp[count][type] = {
             iconSize: iconSize,
-            iconUrl: 'images/map'+type+count+'.png',
+            iconUrl: 'images/map'+type+count+'.svg',
             iconAnchor: iconAnchor 
           };
         }); 
@@ -74,7 +86,7 @@ angular.module('projectVApp')
       return icon_result_temp;
     })();
 
-    if(!(county in MAP_DEFAULT_VIEW)) {
+    if(!(county in MAP_DEFAULT_BOUND)) {
       county = DEFAULT_COUNTY;
     }
 
@@ -128,7 +140,13 @@ angular.module('projectVApp')
     };
   
     $scope.myscope.getVoteStatImg = function(vscount){
-      if( $scope.myscope.showVS){
+      if( ! $scope.myscope.showVS ){
+        return 1; 
+      }
+      else if( $scope.myscope.showVS.vsArray.length == 0){
+        return 3;
+      }
+      else if( $scope.myscope.showVS ){
         return mycount(($scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].volunteer+
           $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].supplement)*0.5);
       }
@@ -144,7 +162,7 @@ angular.module('projectVApp')
         opacity: 1,
         weight: 2,
         color: 'black',
-        dashArray: '5',
+        dashArray: '6',
         fillOpacity: 0.7,
         fillColor: feature.properties.mycolor,
         className: 'county transparent'
@@ -153,7 +171,7 @@ angular.module('projectVApp')
 
 
     var mouse_over_style = {
-        weight: 5,
+        weight: 6,
         color: 'white',
     };
 
@@ -177,14 +195,14 @@ angular.module('projectVApp')
         return {
           weight: 2,
           color: 'black',
-          dashArray: '5',
+          dashArray: '6',
         };
     }
     
     function set_click_style(){
        //return gen_area_color("#ffff00");
         return {
-          weight: 5,
+          weight: 6,
           color: 'yellow',
           dashArray: '0',
         };
@@ -264,37 +282,38 @@ angular.module('projectVApp')
       var currentVsId = 0;
 
       //var query0 = 'json/votestatInfo/' + county + '.json';
-      //$http.get(query0).then(function(res0) {
-        //$scope.myscope.vsInfo = res0.data;
-        angular.forEach($scope.myscope.voteStatData[townName],function(votestat) {
-          var vsIndex = votestat.neighborhood.indexOf(villageName);
-          if(vsIndex != -1){
-            $scope.myscope.showVS.vsArray.push({
-              'name':votestat.name,
-              'id':votestat.id,
-            });
-            if(markerArray.length ==currentPos){
-              currentVsId = votestat.id;
-            }
-            markerArray.push({
-              'vsid':votestat.id,
-              'townName': townName,
-              'villageName': villageName,
-              'vspos': markerArray.length,
-              'vscount': mycount(($scope.myscope.vsInfo[votestat.id].volunteer+$scope.myscope.vsInfo[votestat.id].supplement)*0.5),
-              'vsobj': {
-                lat: votestat.location.lat,
-                lng: votestat.location.lng,
-              },
-            });
+      //$scope.myscope.vsInfo = res0.data; //TODO need to optimize
+      angular.forEach($scope.myscope.voteStatData[townName],function(votestat) {
+        var vsIndex = votestat.neighborhood.indexOf(villageName);
+        if(vsIndex != -1){
+          $scope.myscope.showVS.vsArray.push({
+            'name':votestat.name,
+            'id':votestat.id,
+          });
+          if(markerArray.length == currentPos){
+            currentVsId = votestat.id;
           }
-        });
+          markerArray.push({
+            'vsid':votestat.id,
+            'townName': townName,
+            'villageName': villageName,
+            'vspos': markerArray.length,
+            'vscount': mycount(($scope.myscope.vsInfo[votestat.id].volunteer+$scope.myscope.vsInfo[votestat.id].supplement)*0.5),
+            'vsobj': {
+              lat: votestat.location.lat,
+              lng: votestat.location.lng,
+            },
+          });
+        }
+      });
+      if(markerArray.length > 0){
         drawVoteStation(markerArray);
         $scope.myscope.setCurrentMarkerClick(currentVsId);
+      }
     }
   
 
-    $scope.myscope.setCurrentMarkerClick = function(markerName){
+    $scope.myscope.setCurrentMarkerClick = function(markerName, tomarker){
       var thisMarker = $scope.markers[markerName];
       currentClickMarkerIndex = thisMarker.mypos;
       setVotestatTab(markerName);
@@ -303,6 +322,12 @@ angular.module('projectVApp')
       }
       thisMarker.icon = thisMarker.myicons['c'];
       lastClickMarker = thisMarker;
+      if(tomarker){
+        $scope.leafletData.getMap().then(function(map){
+          console.log('thisMarker',thisMarker);
+          map.setView({lat:thisMarker.lat,lng:thisMarker.lng}); 
+        });
+      }
     };
 
     $scope.myscope.setTownTab = function(townName){
@@ -464,7 +489,7 @@ angular.module('projectVApp')
       }
 
       $q.all([voteInfoService.getAllVoteStatInfo(county), 
-        voteInfoService.getAllVotestatData(county), 
+        voteInfoService.getAllVoteStatData(county), 
         voteInfoService.getAllVillageSum(county)]).then(function(data){
 
           $scope.myscope.vsInfo = data[0];
@@ -509,6 +534,7 @@ angular.module('projectVApp')
 
     $scope.leafletData.getMap().then(function(map){
       map.fitBounds(MAP_DEFAULT_BOUND[county]);
+      console.log('map',map);
     });
     
     

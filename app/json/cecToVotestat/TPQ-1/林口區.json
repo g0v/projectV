@@ -1,0 +1,227 @@
+[
+  {
+    "id": "tpq0138",
+    "place_name": "醒吾中學",
+    "address": "粉寮路一段75巷80號",
+    "village": "東林里",
+    "remark": "1-12",
+    "seq": 138,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.073376,
+      "lng": 121.3720511
+    },
+    "power": 6
+  },
+  {
+    "id": "tpq0144",
+    "place_name": "林口高中",
+    "address": "仁愛路二段173號",
+    "village": "西林里",
+    "remark": "1-9",
+    "seq": 144,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0744316,
+      "lng": 121.3825094
+    },
+    "power": 5
+  },
+  {
+    "id": "tpq0149",
+    "place_name": "林口國小",
+    "address": "林口路76號",
+    "village": "菁湖里",
+    "remark": "1-9",
+    "seq": 149,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0805749,
+      "lng": 121.389193
+    },
+    "power": 3
+  },
+  {
+    "id": "tpq0152",
+    "place_name": "佳林國中",
+    "address": "中山路268號",
+    "village": "中湖里",
+    "remark": "1-6,8",
+    "seq": 152,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0284866,
+      "lng": 121.4120735
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0154",
+    "place_name": "湖北市民活動中心",
+    "address": "後湖17之6號",
+    "village": "湖北里",
+    "remark": "全里",
+    "seq": 154,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0854533,
+      "lng": 121.4048034
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0155",
+    "place_name": "頭湖國小",
+    "address": "民權路101號",
+    "village": "湖南里",
+    "remark": "1-5",
+    "seq": 155,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0827248,
+      "lng": 121.3733423
+    },
+    "power": 4
+  },
+  {
+    "id": "tpq0159",
+    "place_name": "林口國中",
+    "address": "民治路25號",
+    "village": "湖南里",
+    "remark": "10-12,32-34",
+    "seq": 159,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0758303,
+      "lng": 121.3773441
+    },
+    "power": 7
+  },
+  {
+    "id": "tpq0163",
+    "place_name": "南勢國小",
+    "address": "南勢街215號",
+    "village": "南勢里",
+    "remark": "1-7",
+    "seq": 163,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0741718,
+      "lng": 121.3832913
+    },
+    "power": 4
+  },
+  {
+    "id": "tpq0167",
+    "place_name": "新北特殊教育學校",
+    "address": "文化北路一段425號",
+    "village": "南勢里",
+    "remark": "26-30",
+    "seq": 167,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0736725,
+      "lng": 121.3614489
+    },
+    "power": 3
+  },
+  {
+    "id": "tpq0173",
+    "place_name": "麗林國小",
+    "address": "公園路46號",
+    "village": "麗林里",
+    "remark": "1-9",
+    "seq": 173,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0686085,
+      "lng": 121.3682286
+    },
+    "power": 4
+  },
+  {
+    "id": "tpq0177",
+    "place_name": "麗園國小",
+    "address": "忠孝路591號",
+    "village": "東勢里",
+    "remark": "1-10",
+    "seq": 177,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.06844,
+      "lng": 121.3777353
+    },
+    "power": 5
+  },
+  {
+    "id": "tpq0182",
+    "place_name": "頂福里集會所",
+    "address": "頂福20號之16（祖師公廟旁）",
+    "village": "頂福里",
+    "remark": "全里",
+    "seq": 182,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.0675445,
+      "lng": 121.3677988
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0183",
+    "place_name": "興福國小",
+    "address": "下福10之1號",
+    "village": "下福里",
+    "remark": "全里",
+    "seq": 183,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.1115592,
+      "lng": 121.3084221
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0184",
+    "place_name": "嘉寶國小",
+    "address": "嘉溪雅坑22號",
+    "village": "嘉寶里",
+    "remark": "全里",
+    "seq": 184,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.1048875,
+      "lng": 121.3655989
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0185",
+    "place_name": "瑞平國小",
+    "address": "後坑34之1號",
+    "village": "瑞平里",
+    "remark": "全里",
+    "seq": 185,
+    "county": "TPQ",
+    "town": "林口區",
+    "location": {
+      "lat": 25.13222,
+      "lng": 121.3565918
+    },
+    "power": 2
+  }
+]

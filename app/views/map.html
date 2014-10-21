@@ -120,7 +120,7 @@
 </style>
 <div class="row mymap" style="margin-bottom:10px;">
   <div class="col-md-9 map_border" style="padding:0px;height:800px;">
-    <leaflet markers="markers" defaults="defaults" geojson="geojson" style="height:100%;"></leaflet>
+    <leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" style="height:100%;"></leaflet>
     <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
       <div style="position:relative; color:#ffffff; top:60%;text-align:center;">
         <h1>{{myscope.mapLoadingStatus |  percentage:0 }}</h1>
@@ -175,9 +175,14 @@
         <h3>
           兵屯詳細概況
         </h3>
-        <img class="map_vs_image" src="images/map_panel_vs_1.svg" ng-show=" myscope.getVoteStatImg() == 1"/>
-        <img class="map_vs_image" src="images/map_panel_vs_2.svg" ng-show=" myscope.getVoteStatImg() == 2"/>
-        <img class="map_vs_image" src="images/map_panel_vs_3.svg" ng-show=" myscope.getVoteStatImg() == 3"/>
+        <span ng-show="myscope.showVS.vsArray.length > 0"> 
+          <img class="map_vs_image" src="images/map_panel_vs_1.svg" ng-show=" myscope.getVoteStatImg() == 1"/>
+          <img class="map_vs_image" src="images/map_panel_vs_2.svg" ng-show=" myscope.getVoteStatImg() == 2"/>
+          <img class="map_vs_image" src="images/map_panel_vs_3.svg" ng-show=" myscope.getVoteStatImg() == 3"/>
+        </span>
+        <span ng-show="myscope.showVS.vsArray.length == 0"> 
+          <img class="map_vs_image" src="images/map_panel_vs_3.svg"/>
+        </span>
       </div>
       <div class="panel-body map_border_top" style="overflow-x:hidden; overflow-y:scroll; height:200px;">
         <div class="back-button" style="" ng-show="myscope.showVS != null">
@@ -190,14 +195,17 @@
         <div style="height:30px;"></div>
 
         <ul class="nav nav-stacked" ng-repeat="votestat in myscope.showVS.vsArray" >
-          <li ng-click='myscope.setCurrentMarkerClick(votestat.id)' style="cursor:pointer;" ng-class="myscope.isCurrentVsTab(votestat.id)">{{votestat.name}}</li>
+          <li ng-click='myscope.setCurrentMarkerClick(votestat.id, true)' style="cursor:pointer;" ng-class="myscope.isCurrentVsTab(votestat.id)">{{votestat.name}}</li>
         </ul>
+        <span ng-show="myscope.showVS.vsArray.length == 0"> 
+          <p>此里沒有投開票所</p>
+        </span>
       </div>
 
       <div class="panel-body map_border_top" style="overflow-x:hidden; overflow-y:scroll; height:500px;">
         <div style="height:30px">
         </div>
-        <div>
+        <div ng-if="myscope.showVS.vsArray.length > 0">
           <div style="padding:10px;">
             <h5>志工數：{{myscope.vsInfo[myscope.currentVsTab.vsId].vlist.length}} /
               {{myscope.volCount * myscope.vsInfo[myscope.currentVsTab.vsId].vweight}}

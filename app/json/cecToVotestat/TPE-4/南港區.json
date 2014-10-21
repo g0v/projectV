@@ -1,0 +1,610 @@
+[
+  {
+    "id": "tpe0450",
+    "place_name": "南港高工實汽一教室",
+    "address": "興中路29號",
+    "village": "南港里2-7",
+    "indigenous_village": "南港里全里",
+    "phone": "2782-5432",
+    "seq": 450,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0562302,
+      "lng": 121.6074617
+    },
+    "power": 4
+  },
+  {
+    "id": "tpe0454",
+    "place_name": "國家文官學院（菁英講堂）",
+    "address": "忠孝東路7段576號",
+    "village": "中南里3-7、10-14、16、19",
+    "indigenous_village": "",
+    "phone": "2653-1500",
+    "seq": 454,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0526151,
+      "lng": 121.6136186
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0456",
+    "place_name": "南港國小",
+    "address": "惠民街67號",
+    "village": "三重里1-7",
+    "indigenous_village": "三重里全里",
+    "phone": "2783-4678",
+    "seq": 456,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.057689,
+      "lng": 121.6101081
+    },
+    "power": 4
+  },
+  {
+    "id": "tpe0460",
+    "place_name": "誠正國中",
+    "address": "富康街1巷24號",
+    "village": "新富里1-5",
+    "indigenous_village": "",
+    "phone": "27828094分機1500",
+    "seq": 460,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0542493,
+      "lng": 121.6187775
+    },
+    "power": 3
+  },
+  {
+    "id": "tpe0463",
+    "place_name": "胡適國小",
+    "address": "舊莊街1段1號",
+    "village": "中研里1-7、35",
+    "indigenous_village": "",
+    "phone": "2782-4949*930",
+    "seq": 463,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0423894,
+      "lng": 121.6172346
+    },
+    "power": 3
+  },
+  {
+    "id": "tpe0466",
+    "place_name": "奇奇家族文理短期補習班",
+    "address": "研究院路2段12巷58弄15號",
+    "village": "中研里13、16、21-25",
+    "indigenous_village": "",
+    "phone": "2788-7881",
+    "seq": 466,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0465887,
+      "lng": 121.6139666
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0467",
+    "place_name": "欣苗幼兒園",
+    "address": "研究院路2段12巷58弄11號",
+    "village": "中研里14-15、17-20",
+    "indigenous_village": "中研里全里",
+    "phone": "2782-3322",
+    "seq": 467,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0468866,
+      "lng": 121.6139334
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0468",
+    "place_name": "九如區民活動中心",
+    "address": "研究院路3段68巷9號2樓",
+    "village": "九如里1-5、23",
+    "indigenous_village": "九如里全里",
+    "phone": "0972246119",
+    "seq": 468,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0352159,
+      "lng": 121.6143126
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0470",
+    "place_name": "胡適庭園社區管理中心",
+    "address": "研究院路2段182巷29弄2號對面",
+    "village": "九如里17-22",
+    "indigenous_village": "",
+    "phone": "2782-4578",
+    "seq": 470,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0373362,
+      "lng": 121.6158337
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0471",
+    "place_name": "慈龍堂",
+    "address": "研究院路3段92號",
+    "village": "九如里8-11、24-28",
+    "indigenous_village": "",
+    "phone": "2783-2128",
+    "seq": 471,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.034115,
+      "lng": 121.6135144
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0472",
+    "place_name": "舊莊國小",
+    "address": "舊莊街1段100號",
+    "village": "舊莊里1-4、8、24",
+    "indigenous_village": "",
+    "phone": "02-27821418轉100李莉莉校長",
+    "seq": 472,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0402449,
+      "lng": 121.619539
+    },
+    "power": 4
+  },
+  {
+    "id": "tpe0476",
+    "place_name": "舊莊區民活動中心",
+    "address": "舊莊街1段91巷11號1樓",
+    "village": "舊莊里22-23、25~27",
+    "indigenous_village": "",
+    "phone": "0972246129",
+    "seq": 476,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.041307,
+      "lng": 121.6194827
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0477",
+    "place_name": "東新國小",
+    "address": "興南街62號",
+    "village": "東新里1-6",
+    "indigenous_village": "",
+    "phone": "2783-7577",
+    "seq": 477,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0554594,
+      "lng": 121.6022189
+    },
+    "power": 6
+  },
+  {
+    "id": "tpe0481",
+    "place_name": "群興紙業公司",
+    "address": "重陽路235巷16號1樓",
+    "village": "重陽里1-5",
+    "indigenous_village": "重陽里全里",
+    "phone": "2783-9238",
+    "seq": 481,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0581849,
+      "lng": 121.6020872
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0482",
+    "place_name": "南港老人服務中心",
+    "address": "重陽路187巷5號(2樓教室)",
+    "village": "重陽里6-10",
+    "indigenous_village": "",
+    "phone": "2653-5311",
+    "seq": 482,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0571931,
+      "lng": 121.5987281
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0483",
+    "place_name": "西新區民活動中心",
+    "address": "成功路1段99號",
+    "village": "重陽里11-14",
+    "indigenous_village": "",
+    "phone": "0988179598",
+    "seq": 483,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0578795,
+      "lng": 121.5926853
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0486",
+    "place_name": "東方大地住戶管理委員會會議室",
+    "address": "興華路30巷1號",
+    "village": "東明里12-16",
+    "indigenous_village": "東明里全里",
+    "phone": "2788-5940",
+    "seq": 486,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0552861,
+      "lng": 121.6056865
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0487",
+    "place_name": "玉成國小",
+    "address": "向陽路31號",
+    "village": "西新里1-5、12",
+    "indigenous_village": "西新里全里",
+    "phone": "02-2783-6049",
+    "seq": 487,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0535818,
+      "lng": 121.5947692
+    },
+    "power": 3
+  },
+  {
+    "id": "tpe0490",
+    "place_name": "基督教南港聖教會",
+    "address": "南港路3段208巷6號",
+    "village": "玉成里1-3、6-8、11-13",
+    "indigenous_village": "",
+    "phone": "2782-4626",
+    "seq": 490,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0534976,
+      "lng": 121.5861758
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0491",
+    "place_name": "松山國小",
+    "address": "松山區八德路4段746號",
+    "village": "玉成里4-5、9、14-16",
+    "indigenous_village": "",
+    "phone": "2767-2907",
+    "seq": 491,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0504124,
+      "lng": 121.5798423
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0492",
+    "place_name": "新移民會館(研習教室)",
+    "address": "八德路4段768之1號地下一樓",
+    "village": "玉成里10、17-21",
+    "indigenous_village": "玉成里全里",
+    "phone": "2788-4911",
+    "seq": 492,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.050293,
+      "lng": 121.579989
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0493",
+    "place_name": "春昇汽車有限公司",
+    "address": "永吉路536號",
+    "village": "合成里1-2、10-14",
+    "indigenous_village": "",
+    "phone": "2786-1192",
+    "seq": 493,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0451559,
+      "lng": 121.58126
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0494",
+    "place_name": "南港運動中心",
+    "address": "玉成街69號",
+    "village": "合成里3-4、25-26",
+    "indigenous_village": "",
+    "phone": "2653-2279",
+    "seq": 494,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.048938,
+      "lng": 121.5818399
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0496",
+    "place_name": "輝奇氣體有限公司之倉庫",
+    "address": "忠孝東路6段267號",
+    "village": "合成里15-20",
+    "indigenous_village": "",
+    "phone": "2785-6463",
+    "seq": 496,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0498132,
+      "lng": 121.5895486
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0497",
+    "place_name": "春來汽車",
+    "address": "忠孝東路6段317號",
+    "village": "合成里21-24",
+    "indigenous_village": "合成里全里",
+    "phone": "2786-8488",
+    "seq": 497,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0500201,
+      "lng": 121.5914347
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0498",
+    "place_name": "警政署保七總隊第三大隊餐廳",
+    "address": "昆陽街161-1號旁",
+    "village": "新光里9-18",
+    "indigenous_village": "26539235",
+    "phone": "26511471",
+    "seq": 498,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0493293,
+      "lng": 121.5945205
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0499",
+    "place_name": "新光里民活動場所",
+    "address": "昆陽街140巷21號",
+    "village": "新光里1-8",
+    "indigenous_village": "新光里全里",
+    "phone": "2788-6626",
+    "seq": 499,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0498035,
+      "lng": 121.5933552
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0500",
+    "place_name": "成德國小",
+    "address": "東新街65號",
+    "village": "聯成里1-5",
+    "indigenous_village": "聯成里全里",
+    "phone": "27851376分機151",
+    "seq": 500,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0468798,
+      "lng": 121.5869084
+    },
+    "power": 4
+  },
+  {
+    "id": "tpe0504",
+    "place_name": "萬福里里民活動場所",
+    "address": "忠孝東路6段70巷21弄8號",
+    "village": "萬福里3-4、9-11、17",
+    "indigenous_village": "萬福里全里",
+    "phone": "2785-5945",
+    "seq": 504,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0459971,
+      "lng": 121.5848289
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0505",
+    "place_name": "黃貴勇先生車庫",
+    "address": "玉成街140巷6號",
+    "village": "萬福里5-8、18-19",
+    "indigenous_village": "",
+    "phone": "2788-1987",
+    "seq": 505,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.044616,
+      "lng": 121.582939
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0506",
+    "place_name": "南港龍華社區管理委員會",
+    "address": "同德路85巷4號",
+    "village": "萬福里-2、12-16",
+    "indigenous_village": "",
+    "phone": "2782-8212",
+    "seq": 506,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0462506,
+      "lng": 121.5856464
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0507",
+    "place_name": "成德國中",
+    "address": "東新街108巷23號",
+    "village": "鴻福里第1-3、5-7",
+    "indigenous_village": "",
+    "phone": "26515638",
+    "seq": 507,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.045059,
+      "lng": 121.5877514
+    },
+    "power": 4
+  },
+  {
+    "id": "tpe0509",
+    "place_name": "鴻福里里民活動場所",
+    "address": "成福路82號",
+    "village": "鴻福里第4、9~12、16",
+    "indigenous_village": "鴻福里全里",
+    "phone": "2786-3893",
+    "seq": 509,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0438685,
+      "lng": 121.586507
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0510",
+    "place_name": "福德國小",
+    "address": "福德街253號",
+    "village": "百福里1-5、21~22",
+    "indigenous_village": "百福里全里",
+    "phone": "27267991#22,27277992#22",
+    "seq": 510,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0388994,
+      "lng": 121.5865035
+    },
+    "power": 3
+  },
+  {
+    "id": "tpe0515",
+    "place_name": "吉的堡小騎士托兒所",
+    "address": "成福路183號2樓",
+    "village": "成福里18、21-27、30",
+    "indigenous_village": "成福里全里",
+    "phone": "2651-6526",
+    "seq": 515,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.040908,
+      "lng": 121.588615
+    },
+    "power": 1
+  },
+  {
+    "id": "tpe0516",
+    "place_name": "修德國小",
+    "address": "東新街118巷86號",
+    "village": "成福里7-11、31",
+    "indigenous_village": "",
+    "phone": "27880500-151",
+    "seq": 516,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0455318,
+      "lng": 121.5896359
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0518",
+    "place_name": "忠孝幼兒園彩虹班",
+    "address": "福德街373巷43號",
+    "village": "仁福里1-4",
+    "indigenous_village": "",
+    "phone": "2654-3767",
+    "seq": 518,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.0389739,
+      "lng": 121.592136
+    },
+    "power": 2
+  },
+  {
+    "id": "tpe0520",
+    "place_name": "仁福區民活動中心",
+    "address": "福德街443號",
+    "village": "仁福里9-12",
+    "indigenous_village": "",
+    "phone": "2654-2254",
+    "seq": 520,
+    "county": "TPE",
+    "town": "南港區",
+    "location": {
+      "lat": 25.040003,
+      "lng": 121.590631
+    },
+    "power": 2
+  }
+]
