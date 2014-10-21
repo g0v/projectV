@@ -27,12 +27,23 @@
 
     <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" 
       data-ng-click="intentLogin()">Login with Facebook</button>
-    <div data-ng-show="logged">
-      
+
+    <p data-ng-show="logged && (unregster == 1)">
+      您已經登記報名了
+      <strong ng-show="regscope.type == 'volunteer'">
+        志工參戰
+      </strong>
+      <strong ng-show="regscope.type == 'supplement'">
+        物資參戰 
+      </strong>
+    </p>
+
+
+    <div data-ng-show="logged && (unregster == 2)">
       <div class="row">
         <div class="col-xs-2">
           <img src="http://graph.facebook.com/{{content.userid}}/picture?type=square"/ style="margin-bottom:10px;"> <br/>
-          <button type="button" class="btn btn-primary btn-large" data-ng-show="logged" data-ng-click="logout()">Logout</button>
+          <button type="button" class="btn btn-primary btn-large" data-ng-click="logout()">Logout</button>
         </div> 
         <div class="col-xs-10">
           <p>
@@ -91,7 +102,7 @@
         <p class="bg-danger text-danger" style="text-align:left">{{regscope.errors}}</p>
       </div>
       <div class="col-xs-4">
-        <button class="btn btn-primary" data-ng-click="send()"  data-ng-show="logged">Send</button>
+        <button class="btn btn-primary" data-ng-click="send()"  data-ng-show="logged && (unregster == 2)">Send</button>
         <button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
       </div>
     </div>

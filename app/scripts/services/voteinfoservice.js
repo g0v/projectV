@@ -1,6 +1,7 @@
 'use strict';
 
 var MAP_BUFFER_TIME = 10;
+var USE_CITIZEN_DB = false;
 
 /**
  * @ngdoc service
@@ -18,6 +19,12 @@ angular.module('projectVApp')
     );
 
     var citizenParse = Parse.Object.extend("citizen");
+
+
+    var volunteerParse = Parse.Object.extend("volunteer");
+
+
+    var supplementParse = Parse.Object.extend("resource");
     //var county = 'TPE-4';
 
     var citizenDataAry = {}; //dynamic
@@ -67,26 +74,95 @@ angular.module('projectVApp')
       return deferred.promise;
     };
 
+
+    this.getParsedQuery = function(query,key,val){
+      var deferred = $q.defer();
+      query.equalTo(key, val);
+      query.limit(1000);
+      query.find({
+        success: function(results) {
+          deferred.resolve(results);
+        }
+      });
+      return deferred.promise;
+    };
+
     this.getCitizenData = function(county) { //dynamic
       var deferred = $q.defer();
-      
       function postProcess(county) {
         deferred.resolve(citizenDataAry[county]);
       }
-
+      function convertObject(obj_in, type){
+        var obj_out = { 
+          'email': obj_in.get('email'),
+          'fid': obj_in.get('fid'),
+          'mobile': obj_in.get('mobile'),
+          'name': obj_in.get('name'),
+          'poll': obj_in.get('poll'),
+          'county': obj_in.get('county')
+        };
+        if(type == 'volunteer'){
+          obj_out['resource'] = {};
+          for(var item in my_this.supplementItem){
+            obj_out['resource'][item] = 0;
+          }
+          obj_out['volunteer'] = true;
+        }
+        else if(type == 'supplement'){
+          obj_out['resource'] = obj_in.get('resource'); 
+          obj_out['volunteer'] = false;
+        }
+        else{
+          obj_out['resource'] = obj_in.get('resource'); 
+          obj_out['volunteer'] = obj_in.get('volunteer');
+        }
+        return obj_out;
+      }
       if(citizenDataAry[county]){
         postProcess(county);
       }
-
       else{
-        var query = new Parse.Query(citizenParse);
-        query.limit(1000);
-        query.find({
-          success: function(results) {
+        if(USE_CITIZEN_DB){
+          var query = new Parse.Query(citizenParse);
+          my_this.getParsedQuery(query,"county",county).then(function(citizenData){
+              var results = [];
+              for (var i = 0; i < citizenData.length; i++) { 
+                results.push( convertObject(citizenData[i]));
+              } 
+              citizenDataAry[county] = results;
+              postProcess(county);
+          });
+          //query.equalTo("county", county);
+          //query.limit(1000);
+          //query.find({
+          //  success: function(citizenData) {
+          //    var results = [];
+          //    for (var i = 0; i < citizenData.length; i++) { 
+          //      results.push( convertObject(citizenData[i]));
+          //    } 
+          //    citizenDataAry[county] = results;
+          //    postProcess(county);
+          //  }
+          //});
+        }
+        else{
+          var volQuery = new Parse.Query(volunteerParse);
+          var supQuery = new Parse.Query(supplementParse);
+          $q.all([my_this.getParsedQuery(volQuery,"county",county), my_this.getParsedQuery(supQuery,"county",county)]).then(function(data){
+            //console.log('query_data',data[0],data[1]);
+            var volunteerData = data[0];
+            var supplementData = data[1];
+            var results = [];
+            for (var i = 0; i < volunteerData.length; i++) { 
+              results.push( convertObject(volunteerData[i],'volunteer'));
+            } 
+            for (var i = 0; i < supplementData.length; i++) { 
+              results.push( convertObject(supplementData[i],'supplement'));
+            } 
             citizenDataAry[county] = results;
             postProcess(county);
-          }
-        });
+          });
+        }
       }
       return deferred.promise;
     };
@@ -110,7 +186,7 @@ angular.module('projectVApp')
             var voteStatWeight = {};
             for (var i = 0; i < citizenData.length; i++) { 
               var object = citizenData[i];
-              var vsid = object.get('poll');
+              var vsid = object['poll'];
               voteStatSum[vsid] = voteStatSum[vsid] ? voteStatSum[vsid]+1 : 1;
             }
 
@@ -176,17 +252,17 @@ angular.module('projectVApp')
                 };
               } 
             }
-            console.log('voteStatInfo',voteStatInfo);
+            //console.log('voteStatInfo',voteStatInfo);
             for(var i=0; i<citizenData.length; i++){
               var object = citizenData[i];
-              var vsid = object.get('poll');
+              var vsid = object['poll'];
               //console.log('vsid',vsid);
               if(voteStatInfo[vsid]){
-                if(object.get('volunteer')){
-                  voteStatInfo[vsid].vlist.push([object.get('fid'),object.get('name')]);
+                if(object['volunteer']){
+                  voteStatInfo[vsid].vlist.push([object['fid'],object['name']]);
                 }
                 var hasitem = false;
-                var resource = object.get('resource');
+                var resource = object['resource'];
                 for(var item in my_this.supplementItem){
                   if(!voteStatInfo[vsid].sItemCount[item]){
                     voteStatInfo[vsid].sItemCount[item] = 0;
@@ -197,7 +273,7 @@ angular.module('projectVApp')
                   }
                 }
                 if(hasitem){
-                  voteStatInfo[vsid].slist.push([object.get('fid'),object.get('name')]);
+                  voteStatInfo[vsid].slist.push([object['fid'],object['name']]);
                 }
               }
             }
@@ -326,13 +402,60 @@ angular.module('projectVApp')
     };
     
     this.saveCitizen = function(data, cb){
-      var czparse = new citizenParse();
-      czparse
-        .save(data)
-        .then(function(object) {
-          cb()
-        });
+      if(USE_CITIZEN_DB){
+        var czparse = new citizenParse();
+        czparse
+          .save(data)
+          .then(function(object) {
+            cb()
+          });
+      }
+      else{
+        if(data.volunteer){
+          delete data.volunteer;
+          delete data.resource;
+          var mparse = new volunteerParse();
+          mparse.save(data)
+            .then(function(object) {
+              cb()
+            });
+        }
+        else{
+          delete data.volunteer;
+          var mparse = new supplementParse();
+          mparse.save(data)
+            .then(function(object) {
+              cb()
+            });
+        }
+      }
     };
+
+    this.queryCitizen = function(fid,type){
+      var deferred = $q.defer();
+      if(USE_CITIZEN_DB){
+        deferred.resolve(false);
+      }
+      else{
+        var query = null;
+        if(type == 'volunteer'){ 
+          query = new Parse.Query(volunteerParse);
+        }
+        else if(type == 'supplement'){
+          query = new Parse.Query(supplementParse);
+        }
+        my_this.getParsedQuery(query,"fid",fid).then(function(result){
+          if(result.length > 0){
+            deferred.resolve(true);
+          }
+          else{
+            deferred.resolve(false);
+          }
+        });
+      }
+      return deferred.promise;
+    };
+
 
     this.resetDynamics = function(county){
       if(citizenDataAry[county]){

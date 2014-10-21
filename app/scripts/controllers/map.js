@@ -63,7 +63,7 @@ angular.module('projectVApp')
       northEast: MAP_DEFAULT_BOUND[county][0],
       southWest: MAP_DEFAULT_BOUND[county][1],
     }; 
-    console.log('maxbounds',$scope.maxbounds);
+    //console.log('maxbounds',$scope.maxbounds);
 
 
     var myiconArray = (function genIcon(){
@@ -403,14 +403,14 @@ angular.module('projectVApp')
       });
 
       $scope.$on('leafletDirectiveMarker.click', function(e, args) {
-        console.log('marker mouse click');
+        //console.log('marker mouse click');
         $scope.myscope.setCurrentMarkerClick(args.markerName);
       });
 
       $scope.$on('leafletDirectiveMarker.mouseover', function(e, args) {
-        console.log('marker mouse over');
+        //console.log('marker mouse over');
         var thisMarker = $scope.markers[args.markerName];
-        console.log('thisMarker',thisMarker);
+        //console.log('thisMarker',thisMarker);
         thisMarker.icon = thisMarker.myicons['d'];
       });
 
@@ -434,6 +434,7 @@ angular.module('projectVApp')
     $scope.$on('leafletDirectiveMap.geojsonClick', areaClick);
     
     $scope.myscope.registerDialog = function(type) {
+
       var modalInstance = $modal.open({
         templateUrl:'views/register.html',
         controller: 'registerDialogController',
@@ -455,6 +456,7 @@ angular.module('projectVApp')
         console.log('send',result);
         loadData(false);
       }); 
+
     };  
 
 
@@ -503,7 +505,7 @@ angular.module('projectVApp')
           }
           else{
             if($scope.myscope.showVS){
-              console.log('voteStatData Change 2');
+              //console.log('voteStatData Change 2');
               showCurrentVillageVotestat(  
                 $scope.myscope.showVS.townName, 
                 $scope.myscope.showVS.villageName, 
@@ -536,7 +538,7 @@ angular.module('projectVApp')
 
     $scope.leafletData.getMap().then(function(map){
       map.fitBounds(MAP_DEFAULT_BOUND[county]);
-      console.log('map',map);
+      //console.log('map',map);
     });
     
     

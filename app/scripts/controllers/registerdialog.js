@@ -9,7 +9,6 @@
  */
 angular.module('projectVApp')
 .controller('registerDialogController',
-  //['$scope', '$timeout', '$modalInstance', 'Facebook', 'data', function($scope, $timeout, $modalInstance, Facebook, data) {
   ['$scope', '$timeout', '$modalInstance', 'Facebook', 'voteInfoService', 'data', 
   function($scope, $timeout, $modalInstance, Facebook, voteInfoService, data) {
     
@@ -33,6 +32,8 @@ angular.module('projectVApp')
   $scope.user = {};
   // Defining user logged status
   $scope.logged = false;
+  $scope.unregster = 0;
+  //$scope.unregsterLoad = false;
   // And some fancy flags to display messages upon user status change
   
   $scope.facebookReady = false;
@@ -58,7 +59,7 @@ angular.module('projectVApp')
    */
 
   $scope.intentLogin = function() {
-    console.log('click login',userIsConnected);
+    //console.log('click login',userIsConnected);
     if(!userIsConnected) {
       $scope.login();
     }
@@ -88,6 +89,8 @@ angular.module('projectVApp')
          */
         $scope.$apply(function() {
           $scope.user = response;
+
+
           //console.log('scope.user',$scope.user);
         });
         
@@ -103,6 +106,7 @@ angular.module('projectVApp')
       $scope.$apply(function() {
         $scope.user   = {};
         $scope.logged = false;  
+        $scope.unregster = 0;
         $scope.regscope.errors = '';
         userIsConnected = false;
       });
@@ -126,6 +130,7 @@ angular.module('projectVApp')
     } else {
       $scope.$apply(function() {
         $scope.logged = false;  
+        $scope.unregster = 0;
         $scope.user   = {};
       });
     }
@@ -158,7 +163,7 @@ angular.module('projectVApp')
   $scope.regscope.type = data.type;
   $scope.regscope.supCount = data.supCount;
   $scope.regscope.supWeight = data.supWeight;
-  console.log('data',data);
+  //console.log('data',data);
   $scope.regscope.errors = '';
   $scope.regscope.newuser = true;
   $scope.content = {
@@ -174,34 +179,33 @@ angular.module('projectVApp')
   for(var item in selectItems){
     $scope.content.supplement[item] = 0;
   }
-  console.log('scope content supplement',$scope.content.supplement);
+  //console.log('scope content supplement',$scope.content.supplement);
 
 
   $scope.$watch(
     'user',
     function(fbuser) {
-      if(fbuser){ 
-        //console.log('fbuser',fbuser);
+      if(fbuser && fbuser.id){ 
         //$scope.myfirebase = sync.$asArray();
         $scope.content.userid = fbuser.id; 
         $scope.content.name = fbuser.name; 
+        //$scope.unregster = false;
+        //console.log('fbuser',fbuser.id, data.type);
+        voteInfoService.queryCitizen(fbuser.id, data.type).then(function(result){
+          //console.log('register result',result);
+          if(!result){
+            $scope.unregster = 2;
+          }  
+          else{
+            $scope.unregster = 1;
+          }
+        });
       }
     },true);
 
 
-  //var selectItems = { 
-  //  'chair':'椅子', 
-  //  'desk':'桌子', 
-  //  'umbrella':'大傘', 
-  //  'pen':'筆', 
-  //  'board':'連署板',
-  //  'water':'水',
-  //};
-
-  //$scope.
 
   var textItem = {
-    //'name':'名字',
     'phone':'手機',
     'email':'E-Mail',
   };
@@ -264,18 +268,6 @@ angular.module('projectVApp')
   };
 
   function saveToParseCom(){
-    //console.log('content',$scope.content);
-    //console.log('user',$scope.auth);
-    //$scope.myfirebase.participants[$scope.auth.user.uid] = {
-    //  type: $scope.content.type,
-    //  votestat: $scope.content.votestat, 
-    //  vsid: $scope.content.vsid,
-    //  name: $scope.content.name,
-    //  phone: $scope.content.phone,
-    //  email: $scope.content.email,
-    //  supplement: $scope.content.supplement,
-    //};
-
     var temp_obj = {
       fid: $scope.content.userid,
       volunteer: $scope.content.type == 'volunteer',
