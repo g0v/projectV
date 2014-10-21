@@ -445,6 +445,8 @@ angular.module('projectVApp')
               type: type,
               vsId: $scope.myscope.currentVsTab.vsId,
               vsName: $scope.myscope.currentVsTab.vsName, 
+              supCount: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].sItemCount,
+              supWeight: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].vweight
             };
           }   
         }   

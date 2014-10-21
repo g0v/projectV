@@ -1,6 +1,6 @@
 'use strict';
 
-var MAP_BUFFER_TIME = 20;
+var MAP_BUFFER_TIME = 10;
 
 /**
  * @ngdoc service

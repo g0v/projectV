@@ -13,7 +13,7 @@ angular.module('projectVApp')
   ['$scope', '$timeout', '$modalInstance', 'Facebook', 'voteInfoService', 'data', 
   function($scope, $timeout, $modalInstance, Facebook, voteInfoService, data) {
     
-  $scope.myscope = {};
+  $scope.regscope = {};
 
   //var ref = new Firebase("https://torid-fire-6233.firebaseio.com/participants");
 
@@ -58,6 +58,7 @@ angular.module('projectVApp')
    */
 
   $scope.intentLogin = function() {
+    console.log('click login',userIsConnected);
     if(!userIsConnected) {
       $scope.login();
     }
@@ -102,7 +103,7 @@ angular.module('projectVApp')
       $scope.$apply(function() {
         $scope.user   = {};
         $scope.logged = false;  
-        $scope.myscope.errors = '';
+        $scope.regscope.errors = '';
         userIsConnected = false;
       });
     });
@@ -149,12 +150,17 @@ angular.module('projectVApp')
    * intentLogin
    */
   /********************************form*****************************/
+  $scope.regscope.selectItems = voteInfoService.supplementItem;
+  var selectItems = $scope.regscope.selectItems;
 
 
-  $scope.myscope.fbshare = true;
-  $scope.myscope.type = data.type;
-  $scope.myscope.errors = '';
-  $scope.myscope.newuser = true;
+  $scope.regscope.fbshare = true;
+  $scope.regscope.type = data.type;
+  $scope.regscope.supCount = data.supCount;
+  $scope.regscope.supWeight = data.supWeight;
+  console.log('data',data);
+  $scope.regscope.errors = '';
+  $scope.regscope.newuser = true;
   $scope.content = {
     type: data.type,
     votestat: data.vsName, 
@@ -165,6 +171,10 @@ angular.module('projectVApp')
     email: 'mark23456@hotmail.com',
     supplement: {},
   };
+  for(var item in selectItems){
+    $scope.content.supplement[item] = 0;
+  }
+  console.log('scope content supplement',$scope.content.supplement);
 
 
   $scope.$watch(
@@ -179,14 +189,16 @@ angular.module('projectVApp')
     },true);
 
 
-  var selectItems = { 
-    'chair':'椅子', 
-    'desk':'桌子', 
-    'umbrella':'大傘', 
-    'pen':'筆', 
-    'board':'連署板',
-    'water':'水',
-  };
+  //var selectItems = { 
+  //  'chair':'椅子', 
+  //  'desk':'桌子', 
+  //  'umbrella':'大傘', 
+  //  'pen':'筆', 
+  //  'board':'連署板',
+  //  'water':'水',
+  //};
+
+  //$scope.
 
   var textItem = {
     //'name':'名字',
@@ -194,17 +206,27 @@ angular.module('projectVApp')
     'email':'E-Mail',
   };
 
+  function isNormalInteger(str) {
+      return /^\+?(0|[1-9]\d*)$/.test(str);
+  }
+
+
   var verifySupplement = function(){
     var supplement = $scope.content.supplement;
     for(var item in selectItems){
-      if(supplement[item]){
-        return true;
+      if(!isNormalInteger(supplement[item])){
+        return [false,'物資數量填寫錯誤'];
+      }
+    }
+    for(var item in selectItems){
+      if(supplement[item] > 0){
+        return [true,''];
       }
     }
     if(supplement["others_select"] && supplement["others"] && supplement["others"].length > 0 ){
-      return true;
+      return [true,''];
     }
-    return false;
+    return [false,'請填選您要提供的物資'];
   };
 
   $scope.send = function () {
@@ -220,19 +242,20 @@ angular.module('projectVApp')
         }
       }
     }
-    if($scope.content.type == 'supplement' && !verifySupplement() ){
-      errors.push('請勾選您要提供的物資');
+    var verifysup = verifySupplement();
+    if($scope.content.type == 'supplement' && !verifysup[0] ){
+      errors.push(verifysup[1]);
     }
     if(errors.length == 0){
-      //console.log('fbshare',$scope.myscope.fbshare);
-      if($scope.myscope.fbshare == true){
+      //console.log('fbshare',$scope.regscope.fbshare);
+      if($scope.regscope.fbshare == true){
         postToFb();
       }
       saveToParseCom();
     }
     else{
       //console.log('errors',errors);
-      $scope.myscope.errors = errors.join('，');
+      $scope.regscope.errors = errors.join('，');
     }
   };
 
@@ -261,7 +284,7 @@ angular.module('projectVApp')
       mobile: $scope.content.phone,
       email: $scope.content.email,
       county: data.county,
-      resource: [],//$scope.content.supplement,
+      resource: $scope.content.supplement,
     };
     voteInfoService.saveCitizen(temp_obj,function(){
       $modalInstance.close($scope.content);
