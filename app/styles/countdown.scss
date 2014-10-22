@@ -1,8 +1,15 @@
-.countdown-widget {
+.news-left > .countdown-widget {
   background-image: url("/images/countdown-bg.png");
+}
+
+.main-counterdown-container > .countdown-widget {
+ background-image: url("/images/countdown-bg-2.png");
+}
+
+.countdown-widget {
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 200px;
+  height: 220px;
   position: relative;
   color: white;
   font-size: 40px;

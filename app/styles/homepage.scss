@@ -1,12 +1,27 @@
 #homepage-counter-row {
-    width: 94%;
-    float: left;
-    padding-top: 1em;
-    margin-left: 3%;
-    margin-right: 3%;
-    /*background-color: red;*/
+  height: 200px;
+  margin-bottom: 50px;
+  background-image: url("/images/main-introduction-bg.png");
+  background-repeat: no-repeat;
+  background-position: 100% 4px;
+  padding: 10px
 }
 
+.main-introduction {
+  margin-left: 250px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: 20px;
+  height: 164px;
+  border-top: 3px solid #B71C3D;
+  border-bottom: 3px solid #B71C3D;
+}
+
+.main-counterdown-container {
+  float: left;
+  margin-top: -24px;
+  width: 250px;
+}
 
 .homepage-counter-graph {
     width: 30%;
@@ -16,20 +31,6 @@
 .homepage-counter-text {
     width: 70%;
     float: left;
-}
-
-#counter-introduction-title {
-    padding-left: 33%;
-    padding-right: 10%;
-    position: relative;
-}
-
-#counter-introduction-content {
-    padding-left: 33%;
-    padding-right: 10%;
-    position: relative;
-    padding-top: 0.25em;
-
 }
 
 .mission-row {
@@ -47,6 +48,7 @@
 
 .mission-button {
     width: 12%;
+    margin-bottom: 30px;
 }
 
 #mission-button-tsa {
