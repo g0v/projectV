@@ -52,7 +52,7 @@ $(document).ready(function(){
     // Function to handle changes to style classes based on window width
     function checkHeight() {
         console.log('check height',$window);
-        if ($window.height() <= 600) {
+        if ($window.height() <= 800) {
             console.log('small');
             $('#map_main').removeClass('map_tall');
             console.log('map_main',$('#map_main'));
@@ -68,7 +68,7 @@ $(document).ready(function(){
 
         };
 
-        if ($window.height() > 600) {
+        if ($window.height() > 800) {
             console.log('large');
             $('#map_main').removeClass('map_short');
             console.log('map_main',$('#map_main'));
