@@ -34,8 +34,8 @@ var MAP_MIN_ZOOM = {
  */
 angular.module('projectVApp')
   .controller('MapCtrl',
-  ['$scope', '$route', '$routeParams','$http', '$q', '$filter', '$modal', 'leafletData', 'voteInfoService',
-  function ($scope, $route, $routeParams, $http, $q, $filter, $modal, leafletData, voteInfoService ) {
+  ['$scope', '$route', '$routeParams','$http', '$q', '$filter', '$modal', '$window', 'leafletData', 'voteInfoService',
+  function ($scope, $route, $routeParams, $http, $q, $filter, $modal, $window, leafletData, voteInfoService ) {
     $scope.myscope = {};
     //$scope.voteInfos = {};
     //$scope.myscope.mapLoadingComplete = false;
@@ -54,6 +54,8 @@ angular.module('projectVApp')
 
     $scope.myscope.spPeopleMore = false;
     $scope.myscope.hpPeopleMore = false;
+
+    //$scope.myscope.mapclass = 'map_short';
     
     $scope.myscope.spPeopleClick = function(){
       $scope.myscope.spPeopleMore = !$scope.myscope.spPeopleMore;
@@ -103,14 +105,14 @@ angular.module('projectVApp')
 
     function applyGeojson(json) {
       if (!$scope.geojson) {
-        console.log('scope geojson create');
+        //console.log('scope geojson create');
         $scope.geojson = {
           data: json,
           style: style,
           resetStyleOnMouseout: false 
         };
       } else {
-        console.log('scope geojson add');
+        //console.log('scope geojson add');
         $scope.leafletData.getGeoJSON().then(function(localGeojson) {
           console.log('scope geojson add json',
             json.features[0].properties.TOWNNAME, 
@@ -397,7 +399,7 @@ angular.module('projectVApp')
     };
 
     function drawVoteStation(markerArray) {
-      console.log('drawVoteStation');
+      //console.log('drawVoteStation');
       var mymarkers = {};
       lastClickMarker = null;
       angular.forEach(markerArray, function(marker) {
@@ -476,19 +478,21 @@ angular.module('projectVApp')
 
 
 
+
     function loadData(firsttime){
       voteInfoService.resetDynamics(county);
 
       if(firsttime){
         voteInfoService.getStaticVillageData(county).then(
           function(data){
-            console.log('mapLoadingComplete');
+            //console.log('mapLoadingComplete');
             $( ".myLoading" ).fadeOut( "slow", function() {
               // Animation complete.
               $(".myLoading").remove();
             });
-          
-            console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
+            //checkHeight();
+            //console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
+
           },
           function() {}, 
           function(data){ 
@@ -497,12 +501,12 @@ angular.module('projectVApp')
             if(!jQuery.isEmptyObject(data.villageArea) ){
               data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
               applyGeojson(data.villageArea);
-              console.log('areaDraw',data.villageArea,
-                data.villageArea.features[0].properties.TOWNNAME,
-                data.villageArea.features[0].properties.VILLAGENAM
-              );
+              //console.log('areaDraw',data.villageArea,
+              //  data.villageArea.features[0].properties.TOWNNAME,
+              //  data.villageArea.features[0].properties.VILLAGENAM
+              //);
             }
-            console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
+            //console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
 
           });
       }
@@ -558,6 +562,41 @@ angular.module('projectVApp')
     
     
     loadData(true);
+
+
+
+    //function checkHeight() {
+    //    console.log('check height');
+    //    if ($window.innerHeight <= 600) {
+
+    //        angular.element('#map_main').removeClass('map_tall');
+    //        angular.element('#map_main').addClass('map_short');
+    //        angular.element('#map_sidebar').removeClass('map_tall')
+    //        angular.element('#map_sidebar').addClass('map_short');
+
+    //        //console.log('map_main',angular.element('#map_main').attr('class'))
+    //    }
+    //    else if ($window.innerHeight > 600) {
+    //        //$scope.myscope.mapclass = 'map_tall';
+    //        //console.log('large', $scope.myscope.mapclass);
+    //        angular.element('#map_main').removeClass('map_short');
+    //        angular.element('#map_main').addClass('map_tall');
+    //        angular.element('#map_sidebar').removeClass('map_short');
+    //        angular.element('#map_sidebar').addClass('map_tall');
+
+    //        //console.log('map_main',angular.element('#map_main').attr('class'))
+    //        //$('#map_main').removeClass('map_short');
+    //        //$('#map_main').addClass('map_tall');
+    //        //$('#map_sidebar').removeClass('map_short');
+    //        //$('#map_sidebar').addClass('map_tall');
+    //    }
+    //}
+
+    //angular.element(document).ready(function() {
+    //  console.log("onload");
+    //  angular.element($window).bind('resize',checkHeight);  
+    //  checkHeight();
+    //});
 
 }]);
 

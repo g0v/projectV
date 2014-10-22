@@ -4,7 +4,7 @@
 </button>
 -->
 <div class="row mymap" style="margin-bottom:10px;">
-  <div id="map_main" class="col-md-9 map_border" >
+  <div id="map_main" class="col-md-9 map_border"><!-- ng-class="myscope.mapclass">-->
     <leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" style="height:100%;"></leaflet>
     <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
       <div style="position:relative; color:#ffffff; top:60%;text-align:center;">
@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-  <div id="map_sidebar" class="col-md-3 map_border_noleft" >
+  <div id="map_sidebar" class="col-md-3 map_border_noleft"><!-- ng-class="myscope.mapclass">-->
     <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
     </div>
     <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS == null && myscope.mapLoadingStatus >= 1" >
@@ -256,19 +256,38 @@ var target = document.getElementById('mySpinner');
 var spinner = new Spinner(opts).spin(target);
 
 $(document).ready(function(){   
+    console.log('window resize');
     var $window = $(window);
     // Function to handle changes to style classes based on window width
     function checkHeight() {
-        if ($window.height() <= 800) {
+        console.log('check height',$window);
+        if ($window.height() <= 600) {
             console.log('small');
-            $('#map_main').removeClass('map_tall').addClass('map_short');
-            $('#map_sidebar').removeClass('map_tall').addClass('map_short');
+            $('#map_main').removeClass('map_tall');
+            console.log('map_main',$('#map_main'));
+            $('#map_main').addClass('map_short');
+
+
+            $('#map_sidebar').removeClass('map_tall')
+            $('#map_sidebar').addClass('map_short');
+
+            console.log('map_main height',$('#map_main').height());
+            console.log('map_sidebar height',$('#map_main').height());
+            console.log('map_main class',$('#map_main').attr('class'));
+
         };
 
-        if ($window.height() > 800) {
+        if ($window.height() > 600) {
             console.log('large');
-            $('#map_main').removeClass('map_short').addClass('map_tall');
-            $('#map_sidebar').removeClass('map_short').addClass('map_tall');
+            $('#map_main').removeClass('map_short');
+            console.log('map_main',$('#map_main'));
+            $('#map_main').addClass('map_tall');
+            $('#map_sidebar').removeClass('map_short');
+            $('#map_sidebar').addClass('map_tall');
+
+
+            console.log('map_main height',$('#map_main').height());
+            console.log('map_main class',$('#map_main').attr('class'));
         }
     }
     checkHeight();
