@@ -80,8 +80,10 @@ angular.module('projectVApp')
 
 
     var myiconArray = (function genIcon(){
-      var iconSize = [90, 150];
+      var iconSize = [60, 100];
+      var shadowSize = [30, 10];
       var iconAnchor = [iconSize[0]/2, iconSize[1]];
+      var shadowAnchor = [shadowSize[0]/2, shadowSize[1]/2];
       var icon_count = ['1','2','3'];
       var icon_type = ['x','c','d'];
       var icon_result_temp = {};
@@ -90,8 +92,11 @@ angular.module('projectVApp')
         angular.forEach(icon_type, function(type){
           icon_result_temp[count][type] = {
             iconSize: iconSize,
+            iconAnchor: iconAnchor ,
             iconUrl: 'images/map'+type+count+'.svg',
-            iconAnchor: iconAnchor 
+            shadowSize: shadowSize, 
+            shadowAnchor: shadowAnchor, 
+            shadowUrl: 'images/map_icon_shadow.svg',
           };
         }); 
       });
@@ -471,7 +476,8 @@ angular.module('projectVApp')
       }); 
       modalInstance.result.then(function(result){
         console.log('send',result);
-        loadData(false);
+        //loadData(false);
+        $scope.$emit('dataReload');
       }); 
 
     };  
@@ -562,6 +568,10 @@ angular.module('projectVApp')
     
     
     loadData(true);
+    $scope.$on('dataReload',function(){
+       console.log('map load data');
+       loadData(false);
+    });
 
 
 
