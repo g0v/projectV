@@ -52,6 +52,17 @@ angular.module('projectVApp')
     $scope.myscope.supplementItem = voteInfoService.supplementItem;
     $scope.myscope.volCount = voteInfoService.volCount;
 
+    $scope.myscope.spPeopleMore = false;
+    $scope.myscope.hpPeopleMore = false;
+    
+    $scope.myscope.spPeopleClick = function(){
+      $scope.myscope.spPeopleMore = !$scope.myscope.spPeopleMore;
+    }
+
+    $scope.myscope.hpPeopleClick = function(){
+      $scope.myscope.hpPeopleMore = !$scope.myscope.hpPeopleMore;
+    }
+
     $scope.leafletData = leafletData;
     //$scope.taiwan = MAP_DEFAULT_VIEW[county];
 
@@ -314,6 +325,10 @@ angular.module('projectVApp')
   
 
     $scope.myscope.setCurrentMarkerClick = function(markerName, tomarker){
+
+      $scope.myscope.spPeopleMore = false;
+      $scope.myscope.hpPeopleMore = false;
+
       var thisMarker = $scope.markers[markerName];
       currentClickMarkerIndex = thisMarker.mypos;
       setVotestatTab(markerName);
@@ -543,5 +558,6 @@ angular.module('projectVApp')
     
     
     loadData(true);
+
 }]);
 

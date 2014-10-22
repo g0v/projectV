@@ -77,6 +77,7 @@ angular.module('projectVApp')
 
     this.getParsedQuery = function(query,key,val){
       var deferred = $q.defer();
+      query.descending("createdAt");
       query.equalTo(key, val);
       query.limit(1000);
       query.find({
@@ -248,6 +249,7 @@ angular.module('projectVApp')
                   sItemSum: 0,
                   sTotalSum: 0,
                   supplement: 0, 
+                  address:voteStat.address,
                   vweight:voteStat.power
                 };
               } 

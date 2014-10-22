@@ -285,7 +285,7 @@ angular.module('projectVApp')
   }
   
   function postToFb(){
-    var message = '割闌尾V計劃網站測試中\n http://g0v.github.io/projectV/#/';
+    var message = '割闌尾V計劃網站測試中\n http://1129vday.tw/';
     Facebook.api('/me/feed', 'post', { message: message }, function(response) {
       if (!response || response.error) {
         console.log('error', response.error);

@@ -1,13 +1,10 @@
 <style>
-
 .mymap .progress{
   border: 3px solid #C2003F; 
   background:none;
+  margin-bottom:15px;
 }
 
-.mymap a{
-  color:#C2003F;
-}
 .mymap .bg-primary{
   background:#C2003F;
 }
@@ -31,7 +28,7 @@
 }
 
 .citizen_header_slash{
-  background-image: url('images/citizen_header_slash.png');
+  background-image: url('../images/citizen_header_slash.png');
   background-size: 100% 100%;
 }
 
@@ -50,12 +47,12 @@
   z-index:10;
 }
 
-.mymap strong{
- color: #C2003F;
-} 
+.mymap h1, .mymap h2, .mymap h3, .mymap h4, .mymap h5, .mymap h6, .mymap a, .mymap strong{
+  color:#C2003F;
+}
 
 .mission_foot_bottom {
-  background-image: url('images/map_bottom_2.svg');
+  background-image: url('../images/map_bottom_2.svg');
   background-size: 100% 100%;
   margin:20px; 
   padding:0px  40px; 
@@ -63,7 +60,205 @@
   text-align:center;
   color: #C2003F;
 }
+.map_border , .map_border_noleft{
+  border: 5px solid #C2003F; 
+}
 
+.map_border_noleft {
+  border-left: 0px; 
+}
+.map_border_top{
+  border-top: 5px solid #C2003F; 
+}
+
+.map_hr{
+  border: 3px solid #C2003F; 
+  border-top: 0px; 
+  width:100%;
+}
+
+.map_sb_scroll{
+  overflow-x:hidden; overflow-y:scroll;
+}
+
+
+
+
+.map_fb_image{
+  margin:2px;
+  border:3px solid  #C2003F;
+}
+
+.map_button{
+  background:none;
+  border:0px;
+  background-image: url('../images/map_button.svg');
+  background-size: 100% 100%;
+  font-size:120%;
+  color:#C2003F;
+  padding:10px;
+  padding-left:50px;
+  padding-right:50px;
+}
+
+
+
+.imgWrap {
+  position: relative;
+  display:inline-block;
+}
+
+
+.imgDescription {
+  padding:5px;
+  width:80px;
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  color:#C2003F;
+  border: 3px solid #C2003F;
+  opacity: 0;
+}
+.imgArrow {
+  position: absolute;
+  bottom:35px;
+  left:10px;
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #C2003F;
+  opacity: 0;
+}
+
+.imgDescription, .imgArrow{
+  visibility: hidden;
+}
+
+.imgWrap:hover .imgDescription , .imgWrap:hover .imgArrow{
+  visibility: visible;
+  opacity: 1;
+}
+
+.imgWrap img{
+  margin:2px;
+  cursor:pointer;
+  height:35px;
+}
+
+.map_tall, .map_short{
+  padding:0px;
+}
+
+.map_tall{
+  height:800px;
+}
+.map_short{
+  height:600px;
+}
+
+.map_tall #map_sidebar_village{
+  height:580px;
+}
+.map_short #map_sidebar_village{
+  height:440px;
+}
+
+.map_tall #map_sidebar_votestat{
+  height:540px;
+}
+.map_short #map_sidebar_votestat{
+  height:400px;
+}
+
+.map_tall .map_panel_heading{
+  height:60px;
+}
+
+.map_tall .map_panel_heading h3{
+  background-image: url('../images/map_panel_header.png');
+  background-size: 100% 100%;
+  padding:5px;
+  width:90%;
+  color: #ffffff;
+}
+
+.map_short .map_panel_heading{
+  background: #C2003F;
+  color: #ffffff;
+  height:30px;
+}
+
+.map_short .map_panel_heading h3{
+  padding:0px;
+  margin-top:0px;
+  color: #ffffff;
+}
+
+
+.map_tall .map_v_image{
+  position:absolute;
+  top:160px;
+  left:50%;
+  margin-left:-32px;
+  z-index:10;
+}
+
+.map_tall .map_vs_image{
+  height:80px;
+  width:65px;
+  position:absolute;
+  top:200px;
+  left:50%;
+  margin-left:-32px;
+  z-index:10;
+}
+
+.map_short .map_vs_image, .map_short .map_v_image{
+  display:none;
+}
+
+
+.map_tall #map_sidebar_vslist{
+  height:160px;
+}
+
+.map_short #map_sidebar_vslist{
+  height:140px;
+}
+
+.map_tall #map_sidebar_townlist{
+  height:120px;
+}
+
+.map_short #map_sidebar_townlist{
+  height:100px;
+}
+
+.map_tall .map_sidebar_padding{
+  height:30px;
+}
+
+.map_short .map_sidebar_padding{
+  height:0px;
+}
+.mymap .panel-body{
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:15px;
+  padding-right:15px;
+}
+.map_fb_more_less{
+  width:35px;
+  height:35px;
+  padding-top:5px;
+  padding-left:2px;
+  color:#C2003F;
+  cursor:pointer;
+  display:inline-block;  
+}
 </style>
 <div style="height:50px"></div>
 
