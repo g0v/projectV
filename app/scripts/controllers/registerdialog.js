@@ -33,6 +33,7 @@ angular.module('projectVApp')
   // Defining user logged status
   $scope.logged = false;
   $scope.unregster = 0;
+  $scope.editState = 0;
   //$scope.unregsterLoad = false;
   // And some fancy flags to display messages upon user status change
   
@@ -107,6 +108,8 @@ angular.module('projectVApp')
         $scope.user   = {};
         $scope.logged = false;  
         $scope.unregster = 0;
+        $scope.editState = 0;
+        //$scope.content = {};
         $scope.regscope.errors = '';
         userIsConnected = false;
       });
@@ -130,6 +133,8 @@ angular.module('projectVApp')
     } else {
       $scope.$apply(function() {
         $scope.logged = false;  
+        $scope.editState = 0;
+        //$scope.content = {};
         $scope.unregster = 0;
         $scope.user   = {};
       });
@@ -166,20 +171,21 @@ angular.module('projectVApp')
   //console.log('data',data);
   $scope.regscope.errors = '';
   $scope.regscope.newuser = true;
+  //console.log('scope content supplement',$scope.content.supplement);
   $scope.content = {
     type: data.type,
     votestat: data.vsName, 
     vsid: data.vsId,
     userid: '',
     name: '',
-    phone: '0953679220',
-    email: 'mark23456@hotmail.com',
+    phone: '',
+    email: '',
     supplement: {},
   };
   for(var item in selectItems){
     $scope.content.supplement[item] = 0;
   }
-  //console.log('scope content supplement',$scope.content.supplement);
+  
 
 
   $scope.$watch(
@@ -189,6 +195,14 @@ angular.module('projectVApp')
         //$scope.myfirebase = sync.$asArray();
         $scope.content.userid = fbuser.id; 
         $scope.content.name = fbuser.name; 
+        $scope.content.phone = '';
+        $scope.content.email = '';
+
+        $scope.content.supplement = {} 
+        for(var item in selectItems){
+          $scope.content.supplement[item] = 0;
+        }
+        //resetContent();
         //$scope.unregster = false;
         //console.log('fbuser',fbuser.id, data.type);
         voteInfoService.queryCitizen(fbuser.id, data.type).then(function(result){
@@ -252,10 +266,15 @@ angular.module('projectVApp')
     }
     if(errors.length == 0){
       //console.log('fbshare',$scope.regscope.fbshare);
-      if($scope.regscope.fbshare == true){
-        postToFb();
+      if($scope.editState ==0){
+        $scope.editState += 1;
       }
-      saveToParseCom();
+      else{
+        if($scope.regscope.fbshare == true){
+          postToFb();
+        }
+        saveToParseCom();
+      }
     }
     else{
       //console.log('errors',errors);

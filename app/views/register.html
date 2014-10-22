@@ -29,7 +29,7 @@
       data-ng-click="intentLogin()">Login with Facebook</button>
 
     <p data-ng-show="logged && (unregster == 1)">
-      您已經登記報名了
+      您已經登記報名過了
       <strong ng-show="regscope.type == 'volunteer'">
         志工參戰
       </strong>
@@ -57,42 +57,89 @@
         </div>
       </div>
       <hr/>
-      <p>
-        勇者呀！該如何聯繫你呀？<strong>（請填入手機，重大訊息會在重要時刻與你聯繫！）</strong><br/>
-        <input type="text" name="phone" required data-ng-model="content.phone"></input>
-      </p> 
-      <p>
-        勇者呀！該如何寄資訊給你呀？<strong>（請填入E-Mail）</strong><br/>
-        <input type="email" name="email" required data-ng-model="content.email"></input>
-      </p> 
+      <span data-ng-show="editState == 0">
+        <p>
+          勇者呀！該如何聯繫你呀？<strong>（請填入手機，重大訊息會在重要時刻與你聯繫！）</strong><br/>
+          <input type="text" name="phone" required data-ng-model="content.phone"></input>
+        </p> 
+        <p>
+          勇者呀！該如何寄資訊給你呀？<strong>（請填入E-Mail）</strong><br/>
+          <input type="email" name="email" required data-ng-model="content.email"></input>
+        </p> 
 
-      <span ng-show="regscope.type == 'supplement'">
-        <p >
-          想要捐贈什麼物資裝備？<strong>（想要幫忙提供什麼物資？）</strong><br/>
+        <span ng-show="regscope.type == 'supplement'">
+          <p >
+            想要捐贈什麼物資裝備？<strong>（想要幫忙提供什麼物資？）</strong><br/>
+          </p>
+          <table class="register_supplement">
+            <tr><th>項目</th><th>尚缺</th><th>我要提供</th></tr>
+            <tr ng-repeat="(ikey,ival) in regscope.selectItems">
+              <td>
+                {{ ival[1] }}  
+              </td>
+              <td>
+                {{ regscope.supCount[ikey] + content.supplement[ikey] }}/{{ ival[0] * regscope.supWeight }}
+              </td>
+              <td>
+                <input type="number" name="supplement[ikey]" style="width:40px;margin-left:20px;" ng-model="content.supplement[ikey]" min="0" required > 
+              </td>
+            </tr>
+          </table>
+          <br/>
+          <input type="checkbox" name="supplement.others_select"  data-ng-model="content.supplement.others_select">其他物資
+          <input type="text" name="supplement.others_select_text" data-ng-model="content.supplement.others" 
+            data-ng-show="content.supplement.others_select"></input>
+        </span>
+        <p>
+          <input type="checkbox" data-ng-model="regscope.fbshare">分享到facebook<br>
         </p>
-        <table class="register_supplement">
-          <tr><th>項目</th><th>尚缺</th><th>我要提供</th></tr>
-          <tr ng-repeat="(ikey,ival) in regscope.selectItems">
-            <td>
-              {{ ival[1] }}  
-            </td>
-            <td>
-              {{ regscope.supCount[ikey] + content.supplement[ikey] }}/{{ ival[0] * regscope.supWeight }}
-            </td>
-            <td>
-              <input type="number" name="supplement[ikey]" style="width:40px;margin-left:20px;" ng-model="content.supplement[ikey]" min="0" required > 
-            </td>
-          </tr>
-        </table>
-        <br/>
-        <input type="checkbox" name="supplement.others_select"  data-ng-model="content.supplement.others_select">其他物資
-        <input type="text" name="supplement.others_select_text" data-ng-model="content.supplement.others" 
-          data-ng-show="content.supplement.others_select"></input>
       </span>
 
-      <p>
-        <input type="checkbox" data-ng-model="regscope.fbshare">分享到facebook<br>
-      </p>
+      <span data-ng-show="editState == 1">
+        <p>
+          <strong  style="color:#ff0000">請確認您的報名資料是否正確</strong>
+        </p>
+        <p>
+          <strong>手機號碼：</strong><br/>
+          {{content.phone}}
+        </p> 
+        <p>
+          <strong>E-Mail：</strong><br/>
+          {{content.email}}
+        </p> 
+
+        <span ng-show="regscope.type == 'supplement'">
+          <p >
+            <strong>想要幫忙提供的物資：</strong><br/>
+          </p>
+          <table class="register_supplement">
+            <tr><th>項目</th><th>尚缺</th><th>我要提供</th></tr>
+            <tr ng-repeat="(ikey,ival) in regscope.selectItems">
+              <td>
+                {{ ival[1] }}  
+              </td>
+              <td>
+                {{ regscope.supCount[ikey] + content.supplement[ikey] }}/{{ ival[0] * regscope.supWeight }}
+              </td>
+              <td>
+                {{content.supplement[ikey]}}
+              </td>
+            </tr>
+          </table>
+          <br/>
+          <p>
+            <strong>其他物資：</strong></br>
+            <span ng-show ="content.supplement.others_select"> {{content.supplement.others}} </span>
+            <span ng-show ="(!content.supplement.others_select) || (content.supplement.others == '' )">無</span>
+          </p>
+        </span>
+        <p>
+          分享到facebook：
+          <span ng-show="regscope.fbshare">是</span>
+          <span ng-show="!regscope.fbshare">否</span>
+        </p>
+      </span>
+
     </div>
   </div>
 
@@ -103,7 +150,8 @@
       </div>
       <div class="col-xs-4">
         <button class="btn btn-primary" data-ng-click="send()"  data-ng-show="logged && (unregster == 2)">Send</button>
-        <button class="btn btn-warning" data-ng-click="cancel()">Cancel</button>
+        <button class="btn btn-warning" data-ng-click="editState = 0"  data-ng-show="logged && (unregster == 2) && (editState == 1)">Back</button>
+        <button class="btn btn-warning" data-ng-click="cancel()" data-ng-show="editState == 0" >Cancel</button>
       </div>
     </div>
   </div>
