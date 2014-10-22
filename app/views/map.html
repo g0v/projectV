@@ -109,14 +109,14 @@
                 <div class="imgDescription" style="overflow:hidden;">
                   {{name[1]}}
                 </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
               </div>
               <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(2) track by $index" ng-show="myscope.hpPeopleMore">
                 <div class="imgArrow"></div>
                 <div class="imgDescription" style="overflow:hidden;">
                   {{name[1]}}
                 </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
               </div>
               <div class="map_fb_more_less" ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" ng-click="myscope.hpPeopleClick()">
                 <span ng-show="!myscope.hpPeopleMore">
@@ -163,14 +163,14 @@
                 <div class="imgDescription" style="overflow:hidden;">
                   {{name[1]}}
                 </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
               </div>
               <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(2) track by $index" ng-show="myscope.spPeopleMore">
                 <div class="imgArrow"></div>
                 <div class="imgDescription" style="overflow:hidden;">
                   {{name[1]}}
                 </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
               </div>
               <div class="map_fb_more_less" ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" ng-click="myscope.spPeopleClick()">
                 <span ng-show="!myscope.spPeopleMore">
