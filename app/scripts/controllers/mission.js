@@ -40,25 +40,33 @@ angular.module('projectVApp')
     $scope.miscope.sTotal = 0;
     $scope.miscope.boss = BOSS_DESCRIPTION[county];
     
-    voteInfoService.getAllVoteStatInfo(county).then(function(data){
-      console.log('--data--',data);
-      var vCount = 0;
-      var vTotal = 0;
-      var sCount = 0;
-      var sTotal = 0;
-      for(var key in data){
-        var vtempTotal = voteInfoService.volCount * data[key].vweight;
-        vTotal += vtempTotal;
-        vCount += data[key].vlist.length >= vtempTotal ?  vtempTotal : data[key].vlist.length;
-        for(var item in voteInfoService.supplementItem ){
-          var stempTotal = voteInfoService.supplementItem[item][0] * data[key].vweight;
-          sTotal += stempTotal;
-          sCount += data[key].sItemCount[item] >= stempTotal ? stempTotal : data[key].sItemCount[item];
+    function loadData(){ 
+      voteInfoService.getAllVoteStatInfo(county).then(function(data){
+        console.log('--data--',data);
+        var vCount = 0;
+        var vTotal = 0;
+        var sCount = 0;
+        var sTotal = 0;
+        for(var key in data){
+          var vtempTotal = voteInfoService.volCount * data[key].vweight;
+          vTotal += vtempTotal;
+          vCount += data[key].vlist.length >= vtempTotal ?  vtempTotal : data[key].vlist.length;
+          for(var item in voteInfoService.supplementItem ){
+            var stempTotal = voteInfoService.supplementItem[item][0] * data[key].vweight;
+            sTotal += stempTotal;
+            sCount += data[key].sItemCount[item] >= stempTotal ? stempTotal : data[key].sItemCount[item];
+          }
         }
-      }
-      $scope.miscope.vCount = vCount;
-      $scope.miscope.vTotal = vTotal;
-      $scope.miscope.sCount = sCount;
-      $scope.miscope.sTotal = sTotal;
+        $scope.miscope.vCount = vCount;
+        $scope.miscope.vTotal = vTotal;
+        $scope.miscope.sCount = sCount;
+        $scope.miscope.sTotal = sTotal;
+      });
+    }
+    loadData();
+
+    $scope.$on('dataReload',function(){
+        console.log('mission load data');
+        loadData();
     });
   }]);
