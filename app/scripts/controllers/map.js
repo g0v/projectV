@@ -444,10 +444,11 @@ angular.module('projectVApp')
       });
 
 
-      $scope.$on('leafletDirectiveMarker.drag', function(e, args) { //TODO
+      $scope.$on('leafletDirectiveMarker.dragend', function(e, args) { //TODO
         var thisName = args.markerName;
         var thisMarker = $scope.markers[args.markerName];
-        console.log('marker drag',thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9));
+        $scope.myscope.markerlatlng = [thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9)].join(',');
+        //console.log('marker drag',thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9));
         //$scope.myscope.setCurrentMarkerClick(args.markerName);
       });
 
