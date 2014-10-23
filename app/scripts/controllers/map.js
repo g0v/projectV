@@ -120,8 +120,8 @@ angular.module('projectVApp')
         //console.log('scope geojson add');
         $scope.leafletData.getGeoJSON().then(function(localGeojson) {
           console.log('scope geojson add json',
-            json.features[0].properties.TOWNNAME, 
-            json.features[0].properties.VILLAGENAM, 
+            json.features[0].properties.town, 
+            json.features[0].properties.village, 
             json
           );
           localGeojson.addData(json);
@@ -253,8 +253,8 @@ angular.module('projectVApp')
 
 
     function areaClick(ev, featureSelected, leafletEvent) {
-      var townName = leafletEvent.target.feature.properties.TOWNNAME;
-      var villageName = leafletEvent.target.feature.properties.VILLAGENAM;
+      var townName = leafletEvent.target.feature.properties.town;
+      var villageName = leafletEvent.target.feature.properties.village;
       var layer = leafletEvent.target;
       areaClickSub(townName,villageName,layer);
       showCurrentVillageVotestat(townName,villageName,0);
@@ -280,8 +280,8 @@ angular.module('projectVApp')
       $scope.leafletData.getGeoJSON().then(function(localGeojson) {
         var geoLayers = localGeojson.getLayers(); 
         angular.forEach(geoLayers,function(layer) {
-          var lTownName = layer.feature.properties.TOWNNAME;
-          var lVillageName = layer.feature.properties.VILLAGENAM;
+          var lTownName = layer.feature.properties.town;
+          var lVillageName = layer.feature.properties.village;
           if(townName == lTownName  && villageName == lVillageName){
             areaClickSub(townName,villageName,layer);
           }
@@ -508,8 +508,8 @@ angular.module('projectVApp')
               data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
               applyGeojson(data.villageArea);
               //console.log('areaDraw',data.villageArea,
-              //  data.villageArea.features[0].properties.TOWNNAME,
-              //  data.villageArea.features[0].properties.VILLAGENAM
+              //  data.villageArea.features[0].properties.town,
+              //  data.villageArea.features[0].properties.village
               //);
             }
             //console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
@@ -543,8 +543,8 @@ angular.module('projectVApp')
               angular.forEach(geoLayers,function(layer) {
                 //console.log('setArea');
 
-                var lTownName = layer.feature.properties.TOWNNAME;
-                var lVillageName = layer.feature.properties.VILLAGENAM;
+                var lTownName = layer.feature.properties.town;
+                var lVillageName = layer.feature.properties.village;
                 layer.feature.properties.mycolor = mycolor($scope.myscope.villageSum[lTownName][lVillageName]);
                 layer.setStyle(set_area_color(layer));
                 if(lastClickLayer){

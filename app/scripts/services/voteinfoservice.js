@@ -366,10 +366,10 @@ angular.module('projectVApp')
               mvillsum = villSum[townName][villageName];
             }
             deferred.notify({villageArea: villageArea[vakey], villageSum:mvillsum, loadingStatus:count/countAll});
-            console.log('postProcess',townName,villageName);
+            //console.log('postProcess',townName,villageName);
             if(count == countAll){
               deferred.resolve( { complete:true , loadingStatus:count/countAll});
-              console.log("complete");
+              //console.log("complete");
             }
           },MAP_BUFFER_TIME*countTemp);
         } 
@@ -385,13 +385,14 @@ angular.module('projectVApp')
 
             //console.log(townName,villageName);        
             else{
-              var query = 'json/twVillage1982/' + county + '/' + townName + '/' + villageName + '.json';
+              var query = 'json/twVillage2010/' + county + '/' + townName + '/' + villageName + '.json';
 
               $http.get(query).success(function(data) {
                 villageArea[vakey] = data;
                 postProcess(vakey, townName, villageName);
               }).error( function(err) {
                 villageArea[vakey] = {};
+                console.log('loading failed',townName,villageName);        
                 postProcess(vakey, townName, villageName);
               });
 
