@@ -119,11 +119,11 @@ angular.module('projectVApp')
       } else {
         //console.log('scope geojson add');
         $scope.leafletData.getGeoJSON().then(function(localGeojson) {
-          console.log('scope geojson add json',
-            json.features[0].properties.town, 
-            json.features[0].properties.village, 
-            json
-          );
+          //console.log('scope geojson add json',
+          //  json.features[0].properties.town, 
+          //  json.features[0].properties.village, 
+          //  json
+          //);
           localGeojson.addData(json);
         });
       }
@@ -181,7 +181,7 @@ angular.module('projectVApp')
         weight: 2,
         color: 'black',
         dashArray: '6',
-        fillOpacity: 0.7,
+        fillOpacity: 0.5,
         fillColor: feature.properties.mycolor,
         className: 'county transparent'
       };
@@ -266,12 +266,12 @@ angular.module('projectVApp')
       }
       layer.setStyle(set_click_style());
       layer.bringToFront();
-      //console.log('layer',layer);//TODO
       lastClickLayer = layer; 
-      $scope.leafletData.getMap().then(function(map){
-        //console.log(layer.getBounds());
-        map.fitBounds(layer.getBounds());
-      });
+
+//      $scope.leafletData.getMap().then(function(map){
+//        console.log('layer boundary',layer.getBounds());
+//        map.fitBounds(layer.getBounds());
+//      });
       //var max_of_array = Math.max.apply(Math, array);
       //setMapScale(layer);
     }
@@ -328,6 +328,24 @@ angular.module('projectVApp')
         drawVoteStation(markerArray);
         $scope.myscope.setCurrentMarkerClick(currentVsId);
       }
+
+      $scope.leafletData.getMap().then(function(map){
+        var bound = [];
+        if(lastClickLayer){
+          var layerBound = lastClickLayer.getBounds();
+          bound.push({lat: layerBound._northEast.lat, lng: layerBound._northEast.lng}); 
+          bound.push({lat: layerBound._southWest.lat, lng: layerBound._southWest.lng});
+        }
+        for(var i=0; i< markerArray.length;i++){
+          bound.push({
+            lat: markerArray[i].vsobj.lat,
+            lng: markerArray[i].vsobj.lng,
+          });  
+        }
+        if(bound.length > 0){
+          map.fitBounds(bound);
+        }
+      });
     }
   
 
@@ -410,6 +428,7 @@ angular.module('projectVApp')
       angular.forEach(markerArray, function(marker) {
         var mcount = marker.vscount;  
         mymarkers[marker.vsid] = {
+          draggable: true, //TODO
           lat: marker.vsobj.lat,
           lng: marker.vsobj.lng,
           icon: myiconArray[mcount]['x'],
@@ -422,6 +441,14 @@ angular.module('projectVApp')
       });
       angular.extend($scope, {
         markers: mymarkers,
+      });
+
+
+      $scope.$on('leafletDirectiveMarker.drag', function(e, args) { //TODO
+        var thisName = args.markerName;
+        var thisMarker = $scope.markers[args.markerName];
+        console.log('marker drag',thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9));
+        //$scope.myscope.setCurrentMarkerClick(args.markerName);
       });
 
       $scope.$on('leafletDirectiveMarker.click', function(e, args) {
@@ -437,7 +464,7 @@ angular.module('projectVApp')
       });
 
       $scope.$on('leafletDirectiveMarker.mouseout', function(e, args) {
-        console.log('marker mouse out');
+        //console.log('marker mouse out');
          //$scope.markerNs.click = false;
         var thisName = args.markerName;
         var thisMarker = $scope.markers[args.markerName];
@@ -607,6 +634,28 @@ angular.module('projectVApp')
     //  angular.element($window).bind('resize',checkHeight);  
     //  checkHeight();
     //});
+    angular.extend($scope, {
+        layers: {
+            baselayers: {
+                //googleTerrain: {
+                //    name: 'Google Terrain',
+                //    layerType: 'TERRAIN',
+                //    type: 'google'
+                //},
+                //googleHybrid: {
+                //    name: 'Google Hybrid',
+                //    layerType: 'HYBRID',
+                //    type: 'google'
+                //},
+                googleRoadmap: {
+                    name: 'Google Streets',
+                    layerType: 'ROADMAP',
+                    type: 'google'
+                }
+            }
+        }
+    });
+
 
 }]);
 

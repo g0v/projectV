@@ -19,7 +19,8 @@
     "angular-facebook":"~0.2.3",
     "firebase": "~1.0.24",
     "firebase-simple-login": "~1.6.4",
-    "angularfire": "~0.8.2"
+    "angularfire": "~0.8.2",
+    "leaflet-plugins": "~1.2.0"
 
   },
   "devDependencies": {

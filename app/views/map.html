@@ -5,7 +5,7 @@
 -->
 <div class="row mymap" style="margin-bottom:10px;">
   <div id="map_main" class="col-md-8 col-lg-9 map_border"><!-- ng-class="myscope.mapclass">-->
-    <leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" style="height:100%;"></leaflet>
+    <leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" layers="layers" style="height:100%;"></leaflet>
     <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
       <div style="position:relative; color:#ffffff; top:60%;text-align:center;">
         <h1 style="color:#ffffff">{{myscope.mapLoadingStatus |  percentage:0 }}</h1>
