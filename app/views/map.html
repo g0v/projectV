@@ -258,38 +258,38 @@ var target = document.getElementById('mySpinner');
 var spinner = new Spinner(opts).spin(target);
 
 $(document).ready(function(){   
-    console.log('window resize');
+    //console.log('window resize');
     var $window = $(window);
     // Function to handle changes to style classes based on window width
     function checkHeight() {
-        console.log('check height',$window);
+        //console.log('check height',$window);
         if ($window.height() <= 800) {
-            console.log('small');
+            //console.log('small');
             $('#map_main').removeClass('map_tall');
-            console.log('map_main',$('#map_main'));
+            //console.log('map_main',$('#map_main'));
             $('#map_main').addClass('map_short');
 
 
             $('#map_sidebar').removeClass('map_tall')
             $('#map_sidebar').addClass('map_short');
 
-            console.log('map_main height',$('#map_main').height());
-            console.log('map_sidebar height',$('#map_main').height());
-            console.log('map_main class',$('#map_main').attr('class'));
+            //console.log('map_main height',$('#map_main').height());
+            //console.log('map_sidebar height',$('#map_main').height());
+            //console.log('map_main class',$('#map_main').attr('class'));
 
         };
 
         if ($window.height() > 800) {
-            console.log('large');
+            //console.log('large');
             $('#map_main').removeClass('map_short');
-            console.log('map_main',$('#map_main'));
+            //console.log('map_main',$('#map_main'));
             $('#map_main').addClass('map_tall');
             $('#map_sidebar').removeClass('map_short');
             $('#map_sidebar').addClass('map_tall');
 
 
-            console.log('map_main height',$('#map_main').height());
-            console.log('map_main class',$('#map_main').attr('class'));
+            //console.log('map_main height',$('#map_main').height());
+            //console.log('map_main class',$('#map_main').attr('class'));
         }
     }
     checkHeight();

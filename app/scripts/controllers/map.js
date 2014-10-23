@@ -364,7 +364,7 @@ angular.module('projectVApp')
       lastClickMarker = thisMarker;
       if(tomarker){
         $scope.leafletData.getMap().then(function(map){
-          console.log('thisMarker',thisMarker);
+          //console.log('thisMarker',thisMarker);
           map.setView({lat:thisMarker.lat,lng:thisMarker.lng}); 
         });
       }
