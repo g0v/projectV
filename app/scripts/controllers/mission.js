@@ -17,30 +17,63 @@ var BOSS_DESCRIPTION = {
 
 
 angular.module('projectVApp')
-  .controller('MissionCtrl', 
-
-  ['$scope', '$route', '$routeParams','voteInfoService',
-  function ($scope, $route, $routeParams, voteInfoService ) {
+  .controller('MissionCtrl',
+  function ($scope, $route, $routeParams, voteInfoService, FeedService) {
 
     var county = $routeParams.county;
+    var effectPrefix = 'effect:';
+    var areaPrefix = 'area:';
+    var typePrefix = 'type:';
+    var targetPrefix = 'target:';
 
     $scope.miscope = {};
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
 
     $scope.miscope.county = county;
-    
+
     $scope.miscope.vCount = 0;
     $scope.miscope.vTotal = 0;
     $scope.miscope.sCount = 0;
     $scope.miscope.sTotal = 0;
     $scope.miscope.boss = BOSS_DESCRIPTION[county];
-    
-    function loadData(){ 
+
+    FeedService.parseFeed('http://yurenju.tumblr.com/rss').then(function(res) {
+      var rawFeeds = res.data.responseData.feed.entries;
+      var feeds = [];
+      var bossFeeds = [];
+      var citizenFeeds = [];
+      angular.forEach(rawFeeds, function(feed) {
+        angular.forEach(feed.categories, function(c) {
+          if (c.indexOf(areaPrefix + county) === 0) {
+            feeds.push(feed);
+          } else if (c.indexOf(effectPrefix) === 0) {
+            feed.effect = c.substr(effectPrefix.length).replace('-', ' ');
+          } else if (c.indexOf(typePrefix) === 0) {
+            feed.type = c.substr(typePrefix.length);
+          } else if (c.indexOf(targetPrefix) === 0) {
+            feed.target = c.substr(targetPrefix.length);
+          }
+        });
+        if (!feed.type) {
+          var fakeTypes = ['boss', 'fighting'];
+          feed.type = fakeTypes[Math.floor(Math.random() * fakeTypes.length)];
+        }
+      });
+
+      angular.forEach(feeds, function(f) {
+        if (f.target !== 'citizen') {
+          bossFeeds.push(f);
+        } else {
+          citizenFeeds.push(f);
+        }
+      });
+
+      console.log(rawFeeds);
+
+      $scope.bossFeeds = angular.copy(bossFeeds);
+      $scope.citizenFeeds = angular.copy(citizenFeeds);
+    });
+
+    function loadData(){
       voteInfoService.getAllVoteStatInfo(county).then(function(data){
         console.log('--data--',data);
         var vCount = 0;
@@ -69,4 +102,4 @@ angular.module('projectVApp')
         console.log('mission load data');
         loadData();
     });
-  }]);
+  });

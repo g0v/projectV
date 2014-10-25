@@ -1,0 +1,30 @@
+$mainColor: #C2003F;
+
+.effect {
+  font-size: 16px;
+  font-weight: bold;
+  color: $mainColor;
+}
+
+.mission-news-type {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+}
+
+.mission-news-type > img {
+  width: 100%;
+}
+
+.mission-feed {
+  position: relative;
+}
+
+.mission-news-content {
+  margin-left: 19px;
+  padding-left: 25px;
+  padding-top: 7px;
+  padding-bottom: 15px;
+  border-left: 1px solid $mainColor;
+}
