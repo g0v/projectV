@@ -1,3 +1,7 @@
+$mainColor: #C2003F;
+$highlightColor: #ff6347;
+$nav-height: 42px;
+
 .container{
     width: 88%;
     margin-left: auto;
@@ -10,45 +14,84 @@
     margin-left: auto;
 }
 
-li.nav{
-    list-style-type: none;
-    float: left;
+ul.navigation {
+  list-style: none;
 }
 
-.nav-major{
+li.navigation{
+    display: inline-block;
+}
+
+.navigation-major{
     width: 50%;
 }
 
-.nav-title{
+.navigation-title{
     padding-top: 25px;
     padding-bottom: 39px;
     width: auto;
 }
 
-#nav1{
-    width: 35.454545454545%;
-}
-
-#nav2{
-    width: 11.477272727273%;
-}
-
-#nav3{
-    width: 13.295454545455%;
-}
-
-#nav4{
-    width: 14.431818181818%;
-}
-
-#nav5{
-    width: 19.772727272727%;
-}
-
-#nav6{
-    width: 5.568181818182%;
-}
-
-.nav > lia{
+.navigation > li {
     padding: 0;
+}
+
+.header {
+  height: 120px;
+}
+
+#nav-home {
+  margin-right: -13px;
+}
+
+#nav-home > a {
+  background-color: transparent;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.navigation > li > a {
+  display: inline-block;
+  height: $nav-height;
+  line-height: $nav-height;
+  background: $mainColor;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: $nav-height / 3;
+  margin-left: $nav-height / 3;
+  font-size: 16px;
+}
+
+.navigation > li > a.nav-link:before {
+  content: "";
+  border-top: $nav-height / 2 solid transparent;
+  border-bottom: $nav-height / 2 solid transparent;
+  border-right: $nav-height / 3 solid $mainColor;
+  position: absolute;
+  left: ($nav-height / 3) * -1 ;
+  top: 0;
+}
+
+.navigation > li > a.nav-link:hover {
+  background: $highlightColor;
+}
+.navigation > li > a.nav-link:hover:after {
+  border-left-color: $highlightColor;
+}
+.navigation > li > a.nav-link:hover:before {
+  border-right-color: $highlightColor;
+}
+
+.navigation > li > a.nav-link:after {
+  content: "";
+  border-top: $nav-height / 2 solid transparent;
+  border-bottom: $nav-height / 2 solid transparent;
+  border-left: $nav-height / 3 solid $mainColor;
+  position: absolute;
+  right: ($nav-height / 3) * -1 ;
+  top: 0;
 }

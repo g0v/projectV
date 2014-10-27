@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="styles/homepage.css">
         <link rel="stylesheet" href="styles/circle.css">
         <link rel="stylesheet" href="styles/countdown.css">
+        <link rel="stylesheet" href="styles/map.css">
+        <link rel="stylesheet" href="styles/mission.css">
         <!-- endbuild -->
     </head>
     <body ng-app="projectVApp">
@@ -30,35 +32,22 @@
 
         <!-- Add your site or application content here -->
         <div class="container">
-            <div class="header nav-bar" ng-controller="PagesCtrl">
-                <ul class="nav">
-                    <li ng-repeat="page in pages" ng-class="getActive('{{page.id}}')" class="nav" id="{{page.cssid}}">
-                        <a ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}"><img src="{{page.img}}" alt="{{page.name}}"/></a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <script>
-                //window.onresize = function(){
-                //    layout_all();
-                //}
-                //function layout_all() {
-                //    document.getElementById('counter-introduction-title').style.fontSize = parseInt(window.innerWidth / 44) + "px";
-                //    document.getElementById('counter-introduction-content').style.fontSize = parseInt(window.innerWidth / 80) + "px";
-                //    document.getElementById('counter-introduction-title').style.top = "-" + parseInt(window.innerWidth / 6) + "px";
-                //    document.getElementById('counter-introduction-content').style.top = "-" + parseInt(window.innerWidth / 6) + "px";
-                //    document.getElementById('mission-major').style.top = "-" + parseInt(window.innerWidth / 10) + "px";
-                //    document.getElementById('mission-button-tsa').style.top = "-" + parseInt(window.innerWidth / 6.5) + "px";
-                //    document.getElementById('mission-button-wu').style.top = "-" + parseInt(window.innerWidth / 6.5) + "px";
-                //    document.getElementById('mission-button-lin').style.top = "-" + parseInt(window.innerWidth / 6.5) + "px";
-                //};
-                //layout_all();
-            </script>
-
-            <div ng-view="">
-
-            </div>
+          <div class="header" ng-controller="PagesCtrl">
+            <ul class="navigation">
+              <li class="navigation" id="nav-home">
+                <a href="#/">
+                  <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-02.svg" alt="home" />
+                </a>
+              </li>
+              <li ng-repeat="page in pages" class="navigation" id="{{page.cssid}}">
+                <a class="nav-link" ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}">
+                  {{page.name}}
+                </a>
+              </li>
+              <li class="navigation"><a class="nav-link" href="https://www.facebook.com/Appendectomy" target="_blank">&nbsp;<i class="fa fa-facebook"></i>&nbsp;</a></li>
+            </ul>
+          </div>
+          <div ng-view=""></div>
         </div>
 
         <div class="footer">
