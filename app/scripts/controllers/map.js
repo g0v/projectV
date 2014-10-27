@@ -68,14 +68,6 @@ angular.module('projectVApp')
     $scope.leafletData = leafletData;
     //$scope.taiwan = MAP_DEFAULT_VIEW[county];
 
-    $scope.defaults = {
-      zoomControlPosition: 'bottomright',
-      minZoom: MAP_MIN_ZOOM[county],
-    };
-    $scope.maxbounds = {
-      northEast: MAP_DEFAULT_BOUND[county][0],
-      southWest: MAP_DEFAULT_BOUND[county][1],
-    }; 
     //console.log('maxbounds',$scope.maxbounds);
 
 
@@ -125,6 +117,7 @@ angular.module('projectVApp')
           //  json
           //);
           localGeojson.addData(json);
+          //TODO print geojson
         });
       }
     }
@@ -589,12 +582,24 @@ angular.module('projectVApp')
       loadData(false);
     };
 
+    
+
+    $scope.defaults = {
+      zoomControlPosition: 'bottomright',
+      minZoom: MAP_MIN_ZOOM[county],
+    };
+
+    $scope.maxbounds = {
+      northEast: MAP_DEFAULT_BOUND[county][0],
+      southWest: MAP_DEFAULT_BOUND[county][1],
+    }; 
     $scope.leafletData.getMap().then(function(map){
-      map.fitBounds(MAP_DEFAULT_BOUND[county]);
+        map.fitBounds(MAP_DEFAULT_BOUND[county]);
       //console.log('map',map);
     });
-    
-    
+
+
+
     loadData(true);
     $scope.$on('dataReload',function(){
        console.log('map load data');

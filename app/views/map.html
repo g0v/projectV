@@ -4,7 +4,7 @@
 </button>
 -->
 <div class="row mymap" style="margin-bottom:10px;">
-  <div id="map_main" class="col-md-8 col-lg-9 map_border"><!-- ng-class="myscope.mapclass">-->
+  <div id="map_main" class="col-md-8 col-lg-9 map_border map_short"><!-- ng-class="myscope.mapclass">-->
     <!--<leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" layers="layers" style="height:100%;"></leaflet>-->
     <leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" style="height:100%;"></leaflet>
     <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div id="map_sidebar" class="col-md-4 col-lg-3 map_border_noleft"><!-- ng-class="myscope.mapclass">-->
+  <div id="map_sidebar" class="col-md-4 col-lg-3 map_border_noleft map_short"><!-- ng-class="myscope.mapclass">-->
     <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
     </div>
     <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS == null && myscope.mapLoadingStatus >= 1" >
@@ -291,12 +291,16 @@ $(document).ready(function(){
             $('#map_sidebar').removeClass('map_short');
             $('#map_sidebar').addClass('map_tall');
 
-
             //console.log('map_main height',$('#map_main').height());
             //console.log('map_main class',$('#map_main').attr('class'));
         }
     }
+
+  checkHeight();
+  setTimeout(function(){
     checkHeight();
     $(window).resize(checkHeight);
+  },0);
+
 });
 </script>
