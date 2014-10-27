@@ -111,3 +111,48 @@ body {
     border-bottom: 0;
   }
 }
+
+$planColor: #B6203F;
+
+.plan-container {
+  width: 900px;
+  margin: auto;
+}
+
+.plan-title > img {
+  width: 800px;
+}
+
+.plan-video {
+  margin:auto;
+  border-image: url('../images/plan-video-frame.png') 42 42 42 42 stretch stretch;
+  border-width: 42px;
+  width: 900px;
+  height: 480px;
+}
+
+.citizen-v {
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.plan-container hr {
+  border-top: 3px solid $planColor;
+  border-bottom: 3px solid $planColor;
+  height: 10px;
+  margin-bottom: 0;
+}
+
+.citizen-v > hr {
+  margin-top: -40px;
+}
+
+.plan-container h2 {
+  font-size: 27px;
+  color: $planColor;
+  text-align: center;
+}
+
+.goto-mission {
+  margin-bottom: 40px;
+}
