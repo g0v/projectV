@@ -35,6 +35,7 @@ angular.module('projectVApp')
     $scope.miscope.sCount = 0;
     $scope.miscope.sTotal = 0;
     $scope.miscope.boss = BOSS_DESCRIPTION[county];
+    $scope.miscope.newCitizen = [];
 
     FeedService.parseFeed('http://yurenju.tumblr.com/rss').then(function(res) {
       var rawFeeds = res.data.responseData.feed.entries;
@@ -94,6 +95,9 @@ angular.module('projectVApp')
         $scope.miscope.vTotal = vTotal;
         $scope.miscope.sCount = sCount;
         $scope.miscope.sTotal = sTotal;
+      });
+      voteInfoService.getTopkCitizen(county,3).then(function(data){
+        $scope.miscope.newCitizen = data;
       });
     }
     loadData();

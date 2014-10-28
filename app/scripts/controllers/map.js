@@ -107,8 +107,8 @@ angular.module('projectVApp')
 
     function applyGeojson(jsonArray) {
       var json = jsonArray[0];
-      console.log(geojsonBuffer.length);
-      console.log(jsonArray.length);
+      //console.log(geojsonBuffer.length);
+      //console.log(jsonArray.length);
       $scope.myscope.mapLoadingStatus = 0.2 + ((geojsonBuffer.length - jsonArray.length)/geojsonBuffer.length) * 0.8
       if(!json){
         $scope.myscope.mapLoadingStatus = 1.0;
@@ -131,11 +131,11 @@ angular.module('projectVApp')
       else {
         //console.log('scope geojson add');
         $scope.leafletData.getGeoJSON().then(function(localGeojson) {
-          console.log('scope geojson add json',
-            json.features[0].properties.town, 
-            json.features[0].properties.village, 
-            json
-          );
+          //console.log('scope geojson add json',
+          //  json.features[0].properties.town, 
+          //  json.features[0].properties.village, 
+          //  json
+          //);
           localGeojson.addData(json);
           setTimeout(function(){
             applyGeojson(jsonArray.slice(1));

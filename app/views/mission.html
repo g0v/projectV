@@ -87,8 +87,11 @@
     </div>
   </div>
   <div class="col-md-3 text-center" style="border-bottom:5px solid #C2003F; height:300px;">
-    <img class="img-circle" src="http://fakeimg.pl/150/?text=Citizen%20V" style="border:5px solid #C2003F;">
-    <h3>公民V</h3>
+    <img class="img-circle" src="http://graph.facebook.com/{{miscope.newCitizen[0].fid}}/picture?type=square&width=100&height=100" style="border:5px solid #C2003F; width:150px;height:150px;">
+    <h3>新加入公民V</h3>
+    <h5 ng-repeat="citizen in miscope.newCitizen">
+        {{citizen.name}}
+    </h5>
   </div>
 </div>
 
