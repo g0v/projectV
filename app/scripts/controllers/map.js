@@ -111,6 +111,7 @@ angular.module('projectVApp')
       console.log(jsonArray.length);
       $scope.myscope.mapLoadingStatus = 0.2 + ((geojsonBuffer.length - jsonArray.length)/geojsonBuffer.length) * 0.8
       if(!json){
+        $scope.myscope.mapLoadingStatus = 1.0;
         $( ".myLoading" ).fadeOut( "slow", function() {
           $(".myLoading").remove();
         });
