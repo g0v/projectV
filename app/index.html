@@ -41,7 +41,7 @@
               </li>
               <li ng-repeat="page in pages" class="navigation" id="{{page.cssid}}">
                 <a class="nav-link" ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}">
-                  {{page.name}}
+                  <span ng-bind="page.name"></span>
                 </a>
               </li>
               <li class="navigation"><a class="nav-link" href="https://www.facebook.com/Appendectomy" target="_blank">&nbsp;<i class="fa fa-facebook"></i>&nbsp;</a></li>
