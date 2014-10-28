@@ -45,6 +45,10 @@ angular
         templateUrl: 'views/mission.html',
         controller: 'MissionCtrl'
       })
+      .when('/mroute/:county', {
+        templateUrl: 'views/blank.html',
+        controller: 'MrouteCtrl'
+      })
       .when('/map/:county', {
         templateUrl: 'views/map.html',
         controller: 'MapCtrl'

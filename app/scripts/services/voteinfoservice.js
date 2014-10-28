@@ -1,6 +1,6 @@
 'use strict';
 
-var MAP_BUFFER_TIME = 10;
+//var MAP_BUFFER_TIME = 10;
 var USE_CITIZEN_DB = false;
 
 /**
@@ -12,6 +12,7 @@ var USE_CITIZEN_DB = false;
  */
 angular.module('projectVApp')
   .service('voteInfoService', function voteInfoService($q, $http) {
+    this.MAP_BUFFER_TIME = 10;
    
     Parse.initialize(
       "QDCw1Ntq4E9PmPpcuwKbO2H0B1H0y77Vj1ScO9Zx",
@@ -75,11 +76,17 @@ angular.module('projectVApp')
     };
 
 
-    this.getParsedQuery = function(query,key,val){
+    this.getParsedQuery = function(query,key,val,limit){
+      if(!limit){
+        limit = 1000
+      }
+      else{
+        console.log('limit',limit);
+      }
       var deferred = $q.defer();
       query.descending("createdAt");
       query.equalTo(key, val);
-      query.limit(1000);
+      query.limit(limit);
       query.find({
         success: function(results) {
           deferred.resolve(results);
@@ -133,18 +140,6 @@ angular.module('projectVApp')
               citizenDataAry[county] = results;
               postProcess(county);
           });
-          //query.equalTo("county", county);
-          //query.limit(1000);
-          //query.find({
-          //  success: function(citizenData) {
-          //    var results = [];
-          //    for (var i = 0; i < citizenData.length; i++) { 
-          //      results.push( convertObject(citizenData[i]));
-          //    } 
-          //    citizenDataAry[county] = results;
-          //    postProcess(county);
-          //  }
-          //});
         }
         else{
           var volQuery = new Parse.Query(volunteerParse);
@@ -169,14 +164,46 @@ angular.module('projectVApp')
     };
 
 
+    this.getTopkCitizen = function(county,k){
+      var deferred = $q.defer();
+      function sortByKey(array, key) {
+          return array.sort(function(a, b) {
+              var x = a[key]; var y = b[key];
+              return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+          }).reverse();
+      }
+      var volQuery = new Parse.Query(volunteerParse);
+      var supQuery = new Parse.Query(supplementParse);
+      $q.all([my_this.getParsedQuery(volQuery,"county",county,k), my_this.getParsedQuery(supQuery,"county",county,k)]).then(function(data){
+        var dataAll = [];
+        console.log('data',data);
+        for(var i=0; i<data[0].length; i++){
+          var objTemp = data[0][i];
+          dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name')});
+        }
+        for(var i=0; i<data[1].length; i++){
+          var objTemp = data[1][i];
+          dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name')});
+        }
+        //var dataResult = [];
+        //for(var i=0; i<dataAll.length; i++){
+        //  dataResult.push(dataAll[i]['name']);
+        //}
+        deferred.resolve(dataAll.slice(0,k));
+        //console.log('dataAll',JSON.stringify(dataAll));   
+        //console.log('dataAll',JSON.stringify(sortByKey(dataAll, 'createdAt')) );   
+      });
+      
+      return deferred.promise;
+    }
+
     this.getAllVillageSum = function(county){  //dynamic
       var deferred = $q.defer();
       function postProcess(county) {
         deferred.resolve(villageSumAry[county]);
       }
       if(villageSumAry[county]){
-        postProcess(county);
-      }
+        postProcess(county); }
       else{
           $q.all([ my_this.getAllVoteStatData(county), my_this.getCitizenData(county) , $http.get('json/villageVotestat/' + county + '.json')])
           .then(function(data){
@@ -371,7 +398,7 @@ angular.module('projectVApp')
               deferred.resolve( { complete:true , loadingStatus:count/countAll});
               //console.log("complete");
             }
-          },MAP_BUFFER_TIME*countTemp);
+          },my_this.MAP_BUFFER_TIME*countTemp);
         } 
 
         angular.forEach(countVill, function(villages, townName) {

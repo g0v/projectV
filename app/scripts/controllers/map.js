@@ -44,6 +44,7 @@ angular.module('projectVApp')
     var lastClickLayer = null; 
     var lastClickMarker = null;
     var currentClickMarkerIndex = 0;
+    var geojsonBuffer = [];
     $scope.myscope.voteStatData = null;
     $scope.myscope.showVS = null;
     $scope.myscope.currentVsTab = {}; //local
@@ -100,7 +101,22 @@ angular.module('projectVApp')
       county = DEFAULT_COUNTY;
     }
 
-    function applyGeojson(json) {
+    function applyGeojsonAll(){
+      applyGeojson(geojsonBuffer);
+    }
+
+    function applyGeojson(jsonArray) {
+      var json = jsonArray[0];
+      //console.log(geojsonBuffer.length);
+      //console.log(jsonArray.length);
+      $scope.myscope.mapLoadingStatus = 0.2 + ((geojsonBuffer.length - jsonArray.length)/geojsonBuffer.length) * 0.8
+      if(!json){
+        $scope.myscope.mapLoadingStatus = 1.0;
+        $( ".myLoading" ).fadeOut( "slow", function() {
+          $(".myLoading").remove();
+        });
+        return;
+      }
       if (!$scope.geojson) {
         //console.log('scope geojson create');
         $scope.geojson = {
@@ -108,7 +124,11 @@ angular.module('projectVApp')
           style: style,
           resetStyleOnMouseout: false 
         };
-      } else {
+        setTimeout(function(){
+          applyGeojson(jsonArray.slice(1));
+        },voteInfoService.MAP_BUFFER_TIME);
+      } 
+      else {
         //console.log('scope geojson add');
         $scope.leafletData.getGeoJSON().then(function(localGeojson) {
           //console.log('scope geojson add json',
@@ -117,7 +137,9 @@ angular.module('projectVApp')
           //  json
           //);
           localGeojson.addData(json);
-          //TODO print geojson
+          setTimeout(function(){
+            applyGeojson(jsonArray.slice(1));
+          },voteInfoService.MAP_BUFFER_TIME);
         });
       }
     }
@@ -513,21 +535,23 @@ angular.module('projectVApp')
         voteInfoService.getStaticVillageData(county).then(
           function(data){
             //console.log('mapLoadingComplete');
-            $( ".myLoading" ).fadeOut( "slow", function() {
-              // Animation complete.
-              $(".myLoading").remove();
-            });
+            //$( ".myLoading" ).fadeOut( "slow", function() {
+            //  // Animation complete.
+            //  $(".myLoading").remove();
+            //});
             //checkHeight();
             //console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
-
+            applyGeojsonAll();
           },
           function() {}, 
           function(data){ 
 
-            $scope.myscope.mapLoadingStatus = data.loadingStatus;
+            $scope.myscope.mapLoadingStatus = data.loadingStatus*0.2;
             if(!jQuery.isEmptyObject(data.villageArea) ){
               data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
-              applyGeojson(data.villageArea);
+
+              geojsonBuffer.push(data.villageArea);
+              //applyGeojson(data.villageArea);
               //console.log('areaDraw',data.villageArea,
               //  data.villageArea.features[0].properties.town,
               //  data.villageArea.features[0].properties.village

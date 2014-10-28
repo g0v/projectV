@@ -87,8 +87,11 @@
     </div>
   </div>
   <div class="col-md-3 text-center" style="border-bottom:5px solid #C2003F; height:300px;">
-    <img class="img-circle" src="http://fakeimg.pl/150/?text=Citizen%20V" style="border:5px solid #C2003F;">
-    <h3>公民V</h3>
+    <img class="img-circle" src="http://graph.facebook.com/{{miscope.newCitizen[0].fid}}/picture?type=square&width=100&height=100" style="border:5px solid #C2003F; width:150px;height:150px;">
+    <h3>新加入公民V</h3>
+    <h5 ng-repeat="citizen in miscope.newCitizen">
+        {{citizen.name}}
+    </h5>
   </div>
 </div>
 
@@ -108,17 +111,17 @@
 
 <div class="text-center">
   <img src="images/map_bottom_1.svg" style="margin:20px;width:240px;"></img>
-  <a href="#/mission/TPE-4" ng-show="miscope.county != 'TPE-4'">
+  <a href="#/mroute/TPE-4" ng-show="miscope.county != 'TPE-4'">
     <div class="mission_foot_bottom">
       <h3> 蔡正元 </h3>
     </div>
   </a>
-  <a href="#/mission/TPQ-6" ng-show="miscope.county != 'TPQ-6'">
+  <a href="#/mroute/TPQ-6" ng-show="miscope.county != 'TPQ-6'">
     <div class="mission_foot_bottom">
       <h3> 林鴻池 </h3>
     </div>
   </a>
-  <a href="#/mission/TPQ-1" ng-show="miscope.county != 'TPQ-1'">
+  <a href="#/mroute/TPQ-1" ng-show="miscope.county != 'TPQ-1'">
     <div class="mission_foot_bottom">
       <h3> 吳育昇 </h3>
     </div>

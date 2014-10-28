@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: DialogCtrl', function () {
+describe('Controller: MrouteCtrl', function () {
 
   // load the controller's module
   beforeEach(module('projectVApp'));
 
-  var DialogCtrl,
+  var MrouteCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    DialogCtrl = $controller('DialogCtrl', {
+    MrouteCtrl = $controller('MrouteCtrl', {
       $scope: scope
     });
   }));
