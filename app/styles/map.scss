@@ -28,7 +28,7 @@
 }
 
 .citizen_header_slash{
-  background-image: url('images/citizen_header_slash.png');
+  background-image: url('../images/citizen_header_slash.png');
   background-size: 100% 100%;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .mission_foot_bottom {
-  background-image: url('images/map_bottom_2.svg');
+  background-image: url('../images/map_bottom_2.svg');
   background-size: 100% 100%;
   margin:20px;
   padding:0px  40px;
@@ -92,7 +92,7 @@
 .map_button{
   background:none;
   border:0px;
-  background-image: url('images/map_button.svg');
+  background-image: url('../images/map_button.svg');
   background-size: 100% 100%;
   font-size:120%;
   color:#C2003F;
@@ -179,7 +179,7 @@
 }
 
 .map_tall .map_panel_heading h3{
-  background-image: url('images/map_panel_header.png');
+  background-image: url('../images/map_panel_header.png');
   background-size: 100% 100%;
   padding:5px;
   width:90%;

@@ -1,6 +1,6 @@
 'use strict';
 
-var MAP_BUFFER_TIME = 10;
+//var MAP_BUFFER_TIME = 10;
 var USE_CITIZEN_DB = false;
 
 /**
@@ -12,6 +12,7 @@ var USE_CITIZEN_DB = false;
  */
 angular.module('projectVApp')
   .service('voteInfoService', function voteInfoService($q, $http) {
+    this.MAP_BUFFER_TIME = 10;
    
     Parse.initialize(
       "QDCw1Ntq4E9PmPpcuwKbO2H0B1H0y77Vj1ScO9Zx",
@@ -371,7 +372,7 @@ angular.module('projectVApp')
               deferred.resolve( { complete:true , loadingStatus:count/countAll});
               //console.log("complete");
             }
-          },MAP_BUFFER_TIME*countTemp);
+          },my_this.MAP_BUFFER_TIME*countTemp);
         } 
 
         angular.forEach(countVill, function(villages, townName) {
