@@ -114,8 +114,13 @@ body {
 
 $planColor: #B6203F;
 
-.plan-container {
+.main-container {
   width: 900px;
+  margin: auto;
+}
+
+.content-container {
+  width: 850px;
   margin: auto;
 }
 
@@ -136,21 +141,22 @@ $planColor: #B6203F;
   margin-bottom: 40px;
 }
 
-.plan-container hr {
+hr.double-line {
   border-top: 3px solid $planColor;
   border-bottom: 3px solid $planColor;
   height: 10px;
   margin-bottom: 0;
 }
 
-.citizen-v > hr {
+.citizen-v > hr.double-line {
   margin-top: -40px;
 }
 
-.plan-container h2 {
+h2.center-title {
   font-size: 27px;
   color: $planColor;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .goto-mission {
