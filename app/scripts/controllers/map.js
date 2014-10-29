@@ -114,17 +114,17 @@ angular.module('projectVApp')
         $scope.myscope.mapLoadingStatus = 1.0;
         $( ".myLoading" ).fadeOut( "slow", function() {
           $(".myLoading").remove();
+          if(county!= 'TPE-4'){
+            $("#mroute-TPE-4").css({visibility:'visible'});
+          }
+          if(county!= 'TPQ-6'){
+            $("#mroute-TPQ-6").css({visibility:'visible'});
+          }
+          if(county!= 'TPQ-1'){
+            $("#mroute-TPQ-1").css({visibility:'visible'});
+          }
         });
         $scope.myscope.mapLoadingComplete = true;
-        if(county!= 'TPE-4'){
-          $("#mroute-TPE-4").css({visibility:'visible'});
-        }
-        if(county!= 'TPQ-6'){
-          $("#mroute-TPQ-6").css({visibility:'visible'});
-        }
-        if(county!= 'TPQ-1'){
-          $("#mroute-TPQ-1").css({visibility:'visible'});
-        }
   
         //$scope.$emit('mapLoadingComplete');
         return;

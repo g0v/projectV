@@ -68,8 +68,9 @@ angular.module('projectVApp')
     this.getAllVoteStatData = function(county) {
       var deferred = $q.defer();
       votestatHttp += 1;
-      
+      console.log('votestatHttp',votestatHttp); 
       function postProcess(county) {
+        votestatHttp = 0;
         deferred.resolve(voteDataAry[county]);
       }
       setTimeout(function(){
@@ -81,7 +82,6 @@ angular.module('projectVApp')
           $http.get(query).then(function(res) {
             voteDataAry[county] = res.data;
             postProcess(county);
-            votestatHttp = 0;
           });
         }
       },MY_HTTP_DELAY*votestatHttp);
@@ -91,9 +91,11 @@ angular.module('projectVApp')
     this.getAllVillageVotestatData = function(county) {
       var deferred = $q.defer();
       villageVotestatHttp += 1;
+      console.log('villageVotestatHttp',villageVotestatHttp); 
       
       function postProcess(county) {
        // console.log('villageVotestat',villageVotestatAry[county]);
+        villageVotestatHttp = 0;
         deferred.resolve(villageVotestatAry[county]);
       }
 
@@ -104,7 +106,6 @@ angular.module('projectVApp')
         else{
           var query = 'json/villageVotestat/' + county + '.json';
           $http.get(query).then(function(res) {
-            villageVotestatHttp = 0;
             villageVotestatAry[county] = res.data;
             postProcess(county);
           });
@@ -118,7 +119,9 @@ angular.module('projectVApp')
     this.getCountyVillage = function(county) { //dynamic
       var deferred = $q.defer();
       twCountyVillageHttp += 1;
+      console.log('twCountyVillageHttp',twCountyVillageHttp); 
       function postProcess(countyVillage, villageSum) {
+        twCountyVillageHttp = 0;
         deferred.resolve( {
           countyVillage:countyVillage,
           villageSum:villageSum,
@@ -137,7 +140,6 @@ angular.module('projectVApp')
             }
             else{
               $http.get('json/twCountyVillage/' + county + '.json').then(function(res) {
-                twCountyVillageHttp = 0;
                 countyVillageAry[county] = res.data;
                 postProcess(countyVillageAry[county] , villageSum);
               });
@@ -268,8 +270,10 @@ angular.module('projectVApp')
     this.getAllVillageSum = function(county){  //dynamic
       var deferred = $q.defer();
       villageSumHttp += 1;
+      console.log('villageSumHttp',villageSumHttp); 
 
       function postProcess(county) {
+        villageSumHttp = 0;
         deferred.resolve(villageSumAry[county]);
       }
       
@@ -281,7 +285,6 @@ angular.module('projectVApp')
             //$q.all([ my_this.getAllVoteStatData(county), my_this.getCitizenData(county) , $http.get('json/villageVotestat/' + county + '.json')])
             $q.all([ my_this.getAllVoteStatData(county), my_this.getCitizenData(county) , my_this.getAllVillageVotestatData(county)])
             .then(function(data){
-              villageSumHttp = 0;
               //console.log('calculate village sum');
               var voteStatData = data[0];
               var citizenData = data[1];
