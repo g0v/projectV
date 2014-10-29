@@ -96,7 +96,7 @@ angular.module('projectVApp')
         $scope.miscope.sCount = sCount;
         $scope.miscope.sTotal = sTotal;
       });
-      voteInfoService.getTopkCitizen(county,3).then(function(data){
+      voteInfoService.getTopkCitizen(county,4).then(function(data){
         $scope.miscope.newCitizen = data;
       });
     }
@@ -106,4 +106,9 @@ angular.module('projectVApp')
         console.log('mission load data');
         loadData();
     });
+
+    $scope.miscope.missionAdd = function(){
+      $('html, body').animate({scrollTop: $('#mission_map_title').offset().top}, 500);
+    };
+
   });

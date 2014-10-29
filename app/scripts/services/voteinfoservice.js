@@ -179,11 +179,11 @@ angular.module('projectVApp')
         console.log('data',data);
         for(var i=0; i<data[0].length; i++){
           var objTemp = data[0][i];
-          dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name')});
+          dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name'), type:'志工'});
         }
         for(var i=0; i<data[1].length; i++){
           var objTemp = data[1][i];
-          dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name')});
+          dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name'), type:'物資'});
         }
         //var dataResult = [];
         //for(var i=0; i<dataAll.length; i++){
