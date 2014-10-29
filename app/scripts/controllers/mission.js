@@ -76,7 +76,7 @@ angular.module('projectVApp')
 
     function loadData(){
       voteInfoService.getAllVoteStatInfo(county).then(function(data){
-        console.log('--data--',data);
+        //console.log('--data--',data);
         var vCount = 0;
         var vTotal = 0;
         var sCount = 0;
@@ -103,7 +103,7 @@ angular.module('projectVApp')
     loadData();
 
     $scope.$on('dataReload',function(){
-        console.log('mission load data');
+        //console.log('mission load data');
         loadData();
     });
 
