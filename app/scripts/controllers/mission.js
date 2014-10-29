@@ -36,6 +36,7 @@ angular.module('projectVApp')
     $scope.miscope.sTotal = 0;
     $scope.miscope.boss = BOSS_DESCRIPTION[county];
     $scope.miscope.newCitizen = [];
+    $scope.miscope.mapLoadingComplete = false;
 
     FeedService.parseFeed('http://yurenju.tumblr.com/rss').then(function(res) {
       var rawFeeds = res.data.responseData.feed.entries;
@@ -110,5 +111,10 @@ angular.module('projectVApp')
     $scope.miscope.missionAdd = function(){
       $('html, body').animate({scrollTop: $('#mission_map_title').offset().top}, 500);
     };
+
+    //$scope.$on('mapLoadingComplete',function(){
+    //  $scope.miscope.mapLoadingComplete = true;
+    //});
+    
 
   });

@@ -93,7 +93,7 @@ angular.module('projectVApp')
       villageVotestatHttp += 1;
       
       function postProcess(county) {
-        console.log('villageVotestat',villageVotestatAry[county]);
+       // console.log('villageVotestat',villageVotestatAry[county]);
         deferred.resolve(villageVotestatAry[county]);
       }
 
@@ -282,7 +282,7 @@ angular.module('projectVApp')
             $q.all([ my_this.getAllVoteStatData(county), my_this.getCitizenData(county) , my_this.getAllVillageVotestatData(county)])
             .then(function(data){
               villageSumHttp = 0;
-              console.log('calculate village sum');
+              //console.log('calculate village sum');
               var voteStatData = data[0];
               var citizenData = data[1];
               var villageVotestatData = data[2];
@@ -322,7 +322,7 @@ angular.module('projectVApp')
               postProcess(county);
             }); 
         }
-      },MY_HTTP_DELAY*2*villageSumHttp);
+      },MY_HTTP_DELAY*3*villageSumHttp);
 
       return deferred.promise;
     };
@@ -437,10 +437,10 @@ angular.module('projectVApp')
             if(villSum[townName] && villSum[townName][villageName]){
               mvillsum = villSum[townName][villageName];
             }
-            deferred.notify({villageArea: villageArea[vakey], villageSum:mvillsum, loadingStatus:count/countAll});
+            deferred.notify({villageArea: villageArea[vakey], villageSum:mvillsum, loadingStatus:count/countAll, county:county});
             //console.log('postProcess',townName,villageName);
             if(count == countAll){
-              deferred.resolve( { complete:true , loadingStatus:count/countAll});
+              deferred.resolve( { complete:true , loadingStatus:count/countAll, county:county});
               //console.log("complete");
             }
           },my_this.MAP_BUFFER_TIME*countTemp);

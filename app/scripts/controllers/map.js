@@ -38,13 +38,14 @@ angular.module('projectVApp')
   function ($scope, $route, $routeParams, $http, $q, $filter, $modal, $window, leafletData, voteInfoService ) {
     $scope.myscope = {};
     //$scope.voteInfos = {};
-    //$scope.myscope.mapLoadingComplete = false;
+    $scope.myscope.mapLoadingComplete = false;
     $scope.myscope.mapLoadingStatus = false;
     var county = $routeParams.county;
     var lastClickLayer = null; 
     var lastClickMarker = null;
     var currentClickMarkerIndex = 0;
     var geojsonBuffer = [];
+    $scope.myscope.county = county;
     $scope.myscope.voteStatData = null;
     $scope.myscope.showVS = null;
     $scope.myscope.currentVsTab = {}; //local
@@ -67,7 +68,6 @@ angular.module('projectVApp')
     }
 
     $scope.leafletData = leafletData;
-    //$scope.taiwan = MAP_DEFAULT_VIEW[county];
 
     //console.log('maxbounds',$scope.maxbounds);
 
@@ -115,6 +115,18 @@ angular.module('projectVApp')
         $( ".myLoading" ).fadeOut( "slow", function() {
           $(".myLoading").remove();
         });
+        $scope.myscope.mapLoadingComplete = true;
+        if(county!= 'TPE-4'){
+          $("#mroute-TPE-4").css({visibility:'visible'});
+        }
+        if(county!= 'TPQ-6'){
+          $("#mroute-TPQ-6").css({visibility:'visible'});
+        }
+        if(county!= 'TPQ-1'){
+          $("#mroute-TPQ-1").css({visibility:'visible'});
+        }
+  
+        //$scope.$emit('mapLoadingComplete');
         return;
       }
       if (!$scope.geojson) {
@@ -534,28 +546,29 @@ angular.module('projectVApp')
       if(firsttime){
         voteInfoService.getStaticVillageData(county).then(
           function(data){
-            //console.log('mapLoadingComplete');
-            //$( ".myLoading" ).fadeOut( "slow", function() {
-            //  // Animation complete.
-            //  $(".myLoading").remove();
-            //});
-            //checkHeight();
-            //console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
-            applyGeojsonAll();
+            if(data.county = county){
+              applyGeojsonAll();
+            }
           },
           function() {}, 
           function(data){ 
+            if(data.county = county){
+              console.log('county',county);
 
-            $scope.myscope.mapLoadingStatus = data.loadingStatus*0.2;
-            if(!jQuery.isEmptyObject(data.villageArea) ){
-              data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
+              $scope.myscope.mapLoadingStatus = data.loadingStatus*0.2;
+              if(!jQuery.isEmptyObject(data.villageArea) ){
+                data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
 
-              geojsonBuffer.push(data.villageArea);
+                geojsonBuffer.push(data.villageArea);
               //applyGeojson(data.villageArea);
               //console.log('areaDraw',data.villageArea,
               //  data.villageArea.features[0].properties.town,
               //  data.villageArea.features[0].properties.village
               //);
+              }
+            }
+            else{
+              console.log('different county',data.county,county);
             }
             //console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
 
