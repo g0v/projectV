@@ -10,7 +10,15 @@
 angular.module('projectVApp')
   .controller('NewsCtrl', function ($scope, FeedService, Countdown, FINALDATE) {
     FeedService.parseFeed('http://yurenju.tumblr.com/rss').then(function(res) {
-      $scope.feeds=res.data.responseData.feed.entries;
+      var feeds = [];
+      angular.forEach(res.data.responseData.feed.entries, function(f) {
+        angular.forEach(f.categories, function(c) {
+          if (c === 'target:boss') {
+            feeds.push(f);
+          }
+        });
+      });
+      $scope.feeds = feeds;
     });
 
     $scope.time = Countdown.getTime(new Date(FINALDATE), new Date());
