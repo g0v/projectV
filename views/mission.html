@@ -1,1 +1,139 @@
-<div class="main-container"> <div style="height:50px"></div> <div class="citizen_v"> <div class="row"> <div class="col-xs-12 text-center"> <div class="citizen_v_title text-center"> <h3 style="display:inline;  color:#ffffff; top: -10px;position: absolute;left: 30px">公民 v 的士氣喊話</h3> </div> </div> </div> <div class="row" style="border-top:5px solid #C2003F; border-bottom:5px solid #C2003F"> <div class="col-xs-2 text-center"> <div style="padding:10px"> <img class="img-circle" style="border:3px solid #C2003F; padding:5px" src="http://fakeimg.pl/150/?text=Avatar"> </div> </div> <div class="col-xs-2 text-center"> <div class="citizen_header_slash" style="height:190px; width:180px"> </div> </div> <div class="col-xs-8"> <div style="padding:10px"> <h3> 死了一個我還有千千萬萬個我 </h3> <h3> 祭止兀受死吧!!!! </h3> </div> </div> </div> </div> <div class="text-center" style="width:100%"> <img src="images/mission_middle_header.svg" style="width:80%;margin-bottom:-5px;max-width:1000px;min-width:800px"> </div> <div class="row mymap"> <div class="col-xs-3 text-center" style="border-bottom:5px solid #C2003F; height:400px"> <div id="mission_frame_boss"> <img class="img-circle mission_frame_img" src="{{miscope.boss.img}}" style="border:5px solid #C2003F;width:150px"> <h3 class="mission_frame_name">{{miscope.boss.name}}</h3> </div> </div> <div class="col-xs-3" style="border-right:5px solid #C2003F;border-bottom:5px solid #C2003F;height:400px"> <div class="mission_progress_txt"><strong>HP</strong></div> <div class="progress"> <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> 60% </div> </div> <div class="feeds"> <div class="mission-feed" ng-repeat="feed in bossFeeds"> <div class="mission-news-type"> <img ng-src="images/type-{{feed.type}}.png"> </div> <div class="mission-news-content"> <div class="effect">{{feed.effect}}</div> {{feed.title}} </div> </div> </div> </div> <div class="col-xs-3" style="border-bottom:5px solid #C2003F; height:400px"> <div class="mission_progress_txt"><strong>志工數：{{miscope.vCount}} / {{miscope.vTotal}} </strong> <div class="imgMissionWrap" ng-click="miscope.missionAdd()"> <div class="imgMissionArrow"></div> <div class="imgMissionDescription" style="overflow:hidden"> 志工參戰 </div> <img src="images/mission_add.svg"> </div> </div> <div class="progress"> <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.vCount/miscope.vTotal}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.vCount/miscope.vTotal|  percentage:0}}"> {{miscope.vCount/miscope.vTotal | percentage:0}} </div> </div> <div class="mission_progress_txt"><strong>物資數：{{miscope.sCount}} / {{miscope.sTotal}} </strong> <div class="imgMissionWrap" ng-click="miscope.missionAdd()"> <div class="imgMissionArrow"></div> <div class="imgMissionDescription" style="overflow:hidden"> 物資參戰 </div> <img src="images/mission_add.svg"> </div> </div> <div class="progress"> <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.sCount/miscope.sTotal}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.sCount/miscope.sTotal|  percentage:0}}"> {{miscope.sCount/miscope.sTotal | percentage:0}} </div> </div> <div class="feeds"> <div class="mission-feed" ng-repeat="feed in citizenFeeds"> <div class="mission-news-type"> <img ng-src="images/type-{{feed.type}}.png"> </div> <div class="mission-news-content"> <div class="effect">{{feed.effect}}</div> {{feed.title}} </div> </div> </div> </div> <div class="col-xs-3 text-center" style="border-bottom:5px solid #C2003F; height:400px"> <div id="mission_frame_citizen"> <!--      <img class="img-circle mission_frame_img" src="http://graph.facebook.com/{{miscope.newCitizen[0].fid}}/picture?type=square&width=100&height=100" style="border:5px solid #C2003F; width:150px;height:150px;">--> <h3 class="mission_frame_name">公民V</h3> </div> <div id="mission_frame_citizen_list"> <h4><strong>新加入公民V：</strong></h4> <h5 style="color:black" ng-repeat="citizen in miscope.newCitizen.slice(0,3)"> {{citizen.name}} （ {{citizen.type}} ） </h5> <h5 style="color:black" ng-show="miscope.newCitizen.length > 3">...</h5> </div> </div> </div> <div style="height:50px"></div> <div class="text-center" id="mission_map_title" style="width:100%"> <img src="images/mission_map_title.svg" style="width:80%;max-width:1000px;min-width:800px"> </div> <div class="text-center" style="min-height:50px;padding:50px"> 參戰說明文字參戰說明文字參戰說明文字參戰說明文字參戰說明文字參戰說明文字 <h3> 若地圖無法正常顯示，請按「重新整理」</h3> </div> </div> <div class="main-container" style="width:100%;min-width:1000px"> <div ng-controller="MapCtrl" ng-include="'views/map.html'"></div> </div>
+<div class="main-container">
+  <div style="height:50px"></div>
+
+  <div class="citizen_v">
+    <div class="row" >
+      <div class="col-xs-12 text-center">
+        <div class="citizen_v_title text-center">
+          <h3 style="display:inline;  color:#ffffff; top: -10px;position: absolute;left: 30px;">公民 v 的士氣喊話</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="border-top:5px solid #C2003F; border-bottom:5px solid #C2003F; ">
+      <div class="col-xs-2 text-center">
+        <div style="padding:10px;">
+          <img class="img-circle" style="border:3px solid #C2003F; padding:5px;" src="http://fakeimg.pl/150/?text=Avatar">
+        </div>
+      </div>
+      <div class="col-xs-2 text-center" >
+        <div class="citizen_header_slash" style="height:190px; width:180px;">
+        </div>
+      </div>
+      <div class="col-xs-8">
+        <div style="padding:10px;">
+          <h3>
+            死了一個我還有千千萬萬個我
+          </h3>
+          <h3>
+            祭止兀受死吧!!!!
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center" style="width:100%;">
+  <img src="images/mission_middle_header.svg" style="width:80%;margin-bottom:-5px;max-width:1000px;min-width:800px;"></img>
+  </div>
+
+  <div class="row mymap">
+
+    <div class="col-xs-3 text-center" style="border-bottom:5px solid #C2003F; height:400px;" >
+      <div id="mission_frame_boss"> 
+        <img class="img-circle mission_frame_img" src="{{miscope.boss.img}}" style="border:5px solid #C2003F;width:150px;">
+        <h3 class="mission_frame_name">{{miscope.boss.name}}</h3>
+      </div>
+    </div>
+    <div class="col-xs-3" style="border-right:5px solid #C2003F;border-bottom:5px solid #C2003F;height:400px;">
+      <div class="mission_progress_txt"><strong>HP</strong></div> 
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          60%
+        </div>
+      </div>
+      <div class="feeds">
+        <div class="mission-feed" ng-repeat="feed in bossFeeds">
+          <div class="mission-news-type">
+            <img ng-src="images/type-{{feed.type}}.png" />
+          </div>
+          <div class="mission-news-content">
+            <div class="effect">{{feed.effect}}</div>
+            {{feed.title}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-3" style="border-bottom:5px solid #C2003F; height:400px;">
+      <div class="mission_progress_txt"><strong>志工數：{{miscope.vCount}} / {{miscope.vTotal}} </strong>
+        <div class="imgMissionWrap" ng-click="miscope.missionAdd()">
+          <div class="imgMissionArrow"></div>
+          <div class="imgMissionDescription" style="overflow:hidden;">
+            志工參戰 
+          </div>
+          <img src="images/mission_add.svg">
+        </div>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.vCount/miscope.vTotal}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.vCount/miscope.vTotal|  percentage:0}};">
+          {{miscope.vCount/miscope.vTotal |  percentage:0}}
+        </div>
+      </div>
+      <div class="mission_progress_txt"><strong>物資數：{{miscope.sCount}} / {{miscope.sTotal}} </strong>
+        <div class="imgMissionWrap" ng-click="miscope.missionAdd()">
+          <div class="imgMissionArrow"></div>
+          <div class="imgMissionDescription" style="overflow:hidden;">
+            物資參戰 
+          </div>
+          <img src="images/mission_add.svg">
+        </div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.sCount/miscope.sTotal}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.sCount/miscope.sTotal|  percentage:0}};">
+          {{miscope.sCount/miscope.sTotal |  percentage:0}}
+        </div>
+      </div>
+      <div class="feeds">
+        <div class="mission-feed" ng-repeat="feed in citizenFeeds">
+          <div class="mission-news-type">
+            <img ng-src="images/type-{{feed.type}}.png" />
+          </div>
+          <div class="mission-news-content">
+            <div class="effect">{{feed.effect}}</div>
+            {{feed.title}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-3 text-center" style="border-bottom:5px solid #C2003F; height:400px;">
+
+      <div id="mission_frame_citizen"> 
+  <!--      <img class="img-circle mission_frame_img" src="http://graph.facebook.com/{{miscope.newCitizen[0].fid}}/picture?type=square&width=100&height=100" style="border:5px solid #C2003F; width:150px;height:150px;">-->
+        <h3 class="mission_frame_name">公民V</h3>
+      </div>
+      <div id="mission_frame_citizen_list">
+        <h4 ng-show="miscope.newCitizen.length > 0 "><strong>新加入公民V：</strong></h4>
+        <h5 style="color:black;" ng-repeat="citizen in miscope.newCitizen.slice(0,3)">
+            {{citizen.name}} （ {{citizen.type}} ）
+        </h5>
+        <h5 style="color:black;" ng-show="miscope.newCitizen.length > 3">...</h5>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:50px"></div>
+
+  <div class="text-center" id="mission_map_title" style="width:100%;">
+  <img src="images/mission_map_title.svg" style="width:80%;max-width:1000px;min-width:800px;"></img>
+  </div>
+
+  <div class="text-center" style="min-height:50px;padding:50px;">
+  參戰說明文字參戰說明文字參戰說明文字參戰說明文字參戰說明文字參戰說明文字
+  <h3> 若地圖無法正常顯示，請按「重新整理」</h3>
+  </div>
+</div>
+<div class="main-container" style="width:95%;min-width:1000px;">
+  <div ng-controller="MapCtrl" ng-include="'views/map.html'"></div>
+</div>
+

@@ -2,7 +2,148 @@
 <button type="button" class="btn btn-primary" ng-click="myscope.reload()">
   <i class="fa fa-chevron-left"></i>reload 
 </button>
---> <div class="row mymap" style="margin-bottom:10px"> <div id="map_main" class="col-xs-8 col-lg-9 map_border map_short"><!-- ng-class="myscope.mapclass">--> <!--<leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" layers="layers" style="height:100%;"></leaflet>--> <leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" style="height:100%"></leaflet> <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px" class="myLoading"> <div style="position:relative; color:#ffffff; top:60%;text-align:center"> <h1 style="color:#ffffff">{{myscope.mapLoadingStatus | percentage:0 }}</h1> </div> <div id="mySpinner"> </div> </div> </div> <div id="map_sidebar" class="col-xs-4 col-lg-3 map_border_noleft map_short"><!-- ng-class="myscope.mapclass">--> <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px" class="myLoading"> </div> <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px" ng-show="myscope.showVS == null"> <div class="map_panel_heading"> <h3> 魔王領土兵屯列表 </h3> <img class="map_v_image" src="images/map_panel_v.svg"> </div> <div id="map_sidebar_townlist" class="panel-body map_border_top map_sb_scroll"> <ul class="nav nav-stacked" ng-repeat="(townKey,townVal) in myscope.villageSum"> <li ng-click="myscope.setTownTab(townKey)" style="cursor:pointer" ng-class="myscope.isCurrentTownTab(townKey)">{{townKey}}</li> </ul> </div> <div id="map_sidebar_village" class="panel-body map_border_top map_sb_scroll"> <div class="map_sidebar_padding"> </div> <div ng-repeat="(townKey,townVal) in myscope.villageSum" ng-show="myscope.currentTownTab == townKey"> <div ng-repeat="(villKey,villVal) in townVal"> <div class="row"> <div class="col-xs-7 col-md-8"> <div class="progress"> <div class="progress-bar" role="progressbar" aria-valuenow="{{villVal*100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{villVal*100}}%"> {{villVal | percentage:0}} </div> </div> </div> <div class="col-xs-5 col-md-4"> <a href="javascript:void(0);" ng-click="myscope.setCurrentAreaClick(townKey,villKey)"> {{villKey}}</a> </div> </div> </div> </div> </div> </div> <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px" ng-show="myscope.showVS != null"> <div class="map_panel_heading"> <h3> 兵屯詳細概況 </h3> <span ng-show="myscope.showVS.vsArray.length > 0"> <img class="map_vs_image" src="images/map_panel_vs_1.svg" ng-show=" myscope.getVoteStatImg() == 1"> <img class="map_vs_image" src="images/map_panel_vs_2.svg" ng-show=" myscope.getVoteStatImg() == 2"> <img class="map_vs_image" src="images/map_panel_vs_3.svg" ng-show=" myscope.getVoteStatImg() == 3"> </span> <span ng-show="myscope.showVS.vsArray.length == 0"> <img class="map_vs_image" src="images/map_panel_vs_3.svg"> </span> </div> <div id="map_sidebar_vslist" class="panel-body map_border_top map_sb_scroll"> <div class="back-button" style="" ng-show="myscope.showVS != null"> <button type="button" class="btn btn-primary" style="height:30px;padding-top:5px" ng-click="myscope.back()"> Back </button> <strong style="display:inline-block"> {{myscope.showVS.townName}} {{myscope.showVS.villageName}} 投開票所： </strong> </div> <div style="height:15px"></div> <ul class="nav nav-stacked" ng-repeat="votestat in myscope.showVS.vsArray"> <li ng-click="myscope.setCurrentMarkerClick(votestat.id, true)" style="cursor:pointer" ng-class="myscope.isCurrentVsTab(votestat.id)">{{votestat.name}}</li> </ul> <span ng-show="myscope.showVS.vsArray.length == 0"> <p>此里沒有投開票所</p> </span> </div> <div id="map_sidebar_votestat" class="panel-body map_border_top map_sb_scroll"> <div class="map_sidebar_padding"> </div> <div ng-if="myscope.showVS.vsArray.length > 0"> <div style="padding:10px 0px"> <strong>投開票所地址：</strong>{{myscope.vsInfo[myscope.currentVsTab.vsId].address}} </div> <div style="padding:10px 0px"> <h4 style="display:inline-block">志工數：{{myscope.vsInfo[myscope.currentVsTab.vsId].vlist.length}} / {{myscope.volCount * myscope.vsInfo[myscope.currentVsTab.vsId].vweight}} </h4> <div id="hp_people" style="margin:5px;display:inline-block"> <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(0,2) track by $index"> <div class="imgArrow"></div> <div class="imgDescription" style="overflow:hidden"> {{name[1]}} </div> <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square"> </div> <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(2) track by $index" ng-show="myscope.hpPeopleMore"> <div class="imgArrow"></div> <div class="imgDescription" style="overflow:hidden"> {{name[1]}} </div> <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square"> </div> <div class="map_fb_more_less" ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" ng-click="myscope.hpPeopleClick()"> <span ng-show="!myscope.hpPeopleMore"> more </span> <span ng-show="myscope.hpPeopleMore"> less </span> </div> </div> <div class="progress"> <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo[myscope.currentVsTab.vsId].volunteer * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo[myscope.currentVsTab.vsId].volunteer * 100}}%"> </div> </div> <button type="button" class="map_button" ng-click="myscope.registerDialog('volunteer')"> 志工參戰 </button> <!--
+-->
+<div class="row mymap" style="margin-bottom:10px;">
+  <div id="map_main" class="col-xs-8 col-lg-9 map_border map_short"><!-- ng-class="myscope.mapclass">-->
+    <!--<leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" layers="layers" style="height:100%;"></leaflet>-->
+    <leaflet markers="markers" defaults="defaults" geojson="geojson" maxbounds="maxbounds" style="height:100%;"></leaflet>
+    <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
+      <div style="position:relative; color:#ffffff; top:60%;text-align:center;">
+        <h1 style="color:#ffffff">{{myscope.mapLoadingStatus |  percentage:0 }}</h1>
+      </div>
+      <div id="mySpinner" >
+      </div>
+    </div>
+  </div>
+  <div id="map_sidebar" class="col-xs-4 col-lg-3 map_border_noleft map_short"><!-- ng-class="myscope.mapclass">-->
+    <div style="width: 100%; height: 100%; background: #333333; z-index: 200000; position: absolute; top: 0px; " class="myLoading">
+    </div>
+    <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS == null" >
+
+      <div class="map_panel_heading" >
+        <h3>
+          魔王領土兵屯列表
+        </h3>
+        <img class="map_v_image" src="images/map_panel_v.svg" />
+      </div>
+
+      <div id="map_sidebar_townlist" class="panel-body map_border_top map_sb_scroll" >
+        <ul class="nav nav-stacked" ng-repeat="(townKey,townVal) in myscope.villageSum" >
+          <li ng-click='myscope.setTownTab(townKey)' style="cursor:pointer;" ng-class="myscope.isCurrentTownTab(townKey)">{{townKey}}</li>
+        </ul>
+      </div>
+      <div id="map_sidebar_village" class="panel-body map_border_top map_sb_scroll" >
+        <div class="map_sidebar_padding">
+        </div>
+        <div ng-repeat="(townKey,townVal) in myscope.villageSum" ng-show="myscope.currentTownTab == townKey">
+          <div ng-repeat="(villKey,villVal) in townVal">
+            <div class="row">
+              <div class="col-xs-7 col-md-8">
+                <div class="progress ">
+                  <div class="progress-bar " role="progressbar" aria-valuenow="{{villVal*100}}" 
+                    aria-valuemin="0" aria-valuemax="100" style="width: {{villVal*100}}%;">
+                    {{villVal |  percentage:0}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-5 col-md-4">
+                <a href="javascript:void(0);" ng-click="myscope.setCurrentAreaClick(townKey,villKey)"> {{villKey}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="panel panel-default area-info" style="width:100%;padding:0px;margin:0px;border:0px;" ng-show="myscope.showVS != null" >
+      <div class="map_panel_heading">
+        <h3>
+          兵屯詳細概況
+        </h3>
+        <span ng-show="myscope.showVS.vsArray.length > 0"> 
+          <img class="map_vs_image" src="images/map_panel_vs_1.svg" ng-show=" myscope.getVoteStatImg() == 1"/>
+          <img class="map_vs_image" src="images/map_panel_vs_2.svg" ng-show=" myscope.getVoteStatImg() == 2"/>
+          <img class="map_vs_image" src="images/map_panel_vs_3.svg" ng-show=" myscope.getVoteStatImg() == 3"/>
+        </span>
+        <span ng-show="myscope.showVS.vsArray.length == 0"> 
+          <img class="map_vs_image" src="images/map_panel_vs_3.svg"/>
+        </span>
+      </div>
+
+      <div id="map_sidebar_vslist" class="panel-body map_border_top map_sb_scroll" >
+        <div class="back-button" style="" ng-show="myscope.showVS != null">
+          <button type="button" class="btn btn-primary" style="height:30px;padding-top:5px;" ng-click="myscope.back()">
+            Back
+          </button>
+          <strong style="display:inline-block"> 
+            {{myscope.showVS.townName}} {{myscope.showVS.villageName}} 投開票所：
+          </strong>
+        </div>
+
+        <div style="height:15px;"></div>
+
+        <ul class="nav nav-stacked" ng-repeat="votestat in myscope.showVS.vsArray" >
+          <li ng-click='myscope.setCurrentMarkerClick(votestat.id, true)' style="cursor:pointer;" ng-class="myscope.isCurrentVsTab(votestat.id)">{{votestat.name}}</li>
+        </ul>
+        <span ng-show="myscope.showVS.vsArray.length == 0"> 
+          <p>此里沒有投開票所</p>
+        </span>
+
+      </div>
+
+      <div id="map_sidebar_votestat" class="panel-body map_border_top map_sb_scroll" >
+        <div class="map_sidebar_padding">
+        </div>
+        <div ng-if="myscope.showVS.vsArray.length > 0">
+          <div style="padding:10px 0px;">
+              <strong>投開票所地址：</strong>{{myscope.vsInfo[myscope.currentVsTab.vsId].address}}
+          </div>
+          <div style="padding:10px 0px;">
+
+            <h4 style="display:inline-block;">志工數：{{myscope.vsInfo[myscope.currentVsTab.vsId].vlist.length}} /
+              {{myscope.volCount * myscope.vsInfo[myscope.currentVsTab.vsId].vweight}}
+            </h4> 
+            <div id="hp_people" style="margin:5px;display:inline-block;" >
+              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(0,2) track by $index">
+                <div class="imgArrow"></div>
+                <div class="imgDescription" style="overflow:hidden;">
+                  {{name[1]}}
+                </div>
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
+              </div>
+              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(2) track by $index" ng-show="myscope.hpPeopleMore">
+                <div class="imgArrow"></div>
+                <div class="imgDescription" style="overflow:hidden;">
+                  {{name[1]}}
+                </div>
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
+              </div>
+              <div class="map_fb_more_less" ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" ng-click="myscope.hpPeopleClick()">
+                <span ng-show="!myscope.hpPeopleMore">
+                  more
+                </span>
+                <span ng-show="myscope.hpPeopleMore">
+                  less
+                </span>
+              </div>
+            </div>
+
+
+
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo[myscope.currentVsTab.vsId].volunteer * 100}}" 
+                aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo[myscope.currentVsTab.vsId].volunteer * 100}}%;">
+              </div>
+            </div>
+
+            <button type="button" class="map_button" ng-click="myscope.registerDialog('volunteer')">
+              志工參戰 
+            </button>
+
+            <!--
             <div id="hp_people" style="margin:5px" >
               <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist track by $index">
                 <div class="imgArrow"></div>
@@ -12,10 +153,70 @@
                 <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
               </div>
             </div>
-            --> </div> <div style="padding:10px 0px"> <h4 style="display:inline-block">物資數：{{myscope.vsInfo[myscope.currentVsTab.vsId].sItemSum}} / {{myscope.vsInfo[myscope.currentVsTab.vsId].sTotalSum}} </h4> <div id="sp_people" style="margin:5px;display:inline-block"> <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(0,2) track by $index"> <div class="imgArrow"></div> <div class="imgDescription" style="overflow:hidden"> {{name[1]}} </div> <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square"> </div> <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(2) track by $index" ng-show="myscope.spPeopleMore"> <div class="imgArrow"></div> <div class="imgDescription" style="overflow:hidden"> {{name[1]}} </div> <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square"> </div> <div class="map_fb_more_less" ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" ng-click="myscope.spPeopleClick()"> <span ng-show="!myscope.spPeopleMore"> more </span> <span ng-show="myscope.spPeopleMore"> less </span> </div> </div> <div class="progress"> <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}%"> </div> </div> <div id="supply" style="margin:5px"> <!--<span style="margin:2px" ng-repeat="(item,tcount) in myscope.vsInfo[myscope.currentVsTab.vsId].sItemTotal">
+            -->
+          </div>
+          <div style="padding:10px 0px;">
+
+            <h4 style="display:inline-block;">物資數：{{myscope.vsInfo[myscope.currentVsTab.vsId].sItemSum}} / 
+              {{myscope.vsInfo[myscope.currentVsTab.vsId].sTotalSum}}
+            </h4> 
+            <div id="sp_people" style="margin:5px;display:inline-block;" >
+              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(0,2) track by $index">
+                <div class="imgArrow"></div>
+                <div class="imgDescription" style="overflow:hidden;">
+                  {{name[1]}}
+                </div>
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
+              </div>
+              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(2) track by $index" ng-show="myscope.spPeopleMore">
+                <div class="imgArrow"></div>
+                <div class="imgDescription" style="overflow:hidden;">
+                  {{name[1]}}
+                </div>
+                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
+              </div>
+              <div class="map_fb_more_less" ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" ng-click="myscope.spPeopleClick()">
+                <span ng-show="!myscope.spPeopleMore">
+                  more
+                </span>
+                <span ng-show="myscope.spPeopleMore">
+                  less
+                </span>
+              </div>
+            </div>
+
+
+
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}" 
+                aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}%;">
+              </div>
+            </div>
+
+
+            <div id="supply" style="margin:5px" >
+              <!--<span style="margin:2px" ng-repeat="(item,tcount) in myscope.vsInfo[myscope.currentVsTab.vsId].sItemTotal">
                 <img src="images/supply_{{ myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount[item] >= tcount && 'r'  || 'g' }}_{{item}}.svg" style="width:40px;">
-              </span>--> <div class="imgWrap" ng-repeat="(item,count) in myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount"> <div class="imgArrow"></div> <div class="imgDescription"> <p> {{myscope.supplementItem[item][1]}} </p> <p>{{myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount[item]}} / {{myscope.supplementItem[item][0] * myscope.vsInfo[myscope.currentVsTab.vsId].vweight}} </p> </div> <img src="images/supply_{{ count >= myscope.supplementItem[item][0] * myscope.vsInfo[myscope.currentVsTab.vsId].vweight
-                   && 'r'  || 'g' }}_{{item}}.svg"> </div> </div> <button type="button" class="map_button" ng-click="myscope.registerDialog('supplement')"> 物資參戰 </button> <!--
+              </span>-->
+
+              <div class="imgWrap" ng-repeat="(item,count) in myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount">
+                <div class="imgArrow"></div>
+                <div class="imgDescription">
+                  <p> {{myscope.supplementItem[item][1]}} </p>
+                  <p>{{myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount[item]}} / 
+                    {{myscope.supplementItem[item][0] * myscope.vsInfo[myscope.currentVsTab.vsId].vweight}}
+                  </p>
+                </div>
+                <img src="images/supply_{{ count >= myscope.supplementItem[item][0] * myscope.vsInfo[myscope.currentVsTab.vsId].vweight
+                   && 'r'  || 'g' }}_{{item}}.svg" >
+              </div>
+            </div>
+
+            <button type="button" class="map_button" ng-click="myscope.registerDialog('supplement')">
+              物資參戰  
+            </button>
+
+            <!--
             <div id="sp_people" style="margin:5px" >
               <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist track by $index">
                 <div class="imgArrow"></div>
@@ -25,7 +226,47 @@
                 <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
               </div>
             </div>
-            --> </div> </div> </div> </div> </div> </div> <div class="text-center"> <h3 ng-show="myscope.markerlatlng">投開票所經緯度：{{myscope.markerlatlng}}</h3> </div> <div style="height:200px"> <div class="text-center"> <img src="images/map_bottom_1.svg" style="margin:20px;width:240px"> <a href="#/mroute/TPE-4" ng-show="(myscope.county != 'TPE-4') " id="mroute-TPE-4" style="visibility:hidden"> <div class="mission_foot_bottom"> <h3> 蔡正元 </h3> </div> </a> <a href="#/mroute/TPQ-6" ng-show="(myscope.county != 'TPQ-6') " id="mroute-TPQ-6" style="visibility:hidden"> <div class="mission_foot_bottom"> <h3> 林鴻池 </h3> </div> </a> <a href="#/mroute/TPQ-1" ng-show="(myscope.county != 'TPQ-1') " id="mroute-TPQ-1" style="visibility:hidden"> <div class="mission_foot_bottom"> <h3> 吳育昇 </h3> </div> </a> </div> </div> <script>var opts = {
+            -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="text-center">
+  <h3 ng-show="myscope.markerlatlng">投開票所經緯度：{{myscope.markerlatlng}}</h3>
+</div>
+
+
+<div style="height:200px" >
+  <div class="text-center">
+    <img src="images/map_bottom_1.svg" style="margin:20px;width:240px;"></img>
+
+    <a href="#/mroute/TPE-4" ng-show="(myscope.county != 'TPE-4') " id="mroute-TPE-4" style="visibility:hidden;">
+      <div class="mission_foot_bottom">
+        <h3> 蔡正元 </h3>
+      </div>
+    </a>
+
+    <a href="#/mroute/TPQ-6" ng-show="(myscope.county != 'TPQ-6') " id="mroute-TPQ-6" style="visibility:hidden;">
+      <div class="mission_foot_bottom">
+        <h3> 林鴻池 </h3>
+      </div>
+    </a>
+
+    <a href="#/mroute/TPQ-1" ng-show="(myscope.county != 'TPQ-1') " id="mroute-TPQ-1" style="visibility:hidden;">
+      <div class="mission_foot_bottom">
+        <h3> 吳育昇 </h3>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+<script>
+var opts = {
   lines: 13, // The number of lines to draw
   length: 21, // The length of each line
   width: 10, // The line thickness
@@ -83,4 +324,6 @@ $(document).ready(function(){
     $(window).resize(checkHeight);
   },0);
 
-});</script>
+});
+</script>
+
