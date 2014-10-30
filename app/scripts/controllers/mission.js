@@ -38,15 +38,15 @@ angular.module('projectVApp')
     $scope.miscope.newCitizen = [];
     $scope.miscope.mapLoadingComplete = false;
 
-    FeedService.parseFeed('http://yurenju.tumblr.com/rss').then(function(res) {
+    FeedService.parseFeed('http://appytw.tumblr.com/rss').then(function(res) {
       var rawFeeds = res.data.responseData.feed.entries;
       var feeds = [];
       var bossFeeds = [];
       var citizenFeeds = [];
       angular.forEach(rawFeeds, function(feed) {
         angular.forEach(feed.categories, function(c) {
-          if (c.indexOf(areaPrefix + county) === 0) {
-            feeds.push(feed);
+          if (c.indexOf(areaPrefix) === 0) {
+            feed.area = c.substr(areaPrefix.length);
           } else if (c.indexOf(effectPrefix) === 0) {
             feed.effect = c.substr(effectPrefix.length).replace('-', ' ');
           } else if (c.indexOf(typePrefix) === 0) {
@@ -55,16 +55,22 @@ angular.module('projectVApp')
             feed.target = c.substr(targetPrefix.length);
           }
         });
+        if (!feed.area) {
+          feed.area = 'all';
+        }
         if (!feed.type) {
           var fakeTypes = ['boss', 'fighting'];
           feed.type = fakeTypes[Math.floor(Math.random() * fakeTypes.length)];
         }
+        if (feed.area === 'all' || feed.area === county) {
+          feeds.push(feed);
+        }
       });
 
       angular.forEach(feeds, function(f) {
-        if (f.target !== 'citizen') {
+        if (f.target === 'boss') {
           bossFeeds.push(f);
-        } else {
+        } else if (f.target === 'citizen') {
           citizenFeeds.push(f);
         }
       });
@@ -115,6 +121,6 @@ angular.module('projectVApp')
     //$scope.$on('mapLoadingComplete',function(){
     //  $scope.miscope.mapLoadingComplete = true;
     //});
-    
+
 
   });
