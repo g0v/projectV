@@ -33,19 +33,21 @@
         <!-- Add your site or application content here -->
         <div class="container">
           <div class="header" ng-controller="PagesCtrl">
-            <ul class="navigation">
-              <li class="navigation" id="nav-home">
-                <a href="#/">
-                  <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-02.svg" alt="home" />
-                </a>
-              </li>
-              <li ng-repeat="page in pages" class="navigation" id="{{page.cssid}}">
-                <a class="nav-link" ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}">
-                  <span ng-bind="page.name"></span>
-                </a>
-              </li>
-              <li class="navigation"><a class="nav-link" href="https://www.facebook.com/Appendectomy" target="_blank">&nbsp;<strong>f</strong>&nbsp;</a></li>
-            </ul>
+            <span ng-show="showNav">
+              <ul class="navigation">
+                <li class="navigation" id="nav-home">
+                  <a href="#/">
+                    <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-02.svg" alt="home" />
+                  </a>
+                </li>
+                <li ng-repeat="page in pages" class="navigation" id="{{page.cssid}}">
+                  <a class="nav-link" ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}">
+                    <span ng-bind="page.name"></span>
+                  </a>
+                </li>
+                <li class="navigation"><a class="nav-link" href="https://www.facebook.com/Appendectomy" target="_blank">&nbsp;<strong>f</strong>&nbsp;</a></li>
+              </ul>
+            </span>
           </div>
           <div ng-view=""></div>
         </div>

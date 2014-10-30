@@ -511,7 +511,6 @@ angular.module('projectVApp')
     $scope.$on('leafletDirectiveMap.geojsonClick', areaClick);
     
     $scope.myscope.registerDialog = function(type) {
-
       var modalInstance = $modal.open({
         templateUrl:'views/register.html',
         controller: 'registerDialogController',
@@ -521,6 +520,7 @@ angular.module('projectVApp')
             return {
               county: county,
               type: type,
+              nonArea: false,
               vsId: $scope.myscope.currentVsTab.vsId,
               vsName: $scope.myscope.currentVsTab.vsName, 
               supCount: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].sItemCount,
@@ -534,7 +534,6 @@ angular.module('projectVApp')
         //loadData(false);
         $scope.$emit('dataReload');
       }); 
-
     };  
 
 

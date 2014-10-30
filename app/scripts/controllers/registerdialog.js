@@ -166,6 +166,7 @@ angular.module('projectVApp')
 
   $scope.regscope.fbshare = true;
   $scope.regscope.type = data.type;
+  $scope.regscope.nonArea = data.nonArea;
   $scope.regscope.supCount = data.supCount;
   $scope.regscope.supWeight = data.supWeight;
   //console.log('data',data);

@@ -50,7 +50,7 @@
             勇者呀！該如何稱呼您呢？（facebook暱稱或名字）<br/>
             <strong>{{content.name}}</strong><br/>
           </p> 
-          <p>
+          <p ng-show="!regscope.nonArea">
             勇者呀！該想要在哪裡紮營？（認養的投開票所）<br/>
             <strong>{{content.votestat}}</strong>
           </p>
@@ -62,7 +62,7 @@
           勇者呀！該如何聯繫你呀？<strong>（請填入手機，重大訊息會在重要時刻與你聯繫！）</strong><br/>
           <input type="text" name="phone" required data-ng-model="content.phone"></input>
         </p> 
-        <p>
+        <p >
           勇者呀！該如何寄資訊給你呀？<strong>（請填入E-Mail）</strong><br/>
           <input type="email" name="email" required data-ng-model="content.email"></input>
         </p> 
@@ -72,13 +72,13 @@
             想要捐贈什麼物資裝備？<strong>（想要幫忙提供什麼物資？）</strong><br/>
           </p>
           <table class="register_supplement">
-            <tr><th>項目</th><th>尚缺</th><th>我要提供</th></tr>
+            <tr><th>項目</th><th ng-show="!regscope.nonArea">尚缺</th><th>我要提供</th></tr>
             <tr ng-repeat="(ikey,ival) in regscope.selectItems">
               <td>
                 {{ ival[1] }}  
               </td>
-              <td>
-                {{ regscope.supCount[ikey] + content.supplement[ikey] }}/{{ ival[0] * regscope.supWeight }}
+              <td ng-show="!regscope.nonArea">
+                  {{ regscope.supCount[ikey] + content.supplement[ikey] }}/{{ ival[0] * regscope.supWeight }}
               </td>
               <td>
                 <input type="number" name="supplement[ikey]" style="width:40px;margin-left:20px;" ng-model="content.supplement[ikey]" min="0" required > 
@@ -109,17 +109,23 @@
         </p> 
 
         <span ng-show="regscope.type == 'supplement'">
-          <p >
+          <p>
             <strong>想要幫忙提供的物資：</strong><br/>
           </p>
           <table class="register_supplement">
-            <tr><th>項目</th><th>尚缺</th><th>我要提供</th></tr>
+            <tr>
+              <th>項目</th>
+              <th ng-show="!regscope.nonArea">
+                尚缺 
+              </th>
+              <th>我要提供</th>
+            </tr>
             <tr ng-repeat="(ikey,ival) in regscope.selectItems">
               <td>
                 {{ ival[1] }}  
               </td>
-              <td>
-                {{ regscope.supCount[ikey] + content.supplement[ikey] }}/{{ ival[0] * regscope.supWeight }}
+              <td ng-show="!regscope.nonArea">
+                {{regscope.supCount[ikey] + content.supplement[ikey] }}/{{ ival[0] * regscope.supWeight }}
               </td>
               <td>
                 {{content.supplement[ikey]}}
