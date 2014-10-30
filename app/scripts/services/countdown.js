@@ -14,12 +14,15 @@ angular.module('projectVApp')
         var ms = future - current;
         var hours = parseInt(ms / 1000 / 60 / 60);
         var minutes = parseInt((ms / (1000 * 60)) - 60 * hours);
-        var countdown = parseInt(ms / 1000 / 60 / 60 / 24);
+
+        var seconds = parseInt((ms / 1000) % 60);
+        var ratio = parseInt(seconds * 5 /3);
 
         return {
           hours: hours,
           minutes: minutes,
-          countdown: countdown
+          seconds: seconds,
+          ratio: ratio
         };
       }
     };
