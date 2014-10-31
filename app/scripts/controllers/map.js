@@ -280,6 +280,7 @@ angular.module('projectVApp')
 
 
     function areaClick(ev, featureSelected, leafletEvent) {
+      $scope.$emit('dataReload');
       var townName = leafletEvent.target.feature.properties.town;
       var villageName = leafletEvent.target.feature.properties.village;
       var layer = leafletEvent.target;
@@ -304,6 +305,7 @@ angular.module('projectVApp')
     }
     
     $scope.myscope.setCurrentAreaClick = function(townName, villageName){
+      $scope.$emit('dataReload');
       $scope.leafletData.getGeoJSON().then(function(localGeojson) {
         var geoLayers = localGeojson.getLayers(); 
         angular.forEach(geoLayers,function(layer) {
@@ -353,7 +355,7 @@ angular.module('projectVApp')
       });
       if(markerArray.length > 0){
         drawVoteStation(markerArray);
-        $scope.myscope.setCurrentMarkerClick(currentVsId);
+        $scope.myscope.setCurrentMarkerClick(currentVsId, false, false);
       }
 
       $scope.leafletData.getMap().then(function(map){
@@ -376,12 +378,15 @@ angular.module('projectVApp')
     }
   
 
-    $scope.myscope.setCurrentMarkerClick = function(markerName, tomarker){
+    $scope.myscope.setCurrentMarkerClick = function(markerName, tomarker, reload){
 
       $scope.myscope.spPeopleMore = false;
       $scope.myscope.hpPeopleMore = false;
 
       var thisMarker = $scope.markers[markerName];
+      //if(lastClickMarker == thisMarker){
+      //  return;
+      //}
       currentClickMarkerIndex = thisMarker.mypos;
       setVotestatTab(markerName);
       if(lastClickMarker){
@@ -395,6 +400,9 @@ angular.module('projectVApp')
           map.setView({lat:thisMarker.lat,lng:thisMarker.lng}); 
         });
       }
+      //if(reload){
+      //  $scope.$emit('dataReload');
+      //}
     };
 
     $scope.myscope.setTownTab = function(townName){
@@ -436,7 +444,9 @@ angular.module('projectVApp')
     };
 
     $scope.myscope.back = function() {
+      $scope.$emit('dataReload');
       $scope.myscope.showVS = null;
+      lastClickMarker = null;
       currentClickMarkerIndex = 0;
       $scope.markers = {};
       if(lastClickLayer){
@@ -481,7 +491,7 @@ angular.module('projectVApp')
 
       $scope.$on('leafletDirectiveMarker.click', function(e, args) {
         //console.log('marker mouse click');
-        $scope.myscope.setCurrentMarkerClick(args.markerName);
+        $scope.myscope.setCurrentMarkerClick(args.markerName,false,true);
       });
 
       $scope.$on('leafletDirectiveMarker.mouseover', function(e, args) {
@@ -552,7 +562,7 @@ angular.module('projectVApp')
           function() {}, 
           function(data){ 
             if(data.county = county){
-              console.log('county',county);
+              //console.log('county',county);
 
               $scope.myscope.mapLoadingStatus = data.loadingStatus*0.2;
               if(!jQuery.isEmptyObject(data.villageArea) ){
@@ -567,7 +577,7 @@ angular.module('projectVApp')
               }
             }
             else{
-              console.log('different county',data.county,county);
+              //console.log('different county',data.county,county);
             }
             //console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
 
@@ -598,8 +608,6 @@ angular.module('projectVApp')
             $scope.leafletData.getGeoJSON().then(function(localGeojson) {
               var geoLayers = localGeojson.getLayers(); 
               angular.forEach(geoLayers,function(layer) {
-                //console.log('setArea');
-
                 var lTownName = layer.feature.properties.town;
                 var lVillageName = layer.feature.properties.village;
                 layer.feature.properties.mycolor = mycolor($scope.myscope.villageSum[lTownName][lVillageName]);
@@ -638,7 +646,7 @@ angular.module('projectVApp')
 
     loadData(true);
     $scope.$on('dataReload',function(){
-       console.log('map load data');
+       console.log('dataReload');
        loadData(false);
     });
 
