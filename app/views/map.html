@@ -107,21 +107,48 @@
               {{myscope.volCount * myscope.vsInfo[myscope.currentVsTab.vsId].vweight}}
             </h4> 
             <div id="hp_people" style="margin:5px;display:inline-block;" >
-              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(0,2) track by $index">
+              <!--
+              <div ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(0,2) track by $index">
+                <div class="map_participant" > {{name}} </div>
+              </div>
+              <div ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(2) track by $index"
+                ng-show="myscope.hpPeopleMore">
+                <div class="map_participant" > {{name}} </div>
+              </div>
+              <div ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].vlist.length > 2" 
+                ng-click="myscope.hpPeopleClick()">
+                <div class="map_participant" > 
+                  <span ng-show="!myscope.hpPeopleMore">
+                    more
+                  </span>
+                  <span ng-show="myscope.hpPeopleMore">
+                    less
+                  </span>
+                </div>
+              </div>
+            </div>--!>
+              <div class="imgWrap" 
+                ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(0,2) track by $index">
                 <div class="imgArrow"></div>
                 <div class="imgDescription" style="overflow:hidden;">
-                  {{name[1]}}
+                  {{name}}
                 </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
+                <img class="img-circle map_fb_image" 
+                  src="images/map_panel_v.svg">
               </div>
-              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(2) track by $index" ng-show="myscope.hpPeopleMore">
+              <div class="imgWrap" 
+                ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(2) track by $index" 
+                ng-show="myscope.hpPeopleMore">
                 <div class="imgArrow"></div>
                 <div class="imgDescription" style="overflow:hidden;">
-                  {{name[1]}}
+                  {{name}}
                 </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
+                <img class="img-circle map_fb_image" 
+                  src="images/map_panel_v.svg">
               </div>
-              <div class="map_fb_more_less" ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" ng-click="myscope.hpPeopleClick()">
+              <div class="map_fb_more_less" 
+                ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].vlist.length > 2" 
+                ng-click="myscope.hpPeopleClick()">
                 <span ng-show="!myscope.hpPeopleMore">
                   more
                 </span>
@@ -143,17 +170,6 @@
               志工參戰 
             </button>
 
-            <!--
-            <div id="hp_people" style="margin:5px" >
-              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist track by $index">
-                <div class="imgArrow"></div>
-                <div class="imgDescription" style="overflow:hidden;">
-                  {{name[1]}}
-                </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
-              </div>
-            </div>
-            -->
           </div>
           <div style="padding:10px 0px;">
 
@@ -161,21 +177,48 @@
               {{myscope.vsInfo[myscope.currentVsTab.vsId].sTotalSum}}
             </h4> 
             <div id="sp_people" style="margin:5px;display:inline-block;" >
-              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(0,2) track by $index">
+              <!--
+              <div ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(0,2) track by $index">
+                <div class="map_participant" > {{name}} </div>
+              </div>
+              <div ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(2) track by $index"
+                  ng-show="myscope.spPeopleMore">
+                <div class="map_participant" > {{name}} </div>
+              </div>
+              <div ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" 
+                ng-click="myscope.spPeopleClick()">
+                <div class="map_participant" > 
+                  <span ng-show="!myscope.spPeopleMore">
+                    more
+                  </span>
+                  <span ng-show="myscope.spPeopleMore">
+                    less
+                  </span>
+                </div>
+              </div>
+            </div>-->
+              <div class="imgWrap" 
+                ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(0,2) track by $index">
                 <div class="imgArrow"></div>
                 <div class="imgDescription" style="overflow:hidden;">
-                  {{name[1]}}
+                  {{name}}
                 </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
+                <img class="img-circle map_fb_image" 
+                  src="images/map_panel_v.svg">
               </div>
-              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(2) track by $index" ng-show="myscope.spPeopleMore">
+              <div class="imgWrap" 
+                ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(2) track by $index" 
+                ng-show="myscope.spPeopleMore">
                 <div class="imgArrow"></div>
                 <div class="imgDescription" style="overflow:hidden;">
-                  {{name[1]}}
+                  {{name}}
                 </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=square">
+                <img class="img-circle map_fb_image" 
+                  src="images/map_panel_v.svg">
               </div>
-              <div class="map_fb_more_less" ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" ng-click="myscope.spPeopleClick()">
+              <div class="map_fb_more_less" 
+                ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" 
+                ng-click="myscope.spPeopleClick()">
                 <span ng-show="!myscope.spPeopleMore">
                   more
                 </span>
@@ -187,6 +230,7 @@
 
 
 
+
             <div class="progress">
               <div class="progress-bar" role="progressbar" aria-valuenow="{{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}" 
                 aria-valuemin="0" aria-valuemax="100" style="width: {{myscope.vsInfo[myscope.currentVsTab.vsId].supplement*100}}%;">
@@ -195,10 +239,6 @@
 
 
             <div id="supply" style="margin:5px" >
-              <!--<span style="margin:2px" ng-repeat="(item,tcount) in myscope.vsInfo[myscope.currentVsTab.vsId].sItemTotal">
-                <img src="images/supply_{{ myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount[item] >= tcount && 'r'  || 'g' }}_{{item}}.svg" style="width:40px;">
-              </span>-->
-
               <div class="imgWrap" ng-repeat="(item,count) in myscope.vsInfo[myscope.currentVsTab.vsId].sItemCount">
                 <div class="imgArrow"></div>
                 <div class="imgDescription">
@@ -215,18 +255,6 @@
             <button type="button" class="map_button" ng-click="myscope.registerDialog('supplement')">
               物資參戰  
             </button>
-
-            <!--
-            <div id="sp_people" style="margin:5px" >
-              <div class="imgWrap" ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist track by $index">
-                <div class="imgArrow"></div>
-                <div class="imgDescription" style="overflow:hidden;">
-                  {{name[1]}}
-                </div>
-                <img class="img-circle map_fb_image" src="http://graph.facebook.com/{{name[0]}}/picture?type=small">
-              </div>
-            </div>
-            -->
           </div>
         </div>
 

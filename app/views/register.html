@@ -16,17 +16,29 @@
   <form action="" name="content.register">
   <div class="modal-body">
 
-    <p>
-      勇敢的勇士呀！<br/>
-      感激你勇敢的站出來，為台灣的民主貢獻一份心力！<br/>
-      我們需要你的協助一同把這個可惡的大魔王給幹掉！<br/>
-    </p>
 
+    <div class="row">
+      <div class="col-xs-2">
+        <div data-ng-show="logged && (unregster == 2)">
+          <img src="http://graph.facebook.com/{{content.userid}}/picture?type=square" 
+            style="margin-bottom:10px;"> <br/>
+          <button type="button" class="btn btn-primary btn-large" data-ng-click="logout()">Logout</button>
+        </div>
+        <div data-ng-show="!logged">
+          <button type="button" class="btn btn-primary btn-large" 
+            data-ng-click="intentLogin()">Facebook<br/>Login</button>
+        </div>
+      </div>
+      <div class="col-xs-10">
+        <p>
+          勇敢的勇士<strong>{{fbname}}</strong>呀！<br/>
+          感激你勇敢的站出來，為台灣的民主貢獻一份心力！<br/>
+          我們需要你的協助一同把這個可惡的大魔王給幹掉！<br/>
+        </p>
+      </div>
+    </div>
 
-    <hr/>
-
-    <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" 
-      data-ng-click="intentLogin()">Login with Facebook</button>
+    <hr data-ng-show="logged"/>
 
     <p data-ng-show="logged && (unregster == 1)">
       您已經登記報名過了
@@ -38,26 +50,24 @@
       </strong>
     </p>
 
-
     <div data-ng-show="logged && (unregster == 2)">
-      <div class="row">
+  <!--<div class="row">
         <div class="col-xs-2">
           <img src="http://graph.facebook.com/{{content.userid}}/picture?type=square"/ style="margin-bottom:10px;"> <br/>
           <button type="button" class="btn btn-primary btn-large" data-ng-click="logout()">Logout</button>
         </div> 
         <div class="col-xs-10">
-          <p>
-            勇者呀！該如何稱呼您呢？（facebook暱稱或名字）<br/>
-            <strong>{{content.name}}</strong><br/>
-          </p> 
-          <p ng-show="!regscope.nonArea">
-            勇者呀！該想要在哪裡紮營？（認養的投開票所）<br/>
-            <strong>{{content.votestat}}</strong>
-          </p>
         </div>
-      </div>
-      <hr/>
+      </div>-->
       <span data-ng-show="editState == 0">
+        <p ng-show="!regscope.nonArea">
+          勇者呀！該想要在哪裡紮營？（認養的投開票所）<br/>
+          <strong>{{content.votestat}}</strong>
+        </p>
+        <p>
+          勇者呀！該如何稱呼您呢？<strong>（請填入暱稱，會在營地顯示出來唷！）</strong><br/>
+          <input type="text" name="name" required data-ng-model="content.name"></input>
+        </p> 
         <p>
           勇者呀！該如何聯繫你呀？<strong>（請填入手機，重大訊息會在重要時刻與你聯繫！）</strong><br/>
           <input type="text" name="phone" required data-ng-model="content.phone"></input>
@@ -99,6 +109,14 @@
         <p>
           <strong  style="color:#ff0000">請確認您的報名資料是否正確</strong>
         </p>
+        <p ng-show="!regscope.nonArea">
+          <strong>認養的投開票所</strong><br/>
+          {{content.votestat}}
+        </p>
+        <p>
+          <strong>暱稱</strong><br/>
+          {{content.name}}
+        </p> 
         <p>
           <strong>手機號碼：</strong><br/>
           {{content.phone}}
@@ -152,7 +170,9 @@
   <div class="modal-footer">
     <div class="row">
       <div class="col-xs-8">
-        <p class="bg-danger text-danger" style="text-align:left">{{regscope.errors}}</p>
+        <p class="bg-danger text-danger" style="text-align:left" data-ng-show="editState == 0">
+          {{regscope.errors}}
+        </p>
       </div>
       <div class="col-xs-4">
         <button class="btn btn-primary" data-ng-click="send()"  data-ng-show="logged && (unregster == 2)">Send</button>

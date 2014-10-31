@@ -32,6 +32,7 @@ angular.module('projectVApp')
   $scope.user = {};
   // Defining user logged status
   $scope.logged = false;
+  $scope.fbname = '';
   $scope.unregster = 0;
   $scope.editState = 0;
   //$scope.unregsterLoad = false;
@@ -107,6 +108,7 @@ angular.module('projectVApp')
       $scope.$apply(function() {
         $scope.user   = {};
         $scope.logged = false;  
+        $scope.fbname = '';
         $scope.unregster = 0;
         $scope.editState = 0;
         //$scope.content = {};
@@ -133,6 +135,7 @@ angular.module('projectVApp')
     } else {
       $scope.$apply(function() {
         $scope.logged = false;  
+        $scope.fbname = '';
         $scope.editState = 0;
         //$scope.content = {};
         $scope.unregster = 0;
@@ -196,6 +199,7 @@ angular.module('projectVApp')
         //$scope.myfirebase = sync.$asArray();
         $scope.content.userid = fbuser.id; 
         $scope.content.name = fbuser.name; 
+        $scope.fbname = fbuser.name;
         $scope.content.phone = '';
         $scope.content.email = '';
 
@@ -221,6 +225,7 @@ angular.module('projectVApp')
 
 
   var textItem = {
+    'name':'暱稱',
     'phone':'手機',
     'email':'E-Mail',
   };
