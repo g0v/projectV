@@ -289,7 +289,7 @@ angular.module('projectVApp')
 
   function saveToParseCom(){
     var temp_obj = {
-      fid: $scope.content.userid,
+      fid: parseInt($scope.content.userid),
       volunteer: $scope.content.type == 'volunteer',
       poll: data.vsId,
       name: $scope.content.name,

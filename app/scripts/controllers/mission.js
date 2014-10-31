@@ -85,7 +85,7 @@ angular.module('projectVApp')
         for(var key in data){
           var vtempTotal = voteInfoService.volCount * data[key].vweight;
           vTotal += vtempTotal;
-          vCount += data[key].vlist.length >= vtempTotal ?  vtempTotal : data[key].vlist.length;
+          vCount += data[key].vCount >= vtempTotal ?  vtempTotal : data[key].vCount;
           for(var item in voteInfoService.supplementItem ){
             var stempTotal = voteInfoService.supplementItem[item][0] * data[key].vweight;
             sTotal += stempTotal;
@@ -97,9 +97,9 @@ angular.module('projectVApp')
         $scope.miscope.sCount = sCount;
         $scope.miscope.sTotal = sTotal;
       });
-      voteInfoService.getTopkCitizen(county,4).then(function(data){
-        $scope.miscope.newCitizen = data;
-      });
+      //voteInfoService.getTopkCitizen(county,4).then(function(data){
+      //  $scope.miscope.newCitizen = data;
+      //});
     }
     loadData();
 
