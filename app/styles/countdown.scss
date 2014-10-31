@@ -18,18 +18,19 @@
 .countdown-hours {
   position: absolute;
   left: 30px;
-  top: 40px;
+  top: 50px;
 }
 
 .countdown-minutes {
   position: absolute;
   left: 30px;
-  top: 90px;
+  top: 100px;
 }
 
 .countdown-number {
   display: inline-block;
-  width: 60px;
+  width: 70px;
+  text-align: right;
 }
 
 .countdown-unit {
@@ -38,20 +39,29 @@
 
 .countdown-days {
   position: absolute;
-  left: 140px;
-  top: 60px;
+  left: 150px;
+  top: 65px;
   font-size: 80px;
 }
 
 .countdown-days-text {
   position: absolute;
-  left: 155px;
-  top: 70px;
+  left: 165px;
+  top: 75px;
+  width: 50px;
+  text-align: center;
+}
+
+.countdown-days-label {
+  position: absolute;
+  left: 185px;
+  top: 110px;
+  font-size: 15px;
 }
 
 .news-left {
   position: absolute;
-  width: 250px;
+  width: 260px;
 }
 
 .news-right {
