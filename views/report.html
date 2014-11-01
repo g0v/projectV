@@ -1,0 +1,78 @@
+<style>.register .hr_double_img{
+  position:relative;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+.register .hr_double, .register .hr_single{
+  position:relative;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.register .hr_double_img hr, .register .hr_double hr{
+  border-top: 2px solid #B6203F;
+  border-bottom: 2px solid #B6203F;
+  height: 5px;
+  margin-bottom: 0;
+}
+
+.register .hr_single hr{
+  border-top: 2px solid #B6203F;
+  border-bottom: 0px ;
+  height: 0px;
+  margin-bottom: 0;
+}
+
+.register .hr_double_img img{
+  position: absolute;
+  left: 50%;
+  margin-left: -25px;
+  width: 50px;
+  top: -25px;
+}
+.register p{
+  margin:15px;
+}
+.register .darkred ,.register a{
+  color:#B6203F;
+}
+.register .button_1, .register .button_2{
+  cursor:pointer;
+  display:inline-block;
+  padding-top:5px;
+  padding-bottom:5px;
+  margin:0px;
+  background:none;
+  border:0px;
+  background-size: 100% 100%;
+  width:70px;
+  height:30px;
+  text-align:center;
+}
+
+.register .button_1{
+  background-image: url('images/reg_button_1.svg');
+  color:#ffffff;
+}
+
+.register .button_2{
+  background-image: url('images/reg_button_2.svg');
+  color:#B6203F;
+}
+
+.register .button_3{
+  cursor:pointer;
+  display:inline-block;
+  padding-top:11px;
+  padding-bottom:11px;
+  margin:0px;
+  background:none;
+  border:0px;
+  background-size: 100% 100%;
+  width:110px;
+  height:40px;
+  text-align:center;
+  background-image: url('images/reg_button_1.svg');
+  color:#ffffff;
+}</style> <form action="" name="content.register"> <div class="register"> <div class="modal-body"> <div class="text-center" style="width:100%"> <img src="images/report_header.svg" style="width:100%"> </div> <div class="hr_double_img"> <img src="images/citizen-v.png" alt="citizen V"> <hr> </div> <span ng-show="!hassave"> <p> 錯誤類別： <select ng-model="report.type" ng-options="t for t in errortype"></select><br> </p> <p> 詳述：<br> <textarea cols="80" rows="8" ng-model="report.content"> </textarea> </p> </span> <span ng-show="hassave"> <p>非常感謝您的回報！！</p> </span> <div class="hr_double"> <hr> </div> <span ng-show="!hassave"> <div style="text-align:right"> <div class="button_1" ng-click="save()"> <span>Send</span> </div> <div class="button_2" ng-click="cancel()"> <span>Cancel</span> </div> </div> </span> </div> </div> </form>
