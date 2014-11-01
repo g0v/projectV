@@ -647,9 +647,9 @@ angular.module('projectVApp')
        var curTime = new Date().getTime();
        if( curTime - lastLoadTime > MAP_RELOAD_TIME){
          lastLoadTime = curTime;
-         $scope.$emit('missionDataReload');
+         //$scope.$emit('missionDataReload');
          console.log('dataReload');
-         loadData(false);
+         //loadData(false);
        }
     });
 
