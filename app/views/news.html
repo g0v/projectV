@@ -13,8 +13,11 @@
         <div class="news-header-text text-center">戰略消息</div>
       </div>
     </div>
-    <div class="row" ng-repeat="feed in feeds">
-      <div class="col-md-1">
+    <div class="row news-feeds" ng-repeat="feed in feeds">
+      <div class="col-md-1 col-icon">
+        <div class="news-icon-type">
+          <img ng-src="images/type-{{feed.type}}.png" />
+        </div>
       </div>
       <div class="col-md-11">
         <h2 class="news-title">
