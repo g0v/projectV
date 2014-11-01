@@ -333,7 +333,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>/official',
+          dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
@@ -348,12 +348,6 @@ module.exports = function (grunt) {
           cwd: '.',
           src: 'CNAME',
           dest: '<%= yeoman.dist %>'
-        },
-        {
-          expand: true,
-          cwd: 'landing',
-          dest: '<%= yeoman.dist %>',
-          src: '*'
         },
         {
           expand: true,
