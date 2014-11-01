@@ -35,6 +35,10 @@
           感激你勇敢的站出來，為台灣的民主貢獻一份心力！<br/>
           我們需要你的協助一同把這個可惡的大魔王給幹掉！<br/>
         </p>
+        <p>
+          ※若無法正常登入facebook，或此頁無法正常顯示，<br/>
+          請到<a href="http://appy.tw/county/" target="_blank">自己的里自己顧</a>報名。
+        </p>
       </div>
     </div>
 
@@ -76,7 +80,6 @@
           勇者呀！該如何寄資訊給你呀？<strong>（請填入E-Mail）</strong><br/>
           <input type="email" name="email" required data-ng-model="content.email"></input>
         </p> 
-
         <span ng-show="regscope.type == 'supplement'">
           <p >
             想要捐贈什麼物資裝備？<strong>（想要幫忙提供什麼物資？）</strong><br/>
@@ -96,6 +99,17 @@
             </tr>
           </table>
           <br/>
+        </span>
+        <span ng-show="regscope.nonArea">
+          <p >
+            <strong>不分區志願序</strong><br/>
+            志願1：<select ng-model="content.areaOrder[0]" 
+              ng-options="ns for ns in regscope.nonAreaSelect"></select><br/>
+            志願2：<select ng-model="content.areaOrder[1]" 
+              ng-options="ns for ns in regscope.nonAreaSelect"></select><br/>
+            志願3：<select ng-model="content.areaOrder[2]" 
+              ng-options="ns for ns in regscope.nonAreaSelect"></select><br/>
+          </p> 
         </span>
         <p>
           <input type="checkbox" data-ng-model="regscope.fbshare">分享到facebook<br>
@@ -149,6 +163,15 @@
           </table>
           <br/>
         </span>
+        <span ng-show="regscope.nonArea">
+          <p >
+            <strong>不分區志願序</strong><br/>
+            志願1：{{content.areaOrder[0]}}， 
+            志願2：{{content.areaOrder[1]}}，
+            志願3：{{content.areaOrder[2]}}
+          </p> 
+        </span>
+
         <p>
           分享到facebook：
           <span ng-show="regscope.fbshare">是</span>

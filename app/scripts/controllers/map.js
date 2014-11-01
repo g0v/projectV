@@ -542,7 +542,7 @@ angular.module('projectVApp')
         }   
       }); 
       modalInstance.result.then(function(result){
-        console.log('send',result);
+        //console.log('send',result);
         $scope.$emit('dataReload');
       }); 
     };  
@@ -644,13 +644,13 @@ angular.module('projectVApp')
 
     loadData(true);
     $scope.$on('dataReload',function(){
-       var curTime = new Date().getTime();
-       if( curTime - lastLoadTime > MAP_RELOAD_TIME){
-         lastLoadTime = curTime;
-         //$scope.$emit('missionDataReload');
-         console.log('dataReload');
-         //loadData(false);
-       }
+      var curTime = new Date().getTime();
+      if( curTime - lastLoadTime > MAP_RELOAD_TIME){
+        lastLoadTime = curTime;
+        //$scope.$emit('missionDataReload');
+        console.log('dataReload');
+        //loadData(false);
+      }
     });
 
 

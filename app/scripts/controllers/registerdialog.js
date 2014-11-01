@@ -166,6 +166,15 @@ angular.module('projectVApp')
   $scope.regscope.selectItems = voteInfoService.supplementItem;
   var selectItems = $scope.regscope.selectItems;
 
+  $scope.regscope.nonAreaSelect = [
+    '台北市',
+    '新北市',
+    '台中市',
+    '台南市',
+    '高雄市',
+  ];
+
+
 
   $scope.regscope.fbshare = true;
   $scope.regscope.type = data.type;
@@ -184,6 +193,11 @@ angular.module('projectVApp')
     name: '',
     phone: '',
     email: '',
+    areaOrder: [
+      $scope.regscope.nonAreaSelect[0],
+      $scope.regscope.nonAreaSelect[1],
+      $scope.regscope.nonAreaSelect[2],
+    ],
     supplement: {},
   };
   for(var item in selectItems){
@@ -202,6 +216,11 @@ angular.module('projectVApp')
         $scope.fbname = fbuser.name;
         $scope.content.phone = '';
         $scope.content.email = '';
+        $scope.content.areaOrder = [
+          $scope.regscope.nonAreaSelect[0],
+          $scope.regscope.nonAreaSelect[1],
+          $scope.regscope.nonAreaSelect[2],
+        ],
 
         $scope.content.supplement = {} 
         for(var item in selectItems){
@@ -229,6 +248,7 @@ angular.module('projectVApp')
     'phone':'手機',
     'email':'E-Mail',
   };
+
 
   function isNormalInteger(str) {
       return /^\+?(0|[1-9]\d*)$/.test(str);
@@ -303,10 +323,13 @@ angular.module('projectVApp')
       county: data.county,
       resource: $scope.content.supplement,
     };
+    if($scope.regscope.nonArea){
+      temp_obj['areaOrder'] = $scope.content.areaOrder.join(",");
+    }
+    console.log('save',temp_obj);
     voteInfoService.saveCitizen(temp_obj,function(){
-      $modalInstance.close($scope.content);
+      $modalInstance.close(temp_obj);
     });
-    //$scope.myfirebase.$add(temp_obj);
   }
   
   function postToFb(){
