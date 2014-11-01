@@ -35,8 +35,8 @@ var MAP_MIN_ZOOM = {
  */
 angular.module('projectVApp')
   .controller('MapCtrl',
-  ['$scope', '$route', '$routeParams','$http', '$q', '$filter', '$modal', '$window', 'leafletData', 'voteInfoService',
-  function ($scope, $route, $routeParams, $http, $q, $filter, $modal, $window, leafletData, voteInfoService ) {
+  ['$scope', '$route', '$routeParams','$http', '$q', '$filter', '$modal', '$window', '$location', 'leafletData', 'voteInfoService',
+  function ($scope, $route, $routeParams, $http, $q, $filter, $modal, $window, $location, leafletData, voteInfoService ) {
     $scope.myscope = {};
     //$scope.voteInfos = {};
     $scope.myscope.mapLoadingComplete = false;
@@ -543,7 +543,8 @@ angular.module('projectVApp')
       }); 
       modalInstance.result.then(function(result){
         //console.log('send',result);
-        $scope.$emit('dataReload');
+        //$scope.$emit('dataReload');
+        $location.path('/');
       }); 
     };  
 

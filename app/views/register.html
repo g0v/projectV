@@ -17,7 +17,7 @@
   <div class="modal-body">
 
 
-    <div class="row">
+    <div class="row" data-ng-show="editState < 2">
       <div class="col-xs-2">
         <div data-ng-show="logged && (unregster == 2)">
           <img src="http://graph.facebook.com/{{content.userid}}/picture?type=square" 
@@ -41,8 +41,16 @@
         </p>
       </div>
     </div>
+    
+    <div data-ng-show="editState == 2">
+      <p>正在傳送您的報名資料，請稍候...</p>
+    </div>
 
-    <hr data-ng-show="logged"/>
+    <div data-ng-show="editState == 3">
+      <p>報名成功，謝謝您的參與！</p>
+    </div>
+
+    <hr data-ng-show="logged && (editState < 2)"/>
 
     <p data-ng-show="logged && (unregster == 1)">
       您已經登記報名過了
@@ -182,7 +190,7 @@
     </div>
   </div>
 
-  <div class="modal-footer">
+  <div class="modal-footer" data-ng-show="editState != 2">
     <div class="row">
       <div class="col-xs-8">
         <p class="bg-danger text-danger" style="text-align:left" data-ng-show="editState == 0">
@@ -190,7 +198,10 @@
         </p>
       </div>
       <div class="col-xs-4">
-        <button class="btn btn-primary" data-ng-click="send()"  data-ng-show="logged && (unregster == 2)">Send</button>
+        <button class="btn btn-primary" data-ng-click="send()"  data-ng-show="logged && (unregster == 2)">
+          <span data-ng-show="editState < 2">Send</span>
+          <span data-ng-show="editState == 3">Close</span>
+        </button>
         <button class="btn btn-warning" data-ng-click="editState = 0"  data-ng-show="logged && (unregster == 2) && (editState == 1)">Back</button>
         <button class="btn btn-warning" data-ng-click="cancel()" data-ng-show="editState == 0" >Cancel</button>
       </div>

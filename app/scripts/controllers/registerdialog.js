@@ -35,6 +35,7 @@ angular.module('projectVApp')
   $scope.fbname = '';
   $scope.unregster = 0;
   $scope.editState = 0;
+  
   //$scope.unregsterLoad = false;
   // And some fancy flags to display messages upon user status change
   
@@ -292,14 +293,18 @@ angular.module('projectVApp')
     }
     if(errors.length == 0){
       //console.log('fbshare',$scope.regscope.fbshare);
-      if($scope.editState ==0){
-        $scope.editState += 1;
+      if($scope.editState == 0){
+        $scope.editState = 1;
       }
-      else{
+      else if($scope.editState == 1){
+        $scope.editState = 2;
         if($scope.regscope.fbshare == true){
           postToFb();
         }
         saveToParseCom();
+      }
+      else if($scope.editState == 3){
+        $modalInstance.close(true);
       }
     }
     else{
@@ -328,13 +333,17 @@ angular.module('projectVApp')
     }
     console.log('save',temp_obj);
     voteInfoService.saveCitizen(temp_obj,function(){
-      $modalInstance.close(temp_obj);
+      $scope.editState = 3;
+      //$modalInstance.close(temp_obj);
     });
   }
   
   function postToFb(){
-    var message = '割闌尾V計劃網站測試中\n http://1129vday.tw/';
-    Facebook.api('/me/feed', 'post', { message: message }, function(response) {
+    var message = '割闌尾V計劃網站測試中';
+    Facebook.api('/me/feed', 'post', 
+      { message: message,
+        link:'http://1129vday.tw/',
+      }, function(response) {
       if (!response || response.error) {
         console.log('error', response.error);
         //alert('Error occured');
