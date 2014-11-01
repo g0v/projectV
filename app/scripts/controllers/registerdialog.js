@@ -63,9 +63,9 @@ angular.module('projectVApp')
 
   $scope.intentLogin = function() {
     //console.log('click login',userIsConnected);
-    if(!userIsConnected) {
+    //if(!userIsConnected) {
       $scope.login();
-    }
+    //}
   };
   
   /**
@@ -92,8 +92,8 @@ angular.module('projectVApp')
          */
         $scope.$apply(function() {
           $scope.user = response;
-
-
+          $scope.logged = true;  
+          userIsConnected = true;
           //console.log('scope.user',$scope.user);
         });
         
@@ -109,12 +109,12 @@ angular.module('projectVApp')
       $scope.$apply(function() {
         $scope.user   = {};
         $scope.logged = false;  
+        userIsConnected = false;
         $scope.fbname = '';
         $scope.unregster = 0;
         $scope.editState = 0;
         //$scope.content = {};
         $scope.regscope.errors = '';
-        userIsConnected = false;
       });
     });
   }
@@ -127,7 +127,7 @@ angular.module('projectVApp')
     if (fbdata.status == 'connected') {
       //console.log('response',fbdata);
       $scope.$apply(function() {
-        $scope.logged = true;  
+        //$scope.logged = true;  
         $scope.me();
         //console.log('access_token',fbdata.authResponse.accessToken);
         //$scope.auth.$login('facebook', {access_token: fbdata.authResponse.accessToken});
@@ -136,6 +136,7 @@ angular.module('projectVApp')
     } else {
       $scope.$apply(function() {
         $scope.logged = false;  
+        userIsConnected = false;
         $scope.fbname = '';
         $scope.editState = 0;
         //$scope.content = {};
@@ -154,9 +155,6 @@ angular.module('projectVApp')
   Facebook.getLoginStatus(function(response) {
     //console.log('fbGetLoginStatus');
     fbStatusUpdate(response);
-    if (response.status == 'connected') {
-      userIsConnected = true;
-    }
   });
 
 
