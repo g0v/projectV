@@ -20,7 +20,7 @@ angular.module('projectVApp')
         },
         { id: 'demo', name: '自由罷免示範區',
           img: 'https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-07.svg', class: 'nav-title', cssid: 'nav4'},
-        { id: 'join', name: '加入公民 v 與物資支援',
+        { id: 'join', name: '連署書資訊',
           img: 'https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-09.svg', class: 'nav-title', cssid: 'nav5'}
       ];
 
