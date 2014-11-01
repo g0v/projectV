@@ -1,10 +1,133 @@
-<!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title>projectV</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.f3c18335.css"> <link rel="stylesheet" href="styles/main.a3d52f72.css">  <body ng-app="projectVApp"> <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]--> <!-- Add your site or application content here --> <div class="container"> <div class="header" ng-controller="PagesCtrl"> <span ng-show="showNav"> <ul class="navigation"> <li class="navigation" id="nav-home"> <a href="#/"> <img class="logo" src="images/logo.png" alt="home"> </a> </li> <li ng-repeat="page in pages" class="navigation" id="{{page.cssid}}"> <a class="nav-link" ng-attr-target="{{getTarget(page)}}" ng-href="{{getHref(page)}}"> <span ng-bind="page.name"></span> </a> </li> <li class="navigation"><a class="nav-link" href="https://www.facebook.com/Appendectomy" target="_blank">&nbsp;<strong>f</strong>&nbsp;</a></li> </ul> </span> </div> <div class="fb-like"><iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FAppendectomy&amp;width=200&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=269617236509753" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px" allowtransparency="true"></iframe></div> <div ng-view=""></div> </div> <div class="footer"> Appendectomy Project 割闌尾計畫 © Copyright Appendectomy Project 2014 </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-            ga('create', 'UA-56312814-1');
-            ga('send', 'pageview');</script> <!--[if lt IE 9]>
-        <script src="scripts/oldieshim.a466b7b1.js"></script>
-        <![endif]--> <script src="scripts/vendor.7408f7bb.js"></script> <script src="scripts/scripts.53f4eb32.js"></script> <script src="//www.parsecdn.com/js/parse-1.3.0.min.js"></script> <script src="//fgnass.github.io/spin.js/spin.min.js"></script> <script src="http://maps.google.com/maps/api/js?v=3.2&amp;sensor=false"></script> <script src="bower_components/leaflet-plugins/layer/tile/Google.js"></script>  
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>1129 V-Day</title>
+</head>
+
+<body>
+    <style type="text/css">
+        body{
+            background-color: #E6E6E6;
+        }
+        img{
+            position: absolute;
+        }
+        button{
+            position: absolute;
+            background-color: #fff;
+            color: #000;
+            border: 1px;
+            font-family: "Noto Sans", sans-serif;
+        }
+        button:hover{
+            background-color: #757575;
+            color: #fff;
+        }
+        button:active{
+            background-color: #757575;
+            color: #fff;
+        }
+    </style>
+
+    <canvas id="ribbon_v"></canvas>
+    <img src="https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/major.svg" id="major"/>
+    <a href="http://appy.tw/county/"><button id="left_button">割闌尾計畫</button></a>
+    <a href="https://www.facebook.com/Appendectomy"><button id="right_button" >facebook</button></a>
+
+    <script>
+        function layout_all() {
+            var canvas = document.getElementById('ribbon_v');
+            var context = canvas.getContext('2d');
+            canvas.width = window.innerWidth * 0.98;
+            canvas.height = window.innerHeight * 0.97;
+            if (window.innerHeight >= window.innerWidth) {
+                document.getElementById('major').width = window.innerWidth;
+                document.getElementById('major').height = window.innerWidth;
+                document.getElementById('major').style.top = "0px";
+                document.getElementById('major').style.left = "0px";
+
+                var b = parseInt(window.innerWidth * 0.38);
+                var j = parseInt(window.innerWidth * 0.05);
+                var l = parseInt(window.innerWidth * 0.017);
+                context.fillStyle = '#B81C3D';
+                context.beginPath();
+                context.moveTo(0 - l, b);
+                context.lineTo(0 - l, b + j);
+                context.lineTo(parseInt(window.innerWidth / 2) - l, parseInt(b + window.innerWidth * Math.tan(Math.PI / 6) / 2) + j);
+                context.lineTo(parseInt(window.innerWidth / 2) - l, parseInt(b + window.innerWidth * Math.tan(Math.PI / 6) / 2));
+                context.closePath();
+                context.fill();
+
+                context.fillStyle = '#B81C3D';
+                context.beginPath();
+                context.moveTo(parseInt(window.innerWidth / 2) - l, parseInt(b + window.innerWidth * Math.tan(Math.PI / 6) / 2) + j);
+                context.lineTo(parseInt(window.innerWidth / 2) - l, parseInt(b + window.innerWidth * Math.tan(Math.PI / 6) / 2));
+                context.lineTo(parseInt(window.innerWidth) - l, b);
+                context.lineTo(parseInt(window.innerWidth) - l, b + j);
+                context.closePath();
+                context.fill();
+
+                document.getElementById('left_button').style.left = parseInt(window.innerWidth * 58 / 666) + "px";
+                document.getElementById('left_button').style.top = parseInt(window.innerWidth * 620 / 666) + "px";
+                document.getElementById('left_button').style.width = parseInt(window.innerWidth * 267 / 666) + "px";
+                document.getElementById('left_button').style.height = parseInt(window.innerWidth * 56 / 666) + "px";
+                document.getElementById('left_button').style.fontSize = parseInt(window.innerWidth * 22 / 666) + "px";
+
+                document.getElementById('right_button').style.left = parseInt(window.innerWidth * 337 / 666) + "px";
+                document.getElementById('right_button').style.top = parseInt(window.innerWidth * 620 / 666) + "px";
+                document.getElementById('right_button').style.width = parseInt(window.innerWidth * 267 / 666) + "px";
+                document.getElementById('right_button').style.height = parseInt(window.innerWidth * 56 / 666) + "px";
+                document.getElementById('right_button').style.fontSize = parseInt(window.innerWidth * 22 / 666) + "px";
+            } else {
+                document.getElementById('major').height = parseInt(window.innerHeight);
+                document.getElementById('major').width = parseInt(window.innerHeight);
+                document.getElementById('major').style.left = parseInt((window.innerWidth - document.getElementById('major').width) / 2) + "px";
+                document.getElementById('major').style.top = parseInt(window.innerHeight * (-0.01)) + "0px";
+
+                var b = parseInt(window.innerHeight * 0.38);
+                var j = parseInt(window.innerHeight * 0.05);
+                var a = parseInt((window.innerWidth - window.innerHeight)/2);
+                var l = parseInt(window.innerHeight * 0.017);
+                context.fillStyle = '#B81C3D';
+                context.beginPath();
+                context.moveTo(- l, b - a * Math.tan(Math.PI / 6));
+                context.lineTo(- l, b - a * Math.tan(Math.PI / 6) + j);
+                context.lineTo(parseInt(window.innerWidth / 2) - l, parseInt(b + window.innerHeight * Math.tan(Math.PI / 6) / 2) + j);
+                context.lineTo(parseInt(window.innerWidth / 2) - l, parseInt(b + window.innerHeight * Math.tan(Math.PI / 6) / 2));
+                context.closePath();
+                context.fill();
+
+                context.fillStyle = '#B81C3D';
+                context.beginPath();
+                context.moveTo(parseInt(window.innerWidth / 2) - l, parseInt(b + window.innerHeight * Math.tan(Math.PI / 6) / 2) + j);
+                context.lineTo(parseInt(window.innerWidth / 2) - l, parseInt(b + window.innerHeight * Math.tan(Math.PI / 6) / 2));
+                context.lineTo(parseInt(window.innerWidth) - l, b - a * Math.tan(Math.PI / 6));
+                context.lineTo(parseInt(window.innerWidth) - l, b - a * Math.tan(Math.PI / 6) + j);
+                context.closePath();
+                context.fill();
+
+                var left_width = parseInt((window.innerWidth - window.innerHeight) / 2);
+                document.getElementById('left_button').style.left = parseInt(left_width + window.innerHeight * 58 / 666) + "px";
+                document.getElementById('left_button').style.top = parseInt(window.innerHeight * 580 / 666) + "px";
+                document.getElementById('left_button').style.width = parseInt(window.innerHeight * 267 / 666) + "px";
+                document.getElementById('left_button').style.height = parseInt(window.innerHeight * 56 / 666) + "px";
+                document.getElementById('left_button').style.fontSize = parseInt(window.innerHeight * 22 / 666) + "px";
+
+                document.getElementById('right_button').style.left = parseInt(left_width + window.innerHeight * 337 / 666) + "px";
+                document.getElementById('right_button').style.top = parseInt(window.innerHeight * 580 / 666) + "px";
+                document.getElementById('right_button').style.width = parseInt(window.innerHeight * 267 / 666) + "px";
+                document.getElementById('right_button').style.height = parseInt(window.innerHeight * 56 / 666) + "px";
+                document.getElementById('right_button').style.fontSize = parseInt(window.innerHeight * 22 / 666) + "px";
+            }
+        };
+        window.onresize = function(){
+            layout_all();
+        }
+        layout_all();
+    </script>
+
+</body>
+
+</html>
