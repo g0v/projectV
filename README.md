@@ -1,4 +1,4 @@
-# 簡介 [![Build Status](https://travis-ci.org/g0v/projectV.svg?branch=master)](https://travis-ci.org/g0v/projectV)
+# 簡介
 
 Project V 是一個將割闌尾遊戲化的專案，目前成果可以到 http://g0v.github.io/projectV/ 觀看。
 
