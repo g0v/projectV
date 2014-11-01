@@ -24,7 +24,6 @@ angular.module('projectVApp')
     var effectPrefix = 'effect:';
     var areaPrefix = 'area:';
     var typePrefix = 'type:';
-    var targetPrefix = 'target:';
 
     $scope.miscope = {};
 
@@ -51,16 +50,10 @@ angular.module('projectVApp')
             feed.effect = c.substr(effectPrefix.length).replace('-', ' ');
           } else if (c.indexOf(typePrefix) === 0) {
             feed.type = c.substr(typePrefix.length);
-          } else if (c.indexOf(targetPrefix) === 0) {
-            feed.target = c.substr(targetPrefix.length);
           }
         });
         if (!feed.area) {
           feed.area = 'all';
-        }
-        if (!feed.type) {
-          var fakeTypes = ['boss', 'fighting'];
-          feed.type = fakeTypes[Math.floor(Math.random() * fakeTypes.length)];
         }
         if (feed.area === 'all' || feed.area === county) {
           feeds.push(feed);
@@ -68,9 +61,9 @@ angular.module('projectVApp')
       });
 
       angular.forEach(feeds, function(f) {
-        if (f.target === 'boss') {
+        if (f.type === 'boss') {
           bossFeeds.push(f);
-        } else if (f.target === 'citizen') {
+        } else if (f.type) {
           citizenFeeds.push(f);
         }
       });
