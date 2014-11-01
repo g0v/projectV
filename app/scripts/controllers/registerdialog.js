@@ -29,7 +29,7 @@ angular.module('projectVApp')
   /********************************facebook*****************************/
       
   // Define user empty data :/
-  $scope.user = {};
+  //$scope.user = {};
   // Defining user logged status
   $scope.logged = false;
   $scope.fbname = '';
@@ -86,12 +86,15 @@ angular.module('projectVApp')
     */
 
     $scope.me = function() {
+      //console.log('scope.me');
       Facebook.api('/me', function(response) {
         /**
          * Using $scope.$apply since this happens outside angular framework.
          */
         $scope.$apply(function() {
-          $scope.user = response;
+          //console.log('scope.me apply');
+          //$scope.user = response;
+          changeFbuser(response);
           $scope.logged = true;  
           userIsConnected = true;
           //console.log('scope.user',$scope.user);
@@ -107,7 +110,7 @@ angular.module('projectVApp')
   $scope.logout = function() {
     Facebook.logout(function() {
       $scope.$apply(function() {
-        $scope.user   = {};
+        //$scope.user   = {};
         $scope.logged = false;  
         userIsConnected = false;
         $scope.fbname = '';
@@ -141,7 +144,7 @@ angular.module('projectVApp')
         $scope.editState = 0;
         //$scope.content = {};
         $scope.unregster = 0;
-        $scope.user   = {};
+        //$scope.user   = {};
       });
     }
   }
@@ -205,40 +208,50 @@ angular.module('projectVApp')
   
 
 
-  $scope.$watch(
-    'user',
-    function(fbuser) {
-      if(fbuser && fbuser.id){ 
-        //$scope.myfirebase = sync.$asArray();
-        $scope.content.userid = fbuser.id; 
-        $scope.content.name = fbuser.name; 
-        $scope.fbname = fbuser.name;
-        $scope.content.phone = '';
-        $scope.content.email = '';
-        $scope.content.areaOrder = [
-          $scope.regscope.nonAreaSelect[0],
-          $scope.regscope.nonAreaSelect[1],
-          $scope.regscope.nonAreaSelect[2],
-        ],
 
-        $scope.content.supplement = {} 
-        for(var item in selectItems){
-          $scope.content.supplement[item] = 0;
-        }
-        //resetContent();
-        //$scope.unregster = false;
-        //console.log('fbuser',fbuser.id, data.type);
-        voteInfoService.queryCitizen(fbuser.id, data.type).then(function(result){
-          //console.log('register result',result);
-          if(!result){
-            $scope.unregster = 2;
-          }  
-          else{
-            $scope.unregster = 1;
-          }
-        });
+
+
+  function changeFbuser(fbuser) {
+    //console.log('fbuser',fbuser);
+    if(fbuser && fbuser.id){ 
+      //$scope.myfirebase = sync.$asArray();
+      $scope.content.userid = fbuser.id; 
+      $scope.content.name = fbuser.name; 
+      $scope.fbname = fbuser.name;
+      $scope.content.phone = '';
+      $scope.content.email = '';
+      $scope.content.areaOrder = [
+        $scope.regscope.nonAreaSelect[0],
+        $scope.regscope.nonAreaSelect[1],
+        $scope.regscope.nonAreaSelect[2],
+      ],
+
+      $scope.content.supplement = {} 
+      for(var item in selectItems){
+        $scope.content.supplement[item] = 0;
       }
-    },true);
+      //resetContent();
+      //$scope.unregster = false;
+      //console.log('fbuser',fbuser.id, data.type);
+      voteInfoService.queryCitizen(fbuser.id, data.type).then(function(result){
+        //console.log('register result',result);
+        if(!result){
+          $scope.unregster = 2;
+        }  
+        else{
+          $scope.unregster = 1;
+        }
+      });
+    }
+    else{
+      //console.log('retry'); 
+      $scope.me();
+    }
+  }
+
+  //$scope.$watch(changeFbuser
+  //  'user',
+  //  ,true);
 
 
 
@@ -329,7 +342,7 @@ angular.module('projectVApp')
     if($scope.regscope.nonArea){
       temp_obj['areaOrder'] = $scope.content.areaOrder.join(",");
     }
-    console.log('save',temp_obj);
+    //console.log('save',temp_obj);
     voteInfoService.saveCitizen(temp_obj,function(){
       $scope.editState = 3;
       //$modalInstance.close(temp_obj);
@@ -343,10 +356,10 @@ angular.module('projectVApp')
         link:'http://1129vday.tw/',
       }, function(response) {
       if (!response || response.error) {
-        console.log('error', response.error);
+        //console.log('error', response.error);
         //alert('Error occured');
       } else {
-        console.log('Post ID: ' + response.id);
+        //console.log('Post ID: ' + response.id);
       }
     });
   }
