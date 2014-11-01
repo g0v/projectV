@@ -37,9 +37,9 @@ angular
       .when('/demo', {
         templateUrl: 'views/demo.html'
       })
-      .when('/join', {
-        templateUrl: 'views/join.html',
-        controller: 'JoinCtrl'
+      .when('/petition', {
+        templateUrl: 'views/petition.html',
+        controller: 'PetitionCtrl'
       })
       .when('/mission/:county', {
         templateUrl: 'views/mission.html',

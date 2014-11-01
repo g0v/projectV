@@ -134,6 +134,7 @@ $planColor: #B6203F;
   border-width: 42px;
   width: 900px;
   height: 480px;
+  margin-bottom: 20px;
 }
 
 .citizen-v {
@@ -169,4 +170,18 @@ h2.center-title {
 
 .logo {
   width: 370px;
+}
+
+dl.petition {
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+dl.petition a {
+  color: $planColor;
+}
+
+.petition dd {
+  margin-left: 20px;
+  margin-bottom: 5px;
 }

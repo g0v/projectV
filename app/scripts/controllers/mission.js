@@ -24,6 +24,7 @@ angular.module('projectVApp')
     var effectPrefix = 'effect:';
     var areaPrefix = 'area:';
     var typePrefix = 'type:';
+    var RE_SPEECHV = /「(.+)」.*by(.*)。/i;
 
     $scope.miscope = {};
 
@@ -37,11 +38,30 @@ angular.module('projectVApp')
     $scope.miscope.newCitizen = [];
     $scope.miscope.mapLoadingComplete = false;
 
+    FeedService.parseFeed('http://appyv.tumblr.com/rss').then(function(res) {
+      var entries = res.data.responseData.feed.entries;
+      var item = entries[Math.floor(Math.random() * entries.length)];
+      var matched = item.content.match(RE_SPEECHV);
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(item.content, 'text/html');
+      if (matched) {
+        $scope.speech = matched[1];
+        $scope.citizen = matched[2];
+        var avatar = doc.querySelector('img');
+        if (avatar) {
+          $scope.citizenAvatar = {
+            'background-image': 'url(' + avatar.src + ')'
+          };
+        }
+      }
+    });
+
     FeedService.parseFeed('http://appytw.tumblr.com/rss').then(function(res) {
       var rawFeeds = res.data.responseData.feed.entries;
       var feeds = [];
       var bossFeeds = [];
       var citizenFeeds = [];
+      var maxCount = 6;
       angular.forEach(rawFeeds, function(feed) {
         angular.forEach(feed.categories, function(c) {
           if (c.indexOf(areaPrefix) === 0) {
@@ -62,9 +82,13 @@ angular.module('projectVApp')
 
       angular.forEach(feeds, function(f) {
         if (f.type === 'boss') {
-          bossFeeds.push(f);
-        } else if (f.type) {
-          citizenFeeds.push(f);
+          if (bossFeeds.length < maxCount) {
+            bossFeeds.push(f);
+          }
+        } else if (f.type && f.type !== 'v') {
+          if (citizenFeeds.length < maxCount) {
+            citizenFeeds.push(f);
+          }
         }
       });
 
