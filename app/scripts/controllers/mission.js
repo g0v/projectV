@@ -24,6 +24,7 @@ angular.module('projectVApp')
     var effectPrefix = 'effect:';
     var areaPrefix = 'area:';
     var typePrefix = 'type:';
+    var RE_SPEECHV = /「(.+)」.*by(.*)。/i;
 
     $scope.miscope = {};
 
@@ -36,6 +37,24 @@ angular.module('projectVApp')
     $scope.miscope.boss = BOSS_DESCRIPTION[county];
     $scope.miscope.newCitizen = [];
     $scope.miscope.mapLoadingComplete = false;
+
+    FeedService.parseFeed('http://appyv.tumblr.com/rss').then(function(res) {
+      var entries = res.data.responseData.feed.entries;
+      var item = entries[Math.floor(Math.random() * entries.length)];
+      var matched = item.content.match(RE_SPEECHV);
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(item.content, "text/html");
+      if (matched) {
+        $scope.speech = matched[1];
+        $scope.citizen = matched[2];
+        var avatar = doc.querySelector('img');
+        if (avatar) {
+          $scope.citizenAvatar = {
+            'background-image': 'url(' + avatar.src + ')'
+          };
+        }
+      }
+    });
 
     FeedService.parseFeed('http://appytw.tumblr.com/rss').then(function(res) {
       var rawFeeds = res.data.responseData.feed.entries;
@@ -63,7 +82,7 @@ angular.module('projectVApp')
       angular.forEach(feeds, function(f) {
         if (f.type === 'boss') {
           bossFeeds.push(f);
-        } else if (f.type) {
+        } else if (f.type && f.type !== 'v') {
           citizenFeeds.push(f);
         }
       });
