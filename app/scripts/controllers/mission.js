@@ -43,7 +43,7 @@ angular.module('projectVApp')
       var item = entries[Math.floor(Math.random() * entries.length)];
       var matched = item.content.match(RE_SPEECHV);
       var parser = new DOMParser();
-      var doc = parser.parseFromString(item.content, "text/html");
+      var doc = parser.parseFromString(item.content, 'text/html');
       if (matched) {
         $scope.speech = matched[1];
         $scope.citizen = matched[2];

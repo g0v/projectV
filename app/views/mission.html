@@ -96,7 +96,7 @@
         </div>
         <div class="feeds">
           <div class="mission-feed" ng-repeat="feed in citizenFeeds">
-            <div class="mission-news-type">
+            <div class="mission-news-type" ng-class="{ combo: feed.type === 'combo'}">
               <img ng-src="images/type-{{feed.type}}.png" />
             </div>
             <div class="mission-news-content">
