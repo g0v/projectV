@@ -79,6 +79,7 @@ angular.module('projectVApp')
 
       $scope.bossFeeds = angular.copy(bossFeeds);
       $scope.citizenFeeds = angular.copy(citizenFeeds);
+
     });
 
     function loadData(){
@@ -109,8 +110,8 @@ angular.module('projectVApp')
     }
     loadData();
 
-    $scope.$on('dataReload',function(){
-        //console.log('mission load data');
+    $scope.$on('missionDataReload',function(){
+        console.log('mission load data');
         loadData();
     });
 

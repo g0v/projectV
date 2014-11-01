@@ -3,6 +3,7 @@
 /* global $ */
 
 var DEFAULT_COUNTY = 'TPE-4';
+var MAP_RELOAD_TIME = 10000;
 
 //var MAP_DEFAULT_VIEW = {
 //  'TPE-4':{lat: 25.0666313, lng: 121.5943403, zoom: 13},
@@ -45,6 +46,7 @@ angular.module('projectVApp')
     var lastClickMarker = null;
     var currentClickMarkerIndex = 0;
     var geojsonBuffer = [];
+    var lastLoadTime = new Date().getTime();
     $scope.myscope.county = county;
     $scope.myscope.voteStatData = null;
     $scope.myscope.showVS = null;
@@ -541,7 +543,6 @@ angular.module('projectVApp')
       }); 
       modalInstance.result.then(function(result){
         console.log('send',result);
-        //loadData(false);
         $scope.$emit('dataReload');
       }); 
     };  
@@ -622,9 +623,6 @@ angular.module('projectVApp')
     };
     
 
-    $scope.myscope.reload = function(){
-      loadData(false);
-    };
 
     
 
@@ -646,8 +644,13 @@ angular.module('projectVApp')
 
     loadData(true);
     $scope.$on('dataReload',function(){
-       console.log('dataReload');
-       loadData(false);
+       var curTime = new Date().getTime();
+       if( curTime - lastLoadTime > MAP_RELOAD_TIME){
+         lastLoadTime = curTime;
+         $scope.$emit('missionDataReload');
+         console.log('dataReload');
+         loadData(false);
+       }
     });
 
 
