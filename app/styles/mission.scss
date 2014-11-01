@@ -13,6 +13,11 @@ $mainColor: #C2003F;
   width: 40px;
 }
 
+.combo {
+  width: 60px;
+  left: -10px;
+}
+
 .mission-news-type > img {
   width: 100%;
 }
@@ -23,7 +28,7 @@ $mainColor: #C2003F;
 
 .mission-news-content {
   margin-left: 19px;
-  padding-left: 25px;
+  padding-left: 32px;
   padding-top: 7px;
   padding-bottom: 15px;
   border-left: 1px solid $mainColor;
