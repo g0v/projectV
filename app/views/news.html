@@ -14,8 +14,13 @@
       <div class="col-md-1">
       </div>
       <div class="col-md-11">
-        <h2 class="news-title"><span class="news-type"><span class="news-type-text">{{feed.tag}}</span></span>{{feed.title}}</h2>
-        <p>{{feed.contentSnippet}}</p>
+        <h2 class="news-title">
+          <span class="news-type">
+            <span class="news-type-text">{{feed.tag}}</span>
+          </span>
+          <span class="news-title-ellipsis"><a href="{{feed.link}}" target="_blank">{{feed.title}}</a></span>
+        </h2>
+        <p><a href="{{feed.link}}" target="_blank">{{feed.contentSnippet}}</a></p>
       </div>
     </div>
   </div>
