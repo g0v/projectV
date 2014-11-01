@@ -1,7 +1,6 @@
 'use strict';
 
 //var MAP_BUFFER_TIME = 10;
-var USE_CITIZEN_DB = true;
 
 var MY_HTTP_DELAY = 200;
 var MY_HTTP_RETRY = 3000;
@@ -40,15 +39,15 @@ angular.module('projectVApp')
 
     var voteStatInfoAry = {}; //dynamic
 
-    var countyVillageAry = {}; //dynamic
+    //var countyVillageAry = {}; //dynamic
 
-    var voteDataAry = {};
+    //var voteDataAry = {};
 
     var villageAreaAry = {}; 
 
-    var villageVotestatAry = {};
+    //var villageVotestatAry = {};
 
-    var countyBoundAry = {};
+    //var countyBoundAry = {};
 
     var my_this = this;
 
@@ -63,9 +62,9 @@ angular.module('projectVApp')
     
     this.volCount = 5;
      
-    var votestatHttp = 0;
-    var twCountyVillageHttp = 0;
-    var villageVotestatHttp = 0;
+    //var votestatHttp = 0;
+    //var twCountyVillageHttp = 0;
+    //var villageVotestatHttp = 0;
     var villageSumHttp = 0;
     var citizenDataHttp = 0;
     var allVoteStatInfoHttp = 0;
@@ -137,7 +136,6 @@ angular.module('projectVApp')
 
     this.getParsedQuery = function(query,key,val,limit){
       var deferred = $q.defer();
-      //console.log('query');
       var qhkey = query+'_'+key+'_'+val+'_'+limit;
 
       function postProcess(qhkey) {
@@ -187,7 +185,6 @@ angular.module('projectVApp')
           queryExecute(); 
         }
       }
-      //},MY_HTTP_DELAY*Math.random());
 
       return deferred.promise;
     };
@@ -201,50 +198,16 @@ angular.module('projectVApp')
         deferred.resolve(citizenDataAry[county]);
       }
       function convertObject(obj_in, type){
-        if(USE_CITIZEN_DB){
-          var rBody = [];
-          var vBody = [];
-          if(obj_in.get('resourceBody')){
-            for(var i = obj_in.get('resourceBody').length-1; i >=0; i--){
-              rBody.push(obj_in.get('resourceBody')[i]);
-            }
-          }
-          if(obj_in.get('volunteerBody')){
-            for(var i = obj_in.get('volunteerBody').length-1; i >=0; i--){
-              vBody.push(obj_in.get('volunteerBody')[i]);
-            }
-          }
-          return {
-            'county': obj_in.get('county'),
-            'poll': obj_in.get('poll'),
-            'resource': obj_in.get('resource'),
-            'volunteer': obj_in.get('volunteer'),
-            'resourceBody': rBody,//obj_in.get('resourceBody'),
-            'volunteerBody': vBody,//obj_in.get('volunteerBody'),
-          }; 
-        }
-        else{
-          var obj_out = { 
-            'email': obj_in.get('email'),
-            'fid': obj_in.get('fid'),
-            'mobile': obj_in.get('mobile'),
-            'name': obj_in.get('name'),
-            'poll': obj_in.get('poll'),
-            'county': obj_in.get('county')
-          };
-          if(type == 'volunteer'){
-            obj_out['resource'] = {};
-            for(var item in my_this.supplementItem){
-              obj_out['resource'][item] = 0;
-            }
-            obj_out['volunteer'] = true;
-          }
-          else if(type == 'supplement'){
-            obj_out['resource'] = obj_in.get('resource'); 
-            obj_out['volunteer'] = false;
-          }
-          return obj_out;
-        }
+        var rBody = obj_in.get('resourceBody') ? angular.copy(obj_in.get('resourceBody')).reverse() : [];
+        var vBody = obj_in.get('volunteerBody') ? angular.copy(obj_in.get('volunteerBody')).reverse() : [];
+        return {
+          'county': obj_in.get('county'),
+          'poll': obj_in.get('poll'),
+          'resource': obj_in.get('resource'),
+          'volunteer': obj_in.get('volunteer'),
+          'resourceBody': rBody,//obj_in.get('resourceBody'),
+          'volunteerBody': vBody,//obj_in.get('volunteerBody'),
+        }; 
       }
       //setTimeout(function(){
         if(citizenDataAry[county]){
@@ -262,35 +225,15 @@ angular.module('projectVApp')
           }
           else{
             console.log('run citizen data');
-            if(USE_CITIZEN_DB){
-              var query = new Parse.Query(pollParse);
-              my_this.getParsedQuery(query,"county",county).then(function(citizenData){
-                var results = [];
-                for (var i = 0; i < citizenData.length; i++) { 
-                  results.push( convertObject(citizenData[i]));
-                } 
-                citizenDataAry[county] = results;
-                postProcess(county);
-              });
-            }
-            else{
-              var volQuery = new Parse.Query(volunteerParse);
-              var supQuery = new Parse.Query(supplementParse);
-              $q.all([my_this.getParsedQuery(volQuery,"county",county), my_this.getParsedQuery(supQuery,"county",county)]).then(function(data){
-                //console.log('query_data',data[0],data[1]);
-                var volunteerData = data[0];
-                var supplementData = data[1];
-                var results = [];
-                for (var i = 0; i < volunteerData.length; i++) { 
-                  results.push( convertObject(volunteerData[i],'volunteer'));
-                } 
-                for (var i = 0; i < supplementData.length; i++) { 
-                  results.push( convertObject(supplementData[i],'supplement'));
-                } 
-                citizenDataAry[county] = results;
-                postProcess(county);
-              });
-            }
+            var query = new Parse.Query(pollParse);
+            my_this.getParsedQuery(query,"county",county).then(function(citizenData){
+              var results = [];
+              for (var i = 0; i < citizenData.length; i++) { 
+                results.push( convertObject(citizenData[i]));
+              } 
+              citizenDataAry[county] = results;
+              postProcess(county);
+            });
           }
         }
       //},MY_HTTP_DELAY*citizenDataHttp);
@@ -364,31 +307,19 @@ angular.module('projectVApp')
                 }
               } 
 
-              if(USE_CITIZEN_DB){
-                for (var i = 0; i < citizenData.length; i++) { 
-                  var object = citizenData[i];
-                  var vsid = object['poll'];
-                  voteStatSum[vsid] = 0;
-                  var vsum = (object['volunteer'] > voteStatWeight[vsid]*my_this.volCount) ? 1  : object['volunteer']/(voteStatWeight[vsid]*my_this.volCount);
-                  var ssum = 0;
-                  var slength = 0;
-                  for(var item in my_this.supplementItem){
-                    var itemNum =  object['resource'][item] ? object['resource'][item] : 0;
-                    ssum += (itemNum > voteStatWeight[vsid]*my_this.supplementItem[item][0]) ? 1  : itemNum / (voteStatWeight[vsid]*my_this.supplementItem[item][0]);
-                    slength += 1;
-                  }
-                  voteStatSum[vsid] = ( vsum + (ssum / slength) ) / 2;
+              for (var i = 0; i < citizenData.length; i++) { 
+                var object = citizenData[i];
+                var vsid = object['poll'];
+                voteStatSum[vsid] = 0;
+                var vsum = (object['volunteer'] > voteStatWeight[vsid]*my_this.volCount) ? 1  : object['volunteer']/(voteStatWeight[vsid]*my_this.volCount);
+                var ssum = 0;
+                var slength = 0;
+                for(var item in my_this.supplementItem){
+                  var itemNum =  object['resource'][item] ? object['resource'][item] : 0;
+                  ssum += (itemNum > voteStatWeight[vsid]*my_this.supplementItem[item][0]) ? 1  : itemNum / (voteStatWeight[vsid]*my_this.supplementItem[item][0]);
+                  slength += 1;
                 }
-              }
-              else{
-                for (var i = 0; i < citizenData.length; i++) { 
-                  var object = citizenData[i];
-                  var vsid = object['poll'];
-                  voteStatSum[vsid] = voteStatSum[vsid] ? voteStatSum[vsid]+1 : 1;
-                }
-                for(var id in voteStatSum){
-                  voteStatSum[id] = (voteStatSum[id] > voteStatWeight[id]*my_this.volCount) ? 1 : voteStatSum[id] / (voteStatWeight[id]*my_this.volCount);
-                }
+                voteStatSum[vsid] = ( vsum + (ssum / slength) ) / 2;
               }
               var villageSum = {}; 
               for(var townName in  villageVotestatData){
@@ -434,6 +365,7 @@ angular.module('projectVApp')
           },MY_HTTP_DELAY*3);
         }
         else{
+          console.log('run allVoteStatInfoHttp');
           $q.all([my_this.getCitizenData(county), my_this.getAllVoteStatData(county)]).then(
             function(data){
               var citizenData = data[0];
@@ -445,12 +377,10 @@ angular.module('projectVApp')
                   var voteStat = votestatData[townName][i];
                   voteStatInfo[voteStat.id] = {
                     vlist: [],
-                    //vlistTotal: 0,
                     vCount:0,
                     volunteer: 0,
                     slist: [], 
                     sItemCount: {},
-                    //sItemTotal: {}, 
                     sItemSum: 0,
                     sTotalSum: 0,
                     supplement: 0, 
@@ -459,91 +389,43 @@ angular.module('projectVApp')
                   };
                 } 
               }
-              if(USE_CITIZEN_DB){ 
-                for(var i=0; i<citizenData.length; i++){
-                  var object = citizenData[i];
-                  var vsid = object['poll'];
-                  var resource = object['resource'];
-                  voteStatInfo[vsid].vCount = object['volunteer'];
-                  voteStatInfo[vsid].vlist = object['volunteerBody'];//.reverse();
-                  voteStatInfo[vsid].slist = object['resourceBody'];//.reverse();
+              for(var i=0; i<citizenData.length; i++){
+                var object = citizenData[i];
+                var vsid = object['poll'];
+                var resource = object['resource'];
+                voteStatInfo[vsid].vCount = object['volunteer'];
+                voteStatInfo[vsid].vlist = object['volunteerBody'];//.reverse();
+                voteStatInfo[vsid].slist = object['resourceBody'];//.reverse();
 
-                  for(var item in my_this.supplementItem){
-                    if(!voteStatInfo[vsid].sItemCount[item]){
-                      voteStatInfo[vsid].sItemCount[item] = 0;
-                    }
-                    if(resource[item] && parseInt(resource[item]) > 0 ){
-                      voteStatInfo[vsid].sItemCount[item] = parseInt(resource[item]);
-                      hasitem = true;
-                    }
+                for(var item in my_this.supplementItem){
+                  if(!voteStatInfo[vsid].sItemCount[item]){
+                    voteStatInfo[vsid].sItemCount[item] = 0;
                   }
-                }
-
-                for(var id in voteStatInfo){
-                  var factor = voteStatInfo[id].vweight*my_this.volCount;
-
-                  voteStatInfo[id].volunteer = voteStatInfo[id].vCount > factor ? 1 : voteStatInfo[id].vCount/factor;
-
-                  var totalSum = 0;
-                  var itemSum = 0;
-                  for(var item in my_this.supplementItem){
-                    var itemTotal =  my_this.supplementItem[item][0] * voteStatInfo[id].vweight
-                    totalSum += itemTotal;
-                    if(!voteStatInfo[id].sItemCount[item]){
-                      voteStatInfo[id].sItemCount[item] = 0;
-                    }
-                    itemSum += ( voteStatInfo[id].sItemCount[item] >= itemTotal ? itemTotal : voteStatInfo[id].sItemCount[item] );
+                  if(resource[item] && parseInt(resource[item]) > 0 ){
+                    voteStatInfo[vsid].sItemCount[item] = parseInt(resource[item]);
+                    //hasitem = true;
                   }
-                  voteStatInfo[id].sItemSum = itemSum;
-                  voteStatInfo[id].sTotalSum = totalSum;
-                  voteStatInfo[id].supplement = itemSum > totalSum ? 1 : itemSum/totalSum;
                 }
               }
-              else{
-                //console.log('voteStatInfo',voteStatInfo);
-                for(var i=0; i<citizenData.length; i++){
-                  var object = citizenData[i];
-                  var vsid = object['poll'];
-                  //console.log('vsid',vsid);
-                  if(voteStatInfo[vsid]){
-                    if(object['volunteer']){
-                      voteStatInfo[vsid].vlist.push([object['fid'],object['name']]);
-                    }
-                    var hasitem = false;
-                    var resource = object['resource'];
-                    for(var item in my_this.supplementItem){
-                      if(!voteStatInfo[vsid].sItemCount[item]){
-                        voteStatInfo[vsid].sItemCount[item] = 0;
-                      }
-                      if(resource[item] && parseInt(resource[item]) > 0 ){
-                        voteStatInfo[vsid].sItemCount[item] += parseInt(resource[item]);
-                        hasitem = true;
-                      }
-                    }
-                    if(hasitem){
-                      voteStatInfo[vsid].slist.push([object['fid'],object['name']]);
-                    }
-                  }
-                }
-                for(var id in voteStatInfo){
-                  var factor = voteStatInfo[id].vweight*my_this.volCount;
-                  voteStatInfo[id].volunteer = voteStatInfo[id].vlist.length > factor ? 1 : voteStatInfo[id].vlist.length/factor;
 
-                  var totalSum = 0;
-                  var itemSum = 0;
-                  for(var item in my_this.supplementItem){
-                    var itemTotal =  my_this.supplementItem[item][0] * voteStatInfo[id].vweight
-                    totalSum += itemTotal;
-                    if(!voteStatInfo[id].sItemCount[item]){
-                      voteStatInfo[id].sItemCount[item] = 0;
-                    }
-                    itemSum += ( voteStatInfo[id].sItemCount[item] >= itemTotal ? itemTotal : voteStatInfo[id].sItemCount[item] );
-                  }
+              for(var id in voteStatInfo){
+                var factor = voteStatInfo[id].vweight*my_this.volCount;
 
-                  voteStatInfo[id].sItemSum = itemSum;
-                  voteStatInfo[id].sTotalSum = totalSum;
-                  voteStatInfo[id].supplement = itemSum > totalSum ? 1 : itemSum/totalSum;
+                voteStatInfo[id].volunteer = voteStatInfo[id].vCount > factor ? 1 : voteStatInfo[id].vCount/factor;
+
+                var totalSum = 0;
+                var itemSum = 0;
+                for(var item in my_this.supplementItem){
+                  var itemTotal =  my_this.supplementItem[item][0] * voteStatInfo[id].vweight
+                  totalSum += itemTotal;
+                  if(!voteStatInfo[id].sItemCount[item]){
+                    voteStatInfo[id].sItemCount[item] = 0;
+                  }
+                  itemSum += ( voteStatInfo[id].sItemCount[item] >= itemTotal ? itemTotal : voteStatInfo[id].sItemCount[item] );
                 }
+                voteStatInfo[id].sItemSum = itemSum;
+                voteStatInfo[id].sTotalSum = totalSum;
+                voteStatInfo[id].supplement = itemSum > totalSum ? 1 : itemSum/totalSum;
               }
 
               voteStatInfoAry[county] = voteStatInfo;
@@ -591,14 +473,11 @@ angular.module('projectVApp')
           angular.forEach(villages, function(villageName) {
             countAll += 1;
             var vakey = county+'_'+townName+'_'+villageName;
-
             if(villageArea[vakey]){
               postProcess(vakey, townName, villageName);
             }
-
             else{
               var query = 'json/twVillage2010/' + county + '/' + townName + '/' + villageName + '.json';
-
               $http.get(query).success(function(data) {
                 villageArea[vakey] = data;
                 postProcess(vakey, townName, villageName);
@@ -607,9 +486,7 @@ angular.module('projectVApp')
                 //console.log('loading failed',townName,villageName);        
                 postProcess(vakey, townName, villageName);
               });
-
             }
-
           });
         });
       });
@@ -618,57 +495,17 @@ angular.module('projectVApp')
     
     this.saveCitizen = function(data, cb){
       //console.log('data',JSON.stringify(data));
-      if(USE_CITIZEN_DB){
-        var czparse = new citizenParse();
-        czparse
-          .save(data)
-          .then(function(object) {
-            cb()
-          });
-      }
-      else{
-        if(data.volunteer){
-          delete data.volunteer;
-          delete data.resource;
-          var mparse = new volunteerParse();
-          mparse.save(data)
-            .then(function(object) {
-              cb()
-            });
-        }
-        else{
-          delete data.volunteer;
-          var mparse = new supplementParse();
-          mparse.save(data)
-            .then(function(object) {
-              cb()
-            });
-        }
-      }
+      var czparse = new citizenParse();
+      czparse
+        .save(data)
+        .then(function(object) {
+          cb()
+        });
     };
 
     this.queryCitizen = function(fid,type){
       var deferred = $q.defer();
-      if(USE_CITIZEN_DB){
-        deferred.resolve(false);
-      }
-      else{
-        var query = null;
-        if(type == 'volunteer'){ 
-          query = new Parse.Query(volunteerParse);
-        }
-        else if(type == 'supplement'){
-          query = new Parse.Query(supplementParse);
-        }
-        my_this.getParsedQuery(query,"fid",fid).then(function(result){
-          if(result.length > 0){
-            deferred.resolve(true);
-          }
-          else{
-            deferred.resolve(false);
-          }
-        });
-      }
+      deferred.resolve(false);
       return deferred.promise;
     };
 
@@ -682,9 +519,6 @@ angular.module('projectVApp')
       }
       if(voteStatInfoAry[county]){
         delete voteStatInfoAry[county];
-      }
-      if(countyVillageAry[county]){
-        delete countyVillageAry[county];
       }
     };
 
