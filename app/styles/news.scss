@@ -24,6 +24,15 @@ $main-color: #B6203F;
   font-size: 2rem;
 }
 
+.news-title-ellipsis {
+  text-overflow: ellipsis;
+  width: 420px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
 .news-type {
   display: inline-block;
   padding-top: 0.2em;
