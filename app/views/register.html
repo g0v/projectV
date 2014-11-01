@@ -96,9 +96,6 @@
             </tr>
           </table>
           <br/>
-          <input type="checkbox" name="supplement.others_select"  data-ng-model="content.supplement.others_select">其他物資
-          <input type="text" name="supplement.others_select_text" data-ng-model="content.supplement.others" 
-            data-ng-show="content.supplement.others_select"></input>
         </span>
         <p>
           <input type="checkbox" data-ng-model="regscope.fbshare">分享到facebook<br>
@@ -151,11 +148,6 @@
             </tr>
           </table>
           <br/>
-          <p>
-            <strong>其他物資：</strong></br>
-            <span ng-show ="content.supplement.others_select"> {{content.supplement.others}} </span>
-            <span ng-show ="(!content.supplement.others_select) || (content.supplement.others == '' )">無</span>
-          </p>
         </span>
         <p>
           分享到facebook：

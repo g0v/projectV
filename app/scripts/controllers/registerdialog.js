@@ -247,9 +247,9 @@ angular.module('projectVApp')
         return [true,''];
       }
     }
-    if(supplement["others_select"] && supplement["others"] && supplement["others"].length > 0 ){
-      return [true,''];
-    }
+    //if(supplement["others_select"] && supplement["others"] && supplement["others"].length > 0 ){
+    //  return [true,''];
+    //}
     return [false,'請填選您要提供的物資'];
   };
 
