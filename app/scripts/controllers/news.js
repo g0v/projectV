@@ -24,11 +24,14 @@ angular.module('projectVApp')
         feeds.push(f);
         angular.forEach(f.categories, function(c) {
           if (c.indexOf('type:') === 0) {
-            f.tag = mapping[c.substr('type:'.length)];
+            var type = c.substr('type:'.length);
+            f.type = type;
+            f.tag = mapping[type];
           }
         });
         if (!f.tag) {
           f.tag = '最新消息';
+          f.type = 'multiple';
         }
       });
       $scope.feeds = feeds;

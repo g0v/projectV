@@ -7,6 +7,7 @@ $main-color: #B6203F;
 
 .news-header {
   height: $news-header-height;
+  margin-bottom: -5px;
 }
 
 .news-header-text {
@@ -26,7 +27,7 @@ $main-color: #B6203F;
 
 .news-title-ellipsis {
   text-overflow: ellipsis;
-  width: 420px;
+  width: 400px;
   white-space: nowrap;
   overflow: hidden !important;
   display: inline-block;
@@ -51,6 +52,11 @@ $main-color: #B6203F;
   -webkit-transform: skew(-20deg);
 }
 
+.news-feeds {
+  border-left: 3px solid #c2003f;
+  margin-left: 3px;
+}
+
 .news-right a {
   color: black;
   text-decoration: none;
@@ -64,4 +70,15 @@ $main-color: #B6203F;
 .news-mission {
   padding-top: 240px;
   padding-left: 82px;
+}
+
+.news-icon-type {
+  position: absolute;
+  left: -33px;
+  top: 0;
+  width: 60px;
+}
+
+.col-icon {
+  position: relative;
 }
