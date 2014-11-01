@@ -29,8 +29,9 @@ angular.module('projectVApp')
 
     var volunteerParse = Parse.Object.extend("volunteer");
 
-
     var supplementParse = Parse.Object.extend("resource");
+
+    var reportParse = Parse.Object.extend("report");
     //var county = 'TPE-4';
 
     var citizenDataAry = {}; //dynamic
@@ -502,6 +503,17 @@ angular.module('projectVApp')
           cb()
         });
     };
+
+    this.saveReport = function(data, cb){
+      //console.log('data',JSON.stringify(data));
+      var rpparse = new reportParse();
+      rpparse
+        .save(data)
+        .then(function(object) {
+          cb()
+        });
+    };
+
 
     this.queryCitizen = function(fid,type){
       var deferred = $q.defer();

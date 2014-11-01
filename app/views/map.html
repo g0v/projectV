@@ -99,7 +99,8 @@
         </div>
         <div ng-if="myscope.showVS.vsArray.length > 0">
           <div style="padding:10px 0px;">
-              <strong>投開票所地址：</strong>{{myscope.vsInfo[myscope.currentVsTab.vsId].address}}
+              <strong>投開票所地址：</strong>{{myscope.vsInfo[myscope.currentVsTab.vsId].address}}<br/>
+              <b>投開票所資料有誤？？<a href="javascript:void(0);" ng-click="myscope.reportDialog()">請回報！</a></b>
           </div>
           <div style="padding:10px 0px;">
 
@@ -107,26 +108,6 @@
               {{myscope.volCount * myscope.vsInfo[myscope.currentVsTab.vsId].vweight}}
             </h4> 
             <div id="hp_people" style="margin:5px;display:inline-block;" >
-              <!--
-              <div ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(0,2) track by $index">
-                <div class="map_participant" > {{name}} </div>
-              </div>
-              <div ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(2) track by $index"
-                ng-show="myscope.hpPeopleMore">
-                <div class="map_participant" > {{name}} </div>
-              </div>
-              <div ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].vlist.length > 2" 
-                ng-click="myscope.hpPeopleClick()">
-                <div class="map_participant" > 
-                  <span ng-show="!myscope.hpPeopleMore">
-                    more
-                  </span>
-                  <span ng-show="myscope.hpPeopleMore">
-                    less
-                  </span>
-                </div>
-              </div>
-            </div>--!>
               <div class="imgWrap" 
                 ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].vlist.slice(0,2) track by $index">
                 <div class="imgArrow"></div>
@@ -177,26 +158,6 @@
               {{myscope.vsInfo[myscope.currentVsTab.vsId].sTotalSum}}
             </h4> 
             <div id="sp_people" style="margin:5px;display:inline-block;" >
-              <!--
-              <div ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(0,2) track by $index">
-                <div class="map_participant" > {{name}} </div>
-              </div>
-              <div ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(2) track by $index"
-                  ng-show="myscope.spPeopleMore">
-                <div class="map_participant" > {{name}} </div>
-              </div>
-              <div ng-show="myscope.vsInfo[myscope.currentVsTab.vsId].slist.length > 2" 
-                ng-click="myscope.spPeopleClick()">
-                <div class="map_participant" > 
-                  <span ng-show="!myscope.spPeopleMore">
-                    more
-                  </span>
-                  <span ng-show="myscope.spPeopleMore">
-                    less
-                  </span>
-                </div>
-              </div>
-            </div>-->
               <div class="imgWrap" 
                 ng-repeat="name in myscope.vsInfo[myscope.currentVsTab.vsId].slist.slice(0,2) track by $index">
                 <div class="imgArrow"></div>

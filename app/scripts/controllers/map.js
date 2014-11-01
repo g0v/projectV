@@ -548,6 +548,27 @@ angular.module('projectVApp')
       }); 
     };  
 
+    $scope.myscope.reportDialog = function() {
+      var modalInstance = $modal.open({
+        templateUrl:'views/report.html',
+        controller: 'ReportCtrl',
+        size: 'md',
+        resolve: {
+          data: function() {
+            return {
+              county: county,
+              vsId: $scope.myscope.currentVsTab.vsId,
+              vsName: $scope.myscope.currentVsTab.vsName, 
+            };
+          }   
+        }   
+      }); 
+      modalInstance.result.then(function(result){
+        //$location.path('/');
+      }); 
+    };  
+
+
 
 
 
