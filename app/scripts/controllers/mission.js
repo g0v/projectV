@@ -61,6 +61,7 @@ angular.module('projectVApp')
       var feeds = [];
       var bossFeeds = [];
       var citizenFeeds = [];
+      var maxCount = 6;
       angular.forEach(rawFeeds, function(feed) {
         angular.forEach(feed.categories, function(c) {
           if (c.indexOf(areaPrefix) === 0) {
@@ -81,9 +82,13 @@ angular.module('projectVApp')
 
       angular.forEach(feeds, function(f) {
         if (f.type === 'boss') {
-          bossFeeds.push(f);
+          if (bossFeeds.length < maxCount) {
+            bossFeeds.push(f);
+          }
         } else if (f.type && f.type !== 'v') {
-          citizenFeeds.push(f);
+          if (citizenFeeds.length < maxCount) {
+            citizenFeeds.push(f);
+          }
         }
       });
 
