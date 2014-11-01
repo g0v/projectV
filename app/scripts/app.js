@@ -65,7 +65,7 @@ angular
     'FacebookProvider',
     function(FacebookProvider) {
      //var myAppId = '696953930392705';
-     var myAppId = '276159409125032';
+     var myAppId = '882033105143189';
 
      // You can set appId with setApp method
      // FacebookProvider.setAppId('myAppId');
