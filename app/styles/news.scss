@@ -50,3 +50,13 @@ $main-color: #B6203F;
   transform: skew(-20deg);
   -webkit-transform: skew(-20deg);
 }
+
+.news-right a {
+  color: black;
+  text-decoration: none;
+}
+
+.news-right a:hover {
+  color: #428bca;
+  text-decoration: none;
+}
