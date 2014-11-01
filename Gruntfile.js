@@ -352,7 +352,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '.',
           src: 'CNAME',
-          dest: '<%= yeoman.dist %>'
+          dest: 'dist' // FIXME: change to <%= yeoman.dist %> when we landed.
         },
         {
           expand: true,
