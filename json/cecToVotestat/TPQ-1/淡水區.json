@@ -1,0 +1,812 @@
+[
+  {
+    "id": "tpq0029",
+    "place_name": "中和市民活動中心",
+    "address": "小中寮19之2號",
+    "village": "中和里",
+    "remark": "全里",
+    "seq": 29,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.2294627,
+      "lng": 121.4849451
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0030",
+    "place_name": "屯山國小",
+    "address": "淡金路五段111號",
+    "village": "屯山里",
+    "remark": "全里",
+    "seq": 30,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.2373078,
+      "lng": 121.4562869
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0031",
+    "place_name": "正德國中",
+    "address": "後洲子11號",
+    "village": "賢孝里",
+    "remark": "全里",
+    "seq": 31,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.2251984,
+      "lng": 121.4468752
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0032",
+    "place_name": "興仁國小",
+    "address": "興仁路101巷10號",
+    "village": "興仁里",
+    "remark": "全里",
+    "seq": 32,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.2174986,
+      "lng": 121.4512794
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0033",
+    "place_name": "玄玄廟（原仙媽廟）",
+    "address": "安子內12號旁",
+    "village": "蕃薯里",
+    "remark": "全里",
+    "seq": 33,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.213482,
+      "lng": 121.489249
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0034",
+    "place_name": "忠山市民活動中心",
+    "address": "椿子林18號",
+    "village": "忠山里",
+    "remark": "全里",
+    "seq": 34,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.2175646,
+      "lng": 121.4641975
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0035",
+    "place_name": "集應廟",
+    "address": "下圭柔山35之3號",
+    "village": "義山里",
+    "remark": "1-13",
+    "seq": 35,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.204634,
+      "lng": 121.449669
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0037",
+    "place_name": "無極天元宮",
+    "address": "北新路三段36號",
+    "village": "水源里",
+    "remark": "1-6",
+    "seq": 37,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1865476,
+      "lng": 121.484715
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0039",
+    "place_name": "北新有機農場",
+    "address": "演戲埔腳3之2號",
+    "village": "忠寮里",
+    "remark": "全里",
+    "seq": 39,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1926129,
+      "lng": 121.4735666
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0040",
+    "place_name": "樹興市民活動中心",
+    "address": "糞箕湖25號",
+    "village": "樹興里",
+    "remark": "全里",
+    "seq": 40,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1719805,
+      "lng": 121.4433706
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0041",
+    "place_name": "坪頂市民活動中心",
+    "address": "坪頂路710巷1號",
+    "village": "坪頂里",
+    "remark": "全里",
+    "seq": 41,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.162873,
+      "lng": 121.459457
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0042",
+    "place_name": "臺灣長老教會關渡教會",
+    "address": "自強路307巷4號",
+    "village": "福德里",
+    "remark": "1,8,18,19",
+    "seq": 42,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1320407,
+      "lng": 121.4622843
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0043",
+    "place_name": "中華基督教長老會信友堂-關渡自強分堂",
+    "address": "自強路307巷2號",
+    "village": "福德里",
+    "remark": "2,13,20",
+    "seq": 43,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.131952,
+      "lng": 121.4623518
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0044",
+    "place_name": "竹圍國小",
+    "address": "自強路35號",
+    "village": "福德里",
+    "remark": "3-5",
+    "seq": 44,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1270383,
+      "lng": 121.4628055
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0046",
+    "place_name": "土地公廟旁",
+    "address": "民族路17巷底",
+    "village": "竹圍里",
+    "remark": "1,2,7,8,13-1",
+    "seq": 46,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1372253,
+      "lng": 121.4607718
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0048",
+    "place_name": "空屋",
+    "address": "民族路29巷2弄6號（觀海極品後方）",
+    "village": "竹圍里",
+    "remark": "4-6",
+    "seq": 48,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1369736,
+      "lng": 121.4627538
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0049",
+    "place_name": "竹圍慈濟資源回收場",
+    "address": "民族路65巷2號",
+    "village": "竹圍里",
+    "remark": "9-12",
+    "seq": 49,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.134146,
+      "lng": 121.463267
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0050",
+    "place_name": "空屋",
+    "address": "民權路179巷6號",
+    "village": "民權里",
+    "remark": "1-6,9-12",
+    "seq": 50,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1348358,
+      "lng": 121.460089
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0051",
+    "place_name": "關渡站前A區中庭廣場",
+    "address": "民權路177巷53號",
+    "village": "民權里",
+    "remark": "7,8,13-17",
+    "seq": 51,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.139245,
+      "lng": 121.4598664
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0052",
+    "place_name": "民生市民活動中心",
+    "address": "民生路27號1樓(托兒所)",
+    "village": "民生里",
+    "remark": "1,5,10,16-19",
+    "seq": 52,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1379647,
+      "lng": 121.4615234
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0053",
+    "place_name": "民生里土地公廟",
+    "address": "民生路113巷3弄32號對面",
+    "village": "民生里",
+    "remark": "2-4,6-9,11-1",
+    "seq": 53,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1389381,
+      "lng": 121.4634238
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0054",
+    "place_name": "民生里休閒區",
+    "address": "民生路113巷3弄32號旁(民生里土地公廟對面)",
+    "village": "民生里",
+    "remark": "14,15,20-28",
+    "seq": 54,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1389381,
+      "lng": 121.4634238
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0055",
+    "place_name": "民生市民活動中心",
+    "address": "民生路27號6樓",
+    "village": "民生里",
+    "remark": "29-32",
+    "seq": 55,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1379647,
+      "lng": 121.4615234
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0056",
+    "place_name": "竹圍國小",
+    "address": "中正東路二段145號",
+    "village": "八勢里",
+    "remark": "1-4,8",
+    "seq": 56,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1475596,
+      "lng": 121.4600373
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0058",
+    "place_name": "八勢里活動中心",
+    "address": "八勢一街42巷3號旁",
+    "village": "八勢里",
+    "remark": "6,7,11,13,14",
+    "seq": 58,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1554545,
+      "lng": 121.4611422
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0059",
+    "place_name": "綠波山莊交誼廳",
+    "address": "坪頂路70巷37號",
+    "village": "竿蓁里",
+    "remark": "1,3,15,16",
+    "seq": 59,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1623144,
+      "lng": 121.4571382
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0060",
+    "place_name": "紅樹林護理之家",
+    "address": "中正東路一段111巷22號",
+    "village": "竿蓁里",
+    "remark": "2,4,23,24",
+    "seq": 60,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1608357,
+      "lng": 121.4551833
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0061",
+    "place_name": "竿蓁市民活動中心",
+    "address": "中正東路一段3巷6號1樓",
+    "village": "竿蓁里",
+    "remark": "5-10,12,13",
+    "seq": 61,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1637224,
+      "lng": 121.4519668
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0062",
+    "place_name": "竿蓁市民活動中心",
+    "address": "中正東路一段3巷6號2樓",
+    "village": "竿蓁里",
+    "remark": "11,14,25,26",
+    "seq": 62,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1637224,
+      "lng": 121.4519668
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0063",
+    "place_name": "消防隊活動中心",
+    "address": "中正東路一段125號（消防分隊旁）",
+    "village": "竿蓁里",
+    "remark": "17-22",
+    "seq": 63,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1594851,
+      "lng": 121.4556043
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0064",
+    "place_name": "新市國小",
+    "address": "中山北路二段200號",
+    "village": "崁頂里",
+    "remark": "1",
+    "seq": 64,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.18533,
+      "lng": 121.4441935
+    },
+    "power": 6
+  },
+  {
+    "id": "tpq0067",
+    "place_name": "育英國小",
+    "address": "埤島14號",
+    "village": "崁頂里",
+    "remark": "6-15",
+    "seq": 67,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1970634,
+      "lng": 121.4448505
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0069",
+    "place_name": "正德國中",
+    "address": "北新路109號",
+    "village": "水碓里",
+    "remark": "1-8",
+    "seq": 69,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1815349,
+      "lng": 121.4551812
+    },
+    "power": 7
+  },
+  {
+    "id": "tpq0076",
+    "place_name": "新興國小",
+    "address": "新興街123號",
+    "village": "新興里",
+    "remark": "1,4",
+    "seq": 76,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.179723,
+      "lng": 121.4400448
+    },
+    "power": 13
+  },
+  {
+    "id": "tpq0090",
+    "place_name": "北投里福德宮",
+    "address": "北新路223號旁",
+    "village": "北投里",
+    "remark": "6-8,11,21,22",
+    "seq": 90,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1785908,
+      "lng": 121.4487875
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0093",
+    "place_name": "鄧公國小",
+    "address": "學府路99號",
+    "village": "鄧公里",
+    "remark": "1-5",
+    "seq": 93,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.171016,
+      "lng": 121.449231
+    },
+    "power": 8
+  },
+  {
+    "id": "tpq0101",
+    "place_name": "中興市民活動中心",
+    "address": "水源街一段29號1樓",
+    "village": "中興里",
+    "remark": "1-7",
+    "seq": 101,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1723664,
+      "lng": 121.4431267
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0102",
+    "place_name": "中興市民活動中心",
+    "address": "水源街一段29號2樓",
+    "village": "中興里",
+    "remark": "8-10",
+    "seq": 102,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1723664,
+      "lng": 121.4431267
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0103",
+    "place_name": "中興市民活動中心",
+    "address": "水源街一段29號3樓",
+    "village": "中興里",
+    "remark": "11-18",
+    "seq": 103,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1723664,
+      "lng": 121.4431267
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0104",
+    "place_name": "長庚市民活動中心",
+    "address": "中山路72巷1弄10號",
+    "village": "長庚里",
+    "remark": "全里",
+    "seq": 104,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.171328,
+      "lng": 121.4429107
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0105",
+    "place_name": "淡水清水巖活動中心",
+    "address": "清水街160號",
+    "village": "清文里",
+    "remark": "全里",
+    "seq": 105,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1704599,
+      "lng": 121.4411419
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0106",
+    "place_name": "觀宗寺",
+    "address": "中正路15號",
+    "village": "草東里",
+    "remark": "全里",
+    "seq": 106,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1695239,
+      "lng": 121.443065
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0107",
+    "place_name": "淡水國小",
+    "address": "中山路160號",
+    "village": "協元里",
+    "remark": "全里",
+    "seq": 107,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1735253,
+      "lng": 121.4411499
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0108",
+    "place_name": "永吉里集會所",
+    "address": "清水街212號",
+    "village": "永吉里",
+    "remark": "全里",
+    "seq": 108,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1718656,
+      "lng": 121.4402308
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0109",
+    "place_name": "福佑宮",
+    "address": "中正路200號",
+    "village": "民安里",
+    "remark": "全里",
+    "seq": 109,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1701815,
+      "lng": 121.4399367
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0110",
+    "place_name": "新北市淡水地政事務所",
+    "address": "中正路233號",
+    "village": "新生里",
+    "remark": "全里",
+    "seq": 110,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1729978,
+      "lng": 121.4358822
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0111",
+    "place_name": "文化國小",
+    "address": "真理街6號",
+    "village": "文化里",
+    "remark": "全里",
+    "seq": 111,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1745343,
+      "lng": 121.4364771
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0112",
+    "place_name": "忠義宮蘇府王爺廟",
+    "address": "中正路一段32號",
+    "village": "油車里",
+    "remark": "1-9,15-17",
+    "seq": 112,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.176534,
+      "lng": 121.426747
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0113",
+    "place_name": "天生國小",
+    "address": "淡海路72巷26號",
+    "village": "油車里",
+    "remark": "10-13",
+    "seq": 113,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.181506,
+      "lng": 121.424601
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0115",
+    "place_name": "保安廟",
+    "address": "淡海路189巷10號",
+    "village": "沙崙里",
+    "remark": "1-4",
+    "seq": 115,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1841326,
+      "lng": 121.4196393
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0116",
+    "place_name": "保安廟（聚福廳）",
+    "address": "淡海路189巷25號",
+    "village": "沙崙里",
+    "remark": "5-8",
+    "seq": 116,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.189905,
+      "lng": 121.419476
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0117",
+    "place_name": "淡海市民活動中心",
+    "address": "淡海路111號",
+    "village": "大庄里",
+    "remark": "1-6",
+    "seq": 117,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1831264,
+      "lng": 121.4210542
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0118",
+    "place_name": "淡海基督教會",
+    "address": "沙崙路181巷30號",
+    "village": "大庄里",
+    "remark": "7-9",
+    "seq": 118,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1826787,
+      "lng": 121.4243955
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0119",
+    "place_name": "行忠宮",
+    "address": "新民街一段80號",
+    "village": "大庄里",
+    "remark": "10-12",
+    "seq": 119,
+    "county": "TPQ",
+    "town": "淡水區",
+    "location": {
+      "lat": 25.1851937,
+      "lng": 121.4293161
+    },
+    "power": 1
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "id": "tpq0120",
+    "place_name": "空屋",
+    "address": "頂寮2街85號",
+    "village": "龍源里",
+    "remark": "1-9",
+    "seq": 120,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.1259463,
+      "lng": 121.4493878
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0121",
+    "place_name": "龍米市民活動中心",
+    "address": "龍米路一段223號",
+    "village": "龍源里",
+    "remark": "10-15,23-27",
+    "seq": 121,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.125591,
+      "lng": 121.45293
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0122",
+    "place_name": "聖心小學活動中心",
+    "address": "龍米路一段261號",
+    "village": "龍源里",
+    "remark": "16-22,28-30",
+    "seq": 122,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.125591,
+      "lng": 121.45293
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0123",
+    "place_name": "米倉國小",
+    "address": "龍米路二段129巷1號",
+    "village": "米倉里",
+    "remark": "1-9,11-13",
+    "seq": 123,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.1470859,
+      "lng": 121.4455324
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0124",
+    "place_name": "渡船頭市民活動中心",
+    "address": "渡船頭街11巷8號",
+    "village": "米倉里",
+    "remark": "10,14-24",
+    "seq": 124,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.158977,
+      "lng": 121.4341971
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0125",
+    "place_name": "大崁老人文康活動中心",
+    "address": "中山路一段21號",
+    "village": "大崁里",
+    "remark": "全里",
+    "seq": 125,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.0083743,
+      "lng": 121.4602508
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0126",
+    "place_name": "大埤頂市民活動中心",
+    "address": "中山路一段95號",
+    "village": "埤頭里",
+    "remark": "1-12",
+    "seq": 126,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.010155,
+      "lng": 121.461673
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0127",
+    "place_name": "中庄市場綜合大樓3樓(市民活動中心",
+    "address": "中山路一段109號3樓",
+    "village": "埤頭里",
+    "remark": "13-28",
+    "seq": 127,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.0102789,
+      "lng": 121.461934
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0128",
+    "place_name": "北極宮",
+    "address": "文昌路89號之2",
+    "village": "頂罟里",
+    "remark": "全里",
+    "seq": 128,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.1571665,
+      "lng": 121.4102602
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0129",
+    "place_name": "文化活動中心",
+    "address": "中山路二段251號",
+    "village": "舊城里",
+    "remark": "1-8",
+    "seq": 129,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.1498205,
+      "lng": 121.4041966
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0130",
+    "place_name": "八里國小",
+    "address": "中山路二段338號",
+    "village": "舊城里",
+    "remark": "9-14",
+    "seq": 130,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.1498205,
+      "lng": 121.4041966
+    },
+    "power": 5
+  },
+  {
+    "id": "tpq0135",
+    "place_name": "下庄市場綜合大樓4樓(市民活動中心",
+    "address": "舊城路19號4樓",
+    "village": "荖阡里",
+    "remark": "全里",
+    "seq": 135,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.1465749,
+      "lng": 121.4001418
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0136",
+    "place_name": "長坑活動中心",
+    "address": "中華路三段236號",
+    "village": "長坑里",
+    "remark": "全里",
+    "seq": 136,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.1369369,
+      "lng": 121.3925799
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0137",
+    "place_name": "下罟長青活動中心",
+    "address": "中山三段173號",
+    "village": "下罟里",
+    "remark": "全里",
+    "seq": 137,
+    "county": "TPQ",
+    "town": "八里區",
+    "location": {
+      "lat": 25.1436802,
+      "lng": 121.393196
+    },
+    "power": 1
+  }
+]

@@ -1,0 +1,332 @@
+[
+  {
+    "id": "tpq0233",
+    "place_name": "大科市民活動中心",
+    "address": "大科路42號",
+    "village": "大科里",
+    "remark": "1-13",
+    "seq": 233,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0567397,
+      "lng": 121.4056085
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0234",
+    "place_name": "南亞林口廠福利社",
+    "address": "南林路101號",
+    "village": "大科里",
+    "remark": "14-16",
+    "seq": 234,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0482218,
+      "lng": 121.4151077
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0235",
+    "place_name": "黎明市民活動中心",
+    "address": "黎明路23號",
+    "village": "黎明里",
+    "remark": "3-7,9-11",
+    "seq": 235,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0613972,
+      "lng": 121.4213356
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0236",
+    "place_name": "泰山國中",
+    "address": "泰林路二段498號",
+    "village": "黎明里",
+    "remark": "1,2,8,12-17",
+    "seq": 236,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0601635,
+      "lng": 121.4340214
+    },
+    "power": 3
+  },
+  {
+    "id": "tpq0239",
+    "place_name": "泰山國小",
+    "address": "泰林路二段255號",
+    "village": "山腳里",
+    "remark": "20-30,33",
+    "seq": 239,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0601635,
+      "lng": 121.4340214
+    },
+    "power": 5
+  },
+  {
+    "id": "tpq0241",
+    "place_name": "楓樹福泰市民活動中心",
+    "address": "楓江路26巷26號",
+    "village": "福泰里",
+    "remark": "1-12",
+    "seq": 241,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.061645,
+      "lng": 121.434696
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0245",
+    "place_name": "山腳市民活動中心",
+    "address": "福德街14號",
+    "village": "楓樹里",
+    "remark": "1-8",
+    "seq": 245,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0087992,
+      "lng": 121.4559482
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0247",
+    "place_name": "楓樹福泰市民活動中心",
+    "address": "楓江路26巷26號2樓",
+    "village": "楓樹里",
+    "remark": "21-28",
+    "seq": 247,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.061645,
+      "lng": 121.434696
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0248",
+    "place_name": "泰山高中",
+    "address": "辭修路7號",
+    "village": "同榮里",
+    "remark": "1-9",
+    "seq": 248,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0584546,
+      "lng": 121.4274738
+    },
+    "power": 4
+  },
+  {
+    "id": "tpq0250",
+    "place_name": "同榮國小",
+    "address": "公園路33號",
+    "village": "同榮里",
+    "remark": "23-30",
+    "seq": 250,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0401986,
+      "lng": 121.4528938
+    },
+    "power": 3
+  },
+  {
+    "id": "tpq0253",
+    "place_name": "義學國小",
+    "address": "民生路30號",
+    "village": "全興里",
+    "remark": "1-5,7",
+    "seq": 253,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0247759,
+      "lng": 121.467701
+    },
+    "power": 5
+  },
+  {
+    "id": "tpq0260",
+    "place_name": "義學市民活動中心",
+    "address": "明志路二段106號",
+    "village": "義學里",
+    "remark": "15-25",
+    "seq": 260,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0486919,
+      "lng": 121.427348
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0261",
+    "place_name": "義學國中",
+    "address": "民生路33號",
+    "village": "義仁里",
+    "remark": "1-10",
+    "seq": 261,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0471336,
+      "lng": 121.4346934
+    },
+    "power": 3
+  },
+  {
+    "id": "tpq0263",
+    "place_name": "義仁市民活動中心",
+    "address": "明志路二段177號",
+    "village": "義仁里",
+    "remark": "20,21,26",
+    "seq": 263,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0486919,
+      "lng": 121.427348
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0265",
+    "place_name": "明志國小",
+    "address": "新生路2號",
+    "village": "明志里",
+    "remark": "1-7",
+    "seq": 265,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0429077,
+      "lng": 121.431669
+    },
+    "power": 7
+  },
+  {
+    "id": "tpq0267",
+    "place_name": "明志市民活動中心",
+    "address": "明志路二段426號",
+    "village": "明志里",
+    "remark": "16-24",
+    "seq": 267,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0486919,
+      "lng": 121.427348
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0272",
+    "place_name": "頂泰山巖交誼中心",
+    "address": "應化街32號",
+    "village": "貴子里",
+    "remark": "1-4",
+    "seq": 272,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0437043,
+      "lng": 121.4238902
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0273",
+    "place_name": "明志科技大學（綜合大樓1樓）",
+    "address": "工專路84號",
+    "village": "貴子里",
+    "remark": "5-15",
+    "seq": 273,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0403144,
+      "lng": 121.422808
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0274",
+    "place_name": "貴子市民活動中心",
+    "address": "工專路22號",
+    "village": "貴子里",
+    "remark": "16-29",
+    "seq": 274,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0402257,
+      "lng": 121.4229288
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0276",
+    "place_name": "貴賢市民活動中心",
+    "address": "明志路三段197號",
+    "village": "貴賢里",
+    "remark": "16-27",
+    "seq": 276,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0364629,
+      "lng": 121.4227483
+    },
+    "power": 1
+  },
+  {
+    "id": "tpq0277",
+    "place_name": "道明幼兒園",
+    "address": "明志路三段295號",
+    "village": "貴和里",
+    "remark": "1-23",
+    "seq": 277,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0364629,
+      "lng": 121.4227483
+    },
+    "power": 2
+  },
+  {
+    "id": "tpq0279",
+    "place_name": "貴和市民活動中心",
+    "address": "明志路三段365號",
+    "village": "貴和里",
+    "remark": "33-42",
+    "seq": 279,
+    "county": "TPQ",
+    "town": "泰山區",
+    "location": {
+      "lat": 25.0364629,
+      "lng": 121.4227483
+    },
+    "power": 1
+  }
+]
