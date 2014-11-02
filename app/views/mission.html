@@ -9,7 +9,7 @@
         </div>
       </div>
     </div>
-    <div class="row" style="border-top:5px solid #B6203F; border-bottom:5px solid #B6203F; ">
+    <div class="row" style="border-top:4px solid #B6203F; border-bottom:4px solid #B6203F; ">
       <div class="col-xs-2 text-center">
         <div class="citizen-avatar" ng-style="citizenAvatar">
         </div>
@@ -31,15 +31,15 @@
     <img src="images/mission_middle_header.svg" style="width:80%;margin-bottom:-5px;max-width:1000px;min-width:800px;"></img>
   </div>
 
-  <div class="row mymap" style="border-bottom:5px solid #B6203F;">
-
-    <div class="col-xs-3 text-center mission_content"  >
+  <table class="mymap mission_table" >
+    <tr>
+    <td class="text-center mission_content row_same_height">
       <div id="mission_frame_boss">
-        <img class="img-circle mission_frame_img" src="{{miscope.boss.img}}" style="border:5px solid #B6203F;width:150px;">
+        <img class="img-circle mission_frame_img" src="{{miscope.boss.img}}" style="border:4px solid #B6203F;width:150px;">
         <h3 class="mission_frame_name">{{miscope.boss.name}}</h3>
       </div>
-    </div>
-    <div class="col-xs-3 mission_content" style="border-right:5px solid #B6203F">
+    </td>
+    <td class="mission_content row_same_height" style="border-right:0px solid #B6203F">
       <div class="mission_content_inner" style="height:auto">
         <div class="mission_progress_txt"><strong>HP</strong></div>
         <div class="progress">
@@ -59,9 +59,8 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="col-xs-3 mission_content" style="border-left:5px solid #B6203F;left:-5px;">
+    </td>
+    <td class="mission_content row_same_height" style="border-left:4px solid #B6203F;">
       <div class="mission_content_inner" style="height:auto">
         <div class="mission_progress_txt"><strong>志工數：{{miscope.vCount}} / {{miscope.vTotal}} </strong>
           <div class="imgMissionWrap" ng-click="miscope.missionAdd()">
@@ -104,11 +103,10 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-3 text-center mission_content">
-
+    </td>
+    <td class="text-center mission_content row_same_height">
       <div id="mission_frame_citizen">
-  <!--      <img class="img-circle mission_frame_img" src="http://graph.facebook.com/{{miscope.newCitizen[0].fid}}/picture?type=square&width=100&height=100" style="border:5px solid #B6203F; width:150px;height:150px;">-->
+  <!--      <img class="img-circle mission_frame_img" src="http://graph.facebook.com/{{miscope.newCitizen[0].fid}}/picture?type=square&width=100&height=100" style="border:4px solid #B6203F; width:150px;height:150px;">-->
         <h3 class="mission_frame_name">公民V</h3>
       </div>
       <div id="mission_frame_citizen_list">
@@ -118,8 +116,9 @@
         </h5>
         <h5 style="color:black;" ng-show="miscope.newCitizen.length > 3">...</h5>
       </div>
-    </div>
-  </div>
+    </td>
+    </tr>
+  </table>
 
   <div style="height:50px"></div>
 
