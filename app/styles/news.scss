@@ -69,7 +69,12 @@ $main-color: #B6203F;
 
 .news-mission {
   padding-top: 240px;
-  padding-left: 82px;
+  margin-left: 80px;
+  width: 100px !important;
+}
+
+.news-mission img {
+  width: 100%;
 }
 
 .news-icon-type {
@@ -98,11 +103,12 @@ $main-color: #B6203F;
 
 .citizen-author {
   position: absolute;
-  left: 50px;
+  left: 55px;
   top: 140px;
   font-size: 18px;
 }
 
 .citizen-speech {
-  margin-left: 30px;
+  margin-left: 38px;
+  margin-right: 38px;
 }
