@@ -467,7 +467,7 @@ angular.module('projectVApp')
       angular.forEach(markerArray, function(marker) {
         var mcount = marker.vscount;  
         mymarkers[marker.vsid] = {
-          draggable: true, //TODO
+          draggable: false, //TODO
           lat: marker.vsobj.lat,
           lng: marker.vsobj.lng,
           icon: myiconArray[mcount]['x'],
@@ -483,13 +483,13 @@ angular.module('projectVApp')
       });
 
 
-      $scope.$on('leafletDirectiveMarker.dragend', function(e, args) { //TODO
-        var thisName = args.markerName;
-        var thisMarker = $scope.markers[args.markerName];
-        $scope.myscope.markerlatlng = [thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9)].join(',');
-        //console.log('marker drag',thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9));
-        //$scope.myscope.setCurrentMarkerClick(args.markerName);
-      });
+      //$scope.$on('leafletDirectiveMarker.dragend', function(e, args) { //TODO
+      //  var thisName = args.markerName;
+      //  var thisMarker = $scope.markers[args.markerName];
+      //  $scope.myscope.markerlatlng = [thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9)].join(',');
+      //  //console.log('marker drag',thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9));
+      //  //$scope.myscope.setCurrentMarkerClick(args.markerName);
+      //});
 
       $scope.$on('leafletDirectiveMarker.click', function(e, args) {
         //console.log('marker mouse click');
@@ -669,9 +669,9 @@ angular.module('projectVApp')
       var curTime = new Date().getTime();
       if( curTime - lastLoadTime > MAP_RELOAD_TIME){
         lastLoadTime = curTime;
-        //$scope.$emit('missionDataReload');
-        console.log('dataReload');
-        //loadData(false);
+        $scope.$emit('missionDataReload');
+        //console.log('dataReload');
+        loadData(false);
       }
     });
 

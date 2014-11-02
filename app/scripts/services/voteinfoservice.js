@@ -93,7 +93,7 @@ angular.module('projectVApp')
       }
       if(jsonHttpCount[name] > 1){
         var repeat = setInterval(function(){
-          console.log('repeat '+ name);
+          //console.log('repeat '+ name);
           if(jsonStorage[name][county]){
             clearInterval(repeat);
             postProcess(county);
@@ -107,7 +107,7 @@ angular.module('projectVApp')
         else{
           var queryExecute = function(){
             var query = 'json/'+ name +'/' + county + '.json';
-            console.log('query' + name);
+            //console.log('query' + name);
             $http.get(query).success(function(data) {
               jsonStorage[name][county] = data;
               postProcess(county);
@@ -159,7 +159,7 @@ angular.module('projectVApp')
       else{ 
         if(queryHistory[qhkey]['count'] > 1){
           var repeat = setInterval(function(){
-            console.log('repeat query');
+            //console.log('repeat query');
             if(queryHistory[qhkey]['results']){
               clearInterval(repeat);
               postProcess(qhkey);
@@ -168,7 +168,7 @@ angular.module('projectVApp')
         }
         else{
           var queryExecute = function(){ 
-            console.log('repeat 2 query interval');
+            //console.log('repeat 2 query interval');
             query.descending("createdAt");
             query.equalTo(key, val);
             query.limit(limit);
@@ -217,7 +217,7 @@ angular.module('projectVApp')
         else{
           if(citizenDataHttp > 1){
             var repeat = setInterval(function(){
-              console.log('repeat citizen data');
+              //console.log('repeat citizen data');
               if(citizenDataAry[county]){
                 clearInterval(repeat);
                 postProcess(county);
@@ -225,7 +225,7 @@ angular.module('projectVApp')
             },MY_HTTP_DELAY);
           }
           else{
-            console.log('run citizen data');
+            //console.log('run citizen data');
             var query = new Parse.Query(pollParse);
             my_this.getParsedQuery(query,"county",county).then(function(citizenData){
               var results = [];
@@ -285,7 +285,7 @@ angular.module('projectVApp')
       else{
         if(villageSumHttp > 1){
           var repeat = setInterval(function(){
-            console.log('repeat villageSumHttp');
+            //console.log('repeat villageSumHttp');
             if(villageSumAry[county]){
               clearInterval(repeat);
               postProcess(county); 
@@ -293,7 +293,7 @@ angular.module('projectVApp')
           },MY_HTTP_DELAY*3);
         }
         else{
-            console.log('run villageSumHttp');
+            //console.log('run villageSumHttp');
             $q.all([ my_this.getAllVoteStatData(county), my_this.getCitizenData(county) , my_this.getAllVillageVotestatData(county)])
             .then(function(data){
               var voteStatData = data[0];
@@ -358,7 +358,7 @@ angular.module('projectVApp')
       else{
         if(allVoteStatInfoHttp > 1){
           var repeat = setInterval(function(){
-            console.log('repeat allVoteStatInfoHttp');
+            //console.log('repeat allVoteStatInfoHttp');
             if(voteStatInfoAry[county]){
               clearInterval(repeat);
               postProcess(county); 
@@ -366,7 +366,7 @@ angular.module('projectVApp')
           },MY_HTTP_DELAY*3);
         }
         else{
-          console.log('run allVoteStatInfoHttp');
+          //console.log('run allVoteStatInfoHttp');
           $q.all([my_this.getCitizenData(county), my_this.getAllVoteStatData(county)]).then(
             function(data){
               var citizenData = data[0];
