@@ -92,11 +92,18 @@ angular.module('projectVApp')
          * Using $scope.$apply since this happens outside angular framework.
          */
         $scope.$apply(function() {
-          //console.log('scope.me apply');
+          //console.log('scope.me apply',response);
           //$scope.user = response;
-          changeFbuser(response);
-          $scope.logged = true;  
-          userIsConnected = true;
+          if(!response.error){
+            //console.log('scope.me success');
+            changeFbuser(response);
+            $scope.logged = true;  
+            userIsConnected = true;
+          }
+          //else{
+          //  console.log('scope.me error');
+          //  $scope.logout();
+          //}
           //console.log('scope.user',$scope.user);
         });
         
