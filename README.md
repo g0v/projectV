@@ -16,8 +16,7 @@ npm i bower -g
 接下來進入專案目錄，並且用以下指令安裝 npm 以及 bower 相依元件（如果出現權限問題，請在指令最前面加上 `sudo`）：
 
 ```bash
-npm i
-bower i
+npm i && bower i
 ```
 
 而且也需要 compass 跟 sass，請輸入以下指令（如果出現權限問題，請在指令最前面加上 `sudo`)
@@ -49,6 +48,8 @@ npm i generator-angular -g
 ```shell
 yo angular:controller <controller-name>
 ```
+
+關於 Yeoman angularjs generator 的詳細資訊可以參考[官方網站](https://github.com/yeoman/generator-angular/blob/master/readme.md)。
 
 # Deploy
 
