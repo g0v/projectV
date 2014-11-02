@@ -38,6 +38,8 @@ angular.module('projectVApp')
     $scope.miscope.newCitizen = [];
     $scope.miscope.mapLoadingComplete = false;
 
+    $scope.miscope.bossHP = 1;
+
     FeedService.parseFeed('http://appyv.tumblr.com/rss').then(function(res) {
       var entries = res.data.responseData.feed.entries;
       var item = entries[Math.floor(Math.random() * entries.length)];
