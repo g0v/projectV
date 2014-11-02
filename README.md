@@ -16,7 +16,8 @@ npm i bower -g
 接下來進入專案目錄，並且用以下指令安裝 npm 以及 bower 相依元件（如果出現權限問題，請在指令最前面加上 `sudo`）：
 
 ```bash
-npm i && bower i
+npm i
+bower i
 ```
 
 而且也需要 compass 跟 sass，請輸入以下指令（如果出現權限問題，請在指令最前面加上 `sudo`)
@@ -81,3 +82,13 @@ grunt build && ./deploy.sh
 ```
 
 即可部署完畢，數分鐘後可以到 http://g0v.github.io/projectV/ 看看部署結果囉。
+
+# Contribution
+
+如果您發現了任何網站問題，或是希望新增的功能，請至 [github issue tracker](https://github.com/g0v/projectV/issues) 回報給我們。若您想修復或改善 issue 清單裡的任何一個項目，請利用 pull request 提交你的 branch，並且在該 branch 裡面僅附上一個 commit，commit title 格式如下：
+
+```
+Fixed #ISSUE_NUM: your commit description
+```
+
+ISSUE_NUM 代換成您要修復的 issue 編號，我們將會 review 你所送來的 pull request。
