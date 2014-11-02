@@ -127,12 +127,12 @@
   <img src="images/mission_map_title.svg" style="width:80%;max-width:1000px;min-width:800px;"></img>
   </div>
 
-  <div class="text-center" style="min-height:50px;padding:50px;">
-  <img class="tutorial" src="images/tutorial.png" />
-  <h3> 若地圖無法正常顯示，請按「重新整理」</h3>
+  <div class="text-center" style="min-height:50px;padding:50px;padding-bottom:20px;">
+    <img class="tutorial" src="images/tutorial.png" ng-click="miscope.gotoMap()" style="cursor:pointer;" />
+    <h3> 若地圖無法正常顯示，請按「重新整理」</h3>
   </div>
 </div>
-<div class="main-container" style="width:95%;min-width:1000px;">
+<div class="main-container" id="mission_map_container" style="width:95%;min-width:1000px;">
   <div ng-controller="MapCtrl" ng-include="'views/map.html'"></div>
 </div>
 

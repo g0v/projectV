@@ -138,6 +138,10 @@ angular.module('projectVApp')
       $('html, body').animate({scrollTop: $('#mission_map_title').offset().top}, 500);
     };
 
+
+    $scope.miscope.gotoMap = function(){
+      $('html, body').animate({scrollTop: $('#mission_map_container').offset().top}, 500);
+    };
     //$scope.$on('mapLoadingComplete',function(){
     //  $scope.miscope.mapLoadingComplete = true;
     //});
