@@ -67,28 +67,22 @@
     left: 480px;
 }
 
-.arraw-block {
-  display: inline-block;
-  background-image: url(../images/arraw-background.png);
-  width: 100px;
-  text-align: center;
-  height: 25px;
-  font-size: 10px;
-  line-height: 25px;
-  color: #B91E3F;
-  background-size: 100% 100%;
+.other-area  {
+  position: absolute;
+  width: 90px;
+  margin-top: -120px;
 }
 
-.arraw-block.volunteer {
-  position: absolute;
-  left: 685px;
-  margin-top: -75px;
+.other-area > img {
+  width: 100%;
 }
 
-.arraw-block.stuff {
-  position: absolute;
-  left: 685px;
-  margin-top: -112px;
+.volunteer {
+  left: 645px;
+}
+
+.stuff {
+  left: 740px;
 }
 
 .fb-like {
@@ -96,4 +90,24 @@
   height: 50px;
   padding-left: 185px;
   margin-top: -40px;
+}
+
+.mission-link {
+  display: inline-block;
+  position: absolute;
+  width: 180px;
+  height: 400px;
+  top: 100px;
+}
+
+.mission-link-1 {
+  left: 40px;
+}
+
+.mission-link-2 {
+  left: 240px;
+}
+
+.mission-link-3 {
+  left: 440px;
 }
