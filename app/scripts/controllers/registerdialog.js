@@ -350,7 +350,7 @@ angular.module('projectVApp')
   }
   
   function postToFb(){
-    var message = '割闌尾V計劃網站測試中';
+    var message = ' 割闌尾V計劃：我已經報名當志工了！11/29 割闌尾計畫三個選區投票所外之不妨害投票行為的地點，設立「罷免連署示範攤位」並邀請所有v公民有物資出物資；有力出力，擔任一天志工或贊助當日擺攤一日物資所需。';
     Facebook.api('/me/feed', 'post', 
       { message: message,
         link:'http://1129vday.tw/',
