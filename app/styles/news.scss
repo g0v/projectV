@@ -91,3 +91,18 @@ $main-color: #B6203F;
 .more-news > a {
   color: $main-color;
 }
+
+.citizen-quote {
+  position: relative;
+}
+
+.citizen-author {
+  position: absolute;
+  left: 50px;
+  top: 140px;
+  font-size: 18px;
+}
+
+.citizen-speech {
+  margin-left: 30px;
+}
