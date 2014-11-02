@@ -18,8 +18,8 @@ var BOSS_DESCRIPTION = {
 
 angular.module('projectVApp')
   .controller('MissionCtrl',
-  function ($scope, $route, $routeParams, voteInfoService, FeedService) {
-
+  function ($scope, $route, $routeParams, voteInfoService, FeedService, $anchorScroll) {
+    $anchorScroll();
     var county = $routeParams.county;
     var effectPrefix = 'effect:';
     var areaPrefix = 'area:';

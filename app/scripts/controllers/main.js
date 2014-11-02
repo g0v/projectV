@@ -8,7 +8,8 @@
  * Controller of the projectVApp
  */
 angular.module('projectVApp')
-  .controller('MainCtrl', function ($scope,  Countdown, FINALDATE, $interval) {
+  .controller('MainCtrl', function ($scope,  Countdown, FINALDATE, $interval, $anchorScroll) {
+    $anchorScroll();
     $scope.time = Countdown.getTime(new Date(FINALDATE), new Date());
 
     $interval(function() {
