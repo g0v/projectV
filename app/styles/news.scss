@@ -82,3 +82,12 @@ $main-color: #B6203F;
 .col-icon {
   position: relative;
 }
+
+.more-news {
+  font-size: 18px;
+  text-align: right;
+}
+
+.more-news > a {
+  color: $main-color;
+}

@@ -21,6 +21,9 @@ angular.module('projectVApp')
     FeedService.parseFeed('http://appytw.tumblr.com/rss').then(function(res) {
       var feeds = [];
       angular.forEach(res.data.responseData.feed.entries, function(f) {
+        if (feeds.length >= 10) {
+          return;
+        }
         feeds.push(f);
         angular.forEach(f.categories, function(c) {
           if (c.indexOf('type:') === 0) {
