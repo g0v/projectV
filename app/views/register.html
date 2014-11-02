@@ -155,7 +155,7 @@
     <div data-ng-show="editState == 3">
       <p>報名成功，謝謝您的參與！</p>
     </div>
-
+    
 
     <div class="hr_single" data-ng-show="logged && (editState < 2)">
       <hr >
@@ -173,6 +173,15 @@
 
     <div data-ng-show="logged && (unregster == 2)">
       <span data-ng-show="editState == 0">
+        <div ng-show="regscope.nonArea">
+          <p>
+          V計劃除了割闌尾計劃在闌尾前三名：蔡正元、吳育昇、林鴻池選區的投開票所前擺放「罷免」的連署攤位，也擴大合作和島國前進一起推動公投法修正，預計將在台北、台中、台南、高雄等地的投開票所設置「補正公投法」的連署攤位。</p>
+          <p>
+            因此除了選擇在三位立委選區擔任志工外，你可以選擇「不分區」擔任割闌尾機動性志工或是島國前進全台志工，你的一天將造就台灣民主的另一片天！</p>
+          <div class="hr_single">
+            <hr >
+          </div>
+        </div>
         <p ng-show="!regscope.nonArea">
           勇者呀！該想要在哪裡紮營？（認養的投開票所）<br/>
           <strong>{{content.votestat}}</strong>
