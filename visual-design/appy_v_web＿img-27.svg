@@ -7,9 +7,29 @@
 <polygon fill="#B81C3D" points="452.105,-1.002 318.127,-1.002 301.723,28.998 465.816,28.998 "/>
 <line fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="0" y1="159.998" x2="767" y2="159.998"/>
 <line fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="0" y1="28.998" x2="767" y2="28.998"/>
-<circle fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" cx="155.448" cy="94.125" r="14.282"/>
-<line fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="225.366" y1="28.998" x2="152.532" y2="93.436"/>
-<line fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="226.365" y1="159.666" x2="152.532" y2="93.436"/>
-<line fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="239.365" y1="159.666" x2="165.532" y2="93.436"/>
-<line fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="122" y1="92.998" x2="188" y2="92.998"/>
+<g>
+	<path fill="#B81C3D" d="M152.448,108.405c-8.427,0-15.282-6.854-15.282-15.28c0-8.427,6.855-15.283,15.282-15.283
+		s15.282,6.856,15.282,15.283C167.73,101.551,160.875,108.405,152.448,108.405z M152.448,79.842
+		c-7.324,0-13.282,5.959-13.282,13.283c0,7.323,5.958,13.28,13.282,13.28s13.282-5.957,13.282-13.28
+		C165.73,85.801,159.772,79.842,152.448,79.842z"/>
+</g>
+<g>
+	
+		<rect x="187.949" y="12.593" transform="matrix(0.6628 0.7488 -0.7488 0.6628 109.541 -120.8371)" fill="#B81C3D" width="2.001" height="97.247"/>
+</g>
+<g>
+	
+		<rect x="200.949" y="12.593" transform="matrix(0.6628 0.7488 -0.7488 0.6628 113.924 -130.571)" fill="#B81C3D" width="2.001" height="97.247"/>
+</g>
+<g>
+	
+		<rect x="139.856" y="125.551" transform="matrix(0.7444 0.6677 -0.6677 0.7444 132.9279 -94.1556)" fill="#B81C3D" width="99.186" height="2"/>
+</g>
+<g>
+	
+		<rect x="152.856" y="125.551" transform="matrix(0.7444 0.6677 -0.6677 0.7444 136.2508 -102.8363)" fill="#B81C3D" width="99.186" height="2"/>
+</g>
+<g>
+	<rect x="122" y="91.998" fill="#B81C3D" width="66" height="3"/>
+</g>
 </svg>
