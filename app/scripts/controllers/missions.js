@@ -35,9 +35,9 @@ angular.module('projectVApp')
         }   
       }); 
       modalInstance.result.then(function(result){
-        console.log('send',result);
+        //console.log('send',result);
         //loadData(false);
-        $scope.$emit('dataReload');
+        //$scope.$emit('dataReload');
       }); 
     };  
 
