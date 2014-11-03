@@ -240,15 +240,13 @@
               </td>
             </tr>
           </table>
-            <!--<select ng-model="content.areaOrder[0]" 
-              ng-options="ns for ns in regscope.nonAreaSelect"></select><br/>
-            志願2：<select ng-model="content.areaOrder[1]" 
-              ng-options="ns for ns in regscope.nonAreaSelect"></select><br/>
-            志願3：<select ng-model="content.areaOrder[2]" 
-              ng-options="ns for ns in regscope.nonAreaSelect"></select><br/>-->
         </span>
         <p>
-          <input type="checkbox" data-ng-model="regscope.fbshare">分享到facebook<br>
+          <input type="checkbox" data-ng-model="regscope.fbshare"><strong>分享到facebook</strong><br>
+        </p>
+        <p data-ng-show="regscope.fbshare">
+          <strong>分享內容：</strong><br/>
+          <textarea style="width:100%;" rows="4" data-ng-model="regscope.fbmessage"> </textarea>
         </p>
       </span>
 
@@ -317,9 +315,15 @@
         </span>
 
         <p>
-          分享到facebook：
+          <strong>分享到facebook：</strong>
           <span class="darkred">
             {{regscope.fbshare && '是' || '否'}}
+          </span>
+        </p>
+        <p data-ng-show="regscope.fbshare">
+          <strong>分享內容：</strong><br/>
+          <span class="darkred">
+            {{regscope.fbmessage}}
           </span>
         </p>
       </span>

@@ -13,6 +13,7 @@ angular.module('projectVApp')
   function($scope, $timeout, $modalInstance, Facebook, voteInfoService, data) {
     
   $scope.regscope = {};
+  var defaultMsg = ' 割闌尾V計劃：我已經報名當志工了！11/29 割闌尾計畫三個選區投票所外之不妨害投票行為的地點，設立「罷免連署示範攤位」並邀請所有v公民有物資出物資；有力出力，擔任一天志工或贊助當日擺攤一日物資所需。';
 
   //var ref = new Firebase("https://torid-fire-6233.firebaseio.com/participants");
 
@@ -185,7 +186,6 @@ angular.module('projectVApp')
 
 
 
-  $scope.regscope.fbshare = true;
   $scope.regscope.type = data.type;
   $scope.regscope.nonArea = data.nonArea;
   $scope.regscope.supCount = data.supCount;
@@ -193,6 +193,8 @@ angular.module('projectVApp')
   //console.log('data',data);
   $scope.regscope.errors = '';
   $scope.regscope.newuser = true;
+  $scope.regscope.fbshare = true;
+  $scope.regscope.fbmessage = defaultMsg;
   //console.log('scope content supplement',$scope.content.supplement);
   $scope.content = {
     type: data.type,
@@ -227,6 +229,8 @@ angular.module('projectVApp')
       $scope.fbname = fbuser.name;
       $scope.content.phone = '';
       $scope.content.email = '';
+      $scope.regscope.fbshare = true;
+      $scope.regscope.fbmessage = defaultMsg;
       $scope.content.areaOrder = [
         $scope.regscope.nonAreaSelect[0],
         $scope.regscope.nonAreaSelect[1],
@@ -357,7 +361,7 @@ angular.module('projectVApp')
   }
   
   function postToFb(){
-    var message = ' 割闌尾V計劃：我已經報名當志工了！11/29 割闌尾計畫三個選區投票所外之不妨害投票行為的地點，設立「罷免連署示範攤位」並邀請所有v公民有物資出物資；有力出力，擔任一天志工或贊助當日擺攤一日物資所需。';
+    var message = $scope.regscope.fbmessage;
     Facebook.api('/me/feed', 'post', 
       { message: message,
         link:'http://1129vday.tw/',
