@@ -58,7 +58,7 @@ angular.module('projectVApp')
       'water':   [5,'水'],
       'chair':   [2,'椅子'], 
       'desk':    [1,'桌子'], 
-      'umbrella':[1,'五百萬傘'], 
+      'umbrella':[1,'水果攤用大傘'], 
     };
     
     this.volCount = 5;

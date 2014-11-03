@@ -13,7 +13,7 @@ angular.module('projectVApp')
   function($scope, $timeout, $modalInstance, Facebook, voteInfoService, data) {
     
   $scope.regscope = {};
-  var defaultMsg = ' 割闌尾V計劃：我已經報名當志工了！11/29 割闌尾計畫三個選區投票所外之不妨害投票行為的地點，設立「罷免連署示範攤位」並邀請所有v公民有物資出物資；有力出力，擔任一天志工或贊助當日擺攤一日物資所需。';
+  var defaultMsg = '我已經報名「割闌尾V計劃」志工了！\n11/29 割闌尾計畫於三個選區的投票所外不妨害投票行為的地點，設立「罷免連署示範攤位」，並邀請所有公民V有物資出物資、有力出力，擔任一天志工或贊助當日擺攤一日物資所需。\n#1129一日志工 ＃我們一起讓罷免復活 ＃割闌尾V計劃';
 
   //var ref = new Firebase("https://torid-fire-6233.firebaseio.com/participants");
 
