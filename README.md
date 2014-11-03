@@ -92,3 +92,7 @@ Fixed #ISSUE_NUM: your commit description
 ```
 
 ISSUE_NUM 代換成您要修復的 issue 編號，我們將會 review 你所送來的 pull request。
+
+# Contributor
+
+本專案為 g0v 底下的開源專案，source code contributor 請見 [github - contributer](https://github.com/g0v/projectV/graphs/contributors)，此外本專案由子龍提供視覺設計，Han Lin 負責專案協調。
