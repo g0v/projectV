@@ -21,7 +21,8 @@ angular.module('projectVApp')
         { id: 'demo', name: '自由罷免示範區',
           img: 'https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-07.svg', class: 'nav-title', cssid: 'nav4'},
         { id: 'petition', name: '連署書資訊',
-          img: 'https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-09.svg', class: 'nav-title', cssid: 'nav5'}
+          img: 'https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-09.svg', class: 'nav-title', cssid: 'nav5'},
+        { id: 'faq', name: 'FAQ'}
       ];
 
       $scope.getActive = function(id) {
