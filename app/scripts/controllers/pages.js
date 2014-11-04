@@ -22,7 +22,8 @@ angular.module('projectVApp')
           img: 'https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-07.svg', class: 'nav-title', cssid: 'nav4'},
         { id: 'petition', name: '連署書資訊',
           img: 'https://s3-ap-southeast-1.amazonaws.com/1129vday.tw/img/1129-09.svg', class: 'nav-title', cssid: 'nav5'},
-        { id: 'faq', name: 'FAQ'}
+        { id: 'faq', name: 'FAQ'},
+        { name: 'T-shrt 贊助', href: 'http://tshirt.appy.tw/', target:'_blank'}
       ];
 
       $scope.getActive = function(id) {
