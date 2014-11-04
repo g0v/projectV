@@ -9,26 +9,26 @@
  */
 angular.module('projectVApp')
 .controller('registerDialogController',
-  ['$scope', '$timeout', '$modalInstance', 'Facebook', 'voteInfoService', 'data', 
-  function($scope, $timeout, $modalInstance, Facebook, voteInfoService, data) {
-    
+  ['$scope', '$timeout', '$modalInstance', 'Facebook', 'voteInfoService', 'data', '$analytics',
+  function($scope, $timeout, $modalInstance, Facebook, voteInfoService, data, $analytics) {
+
   $scope.regscope = {};
   var defaultMsg = '我已經報名「割闌尾V計劃」志工了！\n11/29 割闌尾計畫於三個選區的投票所外不妨害投票行為的地點，設立「罷免連署示範攤位」，並邀請所有公民V有物資出物資、有力出力，擔任一天志工或贊助當日擺攤一日物資所需。\n#1129一日志工 ＃我們一起讓罷免復活 ＃割闌尾V計劃';
 
   //var ref = new Firebase("https://torid-fire-6233.firebaseio.com/participants");
 
   //$scope.auth =  $firebaseSimpleLogin(ref,
-  //  function(error, user) { 
+  //  function(error, user) {
   //    console.log('error',error);
   //    console.log('user',user);
   //});
   //var sync = $firebase(ref);
 
-  //$scope.myfirebase = null; 
+  //$scope.myfirebase = null;
 
-    
+
   /********************************facebook*****************************/
-      
+
   // Define user empty data :/
   //$scope.user = {};
   // Defining user logged status
@@ -36,10 +36,10 @@ angular.module('projectVApp')
   $scope.fbname = '';
   $scope.unregster = 0;
   $scope.editState = 0;
-  
+
   //$scope.unregsterLoad = false;
   // And some fancy flags to display messages upon user status change
-  
+
   $scope.facebookReady = false;
   /**
    * Watch for Facebook to be ready.
@@ -54,10 +54,10 @@ angular.module('projectVApp')
         $scope.facebookReady = true;
     }
   );
-  
+
   var userIsConnected = false;
-  
-  
+
+
   /**
    * intentLogin
    */
@@ -68,7 +68,7 @@ angular.module('projectVApp')
       $scope.login();
     //}
   };
-  
+
   /**
    * Login
    */
@@ -78,12 +78,12 @@ angular.module('projectVApp')
       //if (response.status == 'connected') {
       //  fbSetLogin();
       //}
-    
+
     }, {scope: 'publish_stream,publish_actions'});
    };
-   
+
    /**
-    * me 
+    * me
     */
 
     $scope.me = function() {
@@ -98,7 +98,7 @@ angular.module('projectVApp')
           if(!response.error){
             //console.log('scope.me success');
             changeFbuser(response);
-            $scope.logged = true;  
+            $scope.logged = true;
             userIsConnected = true;
           }
           //else{
@@ -107,10 +107,10 @@ angular.module('projectVApp')
           //}
           //console.log('scope.user',$scope.user);
         });
-        
+
       });
     };
-  
+
   /**
    * Logout
    */
@@ -119,7 +119,7 @@ angular.module('projectVApp')
     Facebook.logout(function() {
       $scope.$apply(function() {
         //$scope.user   = {};
-        $scope.logged = false;  
+        $scope.logged = false;
         userIsConnected = false;
         $scope.fbname = '';
         $scope.unregster = 0;
@@ -129,7 +129,7 @@ angular.module('projectVApp')
       });
     });
   }
-  
+
   /**
    * Taking approach of Events :D
    */
@@ -138,7 +138,7 @@ angular.module('projectVApp')
     if (fbdata.status == 'connected') {
       //console.log('response',fbdata);
       $scope.$apply(function() {
-        //$scope.logged = true;  
+        //$scope.logged = true;
         $scope.me();
         //console.log('access_token',fbdata.authResponse.accessToken);
         //$scope.auth.$login('facebook', {access_token: fbdata.authResponse.accessToken});
@@ -146,7 +146,7 @@ angular.module('projectVApp')
       });
     } else {
       $scope.$apply(function() {
-        $scope.logged = false;  
+        $scope.logged = false;
         userIsConnected = false;
         $scope.fbname = '';
         $scope.editState = 0;
@@ -198,7 +198,7 @@ angular.module('projectVApp')
   //console.log('scope content supplement',$scope.content.supplement);
   $scope.content = {
     type: data.type,
-    votestat: data.vsName, 
+    votestat: data.vsName,
     vsid: data.vsId,
     userid: '',
     name: '',
@@ -214,7 +214,7 @@ angular.module('projectVApp')
   for(var item in selectItems){
     $scope.content.supplement[item] = 0;
   }
-  
+
 
 
 
@@ -222,10 +222,10 @@ angular.module('projectVApp')
 
   function changeFbuser(fbuser) {
     //console.log('fbuser',fbuser);
-    if(fbuser && fbuser.id){ 
+    if(fbuser && fbuser.id){
       //$scope.myfirebase = sync.$asArray();
-      $scope.content.userid = fbuser.id; 
-      $scope.content.name = fbuser.name; 
+      $scope.content.userid = fbuser.id;
+      $scope.content.name = fbuser.name;
       $scope.fbname = fbuser.name;
       $scope.content.phone = '';
       $scope.content.email = '';
@@ -237,7 +237,7 @@ angular.module('projectVApp')
         $scope.regscope.nonAreaSelect[2],
       ],
 
-      $scope.content.supplement = {} 
+      $scope.content.supplement = {};
       for(var item in selectItems){
         $scope.content.supplement[item] = 0;
       }
@@ -248,14 +248,14 @@ angular.module('projectVApp')
         //console.log('register result',result);
         if(!result){
           $scope.unregster = 2;
-        }  
+        }
         else{
           $scope.unregster = 1;
         }
       });
     }
     else{
-      //console.log('retry'); 
+      //console.log('retry');
       $scope.me();
     }
   }
@@ -297,7 +297,7 @@ angular.module('projectVApp')
   };
 
   $scope.send = function () {
-    var errors = []; 
+    var errors = [];
     if($scope.content.register.$invalid){
       var register = $scope.content.register;
       for(var item in textItem){
@@ -355,14 +355,20 @@ angular.module('projectVApp')
     }
     //console.log('save',temp_obj);
     voteInfoService.saveCitizen(temp_obj,function(){
+      $analytics.eventTrack('join', {
+        areaOrder: temp_obj.areaOrder,
+        volunteer: temp_obj.volunteer,
+        county: temp_obj.county,
+        resource: temp_obj.resource
+      });
       $scope.editState = 3;
       //$modalInstance.close(temp_obj);
     });
   }
-  
+
   function postToFb(){
     var message = $scope.regscope.fbmessage;
-    Facebook.api('/me/feed', 'post', 
+    Facebook.api('/me/feed', 'post',
       { message: message,
         link:'http://1129vday.tw/',
       }, function(response) {
@@ -370,6 +376,7 @@ angular.module('projectVApp')
         //console.log('error', response.error);
         //alert('Error occured');
       } else {
+        $analytics.eventTrack('postToFacebook');
         //console.log('Post ID: ' + response.id);
       }
     });

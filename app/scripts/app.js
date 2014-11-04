@@ -20,6 +20,8 @@ angular
     'ui.bootstrap',
     'facebook',
     'firebase',
+    'angulartics',
+    'angulartics.google.analytics'
   ])
   .config(function ($routeProvider) {
     $routeProvider
