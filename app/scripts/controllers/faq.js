@@ -8,7 +8,8 @@
  * Controller of the projectVApp
  */
 angular.module('projectVApp')
-  .controller('FaqCtrl', function ($scope) {
+  .controller('FaqCtrl', function ($scope, $analytics) {
+    $analytics.eventTrack('faq');
     $scope.items = [
       {
         q: '因為不知道志工要作什麼，所以不太敢答應',
