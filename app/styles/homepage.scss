@@ -1,3 +1,5 @@
+$mainColor: #B6203F;
+
 #homepage-counter-row {
   height: 200px;
   margin-bottom: 50px;
@@ -15,6 +17,22 @@
   height: 164px;
   border-top: 3px solid #B71C3D;
   border-bottom: 3px solid #B71C3D;
+  position: relative;
+}
+
+.main-introduction h3 {
+  margin-top: 10px;
+}
+
+.main-introduction .detail {
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+}
+
+.main-introduction .detail a {
+  color: $mainColor;
+  font-weight: bold;
 }
 
 .main-counterdown-container {
