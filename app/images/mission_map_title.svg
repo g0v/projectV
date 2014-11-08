@@ -1,24 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="709px" height="55px" viewBox="0 0 709 55" enable-background="new 0 0 709 55" xml:space="preserve">
-<g>
-	<polygon fill="#98272D" points="2.249,54 144,54 144,40 114.49,40 126.206,15 23.77,15 29.255,34.5 	"/>
-	<polygon fill="#FBB03B" points="114.49,40 144,53.761 144,40 	"/>
-	<polygon fill="#B81C3D" points="594.283,40 113.25,40 133.926,0 575.295,0 	"/>
-	<polygon fill="#98272D" points="706.524,54 564,54 564,40 594.283,40 582.567,15 685.004,15 679.519,34.5 	"/>
-	<polygon fill="#FBB03B" points="594.283,40 564,53.761 564,40 	"/>
-	<g>
-		<text transform="matrix(1 0 0 1 312 25.584)" fill="#FFFFFF" font-family="'LiGothicMed'" font-size="21.9555">即時戰況</text>
-	</g>
-	<g>
-		<circle fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="252.109" cy="18.486" r="8.737"/>
-		<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="252" y1="19" x2="161" y2="19"/>
-	</g>
-	<g>
-		<circle fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="462.987" cy="18.486" r="8.737"/>
-		<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="463" y1="19" x2="554" y2="19"/>
-	</g>
-</g>
-</svg>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="圖層_1"
+   x="0px"
+   y="0px"
+   width="709px"
+   height="55px"
+   viewBox="0 0 709 55"
+   enable-background="new 0 0 709 55"
+   xml:space="preserve"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="mission_map_title.svg"
+   inkscape:export-filename="/Users/yurenju/src/projectV/app/images/mission_map_title.png"
+   inkscape:export-xdpi="202.16"
+   inkscape:export-ydpi="202.16"><metadata
+     id="metadata35"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs33" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1121"
+     inkscape:window-height="637"
+     id="namedview31"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="354.5"
+     inkscape:cy="27.5"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g15" /><polygon
+     style="fill:#98272d"
+     id="polygon5"
+     points="144,40 114.49,40 126.206,15 23.77,15 29.255,34.5 2.249,54 144,54 " /><polygon
+     style="fill:#fbb03b"
+     id="polygon7"
+     points="144,40 114.49,40 144,53.761 " /><polygon
+     style="fill:#b81c3d"
+     id="polygon9"
+     points="133.926,0 575.295,0 594.283,40 113.25,40 " /><polygon
+     style="fill:#98272d"
+     id="polygon11"
+     points="564,40 594.283,40 582.567,15 685.004,15 679.519,34.5 706.524,54 564,54 " /><polygon
+     style="fill:#fbb03b"
+     id="polygon13"
+     points="564,40 594.283,40 564,53.761 " /><g
+     id="g15"
+     transform="translate(0,2)"><text
+       style="font-size:21.95549965px;fill:#ffffff;font-family:LiGothicMed"
+       id="text17"
+       font-size="21.9555"
+       transform="translate(312,25.584)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Noto Sans CJK TC;-inkscape-font-specification:Noto Sans CJK TC"
+         id="tspan3025">參戰說明</tspan></text>
+</g><g
+     id="g19"><circle
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:10"
+       sodipodi:ry="8.7370005"
+       sodipodi:rx="8.7370005"
+       sodipodi:cy="18.486"
+       sodipodi:cx="252.10899"
+       id="circle21"
+       r="8.7370005"
+       cy="18.486"
+       cx="252.10899"
+       stroke-miterlimit="10" /><line
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:10"
+       id="line23"
+       y2="19"
+       x2="161"
+       y1="19"
+       x1="252"
+       stroke-miterlimit="10" /></g><g
+     id="g25"><circle
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:10"
+       sodipodi:ry="8.7370005"
+       sodipodi:rx="8.7370005"
+       sodipodi:cy="18.486"
+       sodipodi:cx="462.987"
+       id="circle27"
+       r="8.7370005"
+       cy="18.486"
+       cx="462.987"
+       stroke-miterlimit="10" /><line
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:10"
+       id="line29"
+       y2="19"
+       x2="554"
+       y1="19"
+       x1="463"
+       stroke-miterlimit="10" /></g></svg>
