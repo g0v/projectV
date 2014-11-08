@@ -55,6 +55,7 @@ angular.module('projectVApp')
     $scope.myscope.vsInfo = {};
     $scope.myscope.supplementItem = voteInfoService.supplementItem;
     $scope.myscope.volCount = voteInfoService.volCount;
+    $scope.myscope.villList = [];
 
     $scope.myscope.spPeopleMore = false;
     $scope.myscope.hpPeopleMore = false;
@@ -160,7 +161,7 @@ angular.module('projectVApp')
 
 
     var mycolor = function(villsum){
-      console.log('villsum',villsum);
+      //console.log('villsum',villsum);
       if(villsum == null){
           return '#333333';
       }
@@ -305,7 +306,7 @@ angular.module('projectVApp')
       lastClickLayer = layer;
 
 //      $scope.leafletData.getMap().then(function(map){
-//        console.log('layer boundary',layer.getBounds());
+//        //console.log('layer boundary',layer.getBounds());
 //        map.fitBounds(layer.getBounds());
 //      });
       //var max_of_array = Math.max.apply(Math, array);
@@ -600,10 +601,10 @@ angular.module('projectVApp')
 
                 geojsonBuffer.push(data.villageArea);
               //applyGeojson(data.villageArea);
-                console.log('areaDraw',data.villageSum,
-                  data.villageArea.features[0].properties.town,
-                  data.villageArea.features[0].properties.village
-                );
+                //console.log('areaDraw',data.villageSum,
+                //  data.villageArea.features[0].properties.town,
+                //  data.villageArea.features[0].properties.village
+                //);
               }
             }
             else{
@@ -623,7 +624,9 @@ angular.module('projectVApp')
           $scope.myscope.villageSum = data[2];
 
           if(firsttime){
-            $scope.myscope.currentTownTab = Object.keys($scope.myscope.villageSum)[0];
+            //console.log('scope.myscope.villageSum', Object.keys($scope.myscope.villageSum)[0]);
+            $scope.myscope.villList = Object.keys($scope.myscope.villageSum);
+            $scope.myscope.currentTownTab = $scope.myscope.villList[0];
           }
           else{
             if($scope.myscope.showVS){
@@ -686,7 +689,7 @@ angular.module('projectVApp')
 
 
     //function checkHeight() {
-    //    console.log('check height');
+    //    //console.log('check height');
     //    if ($window.innerHeight <= 600) {
 
     //        angular.element('#map_main').removeClass('map_tall');
@@ -713,7 +716,7 @@ angular.module('projectVApp')
     //}
 
     //angular.element(document).ready(function() {
-    //  console.log("onload");
+    //  //console.log("onload");
     //  angular.element($window).bind('resize',checkHeight);
     //  checkHeight();
     //});

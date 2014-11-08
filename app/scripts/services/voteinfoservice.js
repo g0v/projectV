@@ -334,7 +334,7 @@ angular.module('projectVApp')
                     }
                   }
                   villageSum[townName][villageName] = voteStatAry.length == 0 ? null : sum/voteStatAry.length;
-                  console.log(townName,villageName,villageSum[townName][villageName]);
+                  //console.log(townName,villageName,villageSum[townName][villageName]);
                 }
               }
               villageSumAry[county] = villageSum;

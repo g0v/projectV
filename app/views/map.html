@@ -28,7 +28,7 @@
       </div>
 
       <div id="map_sidebar_townlist" class="panel-body map_border_top map_sb_scroll" >
-        <ul class="nav nav-stacked" ng-repeat="(townKey,townVal) in myscope.villageSum" >
+        <ul class="nav nav-stacked" ng-repeat="townKey in myscope.villList track by $index" >
           <li ng-click='myscope.setTownTab(townKey)' style="cursor:pointer;" ng-class="myscope.isCurrentTownTab(townKey)">{{townKey}}</li>
         </ul>
       </div>
@@ -109,6 +109,7 @@
         <ul class="nav nav-stacked" ng-repeat="votestat in myscope.showVS.vsArray" >
           <li ng-click='myscope.setCurrentMarkerClick(votestat.id, true, true)' style="cursor:pointer;" ng-class="myscope.isCurrentVsTab(votestat.id)">{{votestat.name}}</li>
         </ul>
+        <div style="height:30px"></div>
         <span ng-show="myscope.showVS.vsArray.length == 0">
           <p>此里沒有投開票所</p>
         </span>
