@@ -62,14 +62,8 @@
     </td>
     <td class="mission_content row_same_height" style="border-left:3px solid #B6203F;">
       <div class="mission_content_inner" style="height:auto">
-        <div class="mission_progress_txt"><strong>志工數：{{miscope.vCount}} / {{miscope.vTotal}} </strong>
-          <div class="imgMissionWrap" ng-click="miscope.missionAdd()">
-            <div class="imgMissionArrow"></div>
-            <div class="imgMissionDescription" style="overflow:hidden;">
-              志工參戰
-            </div>
-            <img src="images/mission_add.svg">
-          </div>
+        <div class="mission_progress_txt">
+          <strong>志工數：{{miscope.vCount}} / {{miscope.vTotal}} </strong>
         </div>
 
         <div class="progress">
@@ -77,14 +71,8 @@
             {{miscope.vCount/miscope.vTotal |  percentage:0}}
           </div>
         </div>
-        <div class="mission_progress_txt"><strong>物資數：{{miscope.sCount}} / {{miscope.sTotal}} </strong>
-          <div class="imgMissionWrap" ng-click="miscope.missionAdd()">
-            <div class="imgMissionArrow"></div>
-            <div class="imgMissionDescription" style="overflow:hidden;">
-              物資參戰
-            </div>
-            <img src="images/mission_add.svg">
-          </div>
+        <div class="mission_progress_txt">
+          <strong>物資數：{{miscope.sCount}} / {{miscope.sTotal}} </strong>
         </div>
         <div class="progress">
           <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.sCount/miscope.sTotal}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.sCount/miscope.sTotal|  percentage:0}};">
