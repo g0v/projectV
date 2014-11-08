@@ -42,7 +42,7 @@ angular.module('projectVApp')
     $scope.myscope.mapLoadingComplete = false;
     $scope.myscope.mapLoadingStatus = false;
     var county = $routeParams.county;
-    var lastClickLayer = null; 
+    var lastClickLayer = null;
     var lastClickMarker = null;
     var currentClickMarkerIndex = 0;
     var geojsonBuffer = [];
@@ -60,7 +60,7 @@ angular.module('projectVApp')
     $scope.myscope.hpPeopleMore = false;
 
     //$scope.myscope.mapclass = 'map_short';
-    
+
     $scope.myscope.spPeopleClick = function(){
       $scope.myscope.spPeopleMore = !$scope.myscope.spPeopleMore;
     }
@@ -89,11 +89,11 @@ angular.module('projectVApp')
             iconSize: iconSize,
             iconAnchor: iconAnchor ,
             iconUrl: 'images/map'+type+count+'.svg',
-            shadowSize: shadowSize, 
-            shadowAnchor: shadowAnchor, 
+            shadowSize: shadowSize,
+            shadowAnchor: shadowAnchor,
             shadowUrl: 'images/map_icon_shadow.svg',
           };
-        }); 
+        });
       });
       //console.log('icon_result_temp',icon_result_temp);
       return icon_result_temp;
@@ -127,7 +127,7 @@ angular.module('projectVApp')
           }
         });
         $scope.myscope.mapLoadingComplete = true;
-  
+
         //$scope.$emit('mapLoadingComplete');
         return;
       }
@@ -136,18 +136,18 @@ angular.module('projectVApp')
         $scope.geojson = {
           data: json,
           style: style,
-          resetStyleOnMouseout: false 
+          resetStyleOnMouseout: false
         };
         setTimeout(function(){
           applyGeojson(jsonArray.slice(1));
         },voteInfoService.MAP_BUFFER_TIME);
-      } 
+      }
       else {
         //console.log('scope geojson add');
         $scope.leafletData.getGeoJSON().then(function(localGeojson) {
           //console.log('scope geojson add json',
-          //  json.features[0].properties.town, 
-          //  json.features[0].properties.village, 
+          //  json.features[0].properties.town,
+          //  json.features[0].properties.village,
           //  json
           //);
           localGeojson.addData(json);
@@ -191,10 +191,10 @@ angular.module('projectVApp')
         return 1;
       }
     };
-  
+
     $scope.myscope.getVoteStatImg = function(vscount){
       if( ! $scope.myscope.showVS ){
-        return 1; 
+        return 1;
       }
       else if( $scope.myscope.showVS.vsArray.length == 0){
         return 3;
@@ -251,7 +251,7 @@ angular.module('projectVApp')
           dashArray: '6',
         };
     }
-    
+
     function set_click_style(){
        //return gen_area_color("#ffff00");
         return {
@@ -261,7 +261,7 @@ angular.module('projectVApp')
         };
     }
 
-    
+
     // Mouse over function, called from the Leaflet Map Events
     function areaMouseover(ev, leafletEvent) {
       var layer = leafletEvent.target;
@@ -302,7 +302,7 @@ angular.module('projectVApp')
       }
       layer.setStyle(set_click_style());
       layer.bringToFront();
-      lastClickLayer = layer; 
+      lastClickLayer = layer;
 
 //      $scope.leafletData.getMap().then(function(map){
 //        console.log('layer boundary',layer.getBounds());
@@ -311,11 +311,11 @@ angular.module('projectVApp')
       //var max_of_array = Math.max.apply(Math, array);
       //setMapScale(layer);
     }
-    
+
     $scope.myscope.setCurrentAreaClick = function(townName, villageName){
       $scope.$emit('dataReload');
       $scope.leafletData.getGeoJSON().then(function(localGeojson) {
-        var geoLayers = localGeojson.getLayers(); 
+        var geoLayers = localGeojson.getLayers();
         angular.forEach(geoLayers,function(layer) {
           var lTownName = layer.feature.properties.town;
           var lVillageName = layer.feature.properties.village;
@@ -370,21 +370,21 @@ angular.module('projectVApp')
         var bound = [];
         if(lastClickLayer){
           var layerBound = lastClickLayer.getBounds();
-          bound.push({lat: layerBound._northEast.lat, lng: layerBound._northEast.lng}); 
+          bound.push({lat: layerBound._northEast.lat, lng: layerBound._northEast.lng});
           bound.push({lat: layerBound._southWest.lat, lng: layerBound._southWest.lng});
         }
         for(var i=0; i< markerArray.length;i++){
           bound.push({
             lat: markerArray[i].vsobj.lat,
             lng: markerArray[i].vsobj.lng,
-          });  
+          });
         }
         if(bound.length > 0){
           map.fitBounds(bound);
         }
       });
     }
-  
+
 
     $scope.myscope.setCurrentMarkerClick = function(markerName, tomarker, reload){
 
@@ -405,7 +405,7 @@ angular.module('projectVApp')
       if(tomarker){
         $scope.leafletData.getMap().then(function(map){
           //console.log('thisMarker',thisMarker);
-          map.setView({lat:thisMarker.lat,lng:thisMarker.lng}); 
+          map.setView({lat:thisMarker.lat,lng:thisMarker.lng});
         });
       }
       //if(reload){
@@ -438,7 +438,7 @@ angular.module('projectVApp')
 
     function setVotestatTab(vsId){
       $scope.myscope.currentVsTab.vsId = vsId;
-      $scope.myscope.currentVsTab.vsName = (function(){ 
+      $scope.myscope.currentVsTab.vsName = (function(){
         for( var i =0; i < $scope.myscope.showVS.vsArray.length; i++){
           var vsobj = $scope.myscope.showVS.vsArray[i];
           if(vsobj.id == vsId){
@@ -471,13 +471,13 @@ angular.module('projectVApp')
       var mymarkers = {};
       lastClickMarker = null;
       angular.forEach(markerArray, function(marker) {
-        var mcount = marker.vscount;  
+        var mcount = marker.vscount;
         mymarkers[marker.vsid] = {
           draggable: false, //TODO
           lat: marker.vsobj.lat,
           lng: marker.vsobj.lng,
           icon: myiconArray[mcount]['x'],
-          myicons: myiconArray[mcount],    
+          myicons: myiconArray[mcount],
           mycount: mcount,
           mypos: marker.vspos,
           myloc: marker.townName + '-' + marker.villageName,
@@ -527,7 +527,7 @@ angular.module('projectVApp')
     $scope.$on('leafletDirectiveMap.geojsonMouseover', areaMouseover);
     $scope.$on('leafletDirectiveMap.geojsonMouseout', areaMouseout);
     $scope.$on('leafletDirectiveMap.geojsonClick', areaClick);
-    
+
     $scope.myscope.registerDialog = function(type) {
       var modalInstance = $modal.open({
         templateUrl:'views/register.html',
@@ -540,19 +540,19 @@ angular.module('projectVApp')
               type: type,
               nonArea: false,
               vsId: $scope.myscope.currentVsTab.vsId,
-              vsName: $scope.myscope.currentVsTab.vsName, 
+              vsName: $scope.myscope.currentVsTab.vsName,
               supCount: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].sItemCount,
               supWeight: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].vweight
             };
-          }   
-        }   
-      }); 
+          }
+        }
+      });
       modalInstance.result.then(function(result){
         //console.log('send',result);
         //$scope.$emit('dataReload');
         $location.path('/');
-      }); 
-    };  
+      });
+    };
 
     $scope.myscope.reportDialog = function() {
       var modalInstance = $modal.open({
@@ -564,15 +564,15 @@ angular.module('projectVApp')
             return {
               county: county,
               vsId: $scope.myscope.currentVsTab.vsId,
-              vsName: $scope.myscope.currentVsTab.vsName, 
+              vsName: $scope.myscope.currentVsTab.vsName,
             };
-          }   
-        }   
-      }); 
+          }
+        }
+      });
       modalInstance.result.then(function(result){
         //$location.path('/');
-      }); 
-    };  
+      });
+    };
 
 
 
@@ -588,8 +588,8 @@ angular.module('projectVApp')
               applyGeojsonAll();
             }
           },
-          function() {}, 
-          function(data){ 
+          function() {},
+          function(data){
             if(data.county = county){
               //console.log('county',county);
 
@@ -614,8 +614,8 @@ angular.module('projectVApp')
           });
       }
 
-      $q.all([voteInfoService.getAllVoteStatInfo(county), 
-        voteInfoService.getAllVoteStatData(county), 
+      $q.all([voteInfoService.getAllVoteStatInfo(county),
+        voteInfoService.getAllVoteStatData(county),
         voteInfoService.getAllVillageSum(county)]).then(function(data){
 
           $scope.myscope.vsInfo = data[0];
@@ -628,15 +628,15 @@ angular.module('projectVApp')
           else{
             if($scope.myscope.showVS){
               //console.log('voteStatData Change 2');
-              showCurrentVillageVotestat(  
-                $scope.myscope.showVS.townName, 
-                $scope.myscope.showVS.villageName, 
+              showCurrentVillageVotestat(
+                $scope.myscope.showVS.townName,
+                $scope.myscope.showVS.villageName,
                 currentClickMarkerIndex
-              ); 
+              );
             }
 
             $scope.leafletData.getGeoJSON().then(function(localGeojson) {
-              var geoLayers = localGeojson.getLayers(); 
+              var geoLayers = localGeojson.getLayers();
               angular.forEach(geoLayers,function(layer) {
                 var lTownName = layer.feature.properties.town;
                 var lVillageName = layer.feature.properties.village;
@@ -650,20 +650,21 @@ angular.module('projectVApp')
           }
       });
     };
-    
 
 
-    
+
+
 
     $scope.defaults = {
       zoomControlPosition: 'bottomright',
+      scrollWheelZoom: false,
       minZoom: MAP_MIN_ZOOM[county],
     };
 
     $scope.maxbounds = {
       northEast: MAP_DEFAULT_BOUND[county][0],
       southWest: MAP_DEFAULT_BOUND[county][1],
-    }; 
+    };
     $scope.leafletData.getMap().then(function(map){
         map.fitBounds(MAP_DEFAULT_BOUND[county]);
       //console.log('map',map);
@@ -713,7 +714,7 @@ angular.module('projectVApp')
 
     //angular.element(document).ready(function() {
     //  console.log("onload");
-    //  angular.element($window).bind('resize',checkHeight);  
+    //  angular.element($window).bind('resize',checkHeight);
     //  checkHeight();
     //});
     angular.extend($scope, {
