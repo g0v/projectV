@@ -1,30 +1,11 @@
 <div class="main-container">
-  <div style="height:50px"></div>
+  <div class="text-center" id="mission_map_title" style="width:100%;">
+  <img src="images/mission_map_title.png" style="width:80%;max-width:1000px;min-width:800px;"></img>
+  </div>
 
-  <div class="citizen_v">
-    <div class="row" >
-      <div class="col-xs-12 text-center">
-        <div class="citizen_v_title text-center">
-          <h3 style="display:inline;  color:#ffffff; top: -10px;position: absolute;left: 30px;">公民 v 的士氣喊話</h3>
-        </div>
-      </div>
-    </div>
-    <div class="row" style="border-top:3px solid #B6203F; border-bottom:3px solid #B6203F; ">
-      <div class="col-xs-2 text-center">
-        <div class="citizen-avatar" ng-style="citizenAvatar">
-        </div>
-      </div>
-      <div class="col-xs-2 text-center" >
-        <div class="citizen_header_slash" style="height:190px; width:180px;">
-        </div>
-      </div>
-      <div class="citizen-quote col-xs-8">
-        <h3 class="citizen-speech">
-          {{speech}}
-        </h3>
-        <p class="citizen-author">{{citizen && 'By'}} {{citizen | htmlToPlaintext}}</p>
-      </div>
-    </div>
+  <div class="text-center" style="min-height:50px;padding:50px;padding-bottom:20px;">
+    <img class="tutorial" src="images/tutorial.png" ng-click="miscope.gotoMap()" style="cursor:pointer;" />
+    <h3> 若地圖無法正常顯示，請按「重新整理」</h3>
   </div>
 
   <div class="text-center" style="width:100%;">
@@ -111,18 +92,34 @@
     </td>
     </tr>
   </table>
-
   <div style="height:50px"></div>
-
-  <div class="text-center" id="mission_map_title" style="width:100%;">
-  <img src="images/mission_map_title.svg" style="width:80%;max-width:1000px;min-width:800px;"></img>
-  </div>
-
-  <div class="text-center" style="min-height:50px;padding:50px;padding-bottom:20px;">
-    <img class="tutorial" src="images/tutorial.png" ng-click="miscope.gotoMap()" style="cursor:pointer;" />
-    <h3> 若地圖無法正常顯示，請按「重新整理」</h3>
+  <div class="citizen_v">
+    <div class="row" >
+      <div class="col-xs-12 text-center">
+        <div class="citizen_v_title text-center">
+          <h3 style="display:inline;  color:#ffffff; top: -10px;position: absolute;left: 30px;">公民 v 的士氣喊話</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="border-top:3px solid #B6203F; border-bottom:3px solid #B6203F; ">
+      <div class="col-xs-2 text-center">
+        <div class="citizen-avatar" ng-style="citizenAvatar">
+        </div>
+      </div>
+      <div class="col-xs-2 text-center" >
+        <div class="citizen_header_slash" style="height:190px; width:180px;">
+        </div>
+      </div>
+      <div class="citizen-quote col-xs-8">
+        <h3 class="citizen-speech">
+          {{speech}}
+        </h3>
+        <p class="citizen-author">{{citizen && 'By'}} {{citizen | htmlToPlaintext}}</p>
+      </div>
+    </div>
   </div>
 </div>
+<div style="height:50px"></div>
 <div class="main-container" id="mission_map_container" style="width:95%;min-width:1000px;">
   <div ng-controller="MapCtrl" ng-include="'views/map.html'"></div>
 </div>
