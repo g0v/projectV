@@ -1,39 +1,207 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 18.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="344 -79 704.7 172" enable-background="new 344 -79 704.7 172" xml:space="preserve">
-<polygon fill="none" stroke="#B81C3D" stroke-width="4" stroke-miterlimit="10" points="697.6,90.6 598.7,-8.3 796.6,-8.3 "/>
-<polygon fill="#B81C3D" points="697.8,72.5 615,-10.3 780.7,-10.3 "/>
-<polygon fill="#98272D" points="344.3,7.7 486.3,7.7 486.3,-6.3 456.6,-6.3 468.3,-31.3 365.9,-31.3 371.3,-11.8 "/>
-<polygon fill="#FBB03B" points="456.6,-6.3 486.3,7.7 486.3,-6.3 "/>
-<polygon fill="#B81C3D" points="936.4,-6.3 455.3,-6.3 476,-46.3 917.4,-46.3 "/>
-<polygon fill="#98272D" points="1048.6,7.7 906.3,7.7 906.3,-6.3 936.4,-6.3 924.7,-31.3 1027.1,-31.3 1021.6,-11.8 "/>
-<polygon fill="#FBB03B" points="936.4,-6.3 906.3,7.7 906.3,-6.3 "/>
-<g>
-	<circle fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="602.2" cy="-27.6" r="8.7"/>
-	<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="602.3" y1="-27.3" x2="511.3" y2="-27.3"/>
-</g>
-<g>
-	<circle fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="785.1" cy="-27.6" r="8.7"/>
-	<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="785.3" y1="-27.3" x2="876.3" y2="-27.3"/>
-</g>
-<g>
-	<circle fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" cx="696" cy="-19.7" r="49.7"/>
-	<g>
-		<polygon fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" points="715.4,-52.8 729.4,-38.8 665.9,24.7 
-			650.4,26.2 651.9,10.8 		"/>
-		<line fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="650.4" y1="26.2" x2="722.4" y2="-45.8"/>
-		
-			<rect x="707.6" y="-52.6" transform="matrix(0.7071 0.7071 -0.7071 0.7071 178.0502 -527.0633)" fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" width="35.3" height="7.9"/>
-		
-			<rect x="730.2" y="-75.5" transform="matrix(0.7071 0.7071 -0.7071 0.7071 172.9725 -540.0272)" fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" width="16.3" height="28.5"/>
-		<line fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="734" y1="-45.4" x2="736.8" y2="-71.8"/>
-		<line fill="none" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" x1="722.5" y1="-56.9" x2="754.1" y2="-65.6"/>
-	</g>
-	<circle fill="#B81C3D" cx="695.3" cy="-19.3" r="34"/>
-	<text transform="matrix(1 0 0 1 675.9639 -24.7)" fill="#FFFFFF" font-family="'LiGothicMed'" font-size="18.2017">即時</text>
-	<text transform="matrix(1 0 0 1 675.9639 -2.858)" fill="#FFFFFF" font-family="'LiGothicMed'" font-size="18.2017">戰況</text>
-	<circle fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" cx="652.2" cy="-42.8" r="5.8"/>
-	<circle fill="#FFFFFF" stroke="#B81C3D" stroke-width="2" stroke-miterlimit="10" cx="729.2" cy="17.2" r="5.8"/>
-</g>
-</svg>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="圖層_1"
+   x="0px"
+   y="0px"
+   viewBox="344 -79 704.7 172"
+   enable-background="new 344 -79 704.7 172"
+   xml:space="preserve"
+   inkscape:version="0.48.5 r10040"
+   width="100%"
+   height="100%"
+   sodipodi:docname="mission_middle_header.svg"><metadata
+     id="metadata61"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs59" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1157"
+     inkscape:window-height="650"
+     id="namedview57"
+     showgrid="false"
+     inkscape:zoom="1.5"
+     inkscape:cx="352.35"
+     inkscape:cy="86"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g29" /><polygon
+     fill="none"
+     stroke="#B81C3D"
+     stroke-width="4"
+     stroke-miterlimit="10"
+     points="697.6,90.6 598.7,-8.3 796.6,-8.3 "
+     id="polygon3" /><polygon
+     fill="#B81C3D"
+     points="697.8,72.5 615,-10.3 780.7,-10.3 "
+     id="polygon5" /><polygon
+     fill="#98272D"
+     points="344.3,7.7 486.3,7.7 486.3,-6.3 456.6,-6.3 468.3,-31.3 365.9,-31.3 371.3,-11.8 "
+     id="polygon7" /><polygon
+     fill="#FBB03B"
+     points="456.6,-6.3 486.3,7.7 486.3,-6.3 "
+     id="polygon9" /><polygon
+     fill="#B81C3D"
+     points="936.4,-6.3 455.3,-6.3 476,-46.3 917.4,-46.3 "
+     id="polygon11" /><polygon
+     fill="#98272D"
+     points="1048.6,7.7 906.3,7.7 906.3,-6.3 936.4,-6.3 924.7,-31.3 1027.1,-31.3 1021.6,-11.8 "
+     id="polygon13" /><polygon
+     fill="#FBB03B"
+     points="936.4,-6.3 906.3,7.7 906.3,-6.3 "
+     id="polygon15" /><g
+     id="g17"><circle
+       fill="none"
+       stroke="#FFFFFF"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       cx="602.2"
+       cy="-27.6"
+       r="8.7"
+       id="circle19" /><line
+       fill="none"
+       stroke="#FFFFFF"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       x1="602.3"
+       y1="-27.3"
+       x2="511.3"
+       y2="-27.3"
+       id="line21" /></g><g
+     id="g23"><circle
+       fill="none"
+       stroke="#FFFFFF"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       cx="785.1"
+       cy="-27.6"
+       r="8.7"
+       id="circle25" /><line
+       fill="none"
+       stroke="#FFFFFF"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       x1="785.3"
+       y1="-27.3"
+       x2="876.3"
+       y2="-27.3"
+       id="line27" /></g><g
+     id="g29"><circle
+       fill="#FFFFFF"
+       stroke="#B81C3D"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       cx="696"
+       cy="-19.7"
+       r="49.7"
+       id="circle31" /><g
+       id="g33"><polygon
+         fill="#FFFFFF"
+         stroke="#B81C3D"
+         stroke-width="2"
+         stroke-miterlimit="10"
+         points="715.4,-52.8 729.4,-38.8 665.9,24.7     650.4,26.2 651.9,10.8   "
+         id="polygon35" /><line
+         fill="none"
+         stroke="#B81C3D"
+         stroke-width="2"
+         stroke-miterlimit="10"
+         x1="650.4"
+         y1="26.2"
+         x2="722.4"
+         y2="-45.8"
+         id="line37" /><rect
+         x="707.6"
+         y="-52.6"
+         transform="matrix(0.7071 0.7071 -0.7071 0.7071 178.0502 -527.0633)"
+         fill="#FFFFFF"
+         stroke="#B81C3D"
+         stroke-width="2"
+         stroke-miterlimit="10"
+         width="35.3"
+         height="7.9"
+         id="rect39" /><rect
+         x="730.2"
+         y="-75.5"
+         transform="matrix(0.7071 0.7071 -0.7071 0.7071 172.9725 -540.0272)"
+         fill="#FFFFFF"
+         stroke="#B81C3D"
+         stroke-width="2"
+         stroke-miterlimit="10"
+         width="16.3"
+         height="28.5"
+         id="rect41" /><line
+         fill="none"
+         stroke="#B81C3D"
+         stroke-width="2"
+         stroke-miterlimit="10"
+         x1="734"
+         y1="-45.4"
+         x2="736.8"
+         y2="-71.8"
+         id="line43" /><line
+         fill="none"
+         stroke="#B81C3D"
+         stroke-width="2"
+         stroke-miterlimit="10"
+         x1="722.5"
+         y1="-56.9"
+         x2="754.1"
+         y2="-65.6"
+         id="line45" /></g><circle
+       fill="#B81C3D"
+       cx="695.3"
+       cy="-19.3"
+       r="34"
+       id="circle47" /><g
+       id="g3042"
+       transform="translate(-0.66666667,1.3333333)"><text
+         style="font-size:18.20170021px;fill:#ffffff;font-family:LiGothicMed"
+         y="-24.700001"
+         x="677.96393"
+         id="text49"
+         font-size="18.2017"><tspan
+           id="tspan3038"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Noto Sans CJK TC;-inkscape-font-specification:Noto Sans CJK TC">即時</tspan></text>
+<text
+         style="font-size:18.20170021px;fill:#ffffff;font-family:LiGothicMed"
+         y="-2.858"
+         x="677.96393"
+         id="text51"
+         font-size="18.2017"><tspan
+           id="tspan3040"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Noto Sans CJK TC;-inkscape-font-specification:Noto Sans CJK TC">戰況</tspan></text>
+</g><circle
+       fill="#FFFFFF"
+       stroke="#B81C3D"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       cx="652.2"
+       cy="-42.8"
+       r="5.8"
+       id="circle53" /><circle
+       fill="#FFFFFF"
+       stroke="#B81C3D"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       cx="729.2"
+       cy="17.2"
+       r="5.8"
+       id="circle55" /></g></svg>
