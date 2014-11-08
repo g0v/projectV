@@ -160,17 +160,23 @@ angular.module('projectVApp')
 
 
     var mycolor = function(villsum){
-      if( villsum >= 1){
-        return '#990000';
-      }
-      else if(villsum > 0.5){
-        return '#993333';
-      }
-      else if(villsum > 0){
-        return '#aa6666';
+      console.log('villsum',villsum);
+      if(villsum == null){
+          return '#333333';
       }
       else{
-        return '#aaaaaa';
+        if( villsum >= 1){
+          return '#990000';
+        }
+        else if(villsum > 0.5){
+          return '#993333';
+        }
+        else if(villsum > 0){
+          return '#aa6666';
+        }
+        else{
+          return '#aaaaaa';
+        }
       }
     };
 
@@ -589,14 +595,15 @@ angular.module('projectVApp')
 
               $scope.myscope.mapLoadingStatus = data.loadingStatus*0.2;
               if(!jQuery.isEmptyObject(data.villageArea) ){
+                
                 data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
 
                 geojsonBuffer.push(data.villageArea);
               //applyGeojson(data.villageArea);
-              //console.log('areaDraw',data.villageArea,
-              //  data.villageArea.features[0].properties.town,
-              //  data.villageArea.features[0].properties.village
-              //);
+                console.log('areaDraw',data.villageSum,
+                  data.villageArea.features[0].properties.town,
+                  data.villageArea.features[0].properties.village
+                );
               }
             }
             else{

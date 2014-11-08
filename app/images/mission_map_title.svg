@@ -10,7 +10,7 @@
 	<polygon fill="#98272D" points="706.524,54 564,54 564,40 594.283,40 582.567,15 685.004,15 679.519,34.5 	"/>
 	<polygon fill="#FBB03B" points="594.283,40 564,53.761 564,40 	"/>
 	<g>
-		<text transform="matrix(1 0 0 1 312 25.584)" fill="#FFFFFF" font-family="'LiGothicMed'" font-size="21.9555">即時戰況</text>
+		<text transform="matrix(1 0 0 1 312 25.584)" fill="#FFFFFF" font-family="'LiGothicMed'" font-size="21.9555">參戰說明</text>
 	</g>
 	<g>
 		<circle fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="252.109" cy="18.486" r="8.737"/>

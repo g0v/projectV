@@ -333,7 +333,8 @@ angular.module('projectVApp')
                       sum += voteStatSum[voteStatAry[i]];
                     }
                   }
-                  villageSum[townName][villageName] = voteStatAry.length == 0 ? 1 : sum/voteStatAry.length;
+                  villageSum[townName][villageName] = voteStatAry.length == 0 ? null : sum/voteStatAry.length;
+                  console.log(townName,villageName,villageSum[townName][villageName]);
                 }
               }
               villageSumAry[county] = villageSum;
@@ -458,7 +459,7 @@ angular.module('projectVApp')
           setTimeout(function(){ 
             count +=1 ;
             var mvillsum = 0;
-            if(villSum[townName] && villSum[townName][villageName]){
+            if(villSum[townName] && ( (villSum[townName][villageName] == null) || villSum[townName][villageName] ) ){
               mvillsum = villSum[townName][villageName];
             }
             deferred.notify({villageArea: villageArea[vakey], villageSum:mvillsum, loadingStatus:count/countAll, county:county});
