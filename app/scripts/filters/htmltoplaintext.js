@@ -12,6 +12,9 @@ angular.module('projectVApp')
   .filter('htmlToPlaintext', function () {
     return function (input) {
       input = input || '';
-      return String(input).replace(/<[^>]+>/gm, '');
+      return String(input).replace(/<[^>]+>/gm, '')
+        .replace(/&[\d\w]+;/, '')
+        .replace('more', '')
+        .replace('!--', '');
     };
   });

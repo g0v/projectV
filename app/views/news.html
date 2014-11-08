@@ -26,7 +26,7 @@
           </span>
           <span class="news-title-ellipsis"><a href="{{feed.link}}" target="_blank">{{feed.title}}</a></span>
         </h2>
-        <p><a href="{{feed.link}}" target="_blank">{{feed.contentSnippet}}</a></p>
+        <p><a href="{{feed.link}}" target="_blank">{{feed.contentSnippet | htmlToPlaintext}}</a></p>
       </div>
     </div>
     <div class="more-news"><a target="_blank" href="http://appytw.tumblr.com/">更多最新消息</a>
