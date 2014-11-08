@@ -5,17 +5,12 @@
   border-radius: 5px;
 }
 
-.mymap .bg-primary{
-  background:#B6203F;
-}
-.mymap .btn-primary{
-  background:#B6203F;
-  border-color:#B6203F;
-}
-
 .mymap .progress-bar, .mymap .progress-bar[aria-valuenow="0"]{
   color:#ffffff;
   text-shadow: -1px 0 #B6203F, 0 1px #B6203F, 1px 0 #B6203F, 0 -1px #B6203F;
+
+  margin-top: -2px;
+  min-height: 20px;
 }
 
 .mymap .progress-bar{
@@ -26,6 +21,38 @@
   background-color:#ffffff;
   text-align:left;
 }
+
+
+.mymap .emptyvill .progress{
+  border: 3px solid #666666;
+  background:none;
+}
+
+.mymap .emptyvill .progress-bar, .mymap .emptyvill .progress-bar[aria-valuenow="0"]{
+  color:#ffffff;
+  text-shadow: -1px 0 #666666, 0 1px #666666, 1px 0 #666666, 0 -1px #666666;
+}
+
+.mymap .emptyvill .progress-bar{
+  background-color:#666666;
+}
+
+.mymap .emptyvill .progress-bar[aria-valuenow="0"]{
+  background-color:#ffffff;
+}
+.mymap .emptyvill, .mymap .emptyvill a{
+  color:#666666;
+}
+
+
+.mymap .bg-primary{
+  background:#B6203F;
+}
+.mymap .btn-primary{
+  background:#B6203F;
+  border-color:#B6203F;
+}
+
 
 .citizen_header_slash{
   background-image: url('../images/citizen_header_slash.png');
