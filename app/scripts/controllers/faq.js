@@ -22,6 +22,9 @@ angular.module('projectVApp')
            '好朋友一起共襄盛舉！而割闌尾團隊有法律團隊把關著，個資資料僅會作於聯繫您使用，絕對' +
            '不會將個資外洩！！'
       }, {
+        q: '我提供的資料有需要修改的地方，要在哪邊修改呢？',
+        a: '若您有任何需要修改的地方，請寄信到 <a href="mailto:appy.service@gmail.com">appy.service@gmail.com</a>'
+      },{
         q: '物資表裡面有個項目我不懂，什麼是水果攤用大傘（俗稱五百萬傘）阿？',
         a: '讓我們一起看笨版長知識 XDDDD <a target="_blank" href="https://www.ptt.cc/bbs/StupidClown/M.1401775870.A.305.html">[無言] 500萬的傘</a>'
       }, {
