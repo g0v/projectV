@@ -63,6 +63,10 @@ angular
         templateUrl: 'views/faq.html',
         controller: 'FaqCtrl'
       })
+      .when('/mobile', {
+        templateUrl: 'views/mobile.html',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
