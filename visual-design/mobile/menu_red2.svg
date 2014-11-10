@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="54px" height="63px" viewBox="0 0 54 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
+    <title>menu_red2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Start-Here" sketch:type="MSArtboardGroup" transform="translate(-165.000000, -1038.000000)">
+            <text id="--------這是一場全民覺醒的運動，" sketch:type="MSTextLayer" font-family="Heiti TC" font-size="20" font-weight="260" line-spacing="30">
+                <tspan x="71" y="799" fill="#333333">        這是一場全民覺醒的運動，超越了議會，從家庭、從</tspan>
+                <tspan x="71" y="830" fill="#333333">巷口、從網路，從社會的各個角落開始綻放，罷免不再是</tspan>
+                <tspan x="71" y="861" fill="#333333">瀕死的法條，而是活著的行動。割去發炎的「闌尾」，從</tspan>
+                <tspan x="71" y="892" fill="#333333">體制內去影響、去改變現今有缺陷的代議制度，讓我們一</tspan>
+                <tspan x="71" y="923" fill="#333333">起締造台灣新型態的社會運動。</tspan>
+                <tspan x="351" y="923" font-family="Helvetica Neue" font-weight="normal" fill="#333333"></tspan>
+                <tspan x="71" y="964" fill="#262626">        </tspan>
+                <tspan x="111" y="964" fill="#333333">不論你是想擔任當天擺攤志工、物資提供或純粹想要</tspan>
+                <tspan x="71" y="995" fill="#333333">鍵盤參戰，亦或是您想要長期熱情參與，你都可以成為割</tspan>
+                <tspan x="71" y="1026" fill="#333333">闌尾</tspan>
+                <tspan x="111" y="1026" font-family="Helvetica Neue" font-weight="normal" fill="#333333">V</tspan>
+                <tspan x="123.22" y="1026" fill="#333333">計劃的公民</tspan>
+                <tspan x="223.22" y="1026" font-family="Helvetica Neue" font-weight="normal" fill="#333333">V</tspan>
+                <tspan x="235.44" y="1026" fill="#333333">，現在就點擊下方「前往任務」輕鬆三</tspan>
+                <tspan x="71" y="1057" fill="#333333">步驟即可完成：</tspan>
+                <tspan x="211" y="1057" font-family="Helvetica Neue" font-weight="normal" fill="#333333"></tspan>
+                <tspan x="71" y="1098" font-family="Helvetica Neue" font-weight="normal" fill="#333333">Step 1 </tspan>
+                <tspan x="135.1" y="1098" fill="#333333">：選擇想要支援的選區</tspan>
+                <tspan x="335.1" y="1098" font-family="Helvetica Neue" font-weight="normal" fill="#333333"> (</tspan>
+                <tspan x="345.84" y="1098" fill="#333333">蔡正元、吳育昇、林鴻池</tspan>
+                <tspan x="565.84" y="1098" font-family="Helvetica Neue" font-weight="normal" fill="#333333">)</tspan>
+                <tspan x="71" y="1129" font-family="Helvetica Neue" font-weight="normal" fill="#333333">Step 2</tspan>
+                <tspan x="129.54" y="1129" fill="#333333">：選擇里、投開票所</tspan>
+                <tspan x="309.540009" y="1129" font-family="Helvetica Neue" font-weight="normal" fill="#333333"></tspan>
+                <tspan x="71" y="1160" font-family="Helvetica Neue" font-weight="normal" fill="#333333">Step 3</tspan>
+                <tspan x="129.54" y="1160" fill="#333333">：填寫資料</tspan>
+                <tspan x="229.540009" y="1160" font-family="Helvetica Neue" font-weight="normal" fill="#333333"></tspan>
+                <tspan x="71" y="1201" fill="#333333">資料填寫完成後，我們將有專人與您聯繫相關訊息。</tspan>
+            </text>
+            <rect id="Rectangle-2" fill="#B81C3D" sketch:type="MSShapeGroup" x="127.999373" y="1029.29688" width="128.178291" height="107.703125"></rect>
+            <polygon id="Polygon-2" stroke="#FFFFFF" stroke-width="2" sketch:type="MSShapeGroup" points="192 1039 217.980762 1054 217.980762 1084 192 1099 166.019238 1084 166.019238 1054 "></polygon>
+            <g id="Imported-Layers" sketch:type="MSLayerGroup" transform="translate(173.921390, 1052.000000)" fill="#FFFFFF">
+                <path d="M9.66987879,1.3426 C9.66987879,1.3426 11.5377576,8.3188 17.3393333,10.0982 C23.142303,11.8762 30.8619394,14.5348 30.8619394,14.5348 L27.7715758,25.5486 L16.0680606,21.6916 C16.0680606,21.6916 4.79387879,19.18 3.13369697,24.3138 C3.13369697,24.3138 1.408,14.6594 9.66987879,1.3426" id="Fill-1" sketch:type="MSShapeGroup"></path>
+                <path d="M9.366,0.3682 C9.366,0.3682 8.56169697,-0.5712 7.21654545,1.8746 C5.70551515,4.6172 3.72054545,10.5784 2.98454545,13.4442 C2.24715152,16.3114 1.4010303,22.9726 1.4010303,22.9726 C1.4010303,22.9726 1.03024242,24.654 1.96557576,24.766 C2.90369697,24.8794 2.55660606,23.8532 2.53151515,22.2138 C2.51060606,20.5772 3.40133333,15.6394 5.46854545,9.1126 C7.43260606,2.9106 9.25448485,1.6842 9.25448485,1.6842 C9.25448485,1.6842 9.97236364,0.9996 9.366,0.3682" id="Fill-2" sketch:type="MSShapeGroup"></path>
+                <path d="M8.7289697,12.8002 C8.7289697,15.3132 6.698,17.3502 4.19866667,17.3502 C1.69515152,17.3502 -0.333030303,15.3132 -0.333030303,12.8002 C-0.333030303,10.2872 1.69515152,8.2488 4.19866667,8.2488 C6.698,8.2488 8.7289697,10.2872 8.7289697,12.8002" id="Fill-3" sketch:type="MSShapeGroup"></path>
+                <path d="M33.3877576,23.9008 C32.8761818,25.2952 31.2801212,25.991 29.8234545,25.4548 L25.4227879,23.8294 C23.9661212,23.2918 23.1980606,21.7252 23.7082424,20.3294 L25.328,15.9054 C25.8367879,14.5096 27.4342424,13.8138 28.8909091,14.3542 L33.2915758,15.9754 C34.7496364,16.5144 35.5149091,18.081 35.0047273,19.4782 L33.3877576,23.9008" id="Fill-4" sketch:type="MSShapeGroup"></path>
+                <path d="M16.0638788,19.859 C16.0638788,19.859 19.4469697,22.7584 18.726303,24.9592 C18.0070303,27.1628 15.6958788,33.0414 15.6958788,33.0414 C15.6958788,33.0414 17.646,35.0616 20.3237576,33.6126 C23.0015152,32.1664 22.9067273,25.69 22.9067273,25.69 C22.9067273,25.69 23.8406667,23.177 26.6940606,24.2298" id="Fill-5" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

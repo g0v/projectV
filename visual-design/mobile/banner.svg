@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="457px" height="94px" viewBox="0 0 457 94" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
+    <title>banner</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="000" sketch:type="MSArtboardGroup" transform="translate(0.000000, -102.000000)">
+            <g id="Imported-Layers" sketch:type="MSLayerGroup" transform="translate(-84.000000, 102.000000)">
+                <path d="M414.835646,69.6296296 L0,69.6296296 L1.17810932,0 L381.744019,0 L414.835646,69.6296296" id="Fill-1" fill="#B81C3D" sketch:type="MSShapeGroup"></path>
+                <path d="M540.734752,94 L362.495177,94 L362.495177,69.6296296 L414.835646,69.6296296 L394.417408,26.1111111 L503.230444,26.1111111 L493.671376,60.0555556 L540.734752,94" id="Fill-2" fill="#98272D" sketch:type="MSShapeGroup"></path>
+                <path d="M414.835646,69.6296296 L362.495177,93.583963 L362.495177,69.6296296 L414.835646,69.6296296" id="Fill-3" fill="#FBB03B" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

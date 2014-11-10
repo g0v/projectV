@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="35px" height="51px" viewBox="0 0 35 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
+    <title>point</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Start-Here-9" sketch:type="MSArtboardGroup" transform="translate(-570.000000, -289.000000)" fill="#B81C3D">
+            <path d="M570,305.575 C570,314.755 587.5,340 587.5,340 C587.5,340 605,314.755 605,305.575 C605,296.426875 597.172727,289 587.5,289 C577.827273,289 570,296.426875 570,305.575 L570,305.575 Z M576.363636,305.989375 C576.363636,300.3475 581.709091,295.375 587.5,295.375 C593.290909,295.375 598.572727,300.41125 598.572727,306.02125 C598.572727,311.663125 593.259091,317.62375 587.436364,317.62375 C581.645455,317.62375 576.363636,311.63125 576.363636,305.989375 L576.363636,305.989375 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
