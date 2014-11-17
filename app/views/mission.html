@@ -23,10 +23,14 @@
           <div class="progress-container">
             <div class="mission_progress_txt"><strong>HP</strong></div>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.bossHP*100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.bossHP |  percentage:0 }};">
-                {{miscope.bossHP |  percentage:0 }}
+              <div class="progress-bar" role="progressbar" 
+                aria-valuenow="{{ (1 - (miscope.bossHP.receive/ miscope.bossHP.total))*100}}" 
+                aria-valuemin="0" aria-valuemax="100" 
+                style="width: {{ 1 - (miscope.bossHP.receive/ miscope.bossHP.total) |  percentage:0 }};">
+                {{1 - (miscope.bossHP.receive/ miscope.bossHP.total) |  percentage:0 }}
               </div>
             </div>
+            <div class="mission_progress_txt"><strong>罷免聯署書：{{miscope.bossHP.receive}}/ {{miscope.bossHP.total}}</strong></div>
           </div>
         </div>
       </td>

@@ -526,11 +526,16 @@ angular.module('projectVApp')
 
     this.getBossHp = function(county){
       if(county == 'TPE-4'){
-        //return {total: 38939, receive: 761}
-        return 0.98;
+        return {total: 38939, receive: 761};
+      }
+      else if(county == 'TPQ-1'){
+        return {total: 37469, receive: 0};
+      }
+      else if(county == 'TPQ-6'){
+        return {total: 27677, receive: 0};
       }
       else{
-        return 1.00;
+        return {total: 1, receive: 0};
       }
       //var hpQuery = new Parse.Query(hpParse);
       //my_this.getParsedQuery(hpQuery,"county",county).then(function(data){
