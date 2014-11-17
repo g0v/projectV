@@ -32,6 +32,8 @@ angular.module('projectVApp')
     var supplementParse = Parse.Object.extend("resource");
 
     var reportParse = Parse.Object.extend("report");
+
+    var hpParse = Parse.Object.extend("bossHp");
     //var county = 'TPE-4';
 
     var citizenDataAry = {}; //dynamic
@@ -520,6 +522,23 @@ angular.module('projectVApp')
       var deferred = $q.defer();
       deferred.resolve(false);
       return deferred.promise;
+    };
+
+    this.getBossHp = function(county){
+      if(county == 'TPE-4'){
+        //return {total: 38939, receive: 761}
+        return 0.98;
+      }
+      else{
+        return 1.00;
+      }
+      //var hpQuery = new Parse.Query(hpParse);
+      //my_this.getParsedQuery(hpQuery,"county",county).then(function(data){
+      //  var objTemp = data[0];
+      //  //console.log('objtemp',objTemp,county);
+      //  var dataAll = {total: objTemp.get('total'), receive: objTemp.get('receive')};
+      //  //console.log('Bossdata',dataAll);
+      //});
     };
 
 

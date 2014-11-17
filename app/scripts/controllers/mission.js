@@ -38,7 +38,12 @@ angular.module('projectVApp')
     $scope.miscope.newCitizen = [];
     $scope.miscope.mapLoadingComplete = false;
 
-    $scope.miscope.bossHP = 1;
+    $scope.miscope.bossHP = voteInfoService.getBossHp(county);
+    //console.log('bossHp',$scope.miscope.bossHP);
+    
+
+    
+
 
     FeedService.parseFeed('http://appyv.tumblr.com/rss').then(function(res) {
       var entries = res.data.responseData.feed.entries;
@@ -141,5 +146,6 @@ angular.module('projectVApp')
     //  $scope.miscope.mapLoadingComplete = true;
     //});
 
+    voteInfoService.getBossHp(county);
 
   });
