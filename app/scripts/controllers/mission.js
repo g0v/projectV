@@ -38,7 +38,9 @@ angular.module('projectVApp')
     $scope.miscope.newCitizen = [];
     $scope.miscope.mapLoadingComplete = false;
 
-    $scope.miscope.bossHP = voteInfoService.getBossHp(county);
+    voteInfoService.getBossHp(county).then(function(data){
+      $scope.miscope.bossHP = data;
+    });
     //console.log('bossHp',$scope.miscope.bossHP);
     
 

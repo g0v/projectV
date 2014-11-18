@@ -137,7 +137,7 @@ angular.module('projectVApp')
     };
 
 
-    this.getParsedQuery = function(query,key,val,limit){
+    this.getParsedQuery = function(query,name,key,val,limit){
       var deferred = $q.defer();
       var qhkey = query+'_'+key+'_'+val+'_'+limit;
 
@@ -229,7 +229,7 @@ angular.module('projectVApp')
           else{
             //console.log('run citizen data');
             var query = new Parse.Query(pollParse);
-            my_this.getParsedQuery(query,"county",county).then(function(citizenData){
+            my_this.getParsedQuery(query,"pollParse","county",county).then(function(citizenData){
               var results = [];
               for (var i = 0; i < citizenData.length; i++) { 
                 results.push( convertObject(citizenData[i]));
@@ -244,32 +244,32 @@ angular.module('projectVApp')
     };
 
 
-    this.getTopkCitizen = function(county,k){ //TODO
-      var deferred = $q.defer();
-      function sortByKey(array, key) {
-          return array.sort(function(a, b) {
-              var x = a[key]; var y = b[key];
-              return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-          }).reverse();
-      }
-      var volQuery = new Parse.Query(volunteerParse);
-      var supQuery = new Parse.Query(supplementParse);
-      $q.all([my_this.getParsedQuery(volQuery,"county",county,k), my_this.getParsedQuery(supQuery,"county",county,k)]).then(function(data){
-        var dataAll = [];
-        //console.log('data',data);
-        for(var i=0; i<data[0].length; i++){
-          var objTemp = data[0][i];
-          dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name'), type:'志工'});
-        }
-        for(var i=0; i<data[1].length; i++){
-          var objTemp = data[1][i];
-          dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name'), type:'物資'});
-        }
-        deferred.resolve(dataAll.slice(0,k));
-      });
-      
-      return deferred.promise;
-    }
+    //this.getTopkCitizen = function(county,k){ //TODO
+    //  var deferred = $q.defer();
+    //  function sortByKey(array, key) {
+    //      return array.sort(function(a, b) {
+    //          var x = a[key]; var y = b[key];
+    //          return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    //      }).reverse();
+    //  }
+    //  var volQuery = new Parse.Query(volunteerParse);
+    //  var supQuery = new Parse.Query(supplementParse);
+    //  $q.all([my_this.getParsedQuery(volQuery,"county",county,k), my_this.getParsedQuery(supQuery,"county",county,k)]).then(function(data){
+    //    var dataAll = [];
+    //    //console.log('data',data);
+    //    for(var i=0; i<data[0].length; i++){
+    //      var objTemp = data[0][i];
+    //      dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name'), type:'志工'});
+    //    }
+    //    for(var i=0; i<data[1].length; i++){
+    //      var objTemp = data[1][i];
+    //      dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name'), type:'物資'});
+    //    }
+    //    deferred.resolve(dataAll.slice(0,k));
+    //  });
+    //  
+    //  return deferred.promise;
+    //}
 
     this.getAllVillageSum = function(county){  //dynamic
       var deferred = $q.defer();
@@ -525,25 +525,28 @@ angular.module('projectVApp')
     };
 
     this.getBossHp = function(county){
-      if(county == 'TPE-4'){
-        return {total: 38939, receive: 761};
-      }
-      else if(county == 'TPQ-1'){
-        return {total: 37469, receive: 0};
-      }
-      else if(county == 'TPQ-6'){
-        return {total: 27677, receive: 0};
-      }
-      else{
-        return {total: 1, receive: 0};
-      }
-      //var hpQuery = new Parse.Query(hpParse);
-      //my_this.getParsedQuery(hpQuery,"county",county).then(function(data){
-      //  var objTemp = data[0];
-      //  //console.log('objtemp',objTemp,county);
-      //  var dataAll = {total: objTemp.get('total'), receive: objTemp.get('receive')};
-      //  //console.log('Bossdata',dataAll);
-      //});
+      var deferred = $q.defer();
+      var hpQuery = new Parse.Query(hpParse);
+      my_this.getParsedQuery(hpQuery,"hpQuery","county",county,1).then(function(data){
+        var objTemp = data[0];
+        //console.log('objtemp',objTemp,county);
+        deferred.resolve( {total: objTemp.get('total'), receive: objTemp.get('receive')} );
+        //console.log('Bossdata',dataAll);
+      });
+
+      //if(county == 'TPE-4'){
+      //  return {total: 38939, receive: 761};
+      //}
+      //else if(county == 'TPQ-1'){
+      //  return {total: 37469, receive: 0};
+      //}
+      //else if(county == 'TPQ-6'){
+      //  return {total: 27677, receive: 0};
+      //}
+      //else{
+      //  return {total: 1, receive: 0};
+      //}
+      return deferred.promise;
     };
 
 
