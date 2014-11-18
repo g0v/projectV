@@ -58,18 +58,18 @@
                     </span>
                   </span>
               </div>
-                <span ng-if="villVal != null">
+              <span ng-if="villVal != null">
+                <div class="col-xs-5 col-md-4">
+                  <a href="javascript:void(0);" ng-click="myscope.setCurrentAreaClick(townKey,villKey)"> {{villKey}}</a>
+                </div>
+              </span>
+              <span ng-if="villVal == null">
+                <span class="emptyvill">
                   <div class="col-xs-5 col-md-4">
                     <a href="javascript:void(0);" ng-click="myscope.setCurrentAreaClick(townKey,villKey)"> {{villKey}}</a>
                   </div>
                 </span>
-                <span ng-if="villVal == null">
-                  <span class="emptyvill">
-                    <div class="col-xs-5 col-md-4">
-                      <a href="javascript:void(0);" ng-click="myscope.setCurrentAreaClick(townKey,villKey)"> {{villKey}}</a>
-                    </div>
-                  </span>
-                </span>
+              </span>
             </div>
           </div>
         </div>

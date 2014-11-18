@@ -22,6 +22,11 @@
   text-align:left;
 }
 
+.mymap .progress-bar[aria-valuenow="1"], .progress-bar[aria-valuenow="2"] {
+  min-width: 0px;
+}
+
+
 
 .mymap .emptyvill .progress{
   border: 3px solid #666666;
