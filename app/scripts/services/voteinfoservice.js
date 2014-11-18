@@ -139,7 +139,7 @@ angular.module('projectVApp')
 
     this.getParsedQuery = function(query,name,key,val,limit){
       var deferred = $q.defer();
-      var qhkey = query+'_'+key+'_'+val+'_'+limit;
+      var qhkey = name+'_'+query+'_'+key+'_'+val+'_'+limit;
 
       function postProcess(qhkey) {
         queryHistory[qhkey]['count'] = 0;
