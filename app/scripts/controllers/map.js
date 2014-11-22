@@ -530,29 +530,46 @@ angular.module('projectVApp')
     $scope.$on('leafletDirectiveMap.geojsonClick', areaClick);
 
     $scope.myscope.registerDialog = function(type) {
-      var modalInstance = $modal.open({
-        templateUrl:'views/register.html',
-        controller: 'registerDialogController',
-        size: 'md',
-        resolve: {
-          data: function() {
-            return {
-              county: county,
-              type: type,
-              nonArea: false,
-              vsId: $scope.myscope.currentVsTab.vsId,
-              vsName: $scope.myscope.currentVsTab.vsName,
-              supCount: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].sItemCount,
-              supWeight: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].vweight
-            };
+      if(type == 'supplement'){
+        var modalInstance = $modal.open({
+          templateUrl:'views/closereg.html',
+          controller: 'registerCloseController',
+          size: 'md',
+          resolve: {
+            data: function() {
+              return {
+                county: county,
+                type: type,
+              };
+            }
           }
-        }
-      });
-      modalInstance.result.then(function(result){
-        //console.log('send',result);
-        //$scope.$emit('dataReload');
-        $location.path('/');
-      });
+        });
+      }
+      else{
+        var modalInstance = $modal.open({
+          templateUrl:'views/register.html',
+          controller: 'registerDialogController',
+          size: 'md',
+          resolve: {
+            data: function() {
+              return {
+                county: county,
+                type: type,
+                nonArea: false,
+                vsId: $scope.myscope.currentVsTab.vsId,
+                vsName: $scope.myscope.currentVsTab.vsName,
+                supCount: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].sItemCount,
+                supWeight: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].vweight
+              };
+            }
+          }
+        });
+        modalInstance.result.then(function(result){
+          //console.log('send',result);
+          //$scope.$emit('dataReload');
+          $location.path('/');
+        });
+      }
     };
 
     $scope.myscope.reportDialog = function() {

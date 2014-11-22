@@ -383,3 +383,16 @@ angular.module('projectVApp')
   }
 
 }]);
+
+
+angular.module('projectVApp')
+.controller('registerCloseController',
+  ['$scope', '$timeout', '$modalInstance', 'Facebook', 'voteInfoService', 'data', '$analytics',
+  function($scope, $timeout, $modalInstance, Facebook, voteInfoService, data, $analytics) {
+
+  $scope.regscope = {};
+
+  $scope.cancel = function () {
+     $modalInstance.dismiss('cancel');
+  };
+}]);
