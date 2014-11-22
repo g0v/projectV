@@ -179,7 +179,7 @@ angular.module('projectVApp')
   $scope.regscope.nonAreaSelect = [
     '台北市',
     '新北市',
-    '台中市',
+//    '台中市',
     '台南市',
     '高雄市',
   ];
