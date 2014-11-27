@@ -318,10 +318,10 @@ angular.module('projectVApp')
       //showCurrentVillageVotestat(townName,villageName,0)
     };
 
-    function showStation(townName, villageName, currentPos){
+    function showStation(){
       $scope.myscope.showVS = {};
-      $scope.myscope.showVS.townName = townName;
-      $scope.myscope.showVS.villageName = villageName;
+      //$scope.myscope.showVS.townName = townName;
+      //$scope.myscope.showVS.villageName = villageName;
       $scope.myscope.showVS.vsArray = [];
       $scope.markers = {};
       var markerArray = [];
@@ -329,50 +329,34 @@ angular.module('projectVApp')
 
       //var query0 = 'json/votestatInfo/' + county + '.json';
       //$scope.myscope.vsInfo = res0.data; //TODO need to optimize
-      angular.forEach($scope.myscope.voteStatData[townName],function(votestat) {
-        var vsIndex = votestat.neighborhood.indexOf(villageName);
-        if(vsIndex != -1){
+      angular.forEach($scope.myscope.afterStat,function(votestat) {
+        //var vsIndex = votestat.neighborhood.indexOf(villageName);
+        //if(vsIndex != -1){
           $scope.myscope.showVS.vsArray.push({
             'name':votestat.name,
             'id':votestat.id,
           });
-          if(markerArray.length == currentPos){
-            currentVsId = votestat.id;
-          }
+          //if(markerArray.length == currentPos){
+          //  currentVsId = votestat.id;
+          //}
           markerArray.push({
             'vsid':votestat.id,
-            'townName': townName,
-            'villageName': villageName,
             'vspos': markerArray.length,
             'vscount': mycount(($scope.myscope.vsInfo[votestat.id].volunteer+$scope.myscope.vsInfo[votestat.id].supplement)*0.5),
             'vsobj': {
-              lat: votestat.location.lat,
-              lng: votestat.location.lng,
+              lat: votestat.latlng.latitude,
+              lng: votestat.latlng.longitude,
             },
           });
-        }
+        //}
       });
       if(markerArray.length > 0){
         drawVoteStation(markerArray);
-        $scope.myscope.setCurrentMarkerClick(currentVsId, false, false);
+      //  $scope.myscope.setCurrentMarkerClick(currentVsId, false, false);
       }
 
       $scope.leafletData.getMap().then(function(map){
-        var bound = [];
-        if(lastClickLayer){
-          var layerBound = lastClickLayer.getBounds();
-          bound.push({lat: layerBound._northEast.lat, lng: layerBound._northEast.lng});
-          bound.push({lat: layerBound._southWest.lat, lng: layerBound._southWest.lng});
-        }
-        for(var i=0; i< markerArray.length;i++){
-          bound.push({
-            lat: markerArray[i].vsobj.lat,
-            lng: markerArray[i].vsobj.lng,
-          });
-        }
-        if(bound.length > 0){
-          map.fitBounds(bound);
-        }
+        //TODO ZOOM IN
       });
     }
 
@@ -383,9 +367,6 @@ angular.module('projectVApp')
       $scope.myscope.hpPeopleMore = false;
 
       var thisMarker = $scope.markers[markerName];
-      //if(lastClickMarker == thisMarker){
-      //  return;
-      //}
       currentClickMarkerIndex = thisMarker.mypos;
       setVotestatTab(markerName);
       if(lastClickMarker){
@@ -399,9 +380,6 @@ angular.module('projectVApp')
           map.setView({lat:thisMarker.lat,lng:thisMarker.lng});
         });
       }
-      //if(reload){
-      //  $scope.$emit('dataReload');
-      //}
     };
 
     $scope.myscope.setTownTab = function(townName){
@@ -458,20 +436,18 @@ angular.module('projectVApp')
     };
 
     function drawVoteStation(markerArray) {
-      //console.log('drawVoteStation');
       var mymarkers = {};
       lastClickMarker = null;
       angular.forEach(markerArray, function(marker) {
-        var mcount = marker.vscount;
+        //var mcount = marker.vscount;
         mymarkers[marker.vsid] = {
           draggable: false, //TODO
           lat: marker.vsobj.lat,
           lng: marker.vsobj.lng,
-          icon: myiconArray[mcount]['x'],
-          myicons: myiconArray[mcount],
-          mycount: mcount,
+          icon: myiconArray[2]['x'],
+          myicons: myiconArray[2],
           mypos: marker.vspos,
-          myloc: marker.townName + '-' + marker.villageName,
+          //myloc: marker.townName + '-' + marker.villageName,
           myid: marker.vsid
         };
       });
@@ -479,11 +455,9 @@ angular.module('projectVApp')
         markers: mymarkers,
       });
 
-
       $scope.$on('leafletDirectiveMarker.click', function(e, args) {
         $scope.myscope.setCurrentMarkerClick(args.markerName,false,true);
       });
-
       $scope.$on('leafletDirectiveMarker.mouseover', function(e, args) {
         var thisMarker = $scope.markers[args.markerName];
         thisMarker.icon = thisMarker.myicons['d'];
@@ -499,7 +473,6 @@ angular.module('projectVApp')
           thisMarker.icon = thisMarker.myicons['c'];
         }
       });
-
     }
 
     $scope.$on('leafletDirectiveMap.geojsonMouseover', areaMouseover);
@@ -607,6 +580,8 @@ angular.module('projectVApp')
           $scope.myscope.villList = Object.keys($scope.myscope.villageSum);
           $scope.myscope.currentTownTab = $scope.myscope.villList[0];
 
+          $scope.myscope.afterStat = data[3];
+
       });
     };
 
@@ -664,7 +639,7 @@ angular.module('projectVApp')
             }
         }
     });
-
+    showStation();
 
 }]);
 

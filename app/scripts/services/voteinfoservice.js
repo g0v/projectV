@@ -248,33 +248,6 @@ angular.module('projectVApp')
     };
 
 
-    //this.getTopkCitizen = function(county,k){ //TODO
-    //  var deferred = $q.defer();
-    //  function sortByKey(array, key) {
-    //      return array.sort(function(a, b) {
-    //          var x = a[key]; var y = b[key];
-    //          return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-    //      }).reverse();
-    //  }
-    //  var volQuery = new Parse.Query(volunteerParse);
-    //  var supQuery = new Parse.Query(supplementParse);
-    //  $q.all([my_this.getParsedQuery(volQuery,"county",county,k), my_this.getParsedQuery(supQuery,"county",county,k)]).then(function(data){
-    //    var dataAll = [];
-    //    //console.log('data',data);
-    //    for(var i=0; i<data[0].length; i++){
-    //      var objTemp = data[0][i];
-    //      dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name'), type:'志工'});
-    //    }
-    //    for(var i=0; i<data[1].length; i++){
-    //      var objTemp = data[1][i];
-    //      dataAll.push({fid: objTemp.get('fid'), createdAt:objTemp['createdAt'].getTime(), name: objTemp.get('name'), type:'物資'});
-    //    }
-    //    deferred.resolve(dataAll.slice(0,k));
-    //  });
-    //  
-    //  return deferred.promise;
-    //}
-
     this.getAllVillageSum = function(county){  //dynamic
       var deferred = $q.defer();
       villageSumHttp += 1;
@@ -548,10 +521,10 @@ angular.module('projectVApp')
         var statData = [];
         for(var i=0;i<data.length;i++){
           var objTemp = data[i];
-          statData.push({name:objTemp.get('name'), latlng:objTemp.get('latlng')});
+          statData.push({id:objTemp.id, name:objTemp.get('name'), latlng:objTemp.get('latlng')});
         }
       
-        console.log('statData',statData);
+        //console.log('statData',statData);
 
         deferred.resolve( statData );
       });
