@@ -34,6 +34,10 @@ angular.module('projectVApp')
     var reportParse = Parse.Object.extend("report");
 
     var hpParse = Parse.Object.extend("bossHp");
+
+    var afterStatParse = Parse.Object.extend("afterStation");
+
+
     //var county = 'TPE-4';
 
     var citizenDataAry = {}; //dynamic
@@ -534,21 +538,25 @@ angular.module('projectVApp')
         //console.log('Bossdata',dataAll);
       });
 
-      //if(county == 'TPE-4'){
-      //  return {total: 38939, receive: 761};
-      //}
-      //else if(county == 'TPQ-1'){
-      //  return {total: 37469, receive: 0};
-      //}
-      //else if(county == 'TPQ-6'){
-      //  return {total: 27677, receive: 0};
-      //}
-      //else{
-      //  return {total: 1, receive: 0};
-      //}
       return deferred.promise;
     };
 
+    this.getStatData = function(county){
+      var deferred = $q.defer();
+      var afterStatQuery = new Parse.Query(afterStatParse);
+      my_this.getParsedQuery(afterStatQuery,"afterStatQuery","county",county).then(function(data){
+        var statData = [];
+        for(var i=0;i<data.length;i++){
+          var objTemp = data[i];
+          statData.push({name:objTemp.get('name'), latlng:objTemp.get('latlng')});
+        }
+      
+        console.log('statData',statData);
+
+        deferred.resolve( statData );
+      });
+      return deferred.promise;
+    };
 
     this.resetDynamics = function(county){
       if(citizenDataAry[county]){

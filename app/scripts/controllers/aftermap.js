@@ -5,11 +5,6 @@
 var DEFAULT_COUNTY = 'TPE-4';
 var MAP_RELOAD_TIME = 10000;
 
-//var MAP_DEFAULT_VIEW = {
-//  'TPE-4':{lat: 25.0666313, lng: 121.5943403, zoom: 13},
-//  'TPQ-1':{lat: 25.1752044, lng: 121.4813232, zoom: 12},
-//  'TPQ-6':{lat: 25.0260396, lng: 121.4654445, zoom: 14},
-//};
 
 
 var MAP_DEFAULT_BOUND = {
@@ -34,11 +29,10 @@ var MAP_MIN_ZOOM = {
  * Controller of the projectVApp
  */
 angular.module('projectVApp')
-  .controller('MapCtrl',
+  .controller('AftermapCtrl',
   ['$scope', '$route', '$routeParams','$http', '$q', '$filter', '$modal', '$window', '$location', 'leafletData', 'voteInfoService',
   function ($scope, $route, $routeParams, $http, $q, $filter, $modal, $window, $location, leafletData, voteInfoService ) {
     $scope.myscope = {};
-    //$scope.voteInfos = {};
     $scope.myscope.mapLoadingComplete = false;
     $scope.myscope.mapLoadingStatus = false;
     var county = $routeParams.county;
@@ -48,7 +42,7 @@ angular.module('projectVApp')
     var geojsonBuffer = [];
     var lastLoadTime = new Date().getTime();
     $scope.myscope.county = county;
-    $scope.myscope.voteStatData = null;
+    //$scope.myscope.voteStatData = null;
     $scope.myscope.showVS = null;
     $scope.myscope.currentVsTab = {}; //local
     $scope.myscope.currentTownTab = ''; //local
@@ -60,8 +54,6 @@ angular.module('projectVApp')
     $scope.myscope.spPeopleMore = false;
     $scope.myscope.hpPeopleMore = false;
 
-    //$scope.myscope.mapclass = 'map_short';
-
     $scope.myscope.spPeopleClick = function(){
       $scope.myscope.spPeopleMore = !$scope.myscope.spPeopleMore;
     }
@@ -71,8 +63,6 @@ angular.module('projectVApp')
     }
 
     $scope.leafletData = leafletData;
-
-    //console.log('maxbounds',$scope.maxbounds);
 
 
     var myiconArray = (function genIcon(){
@@ -294,7 +284,7 @@ angular.module('projectVApp')
       var villageName = leafletEvent.target.feature.properties.village;
       var layer = leafletEvent.target;
       areaClickSub(townName,villageName,layer);
-      showCurrentVillageVotestat(townName,villageName,0);
+      //showCurrentVillageVotestat(townName,villageName,0);
     }
 
     function areaClickSub(townName,villageName,layer){
@@ -325,10 +315,10 @@ angular.module('projectVApp')
           }
         });
       });
-      showCurrentVillageVotestat(townName,villageName,0)
+      //showCurrentVillageVotestat(townName,villageName,0)
     };
 
-    function showCurrentVillageVotestat(townName, villageName, currentPos){
+    function showStation(townName, villageName, currentPos){
       $scope.myscope.showVS = {};
       $scope.myscope.showVS.townName = townName;
       $scope.myscope.showVS.villageName = villageName;
@@ -490,29 +480,16 @@ angular.module('projectVApp')
       });
 
 
-      //$scope.$on('leafletDirectiveMarker.dragend', function(e, args) { //TODO
-      //  var thisName = args.markerName;
-      //  var thisMarker = $scope.markers[args.markerName];
-      //  $scope.myscope.markerlatlng = [thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9)].join(',');
-      //  //console.log('marker drag',thisMarker.lat.toFixed(9),thisMarker.lng.toFixed(9));
-      //  //$scope.myscope.setCurrentMarkerClick(args.markerName);
-      //});
-
       $scope.$on('leafletDirectiveMarker.click', function(e, args) {
-        //console.log('marker mouse click');
         $scope.myscope.setCurrentMarkerClick(args.markerName,false,true);
       });
 
       $scope.$on('leafletDirectiveMarker.mouseover', function(e, args) {
-        //console.log('marker mouse over');
         var thisMarker = $scope.markers[args.markerName];
-        //console.log('thisMarker',thisMarker);
         thisMarker.icon = thisMarker.myicons['d'];
       });
 
       $scope.$on('leafletDirectiveMarker.mouseout', function(e, args) {
-        //console.log('marker mouse out');
-         //$scope.markerNs.click = false;
         var thisName = args.markerName;
         var thisMarker = $scope.markers[args.markerName];
         if(thisMarker != lastClickMarker){
@@ -530,7 +507,7 @@ angular.module('projectVApp')
     $scope.$on('leafletDirectiveMap.geojsonClick', areaClick);
 
     $scope.myscope.registerDialog = function(type) {
-      if(true){
+      if(type == 'supplement'){
         var modalInstance = $modal.open({
           templateUrl:'views/closereg.html',
           controller: 'registerCloseController',
@@ -565,8 +542,6 @@ angular.module('projectVApp')
           }
         });
         modalInstance.result.then(function(result){
-          //console.log('send',result);
-          //$scope.$emit('dataReload');
           $location.path('/');
         });
       }
@@ -588,7 +563,6 @@ angular.module('projectVApp')
         }
       });
       modalInstance.result.then(function(result){
-        //$location.path('/');
       });
     };
 
@@ -598,76 +572,41 @@ angular.module('projectVApp')
 
     function loadData(firsttime){
       voteInfoService.resetDynamics(county);
+      voteInfoService.getStaticVillageData(county).then(
+        function(data){
+          if(data.county = county){
+            applyGeojsonAll();
+          }
+        },
+        function() {},
+        function(data){
+          if(data.county = county){
+            //console.log('county',county);
 
-      if(firsttime){
-        voteInfoService.getStaticVillageData(county).then(
-          function(data){
-            if(data.county = county){
-              applyGeojsonAll();
+            $scope.myscope.mapLoadingStatus = data.loadingStatus*0.2;
+            if(!jQuery.isEmptyObject(data.villageArea) ){
+              
+              data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
+
+              geojsonBuffer.push(data.villageArea);
             }
-          },
-          function() {},
-          function(data){
-            if(data.county = county){
-              //console.log('county',county);
-
-              $scope.myscope.mapLoadingStatus = data.loadingStatus*0.2;
-              if(!jQuery.isEmptyObject(data.villageArea) ){
-                
-                data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum);
-
-                geojsonBuffer.push(data.villageArea);
-              //applyGeojson(data.villageArea);
-                //console.log('areaDraw',data.villageSum,
-                //  data.villageArea.features[0].properties.town,
-                //  data.villageArea.features[0].properties.village
-                //);
-              }
-            }
-            else{
-              //console.log('different county',data.county,county);
-            }
-            //console.log('mapLoadingStatus',$scope.myscope.mapLoadingStatus);
-
-          });
-      }
+          }
+          else{
+          }
+        });
 
       $q.all([voteInfoService.getAllVoteStatInfo(county),
         voteInfoService.getAllVoteStatData(county),
-        voteInfoService.getAllVillageSum(county)]).then(function(data){
-
+        voteInfoService.getAllVillageSum(county),
+        voteInfoService.getStatData(county)
+        ]).then(function(data){
           $scope.myscope.vsInfo = data[0];
-          $scope.myscope.voteStatData = data[1];
+         // $scope.myscope.voteStatData = data[1];
           $scope.myscope.villageSum = data[2];
 
-          if(firsttime){
-            //console.log('scope.myscope.villageSum', Object.keys($scope.myscope.villageSum)[0]);
-            $scope.myscope.villList = Object.keys($scope.myscope.villageSum);
-            $scope.myscope.currentTownTab = $scope.myscope.villList[0];
-          }
-          else{
-            if($scope.myscope.showVS){
-              //console.log('voteStatData Change 2');
-              showCurrentVillageVotestat(
-                $scope.myscope.showVS.townName,
-                $scope.myscope.showVS.villageName,
-                currentClickMarkerIndex
-              );
-            }
+          $scope.myscope.villList = Object.keys($scope.myscope.villageSum);
+          $scope.myscope.currentTownTab = $scope.myscope.villList[0];
 
-            $scope.leafletData.getGeoJSON().then(function(localGeojson) {
-              var geoLayers = localGeojson.getLayers();
-              angular.forEach(geoLayers,function(layer) {
-                var lTownName = layer.feature.properties.town;
-                var lVillageName = layer.feature.properties.village;
-                layer.feature.properties.mycolor = mycolor($scope.myscope.villageSum[lTownName][lVillageName]);
-                layer.setStyle(set_area_color(layer));
-                if(lastClickLayer){
-                  lastClickLayer.setStyle(set_click_style());
-                }
-              });
-            });
-          }
       });
     };
 
@@ -687,7 +626,6 @@ angular.module('projectVApp')
     };
     $scope.leafletData.getMap().then(function(map){
         map.fitBounds(MAP_DEFAULT_BOUND[county]);
-      //console.log('map',map);
     });
 
 
@@ -704,39 +642,6 @@ angular.module('projectVApp')
     });
 
 
-
-    //function checkHeight() {
-    //    //console.log('check height');
-    //    if ($window.innerHeight <= 600) {
-
-    //        angular.element('#map_main').removeClass('map_tall');
-    //        angular.element('#map_main').addClass('map_short');
-    //        angular.element('#map_sidebar').removeClass('map_tall')
-    //        angular.element('#map_sidebar').addClass('map_short');
-
-    //        //console.log('map_main',angular.element('#map_main').attr('class'))
-    //    }
-    //    else if ($window.innerHeight > 600) {
-    //        //$scope.myscope.mapclass = 'map_tall';
-    //        //console.log('large', $scope.myscope.mapclass);
-    //        angular.element('#map_main').removeClass('map_short');
-    //        angular.element('#map_main').addClass('map_tall');
-    //        angular.element('#map_sidebar').removeClass('map_short');
-    //        angular.element('#map_sidebar').addClass('map_tall');
-
-    //        //console.log('map_main',angular.element('#map_main').attr('class'))
-    //        //$('#map_main').removeClass('map_short');
-    //        //$('#map_main').addClass('map_tall');
-    //        //$('#map_sidebar').removeClass('map_short');
-    //        //$('#map_sidebar').addClass('map_tall');
-    //    }
-    //}
-
-    //angular.element(document).ready(function() {
-    //  //console.log("onload");
-    //  angular.element($window).bind('resize',checkHeight);
-    //  checkHeight();
-    //});
 
     angular.extend($scope, {
         layers: {

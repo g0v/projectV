@@ -392,6 +392,8 @@ angular.module('projectVApp')
 
   $scope.regscope = {};
 
+  $scope.regscope.type = data.type;
+
   $scope.cancel = function () {
      $modalInstance.dismiss('cancel');
   };

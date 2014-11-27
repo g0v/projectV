@@ -16,7 +16,7 @@ angular.module('projectVApp')
     ];
 
     $scope.registerDialog = function(type) {
-      if(type == 'supplement'){
+      if(true){
         var modalInstance = $modal.open({
           templateUrl:'views/closereg.html',
           controller: 'registerCloseController',

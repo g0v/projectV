@@ -59,6 +59,10 @@ angular
         templateUrl: 'views/minimap.html',
         controller: 'MapCtrl'
       })
+      .when('/aftermap/:county', {
+        templateUrl: 'views/aftermap.html',
+        controller: 'AftermapCtrl'
+      })
       .when('/faq', {
         templateUrl: 'views/faq.html',
         controller: 'FaqCtrl'
