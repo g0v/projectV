@@ -6,6 +6,7 @@ var MY_HTTP_DELAY = 200;
 var MY_HTTP_RETRY = 3000;
 
 var MY_REQUERY_TIME = 10000;
+var MY_DEFAULT_MAX_COUNT = 5000;
 
 /**
  * @ngdoc service
@@ -36,6 +37,8 @@ angular.module('projectVApp')
     var hpParse = Parse.Object.extend("bossHp");
 
     var afterStatParse = Parse.Object.extend("afterStation");
+
+    var afterCountParse = Parse.Object.extend("afterCount");
 
 
     //var county = 'TPE-4';
@@ -272,7 +275,6 @@ angular.module('projectVApp')
           },MY_HTTP_DELAY*3);
         }
         else{
-            //console.log('run villageSumHttp');
             $q.all([ my_this.getAllVoteStatData(county), my_this.getCitizenData(county) , my_this.getAllVillageVotestatData(county)])
             .then(function(data){
               var voteStatData = data[0];
@@ -280,7 +282,6 @@ angular.module('projectVApp')
               var villageVotestatData = data[2];
               var voteStatSum = {};
               var voteStatWeight = {};
-
               for(var ct in voteStatData){
                 for(var i=0 ; i< voteStatData[ct].length; i++){
                   voteStatWeight[voteStatData[ct][i].id] = voteStatData[ct][i].power;
@@ -514,22 +515,105 @@ angular.module('projectVApp')
       return deferred.promise;
     };
 
-    this.getStatData = function(county){
+    this.getAfterStatData = function(county){
       var deferred = $q.defer();
       var afterStatQuery = new Parse.Query(afterStatParse);
       my_this.getParsedQuery(afterStatQuery,"afterStatQuery","county",county).then(function(data){
-        var statData = [];
+        var statList = [];
+        var statInfo = {};
         for(var i=0;i<data.length;i++){
           var objTemp = data[i];
-          statData.push({id:objTemp.id, name:objTemp.get('name'), latlng:objTemp.get('latlng')});
+          statList.push( objTemp.id);
+          statInfo[objTemp.id] = {
+            name:objTemp.get('name'), 
+            address:objTemp.get('address'), 
+            comment:objTemp.get('comment'), 
+            latlng:objTemp.get('latlng')
+          };
         }
-      
         //console.log('statData',statData);
-
-        deferred.resolve( statData );
+        deferred.resolve( {'statList':statList,'statInfo':statInfo} );
       });
       return deferred.promise;
     };
+
+
+
+
+
+    this.getAfterStatVillageData = function(county){
+
+      var deferred = $q.defer();
+      var countAll = 0;
+      var countTemp = 0;
+      var count = 0;
+      var afterCountQuery = new Parse.Query(afterCountParse);
+
+      $q.all([my_this.getCountyVillage(county), my_this.getParsedQuery(afterCountQuery,"afterCountQuery","county",county)]).then(function(data){
+        var countVill = data[0]; 
+        var rawAfterCount = data[1];
+        var afterCount = {};
+        villageAreaAry[county] = villageAreaAry[county] ? villageAreaAry[county] : {};
+        var villageArea = villageAreaAry[county];
+
+        function postProcess(vakey, townName, villageName){
+          countTemp += 1;
+          setTimeout(function(){ 
+            count +=1 ;
+            var mvillsum = {count:0,maxCount:MY_DEFAULT_MAX_COUNT};
+
+            if(afterCount[townName] && afterCount[townName][villageName] ){
+              mvillsum = afterCount[townName][villageName];
+            }
+            else{
+              if(!afterCount[townName]){
+                afterCount[townName] = {};
+              }
+              afterCount[townName][villageName] = mvillsum;
+            }
+
+            deferred.notify({villageArea: villageArea[vakey], villageSum:mvillsum, loadingStatus:count/countAll, county:county});
+            if(count == countAll){
+              deferred.resolve( { complete:true , loadingStatus:count/countAll, county:county, afterCount:afterCount});
+            }
+          },my_this.MAP_BUFFER_TIME*countTemp);
+        } 
+
+        for(var i=0; i<rawAfterCount.length;i++){
+          var tempObj = rawAfterCount[i];
+          var townName =  tempObj.get('town');
+          var villageName = tempObj.get('village');
+          if(!afterCount[townName]){
+            afterCount[townName] = {};
+          }
+          afterCount[townName][villageName] = 
+            {count:tempObj.get('count'),maxCount:tempObj.get('maxCount')};
+        }
+
+        angular.forEach(countVill, function(villages, townName) {
+          angular.forEach(villages, function(villageName) {
+            countAll += 1;
+            var vakey = county+'_'+townName+'_'+villageName;
+            if(villageArea[vakey]){
+              postProcess(vakey, townName, villageName);
+            }
+            else{
+              var query = 'json/twVillage2010/' + county + '/' + townName + '/' + villageName + '.json';
+              $http.get(query).success(function(data) {
+                villageArea[vakey] = data;
+                postProcess(vakey, townName, villageName);
+              }).error( function(err) {
+                villageArea[vakey] = {};
+                postProcess(vakey, townName, villageName);
+              });
+            }
+          });
+        });
+      });
+      return deferred.promise;
+    };
+
+
 
     this.resetDynamics = function(county){
       if(citizenDataAry[county]){
