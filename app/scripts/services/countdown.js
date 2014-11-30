@@ -21,11 +21,11 @@ angular.module('projectVApp')
         var ratio = parseInt(seconds * 5 /3);
 
         return {
-          days: days,
-          hours: hours,
-          minutes: minutes,
-          seconds: seconds,
-          ratio: ratio
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+          ratio: 100
         };
       }
     };
