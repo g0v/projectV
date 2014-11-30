@@ -39,7 +39,7 @@ angular.module('projectVApp')
     $scope.miscope.mapLoadingComplete = false;
 
     $scope.miscope.bossHP = {};
-    $scope.miscope.bossHP.receive = 0;
+    $scope.miscope.bossHP.receive = 1;
     $scope.miscope.bossHP.total = 1;
 
     voteInfoService.getBossHp(county).then(function(data){
