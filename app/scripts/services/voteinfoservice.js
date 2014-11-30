@@ -628,3 +628,8 @@ angular.module('projectVApp')
     };
 
   });
+var MY_HTTP_DELAY = 200;
+var MY_HTTP_RETRY = 3000;
+
+var MY_REQUERY_TIME = 10000;
+var MY_DEFAULT_MAX_COUNT = 5000;

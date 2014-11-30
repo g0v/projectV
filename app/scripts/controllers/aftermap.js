@@ -487,45 +487,26 @@ angular.module('projectVApp')
     $scope.$on('leafletDirectiveMap.geojsonMouseout', areaMouseout);
     $scope.$on('leafletDirectiveMap.geojsonClick', areaClick);
 
-    $scope.myscope.registerDialog = function(type) {
-      if(type == 'supplement'){
-        var modalInstance = $modal.open({
-          templateUrl:'views/closereg.html',
-          controller: 'registerCloseController',
-          size: 'md',
-          resolve: {
-            data: function() {
-              return {
-                county: county,
-                type: type,
-              };
-            }
+    $scope.myscope.registerDialog = function() {
+      var modalInstance = $modal.open({
+        templateUrl:'views/afterreg.html',
+        controller: 'AfterregCtrl',
+        size: 'md',
+        resolve: {
+          data: function() {
+            return {
+              county: county,
+              type: 'volunteer',
+              nonArea: false,
+              vsId: $scope.myscope.currentVsTab.vsId,
+              vsName: $scope.myscope.afterStatInfo[$scope.myscope.currentVsTab.vsId].name,
+            };
           }
-        });
-      }
-      else{
-        var modalInstance = $modal.open({
-          templateUrl:'views/register.html',
-          controller: 'registerDialogController',
-          size: 'md',
-          resolve: {
-            data: function() {
-              return {
-                county: county,
-                type: type,
-                nonArea: false,
-                vsId: $scope.myscope.currentVsTab.vsId,
-                vsName: '',
-                //supCount: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].sItemCount,
-                //supWeight: $scope.myscope.vsInfo[$scope.myscope.currentVsTab.vsId].vweight
-              };
-            }
-          }
-        });
-        modalInstance.result.then(function(result){
-          $location.path('/');
-        });
-      }
+        }
+      });
+      modalInstance.result.then(function(result){
+        $location.path('/');
+      });
     };
 
     $scope.myscope.reportDialog = function() {
