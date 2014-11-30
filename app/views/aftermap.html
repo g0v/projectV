@@ -5,7 +5,7 @@
 </button>
 -->
 
-<div class="main-container" id="mission_map_container" style="width:95%;min-width:1000px;max-width:1500px;">
+<!--<div class="main-container" id="mission_map_container" style="width:95%;min-width:1000px;max-width:1500px;">-->
 
 <div class="row mymap" style="margin-bottom:10px;">
   <div id="map_main" class="col-xs-8 col-lg-9 map_border map_short"><!-- ng-class="myscope.mapclass">-->
@@ -32,7 +32,7 @@
       </div>
 
       <div id="map_sidebar_townlist" class="panel-body map_border_top map_sb_scroll" >
-        <ul class="nav nav-stacked" ng-repeat="(townKey,townVal) in myscope.afterCount track by $index" >
+        <ul class="nav nav-stacked" ng-repeat="townKey in myscope.townList track by $index" >
           <li ng-click='myscope.setTownTab(townKey)' style="cursor:pointer;" ng-class="myscope.isCurrentTownTab(townKey)">{{townKey}}</li>
         </ul>
       </div>
@@ -123,7 +123,7 @@
 </div>
 
 
-</div>
+<!--</div>-->
 
 <script>
 var opts = {

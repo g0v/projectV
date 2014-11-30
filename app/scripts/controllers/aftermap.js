@@ -51,6 +51,7 @@ angular.module('projectVApp')
     $scope.myscope.afterStat = [];
     $scope.myscope.afterStatInfo = {};
     $scope.myscope.afterCount = {};
+    $scope.myscope.townList = [];
 
     //$scope.myscope.vsInfo = {};
     //$scope.myscope.supplementItem = voteInfoService.supplementItem;
@@ -496,7 +497,7 @@ angular.module('projectVApp')
           data: function() {
             return {
               county: county,
-              type: 'volunteer',
+              //type: 'volunteer',
               nonArea: false,
               vsId: $scope.myscope.currentVsTab.vsId,
               vsName: $scope.myscope.afterStatInfo[$scope.myscope.currentVsTab.vsId].name,
@@ -537,7 +538,8 @@ angular.module('projectVApp')
       voteInfoService.getAfterStatVillageData(county).then(
         function(data){
           $scope.myscope.afterCount = data.afterCount;
-          $scope.myscope.setTownTab(Object.keys($scope.myscope.afterCount)[0]);
+          $scope.myscope.townList = Object.keys($scope.myscope.afterCount);
+          $scope.myscope.setTownTab($scope.myscope.townList[0]);
           console.log('afterCount',$scope.myscope.afterCount);
           if(data.county = county){
             applyGeojsonAll();

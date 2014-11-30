@@ -170,7 +170,7 @@ angular.module('projectVApp')
 
 
 
-  $scope.regscope.type = data.type;
+  //$scope.regscope.type = data.type;
   $scope.regscope.nonArea = data.nonArea;
   //console.log('data',data);
   $scope.regscope.errors = '';
@@ -179,7 +179,7 @@ angular.module('projectVApp')
   $scope.regscope.fbmessage = defaultMsg;
   //console.log('scope content supplement',$scope.content.supplement);
   $scope.content = {
-    type: data.type,
+    //type: data.type,
     votestat: data.vsName,
     vsid: data.vsId,
     userid: '',
@@ -191,11 +191,11 @@ angular.module('projectVApp')
       $scope.regscope.nonAreaSelect[1],
       $scope.regscope.nonAreaSelect[2],
     ],
-    supplement: {},
+    //supplement: {},
   };
-  for(var item in selectItems){
-    $scope.content.supplement[item] = 0;
-  }
+  //for(var item in selectItems){
+  //  $scope.content.supplement[item] = 0;
+  //}
 
 
 
@@ -219,24 +219,24 @@ angular.module('projectVApp')
         $scope.regscope.nonAreaSelect[0],
         $scope.regscope.nonAreaSelect[1],
         $scope.regscope.nonAreaSelect[2],
-      ],
+      ];
 
-      $scope.content.supplement = {};
-      for(var item in selectItems){
-        $scope.content.supplement[item] = 0;
-      }
+      //$scope.content.supplement = {};
+      //for(var item in selectItems){
+      //  $scope.content.supplement[item] = 0;
+      //}
       //resetContent();
       //$scope.unregster = false;
       //console.log('fbuser',fbuser.id, data.type);
-      voteInfoService.queryCitizen(fbuser.id, data.type).then(function(result){
-        //console.log('register result',result);
-        if(!result){
-          $scope.unregster = 2;
-        }
-        else{
-          $scope.unregster = 1;
-        }
-      });
+      //voteInfoService.queryCitizen(fbuser.id, data.type).then(function(result){
+      //  //console.log('register result',result);
+      //  if(!result){
+      //    $scope.unregster = 2;
+      //  }
+      //  else{
+      //    $scope.unregster = 1;
+      //  }
+      //});
     }
     else{
       //console.log('retry');
@@ -262,7 +262,7 @@ angular.module('projectVApp')
   }
 
 
-  var verifySupplement = function(){
+  var verifyType = function(){
     var supplement = $scope.content.supplement;
     for(var item in selectItems){
       if(!isNormalInteger(supplement[item])){
@@ -274,9 +274,6 @@ angular.module('projectVApp')
         return [true,''];
       }
     }
-    //if(supplement["others_select"] && supplement["others"] && supplement["others"].length > 0 ){
-    //  return [true,''];
-    //}
     return [false,'請填選您要提供的物資'];
   };
 
@@ -293,9 +290,10 @@ angular.module('projectVApp')
         }
       }
     }
-    var verifysup = verifySupplement();
-    if($scope.content.type == 'supplement' && !verifysup[0] ){
-      errors.push(verifysup[1]);
+
+    var verifytype = verifyType();
+    if($scope.content.type == 'supplement' && !verifytype[0] ){
+      errors.push(verifytype[1]);
     }
     if(errors.length == 0){
       //console.log('fbshare',$scope.regscope.fbshare);
@@ -326,13 +324,11 @@ angular.module('projectVApp')
   function saveToParseCom(){
     var temp_obj = {
       fid: parseInt($scope.content.userid),
-      volunteer: $scope.content.type == 'volunteer',
       poll: data.vsId,
       name: $scope.content.name,
       mobile: $scope.content.phone,
       email: $scope.content.email,
       county: data.county,
-      resource: $scope.content.supplement,
     };
     if($scope.regscope.nonArea){
       temp_obj['areaOrder'] = $scope.content.areaOrder.join(",");

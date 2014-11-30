@@ -40,6 +40,8 @@ angular.module('projectVApp')
 
     var afterCountParse = Parse.Object.extend("afterCount");
 
+    var afterRegParse = Parse.Object.extend("afterRegister");
+
 
     //var county = 'TPE-4';
 
@@ -626,6 +628,18 @@ angular.module('projectVApp')
         delete voteStatInfoAry[county];
       }
     };
+    
+
+    this.saveAfterReg = function(data, cb){
+      //console.log('data',JSON.stringify(data));
+      var czparse = new afterRegParse();
+      czparse
+        .save(data)
+        .then(function(object) {
+          cb()
+        });
+    };
+
 
   });
 var MY_HTTP_DELAY = 200;

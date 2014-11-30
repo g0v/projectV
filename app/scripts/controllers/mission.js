@@ -10,15 +10,15 @@
 
 
 var BOSS_DESCRIPTION = {
-  'TPE-4':{name:'祭止兀',img:'images/head-tsai.png'},
-  'TPQ-6':{name:'林鴻池',img:'images/head-lin.png'},
-  'TPQ-1':{name:'WEGO昇',img:'images/head-wu.png'},
+  'TPE-4':{name:'祭止兀',img:'images/head-tsai.png',black_img:'images/head-tsai-black.png',finaldate:'2014/12/15'},
+  'TPQ-6':{name:'林鴻池',img:'images/head-lin.png',black_img:'images/head-lin-black.png',finaldate:'2014/12/27'},
+  'TPQ-1':{name:'WEGO昇',img:'images/head-wu.png',black_img:'images/head-wu-black.png',finaldate:'2014/12/27'},
 };
 
 
 angular.module('projectVApp')
   .controller('MissionCtrl',
-  function ($scope, $route, $routeParams, voteInfoService, FeedService, $anchorScroll) {
+  function ($scope, Countdown, FINALDATE, $interval, $route, $routeParams, voteInfoService, FeedService, $anchorScroll) {
     $anchorScroll();
     var county = $routeParams.county;
     var effectPrefix = 'effect:';
@@ -37,6 +37,10 @@ angular.module('projectVApp')
     $scope.miscope.boss = BOSS_DESCRIPTION[county];
     $scope.miscope.newCitizen = [];
     $scope.miscope.mapLoadingComplete = false;
+
+    $scope.miscope.bossHP = {};
+    $scope.miscope.bossHP.receive = 0;
+    $scope.miscope.bossHP.total = 1;
 
     voteInfoService.getBossHp(county).then(function(data){
       $scope.miscope.bossHP = data;
@@ -108,38 +112,35 @@ angular.module('projectVApp')
 
     });
 
-    function loadData(){
-      voteInfoService.getAllVoteStatInfo(county).then(function(data){
-        //console.log('--data--',data);
-        var vCount = 0;
-        var vTotal = 0;
-        var sCount = 0;
-        var sTotal = 0;
-        for(var key in data){
-          var vtempTotal = voteInfoService.volCount * data[key].vweight;
-          vTotal += vtempTotal;
-          vCount += data[key].vCount >= vtempTotal ?  vtempTotal : data[key].vCount;
-          for(var item in voteInfoService.supplementItem ){
-            var stempTotal = voteInfoService.supplementItem[item][0] * data[key].vweight;
-            sTotal += stempTotal;
-            sCount += data[key].sItemCount[item] >= stempTotal ? stempTotal : data[key].sItemCount[item];
-          }
-        }
-        $scope.miscope.vCount = vCount;
-        $scope.miscope.vTotal = vTotal;
-        $scope.miscope.sCount = sCount;
-        $scope.miscope.sTotal = sTotal;
-      });
-      //voteInfoService.getTopkCitizen(county,4).then(function(data){
-      //  $scope.miscope.newCitizen = data;
-      //});
-    }
-    loadData();
+    //function loadData(){
+    //  voteInfoService.getAllVoteStatInfo(county).then(function(data){
+    //    //console.log('--data--',data);
+    //    var vCount = 0;
+    //    var vTotal = 0;
+    //    var sCount = 0;
+    //    var sTotal = 0;
+    //    for(var key in data){
+    //      var vtempTotal = voteInfoService.volCount * data[key].vweight;
+    //      vTotal += vtempTotal;
+    //      vCount += data[key].vCount >= vtempTotal ?  vtempTotal : data[key].vCount;
+    //      for(var item in voteInfoService.supplementItem ){
+    //        var stempTotal = voteInfoService.supplementItem[item][0] * data[key].vweight;
+    //        sTotal += stempTotal;
+    //        sCount += data[key].sItemCount[item] >= stempTotal ? stempTotal : data[key].sItemCount[item];
+    //      }
+    //    }
+    //    $scope.miscope.vCount = vCount;
+    //    $scope.miscope.vTotal = vTotal;
+    //    $scope.miscope.sCount = sCount;
+    //    $scope.miscope.sTotal = sTotal;
+    //  });
+    //}
+    //loadData();
 
-    $scope.$on('missionDataReload',function(){
-        //console.log('mission load data');
-        loadData();
-    });
+    //$scope.$on('missionDataReload',function(){
+    //    //console.log('mission load data');
+    //    //loadData();
+    //});
 
     $scope.miscope.gotoMap = function(){
       $('html, body').animate({scrollTop: $('#mission_map_container').offset().top}, 500);
@@ -147,7 +148,37 @@ angular.module('projectVApp')
     //$scope.$on('mapLoadingComplete',function(){
     //  $scope.miscope.mapLoadingComplete = true;
     //});
+    $scope.miscope.hp1 = function(){
+      var hpvar = 1 - ($scope.miscope.bossHP.receive/ $scope.miscope.bossHP.total);
+      return hpvar >= 0 ? hpvar : 0;
+    };
+
+    $scope.miscope.hp2 = function(){
+      var hpvar = 1- (($scope.miscope.bossHP.receive - $scope.miscope.bossHP.total)/ $scope.miscope.hp2Total());
+      return hpvar;
+    };
+    $scope.miscope.hp2Total = function(){
+      return parseInt($scope.miscope.bossHP.total*0.25);
+    }
 
     voteInfoService.getBossHp(county);
+
+    $scope.miscope.bossframe = function(){
+     if( $scope.miscope.hp1() > 0){
+        return 'mission_frame_boss';
+      }
+     else{
+        return 'mission_frame_boss_black';
+      }
+    };
+
+    //console.log('finaldate',$scope.miscope.boss.finaldate);
+    $scope.miscope.time = Countdown.getTime(new Date($scope.miscope.boss.finaldate), new Date());
+  
+    $interval(function() {
+      $scope.miscope.time = Countdown.getTime(new Date($scope.miscope.boss.finaldate), new Date());
+    }, 1000);
+
+
 
   });

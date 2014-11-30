@@ -15,17 +15,18 @@ angular.module('projectVApp')
         var hours = parseInt(ms / 1000 / 60 / 60);
         var days = parseInt(hours/24);
         hours = hours - (days * 24);
-        var minutes = parseInt((ms / (1000 * 60)) - 60 * hours);
+        var minutes = parseInt((ms / (1000 * 60)) - 60 * hours - days *24*60 );
 
         var seconds = parseInt((ms / 1000) % 60);
         var ratio = parseInt(seconds * 5 /3);
 
         return {
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
-          ratio: 100
+          hpRatio : (ms/1000)  / (86400*30) ,
+          days: days,
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds,
+          ratio: ratio 
         };
       }
     };

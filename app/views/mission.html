@@ -12,7 +12,7 @@
           V計劃的志工報名已經截止，但我們仍然非常需要各位公民V的協助。
         </h4>
         <h4>
-          若您想參與志工，您可以參與<a href="https://docs.google.com/forms/d/1bIA-pCrqSnzTXmHxp5AB6LrSc80JPu1zuA1nOByOKl4/viewform?usp=send_form" target="_blank">後續志工</a>，在11/29之後幫忙擺攤或整理連屬書。
+          若您想參與志工，您可以參與<a href="http://goo.gl/MURskc" target="_blank">後續志工</a>，在11/29之後幫忙擺攤或整理連屬書。
         </h4>
         <h4>
           若您想捐款贊助，您可以<a href="http://tshirt.appy.tw/#direct" target="_blank">直接贊助</a>或<a href="http://tshirt.appy.tw/" target="_blank">T-shirt 贊助</a>，贊助割闌尾計劃。
@@ -29,21 +29,50 @@
     <table class="mymap mission_table" >
       <tr>
       <td class="text-center mission_content row_same_height">
-        <div id="mission_frame_boss">
-          <img class="img-circle mission_frame_img" src="{{miscope.boss.img}}" style="border:3px solid #B6203F;width:150px;">
+        <div id="mission_frame_boss" ng-class="miscope.bossframe()">
+          <img  ng-show="miscope.hp1() > 0" class="img-circle mission_frame_img" src="{{miscope.boss.img}}" 
+            style="border:3px solid #B6203F;width:150px;">
+          <img ng-show="miscope.hp1() == 0" class="img-circle mission_frame_img" src="{{miscope.boss.black_img}}" 
+            style="border:3px solid #000000;width:150px;">
           <h3 class="mission_frame_name">{{miscope.boss.name}}</h3>
           <div class="progress-container">
             <div class="mission_progress_txt"><strong>HP</strong></div>
-            <div class="progress">
+            <div class="progress" style="margin-bottom:1px;">
               <div class="progress-bar" role="progressbar" 
-                aria-valuenow="{{ (1 - (miscope.bossHP.receive/ miscope.bossHP.total))*100}}" 
+                aria-valuenow="{{ miscope.hp1() * 100 }}" 
                 aria-valuemin="0" aria-valuemax="100" 
-                style="width: {{ 1 - (miscope.bossHP.receive/ miscope.bossHP.total) |  percentage:0 }};">
-                {{1 - (miscope.bossHP.receive/ miscope.bossHP.total) |  percentage:0 }}
+                style="width: {{ miscope.hp1() |  percentage:0 }};">
+                {{ miscope.hp1() |  percentage:0 }}
               </div>
             </div>
-            <div class="mission_progress_txt"><strong>罷免連署書：{{miscope.bossHP.receive}}/ {{miscope.bossHP.total}}</strong></div>
+            <span class = "hp2" ng-show="miscope.hp1() == 0">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" 
+                  aria-valuenow="{{ miscope.hp2() * 100 }}" 
+                  aria-valuemin="0" aria-valuemax="100" 
+                  style="width: {{ miscope.hp2() |  percentage:0 }};">
+                  {{ miscope.hp2() |  percentage:0 }}
+                </div>
+              </div>
+            </span>
+            <div class="mission_progress_txt">
+              <strong>
+                罷免連署書：{{
+                    (miscope.bossHP.receive > miscope.bossHP.total) && 
+                      miscope.bossHP.total || 
+                      miscope.bossHP.receive 
+                  }}/ 
+                  {{miscope.bossHP.total}}
+              </strong><br/>
+              <span class="hp2" ng-show="miscope.hp1() == 0">
+                <strong>
+                  最後一擊蓄勁：{{miscope.bossHP.receive - miscope.bossHP.total}}/ 
+                    {{miscope.hp2Total()}}
+                </strong>
+              </span>
+            </div>
           </div>
+
         </div>
       </td>
       <td class="mission_content row_same_height" style="border-right:0px solid #B6203F">
@@ -82,23 +111,25 @@
           <h3 class="mission_frame_name">公民V</h3>
           <div class="progress-container">
             <div class="mission_progress_txt">
-              <strong>志工數：{{miscope.vCount}} / {{miscope.vTotal}} </strong>
+              <strong>HP</strong>
             </div>
-
             <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.vCount/miscope.vTotal}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.vCount/miscope.vTotal|  percentage:0}};">
-                {{miscope.vCount/miscope.vTotal |  percentage:0}}
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.time.hpRatio*100}}"
+                aria-valuemin="0" aria-valuemax="100" 
+                style="width: {{miscope.time.hpRatio |  percentage:0}};">
+                {{miscope.time.hpRatio | percentage:0}}
               </div>
             </div>
             <div class="mission_progress_txt">
-              <strong>物資數：{{miscope.sCount}} / {{miscope.sTotal}} </strong>
+              <strong>
+                倒數：
+                {{miscope.time.days}}天 
+                {{miscope.time.hours}}時 
+                {{miscope.time.minutes}}分 
+                {{miscope.time.seconds}}秒 
+              </strong>
             </div>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.sCount/miscope.sTotal}}" aria-valuemin="0" aria-valuemax="100" style="width: {{miscope.sCount/miscope.sTotal|  percentage:0}};">
-                {{miscope.sCount/miscope.sTotal |  percentage:0}}
-              </div>
-            </div>
-            </div>
+          </div>
         </div>
         <div id="mission_frame_citizen_list">
           <h4 ng-show="miscope.newCitizen.length > 0 "><strong>新加入公民V：</strong></h4>
@@ -137,9 +168,40 @@
       </div>
     </div>
   </div>
+  <!--<div style="height:50px"></div>
+  <div class="mymap text-center">
+    <h1>擺攤地點</h1>
+      <a href="https://www.facebook.com/Appendectomy" target="_blank">最新擺攤資訊</a>
+  </div>-->
   <div style="height:50px"></div>
   <div class="main-container" id="mission_map_container" style="width:95%;min-width:1000px;">
-    <div ng-controller="MapCtrl" ng-include="'views/map.html'"></div>
+    <!--<div ng-controller="AftermapCtrl" ng-include="'views/aftermap.html'"></div>-->
+    <!--<div ng-controller="MapCtrl" ng-include="'views/map.html'"></div>>-->
+
+    <div style="height:200px" >
+      <div class="text-center">
+        <img src="images/map_bottom_1.png" style="margin:20px;width:240px;"></img>
+
+        <a href="#/mroute/TPE-4" ng-show="(miscope.county != 'TPE-4') " id="mroute-TPE-4">
+          <div class="mission_foot_bottom">
+            <h3> 蔡正元 </h3>
+          </div>
+        </a>
+
+        <a href="#/mroute/TPQ-6" ng-show="(miscope.county != 'TPQ-6') " id="mroute-TPQ-6">
+          <div class="mission_foot_bottom">
+            <h3> 林鴻池 </h3>
+          </div>
+        </a>
+
+        <a href="#/mroute/TPQ-1" ng-show="(miscope.county != 'TPQ-1') " id="mroute-TPQ-1">
+          <div class="mission_foot_bottom">
+            <h3> 吳育昇 </h3>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
+
 </div>
 <div ng-include="'views/footer.html'"></div>
