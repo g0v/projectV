@@ -173,10 +173,10 @@ angular.module('projectVApp')
     };
 
     //console.log('finaldate',$scope.miscope.boss.finaldate);
-    $scope.miscope.time = Countdown.getTime(new Date($scope.miscope.boss.finaldate), new Date());
+    $scope.time = Countdown.getTime(new Date($scope.miscope.boss.finaldate), new Date());
   
     $interval(function() {
-      $scope.miscope.time = Countdown.getTime(new Date($scope.miscope.boss.finaldate), new Date());
+      $scope.time = Countdown.getTime(new Date($scope.miscope.boss.finaldate), new Date());
     }, 1000);
 
 

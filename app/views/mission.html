@@ -107,20 +107,14 @@
               <strong>HP</strong>
             </div>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="{{miscope.time.hpRatio*100}}"
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{time.hpRatio*100}}"
                 aria-valuemin="0" aria-valuemax="100" 
-                style="width: {{miscope.time.hpRatio |  percentage:0}};">
-                {{miscope.time.hpRatio | percentage:0}}
+                style="width: {{time.hpRatio |  percentage:0}};">
+                {{time.hpRatio | percentage:0}}
               </div>
             </div>
             <div class="mission_progress_txt">
-              <strong>
-                倒數：
-                {{miscope.time.days}}天 
-                {{miscope.time.hours}}時 
-                {{miscope.time.minutes}}分 
-                {{miscope.time.seconds}}秒 
-              </strong>
+              <span  ng-include="'views/smallcountdown.html'"></span>
             </div>
           </div>
         </div>
