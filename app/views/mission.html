@@ -34,7 +34,7 @@
               <div class="progress-bar" role="progressbar" 
                 aria-valuenow="{{ miscope.hp1() * 100 }}" 
                 aria-valuemin="0" aria-valuemax="100" 
-                style="width: {{ miscope.hp1() |  percentage:0 }};">
+                ng-style="{ width: miscope.hp1()*100 + '%' }">
                 {{ miscope.hp1() |  percentage:0 }}
               </div>
             </div>
@@ -43,7 +43,7 @@
                 <div class="progress-bar" role="progressbar" 
                   aria-valuenow="{{ miscope.hp2() * 100 }}" 
                   aria-valuemin="0" aria-valuemax="100" 
-                  style="width: {{ miscope.hp2() |  percentage:0 }};">
+                  ng-style="{ width: miscope.hp2()*100 + '%' }">
                   {{ miscope.hp2() |  percentage:0 }}
                 </div>
               </div>
@@ -109,7 +109,7 @@
             <div class="progress">
               <div class="progress-bar" role="progressbar" aria-valuenow="{{time.hpRatio*100}}"
                 aria-valuemin="0" aria-valuemax="100" 
-                style="width: {{time.hpRatio |  percentage:0}};">
+                ng-style="{ width: time.hpRatio*100 + '%' }">
                 {{time.hpRatio | percentage:0}}
               </div>
             </div>
