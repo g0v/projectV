@@ -1,23 +1,21 @@
 $mainColor: #B6203F;
 
 #homepage-counter-row {
-  height: 200px;
+  height: 280px;
   margin-bottom: 50px;
-  background-image: url("../images/main-introduction-bg.png");
-  background-repeat: no-repeat;
-  background-position: 100% 4px;
   padding: 10px
 }
 
 .main-introduction {
-  margin-left: 250px;
+  margin-left: 270px;
   padding-left: 20px;
   padding-right: 20px;
   margin-right: 20px;
-  height: 164px;
+  height: 270px;
   border-top: 3px solid #B71C3D;
   border-bottom: 3px solid #B71C3D;
   position: relative;
+  font-size: 18px;
 }
 
 .main-introduction h3 {
@@ -37,7 +35,6 @@ $mainColor: #B6203F;
 
 .main-counterdown-container {
   float: left;
-  margin-top: -24px;
   width: 250px;
 }
 
@@ -122,6 +119,36 @@ $mainColor: #B6203F;
   top: 100px;
 }
 
+.mission-countdown-days {
+  display: inline-block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  top: 200px;
+  font-size: 16px;
+  padding-top: 30px;
+  background-color: rgba(183, 28, 61, 0.5);
+}
+
+.mission-countdown-days > span {
+  font-size: 20px;
+}
+
+.mission-countdown-days.TPE-4 {
+  left: 79px;
+}
+
+.mission-countdown-days.TPQ-1 {
+  left: 280px;
+}
+
+.mission-countdown-days.TPQ-6 {
+  left: 480px;
+}
+
 .mission-link-1 {
   left: 40px;
 }
@@ -132,4 +159,8 @@ $mainColor: #B6203F;
 
 .mission-link-3 {
   left: 440px;
+}
+
+.v-logo {
+  width: 250px;
 }

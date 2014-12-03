@@ -9,22 +9,37 @@
  */
 
 
-var BOSS_DESCRIPTION = {
-  'TPE-4':{name:'祭止兀',img:'images/head-tsai.png',black_img:'images/head-tsai-black.png',finaldate:'2014/12/15'},
-  'TPQ-6':{name:'林鴻池',img:'images/head-lin.png',black_img:'images/head-lin-black.png',finaldate:'2014/12/27'},
-  'TPQ-1':{name:'WEGO昇',img:'images/head-wu.png',black_img:'images/head-wu-black.png',finaldate:'2014/12/27'},
-};
-
 
 angular.module('projectVApp')
   .controller('MissionCtrl',
-  function ($scope, Countdown, FINALDATE, $interval, $route, $routeParams, voteInfoService, FeedService, $anchorScroll) {
+  function ($scope, Countdown, FINALDATE_DISTRICTS, $interval, $route, $routeParams, voteInfoService, FeedService, $anchorScroll) {
     $anchorScroll();
     var county = $routeParams.county;
     var effectPrefix = 'effect:';
     var areaPrefix = 'area:';
     var typePrefix = 'type:';
     var RE_SPEECHV = /「(.+)」.*by(.*)。/i;
+
+    var BOSS_DESCRIPTION = {
+      'TPE-4':{
+        name:'祭止兀',
+        img:'images/head-tsai.png',
+        black_img:'images/head-tsai-black.png',
+        finaldate: FINALDATE_DISTRICTS.TPE4
+      },
+      'TPQ-6':{
+        name:'林鴻池',
+        img:'images/head-lin.png',
+        black_img:'images/head-lin-black.png',
+        finaldate: FINALDATE_DISTRICTS.TPQ6
+      },
+      'TPQ-1':{
+        name:'WEGO昇',
+        img:'images/head-wu.png',
+        black_img:'images/head-wu-black.png',
+        finaldate: FINALDATE_DISTRICTS.TPQ1
+      },
+    };
 
     $scope.miscope = {};
 
@@ -46,9 +61,9 @@ angular.module('projectVApp')
       $scope.miscope.bossHP = data;
     });
     //console.log('bossHp',$scope.miscope.bossHP);
-    
 
-    
+
+
 
 
     FeedService.parseFeed('http://appyv.tumblr.com/rss').then(function(res) {
@@ -174,7 +189,7 @@ angular.module('projectVApp')
 
     //console.log('finaldate',$scope.miscope.boss.finaldate);
     $scope.time = Countdown.getTime(new Date($scope.miscope.boss.finaldate), new Date());
-  
+
     $interval(function() {
       $scope.time = Countdown.getTime(new Date($scope.miscope.boss.finaldate), new Date());
     }, 1000);
