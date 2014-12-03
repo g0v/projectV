@@ -71,3 +71,51 @@ $mainColor: #B6203F;
   top: 300px;
   width: 100%;
 }
+
+.mission-desc {
+  width:90%;
+  margin: 0 auto;
+  position: relative;
+  height: 430px;
+}
+
+.mission-desc > div {
+  position: absolute;
+  top: 30px;
+}
+
+.mission-desc-left {
+  width: 300px;
+  height: 350px;
+}
+
+.mission-desc-right {
+  height: 320px;
+  left: 350px;
+  width: 450px;
+  margin-top: 30px;
+  font-size: 16px;
+  border: 3px solid #B81C3D;
+}
+
+.mission-desc-right > div.desc {
+  padding: 15px 15px 0 15px;
+  margin-bottom: 20px;
+}
+
+.fight-botton {
+  width: 170px;
+}
+
+.line-on-fight {
+  display: block;
+  height: 3px;
+  border: 0;
+  border-top: 3px solid #B81C3D;
+  margin-top: -21px;
+  padding: 0;
+}
+
+.mission-desc-img {
+  height: 100%;
+}

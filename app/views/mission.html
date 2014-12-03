@@ -5,13 +5,19 @@
     <img src="images/mission_map_title.png" style="width:80%;max-width:1000px;min-width:800px;"></img>
     </div>
 
-    <div class="" style="min-height:50px;padding:50px;padding-bottom:20px;">
-      <!--<img class="tutorial" src="images/tutorial.png" ng-click="miscope.gotoMap()" style="cursor:pointer;" />-->
-      <div style="width:90%;margin: 0 auto;">
-        <h5>割闌尾V計劃在11/29這一天大獲全勝！</h5>
-        <h5>為期半年的長時間計劃和實踐，這一天我們不僅是台灣民主里史上第一次將三位立委同時送入罷免第二階段，這一天蔡正元選區更破四萬張連署書，一舉達標，吳育昇和林鴻池也達門檻1/3。</h5>
-        <h5>但今天不是結束，送件後會有很高的不合格率，因此我們需要更多連署書，確保這些闌尾真正被送到第三階段！</h5>
-        <h4>請所有公民V繼續報名我們<a href="http://goo.gl/MURskc" target="_blank">後續志工</a>，進行蒐集連署書和整理連署書工作。</h4>
+    <div class="mission-desc">
+      <div class="mission-desc-left">
+        <img class="mission-desc-img" src="images/post-vote.png" />
+      </div>
+      <div class="mission-desc-right">
+        <div class="desc">
+          <p>割闌尾V計劃在11/29這一天大獲全勝！</p>
+          <p>為期半年的長時間計劃和實踐，這一天我們不僅是台灣民主里史上第一次將三位立委同時送入罷免第二階段，這一天蔡正元選區更破四萬張連署書，一舉達標，吳育昇和林鴻池也達門檻1/3。</p>
+          <p>但今天不是結束，送件後會有很高的不合格率，因此我們需要更多連署書，確保這些闌尾真正被送到第三階段！</p>
+          <p>請所有公民V繼續報名我們後續志工，進行蒐集連署書和整理連署書工作。</p>
+        </div>
+        <div class="text-center"><a href="http://goo.gl/MURskc" target="_blank"><img class="fight-botton" src="images/fighting.png" /></a></div>
+        <hr class="line-on-fight">
       </div>
     </div>
 
@@ -23,26 +29,26 @@
       <tr>
       <td class="text-center mission_content row_same_height">
         <div id="mission_frame_boss" ng-class="miscope.bossframe()">
-          <img  ng-show="miscope.hp1() > 0" class="img-circle mission_frame_img" src="{{miscope.boss.img}}" 
+          <img  ng-show="miscope.hp1() > 0" class="img-circle mission_frame_img" src="{{miscope.boss.img}}"
             style="border:3px solid #B6203F;width:150px;">
-          <img ng-show="miscope.hp1() == 0" class="img-circle mission_frame_img" src="{{miscope.boss.black_img}}" 
+          <img ng-show="miscope.hp1() == 0" class="img-circle mission_frame_img" src="{{miscope.boss.black_img}}"
             style="border:3px solid #000000;width:150px;">
           <h3 class="mission_frame_name">{{miscope.boss.name}}</h3>
           <div class="progress-container">
             <div class="mission_progress_txt"><strong>HP</strong></div>
             <div class="progress" style="margin-bottom:1px;">
-              <div class="progress-bar" role="progressbar" 
-                aria-valuenow="{{ miscope.hp1() * 100 }}" 
-                aria-valuemin="0" aria-valuemax="100" 
+              <div class="progress-bar" role="progressbar"
+                aria-valuenow="{{ miscope.hp1() * 100 }}"
+                aria-valuemin="0" aria-valuemax="100"
                 style="width: {{ miscope.hp1() |  percentage:0 }};">
                 {{ miscope.hp1() |  percentage:0 }}
               </div>
             </div>
             <span class = "hp2" ng-show="miscope.hp1() == 0">
               <div class="progress">
-                <div class="progress-bar" role="progressbar" 
-                  aria-valuenow="{{ miscope.hp2() * 100 }}" 
-                  aria-valuemin="0" aria-valuemax="100" 
+                <div class="progress-bar" role="progressbar"
+                  aria-valuenow="{{ miscope.hp2() * 100 }}"
+                  aria-valuemin="0" aria-valuemax="100"
                   style="width: {{ miscope.hp2() |  percentage:0 }};">
                   {{ miscope.hp2() |  percentage:0 }}
                 </div>
@@ -51,15 +57,15 @@
             <div class="mission_progress_txt">
               <strong>
                 罷免連署書：{{
-                    (miscope.bossHP.receive > miscope.bossHP.total) && 
-                      miscope.bossHP.total || 
-                      miscope.bossHP.receive 
-                  }}/ 
+                    (miscope.bossHP.receive > miscope.bossHP.total) &&
+                      miscope.bossHP.total ||
+                      miscope.bossHP.receive
+                  }}/
                   {{miscope.bossHP.total}}
               </strong><br/>
               <span class="hp2" ng-show="miscope.hp1() == 0">
                 <strong>
-                  保證擊敗數量：{{miscope.bossHP.receive - miscope.bossHP.total}}/ 
+                  保證擊敗數量：{{miscope.bossHP.receive - miscope.bossHP.total}}/
                     {{miscope.hp2Total()}}
                 </strong>
               </span>
@@ -108,7 +114,7 @@
             </div>
             <div class="progress">
               <div class="progress-bar" role="progressbar" aria-valuenow="{{time.hpRatio*100}}"
-                aria-valuemin="0" aria-valuemax="100" 
+                aria-valuemin="0" aria-valuemax="100"
                 style="width: {{time.hpRatio |  percentage:0}};">
                 {{time.hpRatio | percentage:0}}
               </div>
