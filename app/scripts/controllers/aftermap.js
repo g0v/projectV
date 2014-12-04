@@ -327,11 +327,11 @@ angular.module('projectVApp')
       $scope.markers = {};
       var markerArray = [];
       var currentVsId = 0;
-      console.log('afterStat',$scope.myscope.afterStat);
+      //console.log('afterStat',$scope.myscope.afterStat);
      
       angular.forEach($scope.myscope.afterStat,function(vsid) {
-          console.log('vsid',vsid);
-          console.log('afterStatInfo',$scope.myscope.afterStatInfo[vsid]);
+          //console.log('vsid',vsid);
+          //console.log('afterStatInfo',$scope.myscope.afterStatInfo[vsid]);
           markerArray.push({
             'vsid':vsid,
             'vspos': markerArray.length,
@@ -343,7 +343,7 @@ angular.module('projectVApp')
           });
       });
       if(markerArray.length > 0){
-        console.log('drawStation');
+        //console.log('drawStation');
         drawStation(markerArray);
       //  $scope.myscope.setCurrentMarkerClick(currentVsId, false, false);
       }
@@ -391,7 +391,7 @@ angular.module('projectVApp')
 
 
     $scope.myscope.setVillTab = function(townName, villName){
-      console.log('setVillTab',townName,villName);
+      //console.log('setVillTab',townName,villName);
       $scope.myscope.currentTownTab = townName;
       $scope.myscope.currentVillTab = villName;
     };
@@ -541,7 +541,7 @@ angular.module('projectVApp')
           $scope.myscope.afterCount = data.afterCount;
           $scope.myscope.townList = Object.keys($scope.myscope.afterCount);
           $scope.myscope.setTownTab($scope.myscope.townList[0]);
-          console.log('afterCount',$scope.myscope.afterCount);
+          //console.log('afterCount',$scope.myscope.afterCount);
           if(data.county = county){
             applyGeojsonAll();
           }
@@ -563,10 +563,10 @@ angular.module('projectVApp')
       $q.all([
         voteInfoService.getAfterStatData(county)
         ]).then(function(data){
-          console.log(data[0]);
+          //console.log(data[0]);
           $scope.myscope.afterStat = data[0]['statList'];
           $scope.myscope.afterStatInfo = data[0]['statInfo'];
-          console.log('statInfo',$scope.myscope.afterStatInfo);
+          //console.log('statInfo',$scope.myscope.afterStatInfo);
           showStation();
       });
     };

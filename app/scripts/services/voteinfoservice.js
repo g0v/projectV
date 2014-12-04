@@ -525,13 +525,15 @@ angular.module('projectVApp')
         var statInfo = {};
         for(var i=0;i<data.length;i++){
           var objTemp = data[i];
-          statList.push( objTemp.id);
-          statInfo[objTemp.id] = {
-            name:objTemp.get('name'), 
-            address:objTemp.get('address'), 
-            comment:objTemp.get('comment'), 
-            latlng:objTemp.get('latlng')
-          };
+          if(objTemp.get('show') !== false){
+            statList.push( objTemp.id);
+            statInfo[objTemp.id] = {
+              name:objTemp.get('name'), 
+              address:objTemp.get('address'), 
+              comment:objTemp.get('comment'), 
+              latlng:objTemp.get('latlng')
+            };
+          }
         }
         //console.log('statData',statData);
         deferred.resolve( {'statList':statList,'statInfo':statInfo} );
