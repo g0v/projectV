@@ -247,8 +247,8 @@
         <p data-ng-show="regscope.fbshare">
           <strong>分享內容：</strong><br/>
           <span class="darkred">
-            <span ng-repeat="line in (regscope.fbmessage | newlines) track by $index">
-                 {{line}} </br>
+            <span style="display:block;"  ng-repeat="line in (regscope.fbmessage | newlines) track by $index">
+                 {{line}} 
             </span>
           </span>
         </p>

@@ -32,6 +32,7 @@ angular.module('projectVApp')
   .controller('AftermapCtrl',
   ['$scope', '$route', '$routeParams','$http', '$q', '$filter', '$modal', '$window', '$location', 'leafletData', 'voteInfoService',
   function ($scope, $route, $routeParams, $http, $q, $filter, $modal, $window, $location, leafletData, voteInfoService ) {
+    $scope.parseInt = parseInt;
     $scope.myscope = {};
     $scope.myscope.mapLoadingComplete = false;
     $scope.myscope.mapLoadingStatus = false;
