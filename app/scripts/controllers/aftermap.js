@@ -159,7 +159,7 @@ angular.module('projectVApp')
 
 
     var mycolor = function(villsum){
-      //console.log('villsum',villsum);
+      console.log('villsum',villsum);
       if(villsum == null){
           return '#333333';
       }
@@ -167,11 +167,17 @@ angular.module('projectVApp')
         if( villsum >= 1){
           return '#990000';
         }
+        else if(villsum > 0.75){
+          return '#992222';
+        }
         else if(villsum > 0.5){
-          return '#993333';
+          return '#995555';
+        }
+        else if(villsum > 0.25){
+          return '#aa5555';
         }
         else if(villsum > 0){
-          return '#aa6666';
+          return '#aa8888';
         }
         else{
           return '#aaaaaa';
@@ -552,7 +558,7 @@ angular.module('projectVApp')
             //console.log('county',county);
             $scope.myscope.mapLoadingStatus = data.loadingStatus*0.2;
             if(!jQuery.isEmptyObject(data.villageArea) ){
-              data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum.count/data.villageSum.maxCount);
+              data.villageArea.features[0].properties.mycolor = mycolor(data.villageSum.count/(data.villageSum.maxCount));
               geojsonBuffer.push(data.villageArea);
             }
           }

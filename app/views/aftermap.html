@@ -55,13 +55,13 @@
               ng-click="myscope.setCurrentAreaClick(townKey,villKey)" id="count_{{townKey}}_{{villKey}}">
               <div class="col-xs-4">
                 <div class="progress " style="margin-top:8px;margin-bottom:8px;">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="{{(villVal.count/parseInt(villVal.maxCount*0.25))*100}}"
-                    aria-valuemin="0" aria-valuemax="100" style="width: {{(villVal.count/parseInt(villVal.maxCount*0.25))*100}}%;">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="{{(villVal.count/parseInt(villVal.maxCount))*100}}"
+                    aria-valuemin="0" aria-valuemax="100" style="width: {{(villVal.count/parseInt(villVal.maxCount))*100}}%;">
                   </div>
                 </div>
               </div>
               <div class="col-xs-4" style="padding-top:6px;">
-                <strong > {{villVal.count}} / {{ parseInt(villVal.maxCount*0.25)}}</strong>
+                <strong > {{villVal.count}} / {{ parseInt(villVal.maxCount)}}</strong>
               </div>
               <div class="col-xs-4" style="padding-top:6px;">
                 <!--<a  href="javascript:void(0);" > {{villKey}}</a>-->

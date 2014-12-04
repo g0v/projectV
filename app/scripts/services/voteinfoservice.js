@@ -6,7 +6,7 @@ var MY_HTTP_DELAY = 200;
 var MY_HTTP_RETRY = 3000;
 
 var MY_REQUERY_TIME = 10000;
-var MY_DEFAULT_MAX_COUNT = 5000;
+var MY_DEFAULT_MAX_COUNT = 1000;
 
 /**
  * @ngdoc service
@@ -591,7 +591,7 @@ angular.module('projectVApp')
             afterCount[townName] = {};
           }
           afterCount[townName][villageName] = 
-            {count:tempObj.get('count'),maxCount:tempObj.get('maxCount')};
+            {count:tempObj.get('count'),maxCount:parseInt(tempObj.get('maxCount')*0.25)};
         }
 
         angular.forEach(countVill, function(villages, townName) {
