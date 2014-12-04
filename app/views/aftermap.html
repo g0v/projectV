@@ -105,7 +105,7 @@
       <div id="map_sidebar_votestat" class="panel-body map_border_top map_sb_scroll" >
         <div class="map_sidebar_padding">
           <p><strong> 擺攤據點位置：</strong><br/>{{myscope.afterStatInfo[myscope.currentVsTab.vsId].address}}</p>
-          <strong>擺攤據點資訊：</strong><br/>
+          <strong>擺攤據點時間：</strong><br/>
           <span class="darkred" ng-if="myscope.afterStatInfo[myscope.currentVsTab.vsId]">
             <span style="display:block;" ng-repeat="line in (myscope.afterStatInfo[myscope.currentVsTab.vsId].comment | newlines) track by $index">
                  {{ line }} 
