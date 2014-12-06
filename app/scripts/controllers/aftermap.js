@@ -165,22 +165,22 @@ angular.module('projectVApp')
       }
       else{
         if( villsum >= 1){
-          return '#990000';
+          return '#770000';
         }
         else if(villsum > 0.75){
-          return '#992222';
+          return '#882222';
         }
         else if(villsum > 0.5){
-          return '#995555';
+          return '#994444';
         }
         else if(villsum > 0.25){
-          return '#aa5555';
+          return '#aa6666';
         }
         else if(villsum > 0){
-          return '#aa8888';
+          return '#bb8888';
         }
         else{
-          return '#aaaaaa';
+          return '#bbbbbb';
         }
       }
     };
