@@ -9,8 +9,14 @@
   <a class="mission-link mission-link-3" href="#/mission/TPQ-6"></a>
 
   <div ng-class="mission.name" class="mission-countdown-days" ng-repeat="mission in missions">
-    任務倒數<br>
-    <span>{{mission.finalDate.days}} 天</span>
+    
+    <span ng-show="mission.finalDate.ms > 0">
+      任務倒數<br>
+      <span>{{mission.finalDate.days}} 天</span>
+    </span>
+    <span ng-show="mission.finalDate.ms <= 0">
+      GAME<br>OVER
+    </span>
   </div>
 
   <a class="other-area volunteer" href="javascript:void(0);" ng-click="registerDialog('volunteer')">

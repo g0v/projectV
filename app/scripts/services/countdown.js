@@ -26,7 +26,8 @@ angular.module('projectVApp')
           hours: hours,
           minutes: minutes,
           seconds: seconds,
-          ratio: ratio 
+          ratio: ratio, 
+          ms: ms,
         };
       }
     };

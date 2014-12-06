@@ -385,7 +385,7 @@
   border: 3px solid #000000;
 }
 
-.mymap .hp2 .progress-bar, .mymap .progress-bar[aria-valuenow="0"]{
+.mymap .hp2 .progress-bar, .mymap .hp2 .progress-bar[aria-valuenow="0"]{
   text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
 }
 
