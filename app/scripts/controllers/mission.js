@@ -24,7 +24,7 @@ angular.module('projectVApp')
       'TPE-4':{
         name:'祭止兀',
         img:'images/head-tsai.png',
-        black_img:'images/head-tsai-black.png',
+        black_img:'images/head-tsai-ko.png',
         finaldate: FINALDATE_DISTRICTS.TPE4
       },
       'TPQ-6':{
