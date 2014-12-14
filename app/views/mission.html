@@ -113,10 +113,10 @@
               <strong>HP</strong>
             </div>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="{{time.hpRatio*100}}"
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{(time.hpRatio > 0 )&& time.hpRatio*100 || 0 }}"
                 aria-valuemin="0" aria-valuemax="100"
                 style="width: {{time.hpRatio |  percentage:0}};">
-                {{time.hpRatio | percentage:0}}
+                {{ (time.hpRatio > 0 )&& time.hpRatio || 0 | percentage:0}}
               </div>
             </div>
             <div class="mission_progress_txt">
