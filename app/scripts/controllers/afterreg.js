@@ -333,7 +333,7 @@ angular.module('projectVApp')
     if($scope.regscope.nonArea){
       temp_obj['areaOrder'] = $scope.content.areaOrder.join(",");
     }
-    console.log('save',temp_obj);
+    //console.log('save',temp_obj);
     //voteInfoService.saveCitizen(temp_obj,function(){
     //  $analytics.eventTrack('join', {
     //    areaOrder: temp_obj.areaOrder,

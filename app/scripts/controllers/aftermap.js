@@ -159,7 +159,7 @@ angular.module('projectVApp')
 
 
     var mycolor = function(villsum){
-      console.log('villsum',villsum);
+      //console.log('villsum',villsum);
       if(villsum == null){
           return '#333333';
       }
