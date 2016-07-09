@@ -14,14 +14,14 @@ angular.module('projectVApp')
   .service('addparserservice', function addparserservice($q, $http) {
     this.MAP_BUFFER_TIME = 10;
    
-    Parse.initialize(
-      "QDCw1Ntq4E9PmPpcuwKbO2H0B1H0y77Vj1ScO9Zx",
-      "6jaJvf46pYub6Ej9IjhhIXNtZjTqRY0P4IqAJFhH"
-    );
+    //Parse.initialize(
+    //  "QDCw1Ntq4E9PmPpcuwKbO2H0B1H0y77Vj1ScO9Zx",
+    //  "6jaJvf46pYub6Ej9IjhhIXNtZjTqRY0P4IqAJFhH"
+    //);
 
     var my_this = this;
 
-    var afterCountParse = Parse.Object.extend("afterCount");
+    //var afterCountParse = Parse.Object.extend("afterCount");
     var countyAry = {
       'TPE-4':[ 
       ["內湖區大湖里",4260],
@@ -289,12 +289,12 @@ angular.module('projectVApp')
       }
       console.log("send",JSON.stringify(data_ary[0]));
 
-      var czparse = new afterCountParse();
-      czparse
-        .save(data_ary[0])
-        .then(function(object) {
-          cb(data_ary.splice(1),cb);
-        });
+      //var czparse = new afterCountParse();
+      //czparse
+      //  .save(data_ary[0])
+      //  .then(function(object) {
+      cb(data_ary.splice(1),cb);
+      //  });
     };
 
   });

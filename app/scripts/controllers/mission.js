@@ -67,58 +67,58 @@ angular.module('projectVApp')
 
 
     FeedService.parseFeed('http://appyv.tumblr.com/rss').then(function(res) {
-      var entries = res.data.responseData.feed.entries;
-      var item = entries[Math.floor(Math.random() * entries.length)];
-      var matched = item.content.match(RE_SPEECHV);
-      var parser = new DOMParser();
-      var doc = parser.parseFromString(item.content, 'text/html');
-      if (matched) {
-        $scope.speech = matched[1];
-        $scope.citizen = matched[2];
-        var avatar = doc.querySelector('img');
-        if (avatar) {
-          $scope.citizenAvatar = {
-            'background-image': 'url(' + avatar.src + ')'
-          };
-        }
-      }
+      //var entries = res.data.responseData.feed.entries;
+      //var item = entries[Math.floor(Math.random() * entries.length)];
+      //var matched = item.content.match(RE_SPEECHV);
+      //var parser = new DOMParser();
+      //var doc = parser.parseFromString(item.content, 'text/html');
+      //if (matched) {
+      //  $scope.speech = matched[1];
+      //  $scope.citizen = matched[2];
+      //  var avatar = doc.querySelector('img');
+      //  if (avatar) {
+      //    $scope.citizenAvatar = {
+      //      'background-image': 'url(' + avatar.src + ')'
+      //    };
+      //  }
+      //}
     });
 
     FeedService.parseFeed('http://appytw.tumblr.com/rss').then(function(res) {
-      var rawFeeds = res.data.responseData.feed.entries;
+      //var rawFeeds = res.data.responseData.feed.entries;
       var feeds = [];
       var bossFeeds = [];
       var citizenFeeds = [];
       var maxCount = 6;
-      angular.forEach(rawFeeds, function(feed) {
-        angular.forEach(feed.categories, function(c) {
-          if (c.indexOf(areaPrefix) === 0) {
-            feed.area = c.substr(areaPrefix.length);
-          } else if (c.indexOf(effectPrefix) === 0) {
-            feed.effect = c.substr(effectPrefix.length).replace('-', ' ');
-          } else if (c.indexOf(typePrefix) === 0) {
-            feed.type = c.substr(typePrefix.length);
-          }
-        });
-        if (!feed.area) {
-          feed.area = 'all';
-        }
-        if (feed.area === 'all' || feed.area === county) {
-          feeds.push(feed);
-        }
-      });
+      //angular.forEach(rawFeeds, function(feed) {
+      //  angular.forEach(feed.categories, function(c) {
+      //    if (c.indexOf(areaPrefix) === 0) {
+      //      feed.area = c.substr(areaPrefix.length);
+      //    } else if (c.indexOf(effectPrefix) === 0) {
+      //      feed.effect = c.substr(effectPrefix.length).replace('-', ' ');
+      //    } else if (c.indexOf(typePrefix) === 0) {
+      //      feed.type = c.substr(typePrefix.length);
+      //    }
+      //  });
+      //  if (!feed.area) {
+      //    feed.area = 'all';
+      //  }
+      //  if (feed.area === 'all' || feed.area === county) {
+      //    feeds.push(feed);
+      //  }
+      //});
 
-      angular.forEach(feeds, function(f) {
-        if (f.type === 'boss') {
-          if (bossFeeds.length < maxCount) {
-            bossFeeds.push(f);
-          }
-        } else if (f.type && f.type !== 'v') {
-          if (citizenFeeds.length < maxCount) {
-            citizenFeeds.push(f);
-          }
-        }
-      });
+      //angular.forEach(feeds, function(f) {
+      //  if (f.type === 'boss') {
+      //    if (bossFeeds.length < maxCount) {
+      //      bossFeeds.push(f);
+      //    }
+      //  } else if (f.type && f.type !== 'v') {
+      //    if (citizenFeeds.length < maxCount) {
+      //      citizenFeeds.push(f);
+      //    }
+      //  }
+      //});
 
       //console.log(rawFeeds);
 
